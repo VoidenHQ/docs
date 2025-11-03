@@ -64,6 +64,7 @@ const config: Config = {
           // Disable next/previous navigation
           showLastUpdateTime: true,
           showLastUpdateAuthor: false,
+          routeBasePath: '/', // Serve docs at the site's root
         },
         blog: false,
         theme: {
