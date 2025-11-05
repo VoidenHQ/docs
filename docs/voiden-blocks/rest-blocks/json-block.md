@@ -16,7 +16,7 @@ And when things get messy? Hit **Prettify** in the top-right corner to instantly
 ### ▶️ Try it Out
 1. Type `/json` to add a request body block to your Voiden file
 
-![JSON Block Slash Command](/img/voiden-blocks/headers-block-post.png)
+<!-- ![JSON Block Slash Command](/img/voiden-blocks/headers-block-post.png) -->
 
 2. Paste in (or type) the sample **JSON**
 3. Hit **Cmd + Enter** (Mac) or **Ctrl + Enter**  (Windows/Linux) to run the request  
@@ -24,7 +24,7 @@ And when things get messy? Hit **Prettify** in the top-right corner to instantly
 
 ---
 
-![JSON Block Response](/img/voiden-blocks/headers-block-post.png)
+<!-- ![JSON Block Response](/img/voiden-blocks/headers-block-post.png) -->
 
 > 🎩 **Pro Tip:** Want to comment out a field without overkill?  
 > Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment out a JSON line you don't need for that request.  

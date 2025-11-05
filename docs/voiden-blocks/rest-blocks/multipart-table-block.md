@@ -16,14 +16,14 @@ When you need to send files, images, or mixed data types in a single request, mu
 ### ▶️ Try it Out
 1. Type `/multipart` and press **Enter** to create a **Multipart Table Block** in **Voiden**.  
 
-![Multipart Table Slash Command](/img/voiden-blocks/headers-block-post.png)
+<!-- ![Multipart Table Slash Command](/img/voiden-blocks/headers-block-post.png) -->
 
 2. Add some multipart form fields to your request.  
 3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),  
 **or** click the **green ▶️ Play button** in the toolbar. 
 
 ---
-![Multipart Table Block Response](/img/voiden-blocks/headers-block-post.png)
+<!-- ![Multipart Table Block Response](/img/voiden-blocks/headers-block-post.png) -->
 
 > 🎩 **Pro Tip:** Want to temporarily disable a multipart form data field without deleting it?  
 > Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment it out.  

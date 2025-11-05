@@ -17,14 +17,14 @@ No manual percent-encoding. No worrying about spaces, special characters, or amp
 ### ▶️ Try it Out
 1. Type `/url` and press Enter to create a **URL Encoded Block**.  
 
-![URL Encoded Slash Command](/img/voiden-blocks/headers-block-post.png)
+<!-- ![URL Encoded Slash Command](/img/voiden-blocks/headers-block-post.png) -->
 
 2. Add some url encoded form fields to your request.  
 3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),  
 **or** click the **green ▶️ Play button** in the toolbar. 
 
 ---
-![URL Encoded Table Block Response](/img/voiden-blocks/headers-block-post.png)
+<!-- ![URL Encoded Table Block Response](/img/voiden-blocks/headers-block-post.png) -->
 
 > 🎩 **Pro Tip:** Want to temporarily disable a URL encoded form data field without deleting it?  
 > Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment it out.  

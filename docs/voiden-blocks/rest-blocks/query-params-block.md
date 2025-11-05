@@ -18,7 +18,7 @@ Voiden handles the formatting and encoding automatically, keeping your endpoint 
 ### ▶️ Try it Out
 1. Type `/query` and press **Enter** to create a **Query Params Block** in your **Voiden** file.  
 
-![Query Params Block Slash Command](/img/voiden-blocks/headers-block-pre.png)
+<!-- ![Query Params Block Slash Command](/img/voiden-blocks/headers-block-pre.png) -->
 
 2. Add the key-value pairs to the table.
 3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),  
@@ -26,7 +26,7 @@ Voiden handles the formatting and encoding automatically, keeping your endpoint 
 4. Check the **Response Panel**. In the **Request Summary / Security** section you’ll see your query params applied to the endpoint URL, confirming they’re being sent as expected.
 ---
 
-![Query Params Block Response](/img/voiden-blocks/headers-block-post.png)
+<!-- ![Query Params Block Response](/img/voiden-blocks/headers-block-post.png) -->
 
 > 🎩 **Pro Tip:** Want to temporarily disable a query param without deleting it?  
 > Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment it out.  

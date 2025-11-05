@@ -19,7 +19,7 @@ Just type your endpoint, type your method (`GET`, `POST`, `PUT`, `DELETE`, `PATC
 
 1. In your Voiden file, type `/endpoint` and press Enter to create an **Endpoints Block**.
 
-![Endpoint Block Slash Command](/img/voiden-blocks/headers-block-pre.png)
+<!-- ![Endpoint Block Slash Command](/img/voiden-blocks/headers-block-pre.png) -->
 
 2. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),  
 **or** click the **green ▶️ Play button** attached to the top right corner of the block.
@@ -28,7 +28,7 @@ Just type your endpoint, type your method (`GET`, `POST`, `PUT`, `DELETE`, `PATC
 
 ---
 
-![Endpoint Block Response](/img/voiden-blocks/headers-block-post.png)
+<!-- ![Endpoint Block Response](/img/voiden-blocks/headers-block-post.png) -->
 
 > 🎩 **Pro Tip:** **Endpoints Block** defaults to `GET` method unless you specifically chose a different one.
 

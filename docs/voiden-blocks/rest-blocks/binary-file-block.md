@@ -16,14 +16,14 @@ Voiden handles the content-type detection and binary encoding automatically, so 
 ### ▶️ Try it Out
 1. Type `/file` to add a **Binary File Block**.
 
-![Binary File Block Slash Command](/img/voiden-blocks/headers-block-pre.png)
+<!-- ![Binary File Block Slash Command](/img/voiden-blocks/headers-block-pre.png) -->
 
 2. Choose your file with the `@filename` syntax.
 3. Press **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux) to fire it into the Matrix.
 
 ---
 
-![Binary File Block Response](/img/voiden-blocks/headers-block-post.png)
+<!-- ![Binary File Block Response](/img/voiden-blocks/headers-block-post.png) -->
 
 ---
 
