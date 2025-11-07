@@ -7,7 +7,7 @@
 
 # Authorization Block
 
-The Authorization Block provides flexible authentication configuration options for API requests in **Voiden**.
+Authorization Block provides flexible authentication configuration options for API requests in **Voiden**.
 It allows users to easily select and configure various authentication mechanisms supported by **Voiden**.  
 
 While **Voiden** includes another flexible Request Configuration Block [Headers](/docs/voiden-blocks/rest-blocks/headers-block.md)— designed to handle any kind of headers, query parameters, or metadata —
@@ -26,9 +26,16 @@ Together, they allow full control over API requests while maintaining clarity an
 
 ![Authorization Block Slash Command](/img/voiden-blocks/authorization/authorization-block.png)
 
-2. Select Auth type for your **Authorization**.  
+2. Select Authorization type for your **Authorization**.  
 
 ![Authorization Block Response](/img/voiden-blocks/authorization/authorization-authtype.png)
+
+3. Fill the required params for the Authorization Type.
+
+4. Hit **Cmd + Enter** (Mac) or **Ctrl + Enter**  (Windows/Linux) to run the request  
+**or** click the **green ▶️ Play button** in the toolbar.
+
+5. Check the **Response Panel** 
 
 > 🎩 **Pro Tip:** Want to temporarily disable a header without deleting it?  
 > Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment it out.  
@@ -36,16 +43,16 @@ Together, they allow full control over API requests while maintaining clarity an
 
 ---
 
-##  🔐 Supported Authorization Types
+###   🔐 Supported Authorization Types
 
 Below are all supported authorization options with descriptions:
 
 | Value |	Label | Description |
 | --- | --- | --- |
 | inherit | inherit |	Uses the authorization settings from a parent configuration or global context. |
-| none | No Auth | Disables authorization for the current request. |
+| none | No Authorization | Disables authorization for the current request. |
 | bearer | Bearer Token |	Uses a Bearer token (commonly used in OAuth 2.0). Example: Authorization: Bearer |
-| basic |	Basic Auth	| Uses Base64-encoded username and password. Example: Authorization: Basic |
+| basic |	Basic Authorization	| Uses Base64-encoded username and password. Example: Authorization: Basic |
 | apiKey | API Key | Uses a predefined API key sent in the header, query, or body, depending on configuration. |
 | oauth2 | OAuth 2.0 | Uses OAuth 2.0 protocol for secure delegated access via access tokens.
 | oauth1 | OAuth 1.0 | Uses OAuth 1.0 protocol with request signing for older integrations.
