@@ -14,7 +14,7 @@ Your endpoint? A block. Headers? Blocks. Query params, form inputs, JSON bodies,
 
 This modular design keeps the interface clean and clutter-free. Instead of staring at an endless wall of unused fields, you simply add the blocks you need — nothing more, nothing less. Every request becomes a composition of meaningful parts, easy to read, modify, and reuse.
 
-With Voiden Blocks, your API requests aren’t static forms — they’re **living structures**. You can mix, match, and reuse blocks across projects, attach documentation inline, and experiment without losing context. Each block knows what it is and what it contributes.
+With Voiden Blocks, your API requests are not static forms anymore — they are **living structures**. You can mix, match, and reuse blocks across projects, attach documentation inline, and experiment without losing context. Each block knows what it is and what it contributes.
 
 
 > No other API tool today offers this level of **composability**.  
