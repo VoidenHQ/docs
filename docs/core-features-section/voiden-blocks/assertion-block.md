@@ -1,7 +1,7 @@
 ---
-  id: voiden-cli
-  title: Voiden CLI
-  sidebar_label: Voiden CLI
+  id: assertion-block
+  title: Assertion Blocks
+  sidebar_label: Assertion Blocks
 ---
 
 <br/>

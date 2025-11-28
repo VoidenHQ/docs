@@ -26,17 +26,12 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Getting Started",
-      items: ["getting-started-section/getting-started/installation", "getting-started-section/getting-started/quick-start", "getting-started-section/getting-started/the-basics", "getting-started-section/getting-started/configure"],
+      items: ["getting-started-section/getting-started/installation", "getting-started-section/getting-started/quick-start", "getting-started-section/getting-started/postman-import", "getting-started-section/getting-started/openapi-imports", "getting-started-section/getting-started/the-basics"],
     },
     {
-      type: "category",
-      label: "Imports",
-      items: ["getting-started-section/imports/overview", "getting-started-section/imports/postman-import", "getting-started-section/imports/openapi-imports"],
-    },
-    {
-      type: 'doc',
-      id: 'getting-started-section/feedback-community',
-      label: 'Feedback & Community',
+      type: 'category',
+      label: 'Settings',
+      items: ['getting-started-section/settings/appearance-setting', 'getting-started-section/settings/general-setting']
     },
     {
       type: "html",
@@ -46,18 +41,18 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Voiden Blocks",
-      items: ["core-features-section/voiden-blocks/voiden-blocks-intro", "core-features-section/voiden-blocks/voiden-basic-blocks", 
+      items: ["core-features-section/voiden-blocks/voiden-blocks-intro", "core-features-section/voiden-blocks/voiden-basic-blocks",
         {
           type: "category",
           label: "REST Blocks",
-          items: ["core-features-section/voiden-blocks/rest-blocks/endpoint-block","core-features-section/voiden-blocks/rest-blocks/headers-block","core-features-section/voiden-blocks/rest-blocks/json-block","core-features-section/voiden-blocks/rest-blocks/xml-block","core-features-section/voiden-blocks/rest-blocks/query-params-block","core-features-section/voiden-blocks/rest-blocks/path-params-block","core-features-section/voiden-blocks/rest-blocks/multipart-table-block","core-features-section/voiden-blocks/rest-blocks/url-encoded-block","core-features-section/voiden-blocks/rest-blocks/binary-file-block"]
+          items: ["core-features-section/voiden-blocks/rest-blocks/endpoint-block", "core-features-section/voiden-blocks/rest-blocks/headers-block", "core-features-section/voiden-blocks/rest-blocks/json-block", "core-features-section/voiden-blocks/rest-blocks/xml-block", "core-features-section/voiden-blocks/rest-blocks/query-params-block", "core-features-section/voiden-blocks/rest-blocks/path-params-block", "core-features-section/voiden-blocks/rest-blocks/multipart-table-block", "core-features-section/voiden-blocks/rest-blocks/url-encoded-block", "core-features-section/voiden-blocks/rest-blocks/binary-file-block"]
         },
         {
-        type: "category",
-        label: "Authorization",
-        items: ["core-features-section/voiden-blocks/advanced-authorization/basic-auth-block", "core-features-section/voiden-blocks/advanced-authorization/api-key-block","core-features-section/voiden-blocks/advanced-authorization/auth-bearer-block", "core-features-section/voiden-blocks/advanced-authorization/auth-digest-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth1-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth2-block"],
-      }
-        
+          type: "category",
+          label: "Authorization",
+          items: ["core-features-section/voiden-blocks/advanced-authorization/basic-auth-block", "core-features-section/voiden-blocks/advanced-authorization/api-key-block", "core-features-section/voiden-blocks/advanced-authorization/auth-bearer-block", "core-features-section/voiden-blocks/advanced-authorization/auth-digest-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth1-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth2-block"],
+        },
+        "core-features-section/voiden-blocks/assertion-block"
       ],
     },
     {
@@ -66,9 +61,14 @@ const sidebars: SidebarsConfig = {
       items: ["core-features-section/variables/variables-overview", "core-features-section/variables/enviroment-variables", "core-features-section/variables/runtime-variables"],
     },
     {
+      type: 'html',
+      value: "<span class='sidebar-section-title'>Git Integration</span>",
+      defaultStyle: true
+    },
+    {
       type: "category",
       label: "Git Integration",
-      items: ["core-features-section/git-integration/overview", "core-features-section/git-integration/git-integration-cli", "core-features-section/git-integration/git-integration-gui"],
+      items: ["git-integration/overview", "git-integration/git-integration-cli", "git-integration/git-integration-gui"],
     },
     {
       type: "html",
@@ -89,6 +89,11 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Community Plugins",
       items: ["plugins/community-plugins/overview"],
+    },
+    {
+      type:'doc',
+      id:"plugins/build-a-plugin",
+      label:'Create Your First Plugin'
     },
     {
       type: "html",

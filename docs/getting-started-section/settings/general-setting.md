@@ -1,36 +1,13 @@
 ---
-  id: configure
-  title: Voiden Settings
-  sidebar_label: Settings
+  id: general-setting
+  title: General Settings
+  sidebar_label: General Settings
   sidebar_position: 4
 ---
 
 # Settings
 
-Customize Voiden to match your workflow and preferences. The settings page lets you personalize everything from appearance to keyboard shortcuts.
-
-## Appearance
-
-### Theme Selection
-Choose from multiple themes to suit your working style and environment.
-
-> [SCREENSHOT_PLACEHOLDER: Theme selection dropdown showing available options]
-
-**Preview of available themes:**
-
-**Light Theme**
-> [SCREENSHOT_PLACEHOLDER: Light theme appearance showing clean, bright interface]
-
-**Dark Theme**  
-> [SCREENSHOT_PLACEHOLDER: Dark theme appearance with easy-on-the-eyes dark background]
-
-**System Default**
-> [SCREENSHOT_PLACEHOLDER: Interface matching system theme settings]
-
-### Editor Display
-- **Font Size**: Adjust the text size in your editor (Small → Medium → Large)
-- **Font Family**: Choose from available monospace fonts for optimal code readability
-- **Word Wrap**: Toggle line wrapping for better visibility of long lines
+Customize Voiden to match your workflow and preferences. The settings page lets you personalize everything from editor behavior to keyboard shortcuts.
 
 ## Editor Behavior
 
