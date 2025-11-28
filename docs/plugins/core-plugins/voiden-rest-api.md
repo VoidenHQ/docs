@@ -14,16 +14,16 @@ The **Voiden REST API Plugin** is a complete, extensible toolkit for building, t
 
 ### **HTTP Request Building**
 
-* Supports all HTTP methods: **GET, POST, PUT, DELETE, PATCH**, and more.
-* URL builder with path parameters and query string management.
-* Autocomplete-enabled header editor.
-* Body types:
-
-  * JSON
-  * XML
-  * Form-data
-  * URL-encoded
-  * Multipart (with file upload support)
+1. Supports all HTTP methods: **GET, POST, PUT, DELETE, PATCH**, and more.
+2. URL builder with path parameters and query string management.
+3. Autocomplete-enabled header editor.
+4. Body types:
+    * JSON
+    * XML
+    * Form-data
+    * URL-encoded
+    * Multipart (with file upload support)
+    * Binary Files
 
 ### **Response Visualization**
 
@@ -50,22 +50,21 @@ This plugin owns **13 custom block types**, enabling structured API request crea
 
 ### **Request Blocks**
 
-* `method`
-* `url`
-* `request`
-* `headers-table`
-* `query-table`
-* `path-table`
-* `url-table`
-* `multipart-table`
-* `json_body`
-* `xml_body`
+* [`endpoint ↗`](/docs/core-features-section/voiden-blocks/rest-blocks/endpoint-block.md)
+* [`headers-table ↗`](/docs/core-features-section/voiden-blocks/rest-blocks/headers-block.md)
+* [`query-table ↗`](/docs/core-features-section/voiden-blocks/rest-blocks/query-params-block.md)
+* [`path-table ↗`](/docs/core-features-section/voiden-blocks/rest-blocks/path-params-block.md)
+* [`url-table ↗`](/docs/core-features-section/voiden-blocks/rest-blocks/url-encoded-block.md)
+* [`multipart-table ↗`](/docs/core-features-section/voiden-blocks/rest-blocks/multipart-table-block.md)
+* [`json_body ↗`](/docs/core-features-section/voiden-blocks/rest-blocks/json-block.md)
+* [`xml_body ↗`](/docs/core-features-section/voiden-blocks/rest-blocks/xml-block.md)
 
-### **Response Blocks**
+### **Response Panel**
 
-* `response-status`
-* `response-headers`
-* `response-body`
+* `Response Body`
+* `Response Headers`
+* `Request Headers`
+* `Request Summary/Security`
 
 The plugin also allows **block extensions**, enabling future customization and community add-ons.
 
@@ -78,44 +77,11 @@ The plugin also allows **block extensions**, enabling future customization and c
 Pattern: `/^curl\s+/i`
 Automatically parses cURL commands and converts them into:
 
-* Method
-* URL
+* Endpoints
 * Headers
 * Auth
 * Query parameters
 * Body
-
-### **Block-Level Paste Handlers**
-
-* **method** → cleans pasted content and inserts plain text
-* **url** → strips formatting and inserts clean URL
-
----
-
-## 🔷 Request Pipeline Integration
-
-The plugin registers:
-
-### **Build Handler**
-
-Constructs the final HTTP request object using all blocks.
-
-### **Response Handler**
-
-Parses, formats, and visualizes the API response in Voiden.
-
-This makes the REST API plugin fully compatible with Voiden’s pipeline-based execution system.
-
----
-
-## 🔷 Slash Commands
-
-The plugin adds a **REST API** command group:
-
-* Insert request block
-* Insert headers table
-* Insert query parameters
-* Insert request body
 
 ---
 
@@ -128,16 +94,4 @@ The plugin adds a **REST API** command group:
 }
 ```
 
----
 
-# 🌟 Highlights
-
-* Comprehensive REST API testing environment
-* Visual, structured request building
-* Full multipart & file upload support
-* cURL → Voiden auto-conversion
-* Clean response visualization
-* Powered by Voiden SDK pipeline
-* Extendable block system
-
----

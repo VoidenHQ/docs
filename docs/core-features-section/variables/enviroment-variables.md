@@ -24,15 +24,21 @@ Environment variables let you manage different configurations for various deploy
 
 ## How Variables are Resolved
 
-1. **Environment Variables** (selected from dropdown)
-2. **Default/Global Variables** (`.env`)
-
-    ### **What This Means:**
 - Local variables **always override** environment variables
 - Environment variables override default global variables
 - This ensures you can have environment-specific values while still allowing local overrides for testing
 
 ## Creating Environment Files
+
+Environment files should always start with .env followed by the environment name.
+For example:
+
+- `.env` → Global defaults shared across all environments
+- `.env.dev` → Development environment
+- `.env.staging` → Staging environment
+- `.env.prod` → Production environment
+
+The base .env file acts as the global configuration, and environment-specific files override or extend these values.
 
   **Default Environment (`.env`)**
 ```env
@@ -77,12 +83,3 @@ DB_HOST=localhost
     </tr>
   </tbody>
 </table>
-
-### Real-World Benefits
-
-- **Frontend Developers:** Test different endpoints • Switch between mock/real data  
-- **Backend Developers:** Test feature flags • Validate different connections  
-- **DevOps:** Streamlined deployments • Easy environment management  
-- **Teams:** Standardized setup • Faster onboarding • Consistent testing
-
-Environment variables make your API configurations dynamic, secure, and collaborative! 🌟

@@ -46,45 +46,10 @@ The **Simple Assertions** plugin adds lightweight, easy-to-use assertion testing
 
 ---
 
-# 🧩 Capabilities
 
-## 🔷 Block Ownership
+> The plugin adds support for:
+>
+> * **Assertion Results View** inside the response tab
+> * Stylish visual feedback for each test case
 
-The plugin owns the following block type:
 
-* `assertions-table`
-
-Extensions to this block type are **not allowed**.
-
----
-
-## 🔷 Request Pipeline Integration
-
-### **Post-Processing Handler**
-
-After the HTTP response is received, the plugin:
-
-* Evaluates all assertions in the table
-* Generates assertion results
-* Passes processed data to the response enhancer
-
----
-
-## 🔷 Response Enhancements
-
-The plugin adds support for:
-
-* **Assertion Results View** inside the response tab
-* Stylish visual feedback for each test case
-
----
-
-# 🌟 Highlights
-
-* Lightweight and simple testing system
-* Perfect for verifying API responses on the fly
-* Clean visual integration inside Voiden
-* Zero configuration — just insert an assertion table and write
-* Supports popular formats like JSONPath & XPath
-
----

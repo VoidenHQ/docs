@@ -109,6 +109,3 @@ The marketplace ensures discoverability and keeps the plugin ecosystem vibrant.
 
 Voiden’s plugin system makes the platform truly extensible, powerful, and community‑driven.
 
----
-
-If you need a dedicated section on **API structure**, **plugin lifecycle**, or **how to create your first plugin**, let me know and I can extend this document!

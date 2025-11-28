@@ -47,22 +47,6 @@ These values are automatically evaluated during the `pre-send` stage of the requ
 
 ---
 
-## 🧩 Capabilities
-
-### **Pipeline Hooks**
-
-The plugin registers a `pre-send` hook:
-
-* Evaluates all `{{$faker.*}}` expressions
-* Replaces them with generated values before the request is executed
-
-### **Editor Enhancements**
-
-* **Autocomplete:** Provides suggestions for Faker namespaces and methods
-* **Suggestions:** Inline metadata, function hints, and dynamic method browsing
-
----
-
 ## 📘 Usage Examples
 
 ### **Example 1: Generate a Random Name**
@@ -85,26 +69,5 @@ X-User-Email: {{$faker.internet.email()}}
 ```
 ?city={{$faker.location.city()}}&age={{$faker.number.int()}}
 ```
-
 ---
 
-## 🔒 Security & Stability
-
-* Runs strictly in a sandboxed environment
-* Only executes pure Faker.js functions
-* No access to external systems or file structures
-
----
-
-## 📄 Readme
-
-*Generates fake data using Faker.js in your HTTP requests. Use `{{$faker.person.firstName()}}` syntax in headers, query params, path params, and request bodies.*
-
----
-
-If you'd like, I can generate:
-
-* A combined documentation page for all Voiden core plugins
-* Developer docs for implementing your own plugins
-* Marketplace listing format
-* Structured JSON → Markdown automation

@@ -91,12 +91,8 @@ Access those captured variables
 
 
 # Best Practices
-Use descriptive names: session_token instead of token1
-
-Handle null cases: Ensure the data path exists before using it
-
-Test extraction: Verify runtime variables capture the expected values
-
-Chain carefully: Make sure dependent requests execute in the correct order
-
-Runtime variables transform your isolated API calls into connected workflows! 🔄
+- Use descriptive names: session_token instead of token1
+- Handle null cases: Ensure the data path exists before using it
+- Test extraction: Verify runtime variables capture the expected values
+- Chain carefully: Make sure dependent requests execute in the correct order
+- Runtime variables transform your isolated API calls into connected workflows! 🔄

@@ -33,28 +33,17 @@ The **Advanced Authentication** plugin provides comprehensive authentication sup
 
 # 🧩 Capabilities
 
-## 🔷 Block Ownership
-
-The plugin owns the following block type:
-
-* `auth`
-
-Extensions to this block type are **allowed**, enabling community plugins to introduce new authentication providers.
-
----
-
 ## 🔷 Slash Commands
 
 The plugin adds a dedicated **Advanced Authentication** slash command group:
 
-* Insert authorization block
-* Insert Bearer Token auth
-* Insert Basic Auth
-* Insert API Key auth
-* Insert OAuth 2.0 auth
-* Insert OAuth 1.0 auth
-* Insert Digest Auth
-* Insert AWS Signature auth
+* Insert authorization  [`auth-block ↗`](/docs/core-features-section/voiden-blocks/advanced-authorization/auth.md)
+* Insert Bearer Token auth [`auth-bearer ↗`](/docs/core-features-section/voiden-blocks/advanced-authorization/auth_bearer.md)
+* Insert Basic Auth [`auth-basic ↗`](/docs/core-features-section/voiden-blocks/advanced-authorization/auth_basic.md)
+* Insert API Key auth [`auth-api-key ↗`](/docs/core-features-section/voiden-blocks/advanced-authorization/auth_api_key.md)
+* Insert OAuth 2.0 auth [`auth-oauth2 ↗`](/docs/core-features-section/voiden-blocks/advanced-authorization/auth_oauth2.md)
+* Insert OAuth 1.0 auth [`auth-oauth1 ↗`](/docs/core-features-section/voiden-blocks/advanced-authorization/auth_oauth1.md)
+* Insert Digest Auth [`auth-digest ↗`](/docs/core-features-section/voiden-blocks/advanced-authorization/auth_digest.md)
 
 These commands make inserting auth blocks fast and easy during API request creation.
 
@@ -69,14 +58,3 @@ These commands make inserting auth blocks fast and easy during API request creat
 }
 ```
 
----
-
-# 🌟 Highlights
-
-* Supports enterprise-grade authentication workflows
-* Easily switch between multiple auth types
-* Highly configurable and compatible with Voiden's request pipeline
-* Useful for APIs requiring secure or complex signing
-* Fully integrated with collection-level inheritance and environment variables
-
----
