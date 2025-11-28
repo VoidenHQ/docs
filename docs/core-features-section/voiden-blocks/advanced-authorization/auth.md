@@ -10,11 +10,11 @@
 Authorization Block provides flexible authentication configuration options for API requests in **Voiden**.
 It allows users to easily select and configure various authentication mechanisms supported by **Voiden**.  
 
-While **Voiden** includes another flexible Request Configuration Block [Headers](/docs/voiden-blocks/rest-blocks/headers-block.md)— designed to handle any kind of headers, query parameters, or metadata —
+While **Voiden** includes another flexible Request Configuration Block [Headers](/docs/core-features-section/voiden-blocks/rest-blocks/headers-block.md)— designed to handle any kind of headers, query parameters, or metadata —
 the Authorization Block is primarily responsible for managing authentication and authorization details only.
 
 This separation ensures a clean and modular approach:
-- The [Header Block](/docs/voiden-blocks/rest-blocks/headers-block.md) manages custom request data like headers, params, or meta information.
+- The [Header Block](/docs/core-features-section/voiden-blocks/rest-blocks/headers-block.md) manages custom request data like headers, params, or meta information.
 - The Authorization Block manages how a user or service authenticates before making a request.
 
 Together, they allow full control over API requests while maintaining clarity and security.

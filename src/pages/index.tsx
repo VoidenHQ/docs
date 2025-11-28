@@ -11,7 +11,7 @@ export default function Home(): JSX.Element {
         <div style={{marginTop: '2rem'}}>
           <Link
             className="button button--primary button--lg"
-            to="/docs/intro">
+            to="/docs/getting-started-section/intro">
             Get Started
           </Link>
         </div>

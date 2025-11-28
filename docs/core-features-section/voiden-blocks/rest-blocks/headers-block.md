@@ -2,7 +2,7 @@
   id: headers-block
   title: Headers Block
   sidebar_label: Headers Block
-  sidebar_position: 3
+  sidebar_position: 4
 ---
 
 # 🧾 Headers Block
@@ -19,7 +19,9 @@ You can also enable, disable, or comment out headers directly — no need to del
 ### ▶️ Try it Out
 
 1. In your Voiden file, type `/headers` and press **Enter** to create a **Headers Block**.  
+
 ![Headers Block Slash Command](/img/voiden-blocks/headers-block-pre.png)
+
 2. Add your header **key-value pairs** — for example:  
 
 ```
@@ -33,7 +35,7 @@ hello: world
 
 ---
 
-![Headers Block Resonse](/img/voiden-blocks/headers-block-post.png)
+![Headers Block Response](/img/voiden-blocks/headers-block-post.png)
 
 > 🎩 **Pro Tip:** Want to temporarily disable a header without deleting it?  
 > Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment it out.  

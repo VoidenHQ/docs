@@ -1,7 +1,7 @@
 ---
   id: the-basics
-  title: The Basics
-  sidebar_label: The Basics
+  title: Voiden Basics
+  sidebar_label: Voiden Basics
   sidebar_position: 1
 ---
 

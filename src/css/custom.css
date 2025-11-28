@@ -70,8 +70,9 @@
   --ifm-footer-color: hsl(240, 5%, 70%);
   --ifm-footer-link-color: hsl(240, 5%, 90%);
 
-  --ifm-menu-link-color: hsl(240, 5%, 80%);
+  --ifm-menu-link-color: hsl(240, 3%, 66%);
   --ifm-menu-link-hover-color: hsl(240, 5%, 96%);
+  --ifm-theme-doc-sidebar-item-link:hsl(0, 0%, 100%);
   
   --ifm-table-border-color: hsl(var(--border));
   
@@ -142,6 +143,7 @@
 
   --ifm-menu-link-color: hsl(240, 4%, 40%);
   --ifm-menu-link-hover-color: hsl(240, 6%, 15%);
+  --ifm-theme-doc-sidebar-item-link:hsl(0, 0%, 0%);
 
   --ifm-table-border-color: hsl(var(--border));
 
@@ -238,7 +240,7 @@ code, pre, kbd, samp, tt {
 /* Navigation Items */
 .nav-item {
   padding: 0.5rem 1rem;
-  font-size: 0.875rem;
+  font-size: 0.5rem;
   font-weight: 500;
   color: var(--ifm-navbar-link-color);
   transition: color 0.2s;
@@ -284,7 +286,7 @@ code, pre, kbd, samp, tt {
 
 /* Section Styles */
 .section-title {
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: 'Source Sans 3', sans-serif;
   font-weight: 800;
   margin-bottom: 1.5rem;
@@ -293,12 +295,12 @@ code, pre, kbd, samp, tt {
 
 @media (min-width: 768px) {
   .section-title {
-    font-size: 2.5rem;
+    font-size: 1rem;
   }
 }
 
 .section-subtitle {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-family: 'Source Sans 3', sans-serif;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -534,4 +536,22 @@ blockquote a:hover {
 
 [data-theme='light'] blockquote a:hover {
   color: #0891b2;
+}
+
+.menu__list .menu__list{
+  margin-left: 1rem;
+}
+
+.menu__list-item:has(.sidebar-section-title){
+  margin: 1rem 0;
+}
+.menu__list {
+  box-shadow: -1px 0 0 var(--ifm-color-primary);
+}
+.theme-doc-sidebar-menu{
+  box-shadow: none!important;
+}
+
+.sidebar-section-title{
+  color: var(--ifm-theme-doc-sidebar-item-link)!important;
 }
