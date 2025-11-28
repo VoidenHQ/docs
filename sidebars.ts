@@ -46,11 +46,19 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Voiden Blocks",
-      items: ["core-features-section/voiden-blocks/voiden-blocks-intro", "core-features-section/voiden-blocks/voiden-basic-blocks", "core-features-section/voiden-blocks/headers-block", {
+      items: ["core-features-section/voiden-blocks/voiden-blocks-intro", "core-features-section/voiden-blocks/voiden-basic-blocks", 
+        {
+          type: "category",
+          label: "REST Blocks",
+          items: ["core-features-section/voiden-blocks/rest-blocks/endpoint-block","core-features-section/voiden-blocks/rest-blocks/headers-block","core-features-section/voiden-blocks/rest-blocks/json-block","core-features-section/voiden-blocks/rest-blocks/xml-block","core-features-section/voiden-blocks/rest-blocks/query-params-block","core-features-section/voiden-blocks/rest-blocks/path-params-block","core-features-section/voiden-blocks/rest-blocks/multipart-table-block","core-features-section/voiden-blocks/rest-blocks/url-encoded-block","core-features-section/voiden-blocks/rest-blocks/binary-file-block"]
+        },
+        {
         type: "category",
         label: "Authorization",
-        items: ["core-features-section/voiden-blocks/advanced-authorization/basic-auth-block","core-features-section/voiden-blocks/advanced-authorization/auth-bearer-block","core-features-section/voiden-blocks/advanced-authorization/auth-digest-block","core-features-section/voiden-blocks/advanced-authorization/auth-oauth1-block","core-features-section/voiden-blocks/advanced-authorization/auth-oauth2-block"],
-      },],
+        items: ["core-features-section/voiden-blocks/advanced-authorization/basic-auth-block", "core-features-section/voiden-blocks/advanced-authorization/auth-bearer-block", "core-features-section/voiden-blocks/advanced-authorization/auth-digest-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth1-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth2-block"],
+      }
+        
+      ],
     },
     {
       type: "category",
@@ -62,36 +70,36 @@ const sidebars: SidebarsConfig = {
       label: "Git Integration",
       items: ["core-features-section/git-integration/overview", "core-features-section/git-integration/git-integration-cli", "core-features-section/git-integration/git-integration-gui"],
     },
-     {
+    {
       type: "html",
       value: "<span class='sidebar-section-title'>Plugins</span>",
       defaultStyle: true,
     },
-     {
-      type:'doc',
+    {
+      type: 'doc',
       id: 'plugins/intro',
       label: 'Introduction',
-     },
-      {
+    },
+    {
       type: "category",
       label: "Core Plugins",
-      items: ["plugins/core-plugins/voiden-rest-api","plugins/core-plugins/md-preview", "plugins/core-plugins/advanced-authentication","plugins/core-plugins/openapi-collection-importer","plugins/core-plugins/postman-collection-importer","plugins/core-plugins/simple-assertion","plugins/core-plugins/voiden-faker"],
+      items: ["plugins/core-plugins/voiden-rest-api", "plugins/core-plugins/md-preview", "plugins/core-plugins/advanced-authentication", "plugins/core-plugins/openapi-collection-importer", "plugins/core-plugins/postman-collection-importer", "plugins/core-plugins/simple-assertion", "plugins/core-plugins/voiden-faker"],
     },
-     {
+    {
       type: "category",
       label: "Community Plugins",
       items: ["plugins/community-plugins/overview"],
     },
-       {
+    {
       type: "html",
       value: "<span class='sidebar-section-title'>Developer Tools</span>",
       defaultStyle: true,
     },
-      {
-      type:'doc',
+    {
+      type: 'doc',
       id: 'developer-tools/voiden-cli',
       label: 'Voiden CLI',
-     },
+    },
   ],
 
 };
