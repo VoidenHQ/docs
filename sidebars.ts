@@ -75,14 +75,23 @@ const sidebars: SidebarsConfig = {
       {
       type: "category",
       label: "Core Plugins",
-      items: ["plugins/core-plugins/voiden-rest-api","plugins/core-plugins/md-preview", "plugins/core-plugins/advanced-authentication","plugins/core-plugins/openapi-collection-importer","plugins/core-plugins/simple-assertion","plugins/core-plugins/voiden-faker"],
+      items: ["plugins/core-plugins/voiden-rest-api","plugins/core-plugins/md-preview", "plugins/core-plugins/advanced-authentication","plugins/core-plugins/openapi-collection-importer","plugins/core-plugins/postman-collection-importer","plugins/core-plugins/simple-assertion","plugins/core-plugins/voiden-faker"],
     },
      {
       type: "category",
       label: "Community Plugins",
       items: ["plugins/community-plugins/overview"],
     },
-
+       {
+      type: "html",
+      value: "<span class='sidebar-section-title'>Developer Tools</span>",
+      defaultStyle: true,
+    },
+      {
+      type:'doc',
+      id: 'developer-tools/voiden-cli',
+      label: 'Voiden CLI',
+     },
   ],
 
 };
