@@ -12,12 +12,12 @@ Reusable Blocks are your little time-saving buddies.Instead of typing the same *
 
 ---
 
-## How They Work (Sweet & Simple)
+## How They Work 
 1. Type `@` to show the list of linkable file
 ![Reusable](/img/voiden-blocks/reuseable-shot.png)
 2. Focus on a void file and press `Space bar` to see the blocks of that file
 ![Reusable](/img/voiden-blocks/reuseable-block.gif)
-3. Ta-da! Your block is imported—yes, that easily. Shocking, right?
+3. Done! Your block is imported. Yes, that was simple right?
 ---
 
 ## Why You’ll Love Them
