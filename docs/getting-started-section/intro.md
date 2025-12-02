@@ -10,8 +10,8 @@ id: intro
 ---
 
 **Hi.** You’ve made it.  
-You’re here because you either:  
-1. Installed Voiden and thought, *“Wait, what does this button do?”*  
+You are here because you either:  
+1. Downloaded and Installed Voiden and thought, *“Wait, what does this button do?”*  
 2. Broke something and are now googling your way through existential dread.  
 3. Or you just *love reading documentation* (in which case… wow. We respect you. Fear you, even.)  
 
@@ -19,7 +19,8 @@ You’re here because you either:
 
 ## What is Voiden?
 
-Voiden is an offline-first API client and workspace for developers who want clarity, speed, and control. It lets you build, test, and link API requests like reusable blocks, comment on JSON or XML, preview responses (even PDFs or videos), and manage environments, themes, and scripts — all without ever needing the cloud. Think of it as your API lab: local, fast, beautifully nerdy, and just the right amount of judgmental.
+Voiden is an offline-first API client and workspace for developers, API testers and technical writers who want clarity, speed, and control. It lets you build, test, and link API requests like reusable blocks, comment on JSON or XML, preview responses (even PDFs or videos), and manage environments, themes, and scripts. The best part is that Voiden enables all this without ever needing the cloud. Voiden could be seen as your API lab: local, fast, beautifully nerdy, and just the right amount of judgmental.
+
 
 ![whatsvoiden](/img/geetingstarted/whatsvoiden.png)
 
@@ -28,7 +29,16 @@ Voiden is an offline-first API client and workspace for developers who want clar
 ## Philosophy
 
 We believe in clarity, speed, and autonomy — because no one should need a login just to poke an endpoint.
-Voiden is for devs who like their tools fast, local, and a little rebellious.
+Voiden is designed for devs who like their tools fast, local, and a little rebellious.
+
+You can read more [here](https://voiden.md/about) about how Voiden started, the idea and the principles we followed.
+
+Things to keep about Voiden:
+
+- Git-native, file-centric way to work with APIs—requests.  Docs, Examples, and auth strategies all live together in plain .void files, versioned and reviewed just like code.
+- A unified source of truth for API knowledge, replacing scattered notes, docs, and examples with a single modular, reusable format that lives in your repo (and not someone else’s cloud).
+- Offline-first, extensible system that avoids lock-in and treats API work with the same discipline, structure, and workflow as the rest of your codebase.
+- Yes, we have a community. Please join [here](https://discord.com/invite/XSYCf7JF4F). 
 
 ---
 
