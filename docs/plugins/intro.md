@@ -37,24 +37,24 @@ Voiden comes with a curated set of **core plugins** that are useful for everyone
 
 Examples of core plugins include:
 
-* **[Voiden REST API](/plugins/core-plugins/voiden-rest-api.md)** – Provides easy-to-use blocks and utilities to make REST API requests, including GET, POST, PUT, DELETE, headers, and dynamic variables. 
+* **[Voiden REST API](/docs/plugins/core-plugins/voiden-rest-api.md)** – Provides easy-to-use blocks and utilities to make REST API requests, including GET, POST, PUT, DELETE, headers, and dynamic variables. 
 * **Advanced Authentication** – Offers built‑in authentication flows, token management, API key handling, and secure credential storage.
 * **Markdown Preview** – Renders real‑time markdown previews with formatting utilities, syntax highlighting, and editor enhancements.
 * **OpenAPI Collection Import** – Allows users to import OpenAPI specifications to auto‑generate API blocks, endpoints, and request structures.
 * **Postman Collection Import** – Lets users import Postman collections to instantly create runnable API requests inside Voiden.
 * **Voiden Faker** – Provides a wide library of fake data generators (names, emails, numbers, lorem text, JSON mocks, etc.) for testing APIs and workflows without real data.
 
-These plugins form the foundation of Voiden and ensure consistency across all installations.
+These plugins are the foundation of Voiden and ensure consistency across all installations.
 
 ---
 
 ## Community Plugins
 
-Voiden encourages developers from around the world to contribute plugins. Community plugins allow endless customization and innovation.
+Voiden plans to open the plugin creation to more developers. Community plugins will allow endless customization and innovation. This is what will make Voiden really customisable and extensible. 
 
-### What Community Plugins Can Do
+### What Community Plugins WILL Do
 
-Community developers can build plugins that:
+Voiden will enable community developers to build plugins that:
 
 * Add new UI panels or widgets
 * Provide new terminal commands
@@ -62,9 +62,9 @@ Community developers can build plugins that:
 * Create automation (e.g., auto-format, code runners, watchers)
 * Theme or customize the Voiden interface
 
-### Plugin Submission Workflow
+### Plugin Submission Workflow - More information will follow!
 
-To maintain quality and security, all community plugins go through a **review process**:
+We will let the communioty know when we are ready to start accepting new plugins. But one thing is for sure: To maintain quality and security, all community plugins will go through a **review process**:
 
 1. **Developer Submits Plugin**
 
@@ -88,24 +88,25 @@ This ensures that plugins remain safe and reliable for all users.
 
 ---
 
-## Plugin Marketplace
+## Plugin Marketplace - More Info will follow here as well...
 
-Once approved, community plugins are published to the **Voiden Plugin Marketplace**, where users can:
+Once approved, all community plugins will be published to the **Voiden Plugin Marketplace**, where users can:
 
 * Browse plugins by category
 * Install, update, or remove plugins
 * View ratings and reviews
 
-The marketplace ensures discoverability and keeps the plugin ecosystem vibrant.
+The marketplace will ensure discoverability and keep the plugin ecosystem vibrant. Thats the Voiden mission for creating a super extensible API Client that fits everyones needs. 
 
 ---
 
 ## Summary
 
-* Voiden supports both **core** and **community** plugins.
+* Voiden currently supports **core** plugins
+* Voiden plans to support **community** plugins.
 * Core plugins are official, optimized, and pre-installed.
-* Community plugins allow developers to extend Voiden with custom functionality.
-* Every community plugin undergoes an **approval process** for safety and performance.
+* Community plugins will allow developers to extend Voiden with custom functionality.
+* Every community plugin will undergo an **approval process**.
 * Plugins run in a sandboxed environment to maintain platform stability.
 
 Voiden’s plugin system makes the platform truly extensible, powerful, and community‑driven.
