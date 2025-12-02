@@ -12,6 +12,6 @@
 
 <div align="center">
 
-# 🚧 Coming Soon
+# 🚧 Coming Soon...
 
 </div>
