@@ -52,7 +52,8 @@ const sidebars: SidebarsConfig = {
           label: "Authorization",
           items: ["core-features-section/voiden-blocks/advanced-authorization/basic-auth-block", "core-features-section/voiden-blocks/advanced-authorization/api-key-block", "core-features-section/voiden-blocks/advanced-authorization/auth-bearer-block", "core-features-section/voiden-blocks/advanced-authorization/auth-digest-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth1-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth2-block"],
         },
-        "core-features-section/voiden-blocks/assertion-block"
+        "core-features-section/voiden-blocks/assertion-block",
+        "core-features-section/voiden-blocks/reuseable-blocks"
       ],
     },
     {
