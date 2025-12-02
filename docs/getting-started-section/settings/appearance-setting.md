@@ -10,21 +10,19 @@ Personalize every aspect of the interface to create your ideal development envir
 
 ## Appearance
 
+
 ### Theme Selection
 Choose from multiple themes to suit your working style and environment.
 
-> [SCREENSHOT_PLACEHOLDER: Theme selection dropdown showing available options]
+![themes](/img/geetingstarted/themes/themes.png)
 
-**Preview of available themes:**
+### **Preview of available themes:**
 
 **Light Theme**
-> [SCREENSHOT_PLACEHOLDER: Light theme appearance showing clean, bright interface]
+![lighttheme](/img/geetingstarted/themes/lighttheme.png)
 
 **Dark Theme**  
-> [SCREENSHOT_PLACEHOLDER: Dark theme appearance with easy-on-the-eyes dark background]
-
-**System Default**
-> [SCREENSHOT_PLACEHOLDER: Interface matching system theme settings]
+![darktheme](/img/geetingstarted/themes/darktheme.png)
 
 ### Editor Display
 - **Font Size**: Adjust the text size in your editor (Small → Medium → Large)

@@ -9,26 +9,6 @@
 
 Customize Voiden to match your workflow and preferences. The settings page lets you personalize everything from appearance to keyboard shortcuts.
 
-## Appearance
-
-### Theme Selection
-Choose from multiple themes to suit your working style and environment.
-
-![themes](/img/geetingstarted/themes/themes.png)
-
-**Preview of available themes:**
-
-**Light Theme**
-![lighttheme](/img/geetingstarted/themes/lighttheme.png)
-
-**Dark Theme**  
-![darktheme](/img/geetingstarted/themes/darktheme.png)
-
-### Editor Display
-- **Font Size**: Adjust the text size in your editor (Small → Medium → Large)
-- **Font Family**: Choose from available monospace fonts for optimal code readability
-- **Word Wrap**: Toggle line wrapping for better visibility of long lines
-
 ## Editor Behavior
 
 ### Auto Save
