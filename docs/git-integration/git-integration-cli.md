@@ -4,13 +4,13 @@
   sidebar_label: Git Integration CLI
   sidebar_position: 2
 ---
-# ⭐ Git CLI Integration in Voiden
+# Git CLI Integration in Voiden
 
 Git CLI (Command Line Interface) integration in Voiden allows developers to manage version control directly from the terminal. Since Voiden stores collections, requests, and environments as files, Git becomes a natural and efficient tool for tracking changes and collaborating with teams.
 
 ---
 
-## 🔍 How Git CLI Integration Works
+## How Git CLI Integration Works
 
 ### 1. Core Git Commands
 
