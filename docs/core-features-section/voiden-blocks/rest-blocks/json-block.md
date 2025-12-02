@@ -4,7 +4,7 @@
   sidebar_label: JSON Block
   sidebar_position: 5
 ---
-# 📦 JSON Block
+# JSON Block
 
 When your API needs data, it usually wants **JSON**.  
 The **JSON Block** in **Voiden** gives you a dedicated space to craft your request body — whether you're sending user data, search queries, or configuration objects.  
