@@ -5,7 +5,7 @@
   sidebar_position: 9
 ---
 
-# ❓ Query Params Block
+# Query Params Block
 
 Query parameters turn a simple **URL** into a powerful filter, search, or configuration tool.  
 The **Query Params Block** lets you define URL parameters as a clean key-value table in **Voiden**. No more manually encoding ampersands and question marks into your endpoint string.
