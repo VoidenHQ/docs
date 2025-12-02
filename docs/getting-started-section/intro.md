@@ -44,6 +44,6 @@ Things to keep about Voiden:
 
 ## Now what?
 
-👉 Head to [**Installation**](./getting-started/installation.md) before you start clicking random buttons.  
+👉 Check the [**Installation**](./getting-started/installation.md) guide before you start clicking random buttons.  
 (Or don’t. We’re not your boss. But you might regret it.)
 
