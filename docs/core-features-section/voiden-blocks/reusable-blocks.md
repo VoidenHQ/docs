@@ -13,7 +13,7 @@ Reusable Blocks are your little time-saving buddies.Instead of typing the same *
 ---
 
 ## How They Work 
-1. Type `@` to show the list of linkable file
+1. Type `@` to show the list of linkable files
 ![Reusable](/img/voiden-blocks/reuseable-shot.png)
 2. Focus on a void file and press `Space bar` to see the blocks of that file
 ![Reusable](/img/voiden-blocks/reuseable-block.gif)
