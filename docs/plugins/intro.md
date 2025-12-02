@@ -14,6 +14,7 @@ This document gives a high-level overview of how plugins work in Voiden, our cor
 
 ## What Are Voiden Plugins?
 
+Voiden is designed to be open and extensible. To achieve that, we have decided to enable plugins. 
 Voiden plugins are modular extensions that allow developers to add new capabilities to the Voiden ecosystem **without modifying the core system**. These plugins can:
 
 * Add new commands or tools
@@ -28,7 +29,7 @@ Plugins are isolated, secure, and follow Voiden’s strict plugin lifecycle rule
 
 ## Core Plugins (Official Plugins)
 
-Voiden ships with a curated set of **core plugins** that are:
+Voiden comes with a curated set of **core plugins** that are useful for everyone working with APIs. These plugins are:
 
 * Built and maintained by the Voiden team
 * Optimized for performance and security
@@ -36,7 +37,7 @@ Voiden ships with a curated set of **core plugins** that are:
 
 Examples of core plugins include:
 
-* **Voiden REST API** – Provides easy-to-use blocks and utilities to make REST API requests, including GET, POST, PUT, DELETE, headers, and dynamic variables.
+* **[Voiden REST API](/plugins/core-plugins/voiden-rest-api.md)** – Provides easy-to-use blocks and utilities to make REST API requests, including GET, POST, PUT, DELETE, headers, and dynamic variables. 
 * **Advanced Authentication** – Offers built‑in authentication flows, token management, API key handling, and secure credential storage.
 * **Markdown Preview** – Renders real‑time markdown previews with formatting utilities, syntax highlighting, and editor enhancements.
 * **OpenAPI Collection Import** – Allows users to import OpenAPI specifications to auto‑generate API blocks, endpoints, and request structures.
