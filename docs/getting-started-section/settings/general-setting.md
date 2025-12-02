@@ -7,7 +7,27 @@
 
 # Settings
 
-Customize Voiden to match your workflow and preferences. The settings page lets you personalize everything from editor behavior to keyboard shortcuts.
+Customize Voiden to match your workflow and preferences. The settings page lets you personalize everything from appearance to keyboard shortcuts.
+
+## Appearance
+
+### Theme Selection
+Choose from multiple themes to suit your working style and environment.
+
+![themes](/img/geetingstarted/themes/themes.png)
+
+**Preview of available themes:**
+
+**Light Theme**
+![lighttheme](/img/geetingstarted/themes/lighttheme.png)
+
+**Dark Theme**  
+![darktheme](/img/geetingstarted/themes/darktheme.png)
+
+### Editor Display
+- **Font Size**: Adjust the text size in your editor (Small → Medium → Large)
+- **Font Family**: Choose from available monospace fonts for optimal code readability
+- **Word Wrap**: Toggle line wrapping for better visibility of long lines
 
 ## Editor Behavior
 
@@ -24,7 +44,10 @@ Enable automatic saving of your work:
 ### Proxy Configuration
 Set up proxy settings for network requests:
 
-> [SCREENSHOT_PLACEHOLDER: Proxy configuration popup showing host, port, and authentication fields]
+![proxy](/img/geetingstarted/proxy.png)
+
+With Authentication Enabled
+![authproxy](/img/geetingstarted/authproxy.png)
 
 **Configure:**
 - Proxy host and port
@@ -51,7 +74,7 @@ Set up proxy settings for network requests:
 ### Essential Shortcuts
 Voiden provides comprehensive keyboard shortcuts for faster navigation and workflow:
 
-[SCREENSHOT_PLACEHOLDER: Keyboard shortcuts panel showing categorized shortcuts]
+![keyshortcut](/img/geetingstarted/themes/keyshortcut.gif)
 
 **Common Shortcuts:**
 - **File Operations**: Create, save, and manage void files

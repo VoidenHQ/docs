@@ -21,6 +21,8 @@ You’re here because you either:
 
 Voiden is an offline-first API client and workspace for developers who want clarity, speed, and control. It lets you build, test, and link API requests like reusable blocks, comment on JSON or XML, preview responses (even PDFs or videos), and manage environments, themes, and scripts — all without ever needing the cloud. Think of it as your API lab: local, fast, beautifully nerdy, and just the right amount of judgmental.
 
+![whatsvoiden](/img/geetingstarted/whatsvoiden.png)
+
 ---
 
 ## Philosophy
