@@ -8,7 +8,7 @@
 
 ## What Are Reusable Blocks?
 
-Reusable Blocks are your little time-saving buddies.Instead of typing the same **Voiden** blocks again and again (and again…), you just create a block once in a **Voiden** file and reuse it everywhere you want.
+Reusable Blocks are your little time-saving buddies.Instead of typing the same **Voiden** blocks again and again (and again…), you just create a block once in a **Voiden** file and reuse it everywhere you want. This saves time but also helps you keep things coinsistent: The block values can be inherited to all the documents you create and link these blocks to. Confusing? Lets explain them a bit more... 
 
 ---
 
