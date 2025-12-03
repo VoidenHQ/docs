@@ -26,6 +26,8 @@ Once your Postman collection is imported, the magic begins:
 3. **Watch the Organization Happen** - We automatically create a clean, organized folder structure using your exact Postman collection name
 4. **Discover Your New Workflow** - Inside the new folder, every API request from your Postman collection has been intelligently converted into individual Voiden files, complete with all your endpoints, parameters, and configurations
 
+![import-postman](/img/geetingstarted/import-postman.gif)
+
 ## What Gets Converted?
 - All your HTTP endpoints (GET, POST, PUT, DELETE, etc.)
 - Request headers and authentication settings

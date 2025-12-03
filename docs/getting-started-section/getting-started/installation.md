@@ -17,6 +17,8 @@ Head over to **[voiden.md/download](https://voiden.md/download)** and grab the l
 That’s it. No sign-ups, no tracking, no mysterious “agent” running in the background.  
 Just download, install, and start building stuff.
 
+![install](/img/geetingstarted/install.png)
+
 ---
 
 ## System Requirements
@@ -32,7 +34,7 @@ Just download, install, and start building stuff.
 - **Intel or AMD** processor  
 - **4 GB RAM**  
 - **200 MB** available space  
-- 🧩 ARM versions coming soon (for Windows & Linux — we see you, Pi enthusiasts)
+-  ARM versions coming soon (for Windows & Linux — we see you, Pi enthusiasts)
 
 ---
 

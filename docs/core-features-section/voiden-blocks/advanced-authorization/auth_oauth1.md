@@ -13,7 +13,7 @@ It uses a signature-based approach, combining consumer keys, tokens, and cryptog
 **Voiden** support OAuth 1.0 authentication as well, enabling you to connect with APIs that require this older but still widely used standard (such as some legacy or enterprise systems).
 
 
-### ▶️ Try it Out
+###  Try it Out
 
 1. In your Voiden file, type `/auth-oauth1` and press **Enter** to create a **Authorization Digest Block**.  
 
@@ -24,11 +24,11 @@ It uses a signature-based approach, combining consumer keys, tokens, and cryptog
 ![Authorization OAuth1 Slash Command](/img/voiden-blocks/authorization/auth-oauth1-params.png)
 
 3. Hit **Cmd + Enter** (Mac) or **Ctrl + Enter**  (Windows/Linux) to run the request  
-**or** click the **green ▶️ Play button** in the toolbar.
+**or** click the **green Play button** in the toolbar.
 
 4. Check the **Response Panel** 
 
-###  🪪 Block Parameters
+###  Block Parameters
 | Parameter | Value | Description |
 | --- | --- | --- |
 | consumer_key | string |	The public identifier for the client application, issued by the API provider. It tells the server which application is making the request.

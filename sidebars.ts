@@ -63,7 +63,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'html',
-      value: "<span class='sidebar-section-title'>Git Integration</span>",
+      value: "<span class='sidebar-section-title'>Git</span>",
       defaultStyle: true
     },
     {

@@ -11,7 +11,7 @@
 
 For a more modern approach, we also offer Bearer Token authentication—think of it as a VIP pass that does all the talking for you after the first introduction. Whichever you choose, you’re covered!
 
-### ▶️ Try it Out
+###  Try it Out
 
 1. In your Voiden file, type `/auth-bearer` and press **Enter** to create a **Authorization Bearer Block**.  
 
@@ -22,11 +22,11 @@ For a more modern approach, we also offer Bearer Token authentication—think of
 ![Authorization Block Slash Command](/img/voiden-blocks/authorization/auth-bearer-params.png)
 
 3. Hit **Cmd + Enter** (Mac) or **Ctrl + Enter**  (Windows/Linux) to run the request  
-**or** click the **green ▶️ Play button** in the toolbar.
+**or** click the **green  Play button** in the toolbar.
 
 4. Check the **Response Panel** 
 
-### 🪪 Block Parameters
+### Block Parameters
 | Parameter | Value | Description |
 | --- | --- | --- |
 | token | string | The actual token value (e.g., a JWT or API key) that proves your identity.|

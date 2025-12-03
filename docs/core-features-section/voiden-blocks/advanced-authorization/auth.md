@@ -20,7 +20,7 @@ This separation ensures a clean and modular approach:
 Together, they allow full control over API requests while maintaining clarity and security.
 
 
-### ▶️ Try it Out
+###  Try it Out
 
 1. In your Voiden file, type `/auth` and press **Enter** to create a **Authorization Block**.  
 
@@ -33,7 +33,7 @@ Together, they allow full control over API requests while maintaining clarity an
 3. Fill the required params for the Authorization Type.
 
 4. Hit **Cmd + Enter** (Mac) or **Ctrl + Enter**  (Windows/Linux) to run the request  
-**or** click the **green ▶️ Play button** in the toolbar.
+**or** click the **green Play button** in the toolbar.
 
 5. Check the **Response Panel** 
 
@@ -43,7 +43,7 @@ Together, they allow full control over API requests while maintaining clarity an
 
 ---
 
-###   🔐 Supported Authorization Types
+###  Supported Authorization Types
 
 Below are all supported authorization options with descriptions:
 
