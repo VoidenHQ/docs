@@ -297,6 +297,9 @@ code, pre, kbd, samp, tt {
   .section-title {
     font-size: 1rem;
   }
+  .navbar__link{
+    padding: 0 5px;
+  }
 }
 
 .section-subtitle {
@@ -375,6 +378,7 @@ code, pre, kbd, samp, tt {
 .navbar__link {
   color: var(--ifm-navbar-link-color);
   font-weight: 500;
+  padding: 0 0;
 }
 
 .navbar__link:hover {
