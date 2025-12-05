@@ -43,7 +43,7 @@ Things to keep about Voiden:
 
 We take all feedback super seriously. In fact we are preparring to open source this very soon (details will follow)...
 
-- Raise an issue [here]([https://voiden.md/about](https://github.com/VoidenHQ/feedback/issues)). 
+- Raise an issue [here](https://github.com/VoidenHQ/feedback/issues). 
 - Talk to use here: [here](https://discord.com/invite/XSYCf7JF4F). 
 
 ---
