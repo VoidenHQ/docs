@@ -10,7 +10,7 @@ The **Simple Assertions** plugin adds lightweight, easy-to-use assertion testing
 
 ---
 
-# 🚀 Key Features
+# Key Features
 
 ### **Assertion Table Interface**
 

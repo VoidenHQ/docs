@@ -24,7 +24,7 @@ These values are automatically evaluated during the `pre-send` stage of the requ
 
 ---
 
-## ✨ Features
+## Features
 
 * Generate fake data using **Faker.js**
 * Works in:

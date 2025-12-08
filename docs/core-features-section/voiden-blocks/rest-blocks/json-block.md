@@ -13,15 +13,20 @@ Type it out or paste it in. Either way, you get a clean editor that understands 
 And when things get messy? Hit **Prettify** in the top-right corner to instantly format your JSON into readable, indented perfection.
 
 ---
-### ▶️ Try it Out
+###  Try it Out
 1. Type `/json` to add a request body block to your Voiden file
+
+![json](/img/voiden-blocks/json-pre.png)
+
 2. Paste in (or type) the sample **JSON**
 3. Hit **Cmd + Enter** (Mac) or **Ctrl + Enter**  (Windows/Linux) to run the request  
-**or** click the **green ▶️ Play button** in the toolbar.  
+**or** click the **gree  Play button** in the toolbar.  
+
 
 ---
+![json](/img/voiden-blocks/json-post.gif)
 
-> 🎩 **Pro Tip:** Want to comment out a field without overkill?  
+> **Pro Tip:** Want to comment out a field without overkill?  
 > Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment out a JSON line you don't need for that request.  
 > It’ll stay visible but won’t be sent with the request.  
 > Unless you click the **Prettify** option in the top right corner of the block. Then all the comments will go bye-bye.
