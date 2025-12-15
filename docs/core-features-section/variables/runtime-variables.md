@@ -85,7 +85,7 @@ Add a `/runtime-variables` block in your voiden file:
 
     And run the request by either:  
     - Pressing **Cmd + Enter** (on macOS) or **Ctrl + Enter** (on Windows/Linux), **or**  
-    - Clicking the bright **green ▶️ Play button** in the toolbar.  
+    - Clicking the bright **green  Play button** in the toolbar.  
 
 2. **Second request**
 
@@ -101,4 +101,4 @@ Add a `/runtime-variables` block in your voiden file:
 - Test extraction: Verify runtime variables capture the expected values
 - Chain carefully: Make sure dependent requests execute in the correct order
 
-Runtime variables transform your isolated API calls into connected workflows! 🔄
+Runtime variables transform your isolated API calls into connected workflows! 

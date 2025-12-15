@@ -47,7 +47,7 @@ These values are automatically evaluated during the `pre-send` stage of the requ
 
 ---
 
-## 📘 Usage Examples
+##  Usage Examples
 
 ### **Example 1: Generate a Random Name**
 

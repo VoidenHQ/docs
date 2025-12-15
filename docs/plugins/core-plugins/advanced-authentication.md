@@ -10,7 +10,7 @@ The **Advanced Authentication** plugin provides comprehensive authentication sup
 
 ---
 
-# 🚀 Key Features
+#  Key Features
 
 ### **Supported Authentication Types**
 
@@ -31,9 +31,9 @@ The **Advanced Authentication** plugin provides comprehensive authentication sup
 
 ---
 
-# 🧩 Capabilities
+#  Capabilities
 
-## 🔷 Slash Commands
+##  Slash Commands
 
 The plugin adds a dedicated **Advanced Authentication** slash command group:
 
@@ -49,7 +49,7 @@ These commands make inserting auth blocks fast and easy during API request creat
 
 ---
 
-# 🔗 Dependencies
+#  Dependencies
 
 ```json
 {

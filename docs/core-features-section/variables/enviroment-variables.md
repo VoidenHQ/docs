@@ -58,27 +58,27 @@ DB_HOST=localhost
   </thead>
   <tbody>
     <tr>
-      <td><strong>🔒 Security</strong></td>
+      <td><strong> Security</strong></td>
       <td>• Keep sensitive data out of codebase<br/>• Prevent accidental credential mixing<br/>• No hardcoded secrets</td>
     </tr>
     <tr>
-      <td><strong>🚀 Developer Experience</strong></td>
+      <td><strong> Developer Experience</strong></td>
       <td>• One-click environment switching<br/>• Personal local overrides<br/>• No manual configuration</td>
     </tr>
     <tr>
-      <td><strong>🔄 Consistency</strong></td>
+      <td><strong> Consistency</strong></td>
       <td>• Same base config for all teams<br/>• Identical structure across environments<br/>• Reduce "works on my machine" issues</td>
     </tr>
     <tr>
-      <td><strong>⚡ Rapid Switching</strong></td>
+      <td><strong> Rapid Switching</strong></td>
       <td>• Test APIs in different environments<br/>• Compare staging vs production instantly<br/>• Validate environment features</td>
     </tr>
     <tr>
-      <td><strong>🛡️ Collaboration</strong></td>
+      <td><strong> Collaboration</strong></td>
       <td>• Share base files via Git<br/>• Keep overrides private<br/>• Different local configs without conflicts</td>
     </tr>
     <tr>
-      <td><strong>📁 Organization</strong></td>
+      <td><strong> Organization</strong></td>
       <td>• Clear environment separation<br/>• Easy to track variable changes<br/>• Simple to add new environments</td>
     </tr>
   </tbody>

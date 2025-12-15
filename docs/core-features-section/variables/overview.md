@@ -18,11 +18,11 @@ Stop repeating yourself! Variables in Voiden let you define values once and reus
 
 ## Types of Variables
 
-### 🌍 Environmental Variables
+###  Environmental Variables
 These are your configuration constants that change based on the environment you're working in.
 
 
-### ⚡ Runtime Variables
+###  Runtime Variables
 These are dynamic values that get set during request execution and can be used in subsequent requests.
 
 
@@ -34,4 +34,4 @@ These are dynamic values that get set during request execution and can be used i
 4. **Use different environments**: Maintain separate dev, staging, and prod variable sets
 5. **Secure sensitive data**: Never commit sensitive variables to version control
 
-Variables turn your static API requests into dynamic, reusable, and maintainable workflows. Start using them to work smarter, not harder! 🚀
+Variables turn your static API requests into dynamic, reusable, and maintainable workflows. Start using them to work smarter, not harder! 
