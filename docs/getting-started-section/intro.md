@@ -38,7 +38,13 @@ Things to keep about Voiden:
 - Git-native, file-centric way to work with APIs—requests.  Docs, Examples, and auth strategies all live together in plain .void files, versioned and reviewed just like code.
 - A unified source of truth for API knowledge, replacing scattered notes, docs, and examples with a single modular, reusable format that lives in your repo (and not someone else’s cloud).
 - Offline-first, extensible system that avoids lock-in and treats API work with the same discipline, structure, and workflow as the rest of your codebase.
-- Yes, we have a community. Please join [here](https://discord.com/invite/XSYCf7JF4F). 
+
+## Feedback 
+
+We take all feedback super seriously. In fact we are preparring to open source this very soon (details will follow)...
+
+- Raise an issue [here](https://github.com/VoidenHQ/feedback/issues). 
+- Talk to use here: [here](https://discord.com/invite/XSYCf7JF4F). 
 
 ---
 
