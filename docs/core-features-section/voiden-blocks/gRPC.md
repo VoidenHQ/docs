@@ -1,26 +1,18 @@
 ---
   id: grpcs
-  title: gRPCS
-  sidebar_label: GRPC
+  title: gRPCS 
+  sidebar_label: gRPC Block
   sidebar_position: 7
 ---
-# Overview
 
-## GRPC
+#  <div style={{display:"flex",alignItems:"center"}}> gRPC Block<small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
+
+
+> **Note:** This feature is currently in **Beta**.
+
 Voiden uses **gRPCs** to enable fast, reliable, and strongly-typed communication between internal services and external clients. By leveraging gRPC, Voiden ensures efficient data exchange, low latency, and clear API contracts that scale well with complex and distributed systems.
 
 gRPCs in Voiden are designed for performance-critical operations, structured communication, and service-to-service interactions where consistency and speed are essential.
-
----
-
-## What Is gRPC in Voiden
-**gRPC (Google Remote Procedure Call)** is a modern, high-performance RPC framework that allows a client to directly call methods on a remote Voiden service as if they were local functions.
-
-In Voiden, gRPCs:
-- Use **Protocol Buffers (Protobuf)** for strongly-typed message definitions  
-- Run over **HTTP/2** for multiplexed, low-latency connections  
-- Support **bi-directional streaming**, unary calls, and server/client streaming  
-- Provide clear and versionable API contracts  
 
 ---
 ## gRPC Requests
@@ -43,6 +35,7 @@ This support enables seamless testing, validation, and exploration of gRPC-based
 3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),
 **or** click the **green Play button** in the toolbar.
 4. you see the **Response panel** for the **GRPC**
+
 ![grpcs](/img/voiden-blocks/grpcs-pre.gif)
 
 ---

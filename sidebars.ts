@@ -26,7 +26,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Getting Started",
-      items: ["getting-started-section/getting-started/installation", "getting-started-section/getting-started/quick-start", "getting-started-section/getting-started/postman-import", "getting-started-section/getting-started/openapi-imports", "getting-started-section/getting-started/the-basics"],
+      items: ["getting-started-section/getting-started/installation", "getting-started-section/getting-started/quick-start", "getting-started-section/getting-started/postman-import", "getting-started-section/getting-started/openapi-imports","getting-started-section/getting-started/openapi-validation", "getting-started-section/getting-started/the-basics"],
     },
     {
       type: 'category',
@@ -49,7 +49,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "category",
-          label: "Socket Blocks",
+          label: "Socket & gRPC Blocks",
           items: [
             "core-features-section/voiden-blocks/web-socket",
             "core-features-section/voiden-blocks/grpcs"
@@ -93,7 +93,11 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Core Plugins",
-      items: ["plugins/core-plugins/voiden-rest-api", "plugins/core-plugins/md-preview", "plugins/core-plugins/advanced-authentication", "plugins/core-plugins/openapi-collection-importer", "plugins/core-plugins/postman-collection-importer", "plugins/core-plugins/simple-assertion", "plugins/core-plugins/voiden-faker", "plugins/core-plugins/socket and grpcs"],
+      items: ["plugins/core-plugins/voiden-rest-api", "plugins/core-plugins/md-preview", "plugins/core-plugins/advanced-authentication", "plugins/core-plugins/openapi-collection-importer", "plugins/core-plugins/postman-collection-importer", "plugins/core-plugins/simple-assertion", "plugins/core-plugins/voiden-faker", {
+        type: "category",
+        label: "Socket & gRPC APIs ",
+        items: ["plugins/core-plugins/socket/overview", "plugins/core-plugins/socket/web-socket", "plugins/core-plugins/socket/grpc"],
+      },],
     },
     {
       type: "category",
