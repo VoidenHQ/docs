@@ -49,12 +49,20 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "category",
+          label: "Socket Blocks",
+          items: [
+            "core-features-section/voiden-blocks/web-socket",
+            "core-features-section/voiden-blocks/grpcs"
+          ],
+        },
+        {
+          type: "category",
           label: "Authorization",
           items: ["core-features-section/voiden-blocks/advanced-authorization/basic-auth-block", "core-features-section/voiden-blocks/advanced-authorization/api-key-block", "core-features-section/voiden-blocks/advanced-authorization/auth-bearer-block", "core-features-section/voiden-blocks/advanced-authorization/auth-digest-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth1-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth2-block"],
         },
         "core-features-section/voiden-blocks/assertion-block",
-        "core-features-section/voiden-blocks/reusable-blocks",
-        "core-features-section/voiden-blocks/web-socket"
+        "core-features-section/voiden-blocks/reusable-blocks"
+
       ],
     },
     {
@@ -85,7 +93,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Core Plugins",
-      items: ["plugins/core-plugins/voiden-rest-api", "plugins/core-plugins/md-preview", "plugins/core-plugins/advanced-authentication", "plugins/core-plugins/openapi-collection-importer", "plugins/core-plugins/postman-collection-importer", "plugins/core-plugins/simple-assertion", "plugins/core-plugins/voiden-faker"],
+      items: ["plugins/core-plugins/voiden-rest-api", "plugins/core-plugins/md-preview", "plugins/core-plugins/advanced-authentication", "plugins/core-plugins/openapi-collection-importer", "plugins/core-plugins/postman-collection-importer", "plugins/core-plugins/simple-assertion", "plugins/core-plugins/voiden-faker", "plugins/core-plugins/socket and grpcs"],
     },
     {
       type: "category",
@@ -93,9 +101,9 @@ const sidebars: SidebarsConfig = {
       items: ["plugins/community-plugins/overview"],
     },
     {
-      type:'doc',
-      id:"plugins/build-a-plugin",
-      label:'Create Your First Plugin'
+      type: 'doc',
+      id: "plugins/build-a-plugin",
+      label: 'Create Your First Plugin'
     },
     {
       type: "html",
