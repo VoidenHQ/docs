@@ -32,6 +32,8 @@ Text messages are plain, human-readable messages commonly used for simple commun
 - Status updates and notifications  
 - Human-readable messages 
 
+---
+
 ### JSON Messages
 JSON messages allow you to exchange structured and expressive data, making them ideal for API-style communication.
 
@@ -43,6 +45,8 @@ JSON messages allow you to exchange structured and expressive data, making them 
 
 **Example JSON Message**
 ![websocket](/img/plugins/openapi-collection/json-message.png)
+
+---
 
 ### XML Messages
 
@@ -64,3 +68,28 @@ XML messages are mainly used when working with **legacy systems** or services th
 - When your messaging protocol is built around XML  
 - When XML is required for compatibility or compliance  
 
+---
+
+### HTML Messages
+
+WebSockets are created and managed using **JavaScript** inside an HTML page.
+
+**Characteristics**
+
+- **Real-time:**  Messages are delivered instantly between the client and server without delay.
+- **Persistent Connection:**  A single, long-lived connection remains open, eliminating the need for repeated requests.
+- **Event-Driven:**  The application automatically reacts to incoming messages and events as they occur.
+- **Browser-Native:**  Built-in support across all modern web browsers without additional libraries.
+
+**Example XML Message**
+
+![HTML](/img/plugins/openapi-collection/html.png)
+
+
+**When to Use**
+
+ - Enables instant message delivery and presence updates.
+ - Push updates to users as soon as events happen.
+ - Synchronize changes between multiple users in real time.
+ - Stream metrics, logs, and status updates continuously.
+ - Support fast, low-latency interactions between players and servers.

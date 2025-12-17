@@ -31,7 +31,7 @@ The Voiden CLI plays a key role in improving developer experience and operationa
 ![install-cli](/img/developer-tools/install-cli.gif)
 
 ---
-# How to open
+# How To Open
 
 Just open the terminal and type the simple command `voiden` to launch Voiden
 
