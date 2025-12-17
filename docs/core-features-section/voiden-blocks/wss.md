@@ -51,7 +51,8 @@ Provides tools for creating and transmitting messages:
 
 - **Message Format** — Choose the payload type:
   - Plain Text  
-  - JSON  
+  - JSON 
+  - HTML 
   - XML  
 - **Message Editor** — Rich text editor with syntax highlighting for structured formats  
 - **Send Action** — Sends the composed message to the connected WebSocket server  
