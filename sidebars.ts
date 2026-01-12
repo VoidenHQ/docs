@@ -97,7 +97,7 @@ const sidebars: SidebarsConfig = {
         type: "category",
         label: "Socket & gRPC APIs ",
         items: ["plugins/core-plugins/socket/overview", "plugins/core-plugins/socket/web-socket", "plugins/core-plugins/socket/grpc"],
-      },],
+      },"plugins/core-plugins/voiden-graphql"],
     },
     {
       type: "category",
