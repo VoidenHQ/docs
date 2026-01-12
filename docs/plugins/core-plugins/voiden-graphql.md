@@ -16,9 +16,9 @@ Voiden provides built-in support for **GraphQL queries, mutations, and subscript
 
 ## Core GraphQL Operations
 
-GraphQL is built around three main operation types. Voiden supports all of them.
+GraphQL is built around three main operation types. Voiden supports all of them, [Jump to learn more about how GraphQL queries work.](/docs/core-features-section/voiden-blocks/graphql-query.md)
 
----
+
 
 ### Queries
 
@@ -97,7 +97,7 @@ GraphQL variables allow you to pass dynamic values into your queries, mutations,
 
 Instead of changing the query every time a value changes, you define placeholders in the query and supply the actual values separately.
 
-See the [GraphsQL variable documenatation](https://graphql.org/learn/queries/#variables)
+See the [GraphQL variable documenatation](https://graphql.org/learn/queries/#variables)
 
 
 #### Example Using Variables
@@ -118,3 +118,7 @@ query GetUser($id: ID!) {
   "id": "123"
 }
 ```
+
+---
+
+Currently, Voiden provides two core building blocks for GraphQL functionality: the **Query block**, where you define and send GraphQL queries, and the **Variables block**, which allows you to supply dynamic values required by those queries. Together, they help keep GraphQL requests clean, flexible, and easy to manage.

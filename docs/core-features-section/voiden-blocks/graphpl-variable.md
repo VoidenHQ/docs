@@ -28,6 +28,8 @@ In simple terms, the Variables block provides the “inputs” for your GraphQL 
 
 1. In your Voiden file, type `/gqlvariables` and press **Enter** to create a **GraphQL variables**.
 
+![graphql-variable](/img/voiden-blocks/graphql-variables.png)
+
 2. Once the query includes variables, Voiden automatically creates a **Variables block**. This block appears as a **JSON code editor** where you can define the values for those variables.
 
     **Provide Variable Values**  
@@ -36,7 +38,13 @@ In simple terms, the Variables block provides the “inputs” for your GraphQL 
     - Use [**environment variables**](/docs/core-features-section/variables/enviroment-variables.md)
     - Use [**runtime variables**](/docs/core-features-section/variables/runtime-variables.md)
 
-This gives you flexibility to test different inputs without modifying the query itself.
+    This gives you flexibility to test different inputs without modifying the query itself.
 
 3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),
 **or** click the **green Play button** in the toolbar.
+
+![graphql](/img/voiden-blocks/graphql-output.gif)
+
+## Summary
+
+The GraphQL Variables block in Voiden lets you pass dynamic values to your queries without hardcoding them. By separating inputs from query logic, it keeps requests clean, reusable, and easy to test across different scenarios.
