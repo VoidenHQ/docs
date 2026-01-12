@@ -61,8 +61,12 @@ const sidebars: SidebarsConfig = {
           items: ["core-features-section/voiden-blocks/advanced-authorization/basic-auth-block", "core-features-section/voiden-blocks/advanced-authorization/api-key-block", "core-features-section/voiden-blocks/advanced-authorization/auth-bearer-block", "core-features-section/voiden-blocks/advanced-authorization/auth-digest-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth1-block", "core-features-section/voiden-blocks/advanced-authorization/auth-oauth2-block"],
         },
         "core-features-section/voiden-blocks/assertion-block",
-        "core-features-section/voiden-blocks/reusable-blocks"
-
+        "core-features-section/voiden-blocks/reusable-blocks",
+        {
+      type: "category",
+      label: "GraphQL Blocks",
+      items: ["core-features-section/voiden-blocks/graphql-query", "core-features-section/voiden-blocks/graphql-variable"],
+    },
       ],
     },
     {
