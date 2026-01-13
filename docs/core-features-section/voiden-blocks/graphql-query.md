@@ -19,18 +19,15 @@ Voiden gives you a calm, friendly space to write and test your queries, so you c
 
 ![graphql](/img/voiden-blocks/graphql-query.png)
 
-
 2. Two Ways to Run a GraphQL Query in Voiden
 
      you can work with GraphQL queries in two flexible ways. Both options allow Voiden to understand your **types, queries, mutations, and subscriptions**, so you can focus on writing and testing queries with confidence.
 
 ![graph](/img/voiden-blocks/graphql-select.png)
 
-
-  1. Importing a GraphQL Schema File
+  - Importing a GraphQL Schema File
 
       You can import a GraphQL schema file such as **`.graphql`** or **`.gql`** directly into Voiden.
-
       When you do this:
       - Voiden reads all **types**, **queries**, **mutations**, and **subscriptions** from the schema  
       - The schema becomes available locally and works well in offline scenarios  
@@ -38,10 +35,9 @@ Voiden gives you a calm, friendly space to write and test your queries, so you c
 
       This approach is ideal when you already have the schema file and want full control over it.
 
-  2. Using GraphQL Introspection
+  - Using GraphQL Introspection
 
       Alternatively, you can provide a **GraphQL endpoint URL** to Voiden.
-
       In this case:
       - Voiden makes an **introspection query** to the GraphQL server  
       - The server returns all available **types**, **queries**, **mutations**, and **subscriptions**  
@@ -59,7 +55,7 @@ Voiden gives you a calm, friendly space to write and test your queries, so you c
       - The **Query block** defines the structure of the request  
       - The **Variables block** provides the dynamic values  
 
-Together, they make working with GraphQL in Voiden clear, flexible, and easy to manage.
+      Together, they make working with GraphQL in Voiden clear, flexible, and easy to manage.
 
 ---
 
@@ -68,6 +64,7 @@ Together, they make working with GraphQL in Voiden clear, flexible, and easy to 
 
 ![graphql](/img/voiden-blocks/graph-query-done.gif)
 
+---
 ## Summary
 
 Voiden makes working with GraphQL queries simple and flexible by letting you create queries quickly, load schemas via files or introspection, and pass dynamic arguments using variables. With a clear query flow and visual feedback, you can write, run, and understand GraphQL requests with confidence.
