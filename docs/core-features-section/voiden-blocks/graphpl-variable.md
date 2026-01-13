@@ -33,7 +33,6 @@ In simple terms, the Variables block provides the “inputs” for your GraphQL 
 2. Once the query includes variables, Voiden automatically creates a **Variables block**. This block appears as a **JSON code editor** where you can define the values for those variables.
 
     **Provide Variable Values**  
-    Inside the Variables block, you can:
     - Enter values manually as JSON  
     - Use [**environment variables**](/docs/core-features-section/variables/enviroment-variables.md)
     - Use [**runtime variables**](/docs/core-features-section/variables/runtime-variables.md)
@@ -45,6 +44,7 @@ In simple terms, the Variables block provides the “inputs” for your GraphQL 
 
 ![graphql](/img/voiden-blocks/graphql-output.gif)
 
+---
 ## Summary
 
 The GraphQL Variables block in Voiden lets you pass dynamic values to your queries without hardcoding them. By separating inputs from query logic, it keeps requests clean, reusable, and easy to test across different scenarios.
