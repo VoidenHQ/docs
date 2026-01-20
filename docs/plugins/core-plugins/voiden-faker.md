@@ -8,6 +8,9 @@
 
 The **Voiden Faker** core plugin enables developers to generate dynamic, realistic test data directly inside Voiden HTTP requests. It integrates seamlessly into the request lifecycle, allowing any text field to be populated using Faker.js expressions.
 
+> Argument support isn’t available just yet, but it’s on our roadmap and something we’re actively working on.
+
+
 **Type:** Core Plugin
 
 Voiden Faker enhances the request-building experience by letting users embed Faker.js function calls inside request bodies, headers, params, and other supported fields.
@@ -49,25 +52,14 @@ These values are automatically evaluated during the `pre-send` stage of the requ
 
 ##  Usage Examples
 
-### **Example 1: Generate a Random Name**
+
+![faker](/img/plugins/openapi-collection/faker.gif)
 
 ```json
 {
-  "username": "{{$faker.person.firstName()}}"
+  "email": "{{$faker.internet.email()}}"
 }
 ```
 
-### **Example 2: Fake Email in Headers**
-
-```
-Authorization: Bearer {{$faker.string.uuid()}}
-X-User-Email: {{$faker.internet.email()}}
-```
-
-### **Example 3: Fake Data in Query Params**
-
-```
-?city={{$faker.location.city()}}&age={{$faker.number.int()}}
-```
 ---
 
