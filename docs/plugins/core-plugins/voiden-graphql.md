@@ -4,9 +4,7 @@ title: GraphQL
 sidebar_label: GraphQL
 ---
 
-#  <div style={{display:"flex",alignItems:"center"}}> GraphQL <small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
-
-> **Note:** This feature is currently in **Beta**.
+# GraphQL
 
 GraphQL is a flexible and powerful API query language that allows clients to request exactly the data they need. Instead of working with multiple endpoints, GraphQL uses a single endpoint and relies on a strongly typed schema to describe available data and operations.
 

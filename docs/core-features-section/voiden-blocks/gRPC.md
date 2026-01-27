@@ -5,10 +5,9 @@
   sidebar_position: 7
 ---
 
-#  <div style={{display:"flex",alignItems:"center"}}> gRPC Block<small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
+# gRPC Block
 
 
-> **Note:** This feature is currently in **Beta**.
 
 Voiden uses **gRPCs** to enable fast, reliable, and strongly-typed communication between internal services and external clients. By leveraging gRPC, Voiden ensures efficient data exchange, low latency, and clear API contracts that scale well with complex and distributed systems.
 

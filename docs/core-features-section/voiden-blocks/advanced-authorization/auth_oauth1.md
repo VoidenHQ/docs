@@ -12,6 +12,7 @@ It uses a signature-based approach, combining consumer keys, tokens, and cryptog
 
 **Voiden** support OAuth 1.0 authentication as well, enabling you to connect with APIs that require this older but still widely used standard (such as some legacy or enterprise systems).
 
+---
 
 ###  Try it Out
 
@@ -19,7 +20,7 @@ It uses a signature-based approach, combining consumer keys, tokens, and cryptog
 
 ![Authorization OAuth1 Slash Command](/img/voiden-blocks/authorization/auth-oauth1.png)
 
-1. Fill the required params for the block.
+2. Fill the required params for the block.
 
 ![Authorization OAuth1 Slash Command](/img/voiden-blocks/authorization/auth-oauth1-params.png)
 
@@ -27,6 +28,8 @@ It uses a signature-based approach, combining consumer keys, tokens, and cryptog
 **or** click the **green Play button** in the toolbar.
 
 4. Check the **Response Panel** 
+
+---
 
 ###  Block Parameters
 | Parameter | Value | Description |

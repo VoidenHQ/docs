@@ -23,7 +23,7 @@ Voiden automatically substitutes them into the URL at runtime, keeping your endp
 **or** click the **green Play button** in the toolbar. 
 4. Check the **Response Panel**. In the **Request Summary / Security** section you’ll see your path params applied to the endpoint URL, confirming they’re being sent as expected.
 
-![path-param](/img/plugins/openapi-collection/path-params-done.gif)
+    ![path-param](/img/plugins/openapi-collection/path-params-done.gif)
 
 ---
 

@@ -4,9 +4,7 @@
   sidebar_label: Overview
   sidebar_position: 1
 ---
-#  <div style={{display:"flex",alignItems:"center"}}> Socket & gRPC APIs<small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
-
-> **Note:** This feature is currently in **Beta**.
+# Socket & gRPC APIs
 
 Voiden supports **Socket and gRPC APIs** through its core plugin system, enabling developers to generate dynamic, realistic test data directly within Socket and gRPC requests.
 
