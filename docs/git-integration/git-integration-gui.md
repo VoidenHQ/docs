@@ -6,9 +6,7 @@
 ---
 
 
-#  <div style={{display:"flex",alignItems:"center"}}> Git Integration GUI <small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
-
-> **Note:** This feature is currently in **Beta**.
+# Git Integration GUI 
 
 The **Git Integration GUI** in Voiden provides a visual, approachable way to work with Git repositories—without requiring you to memorize commands or live in the terminal. It allows you to view changes, stage files, create commits, manage branches, and track history through a clean and intuitive interface.
 

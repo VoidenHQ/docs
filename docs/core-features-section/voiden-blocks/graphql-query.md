@@ -3,9 +3,7 @@
   title: GraphQL Query Block
   sidebar_label: GraphQL Query Block
 ---
-#  <div style={{display:"flex",alignItems:"center"}}> GraphQL Query<small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
-
-> **Note:** This feature is currently in **Beta**.
+# GraphQL Query
 
 GraphQL queries in **Voiden** make fetching data feel simple and intentional. You tell the API exactly what you need, and Voiden helps you send that request and clearly understand the response—without extra noise or confusion.
 
@@ -17,13 +15,13 @@ Voiden gives you a calm, friendly space to write and test your queries, so you c
 
 1. In your Voiden file, type `/gqlquery` and press **Enter** to create a **GraphQL Query**.
 
-![graphql](/img/voiden-blocks/graphql-query.png)
+    ![graphql](/img/voiden-blocks/graphql-query.png)
 
 2. Two Ways to Run a GraphQL Query in Voiden
 
      you can work with GraphQL queries in two flexible ways. Both options allow Voiden to understand your **types, queries, mutations, and subscriptions**, so you can focus on writing and testing queries with confidence.
 
-![graph](/img/voiden-blocks/graphql-select.png)
+    ![graph](/img/voiden-blocks/graphql-select.png)
 
   - Importing a GraphQL Schema File
 
@@ -62,7 +60,7 @@ Voiden gives you a calm, friendly space to write and test your queries, so you c
 4. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),
 **or** click the **green Play button** in the toolbar.
 
-![graphql](/img/voiden-blocks/graph-query-done.gif)
+    ![graphql](/img/voiden-blocks/graph-query-done.gif)
 
 ---
 ## Summary

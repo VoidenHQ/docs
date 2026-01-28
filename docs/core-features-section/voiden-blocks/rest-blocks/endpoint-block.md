@@ -8,7 +8,7 @@
 # Endpoint Block
 
 Every API call starts with a destination and a method.  
-The **Endpoint Block** in Voiden gives you both — a clean space to define your `URL` and an `HTTP` method, with a built-in ▶️ Run button right where you need it.
+The **Endpoint Block** in Voiden gives you both — a clean space to define your `URL` and an `HTTP` method, with a built-in  Run button right where you need it.
 
 No hidden dropdowns. No separate panels for method selection.
 Just type your endpoint, type your method (`GET`, `POST`, `PUT`, `DELETE`, `PATCH`, `HEAD`), and hit run — all in one focused block.

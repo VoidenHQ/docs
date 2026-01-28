@@ -5,9 +5,7 @@
   sidebar_position: 2
 ---
 
-#  <div style={{display:"flex",alignItems:"center"}}> Web Socket<small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
-
-> **Note:** This feature is currently in **Beta**.
+# Web Socket
 
 Voiden supports multiple WebSocket message types, allowing you to send and receive data in the format that best fits your application. Whether you’re sending simple commands or complex structured data, Voiden makes WebSocket messaging flexible and easy to work with.
 

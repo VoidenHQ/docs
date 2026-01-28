@@ -4,10 +4,8 @@
   sidebar_label: WebSocket Block
   sidebar_position: 6
 ---
-#  <div style={{display:"flex",alignItems:"center"}}> WebSocket  Block<small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
+# WebSocket  Block
 
-
-> **Note:** This feature is currently in **Beta**.
 
 WebSocket is a communication protocol that enables **real-time, two-way communication** between a client and a server over a single, long-lived connection. Unlike traditional HTTP, WebSocket allows both sides to send data at any time, making it ideal for live and interactive applications.
 
