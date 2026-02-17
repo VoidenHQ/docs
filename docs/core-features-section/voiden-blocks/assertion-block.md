@@ -51,3 +51,15 @@ Voiden proudly supports Assertions as a **reusable block**, because why should o
 | `is-truthy` | `truthy` | Truthy value |
 | `is-falsy` | `falsy` | Falsy value |
 | `type-is` | `typeof` | Type check |
+
+### Available fields
+
+| Field | Example value |
+| :--- | :--- | :--- |
+| status | 200 |
+| statusText | OK |
+| responseTime | 500 |
+| duration | 1000 |
+| header | for example, `header.Content-Type` might have `applcation/json` |
+| body | for example, `body.data[0].id` would read the id from `{ "data": [ { "id": 0} ] }`
+
