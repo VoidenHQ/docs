@@ -9,6 +9,8 @@
 
 Customize Voiden to match your workflow and preferences. The settings page lets you personalize everything from appearance to keyboard shortcuts.
 
+---
+
 ## Editor Behavior
 
 ### Auto Save
@@ -21,18 +23,23 @@ Enable automatic saving of your work:
 ### Security Settings
 - **Disable TLS Verification**: Toggle to bypass certificate validation (for testing environments only)
 
+---
+
 ### Proxy Configuration
 Set up proxy settings for network requests:
 
 ![proxy](/img/geetingstarted/proxy.png)
 
 With Authentication Enabled
+
 ![authproxy](/img/geetingstarted/authproxy.png)
 
 **Configure:**
 - Proxy host and port
 - Authentication credentials (if required)
 - Bypass rules for specific domains
+
+---
 
 ## Updates
 
@@ -49,12 +56,16 @@ With Authentication Enabled
   - Better visual representation of file types and status indicators
   - Improved terminal experience with icon-rich displays
 
+---
+
 ## Keyboard Shortcuts
 
 ### Essential Shortcuts
 Voiden provides comprehensive keyboard shortcuts for faster navigation and workflow:
 
 ![keyshortcut](/img/geetingstarted/themes/keyshortcut.gif)
+
+---
 
 **Common Shortcuts:**
 - **File Operations**: Create, save, and manage void files

@@ -9,6 +9,8 @@
 
 Getting started with Voiden using your existing Postman collections couldn't be easier! If you've been testing and building your APIs in Postman, you've already done most of the hard work. Now let's transform that effort into ready-to-use Voiden files.
 
+---
+
 ## What You'll Need:
 - A Postman Collection exported as JSON (we recommend using the latest v2.1 format for best results)
 
@@ -28,12 +30,16 @@ Once your Postman collection is imported, the magic begins:
 
 ![import-postman](/img/geetingstarted/import-postman.gif)
 
+---
+
 ## What Gets Converted?
 - All your HTTP endpoints (GET, POST, PUT, DELETE, etc.)
 - Request headers and authentication settings
 - Query parameters and path variables
 - Request body schemas and examples
 - Response examples and status codes
+
+---
 
 ## Ready to Roll!
 The best part? Once generated, you can immediately start working with your API in the Voiden ecosystem. No manual setup, no copy-pasting, no room for errors.

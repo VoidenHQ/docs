@@ -11,6 +11,8 @@
 
 **Authorization Digest** is like a spy proving they know the secret code by showing they can solve the puzzle, without ever revealing the code itself!
 
+---
+
 ###  Try it Out
 
 1. In your Voiden file, type `/auth-digest` and press **Enter** to create a **Authorization Digest Block**.  
@@ -25,6 +27,8 @@
 **or** click the **green Play button** in the toolbar.
 
 4. Check the **Response Panel** 
+
+---
 
 ###  Block Parameters
 | Parameter | Value | Description |

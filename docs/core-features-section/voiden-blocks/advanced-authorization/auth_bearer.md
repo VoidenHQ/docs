@@ -11,6 +11,8 @@
 
 For a more modern approach, we also offer Bearer Token authentication—think of it as a VIP pass that does all the talking for you after the first introduction. Whichever you choose, you’re covered!
 
+---
+
 ###  Try it Out
 
 1. In your Voiden file, type `/auth-bearer` and press **Enter** to create a **Authorization Bearer Block**.  
@@ -25,6 +27,8 @@ For a more modern approach, we also offer Bearer Token authentication—think of
 **or** click the **green  Play button** in the toolbar.
 
 4. Check the **Response Panel** 
+
+---
 
 ### Block Parameters
 | Parameter | Value | Description |

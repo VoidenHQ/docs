@@ -9,6 +9,8 @@
 
 Need a variable that's not fixed but depends on another request's response? Runtime variables let you capture values from one API call and reuse them in subsequent requests.
 
+---
+
 ## What are Runtime Variables?
 
 Runtime variables are dynamic values that get set during request execution. They're perfect for scenarios like:
@@ -16,11 +18,14 @@ Runtime variables are dynamic values that get set during request execution. They
 - Storing a user ID from a create-user response
 - Saving an order ID to use in later order management calls
 
+
 ## Creating Runtime Variables
 
 Add a `/runtime-variables` block in your voiden file:
 
   ![Runtime Variable](/img/voiden-blocks/runtime/variable.gif)
+
+---
 
 ### Available Data Sources
 
@@ -75,6 +80,8 @@ Add a `/runtime-variables` block in your voiden file:
 >       any_id: "{{$res.body.ids}}"                 # Gets first ID in array
 >       ```
 
+---
+
 # Example Workflow
 
 1. **First request**
@@ -87,6 +94,8 @@ Add a `/runtime-variables` block in your voiden file:
     - Pressing **Cmd + Enter** (on macOS) or **Ctrl + Enter** (on Windows/Linux), **or**  
     - Clicking the bright **green  Play button** in the toolbar.  
 
+---
+
 2. **Second request**
 
     Reference the variables using `process` anywhere 
@@ -94,6 +103,7 @@ Add a `/runtime-variables` block in your voiden file:
       ![Access Variable](/img/voiden-blocks/runtime/access-variable.gif)
   
 
+---
 
 # Best Practices
 - Use descriptive names: session_token instead of token1

@@ -4,6 +4,8 @@ The **Simple Assertions** plugin provides an easy and intuitive way to validate 
 
 This makes assertion testing lightweight, readable, and tightly coupled with real API responses—without adding unnecessary complexity.
 
+Want to dive deeper? Check out the full [Assertion Block documentation.](/docs/core-features-section/voiden-blocks/assertion-block)
+
 ---
 
 ## What You Can Assert
@@ -43,20 +45,28 @@ Check whether the request succeeded or failed using the HTTP status code. This i
 
 ![statuscheck](/img/plugins/openapi-collection/check-status.gif)
 
+---
+
 ### 2. Status Text
 Check the human-readable status message returned by the server, such as `OK`, `Created`, or `Bad Request`. This adds an extra layer of clarity beyond just the numeric status code.
 
 ![checkstatus](/img/plugins/openapi-collection/checktext.gif)
+
+---
 
 ### 3. Response Time / Duration
 Check how long the request took to complete. This helps you keep an eye on performance and spot slow responses before they become an issue.
 
 ![responsetime](/img/plugins/openapi-collection/responsetime.gif)
 
+---
+
 ### 4. Response Headers
 Check specific response headers and their values, such as `Content-Type`, authentication headers, or any custom metadata your API returns.
 
 ![headerconnection](/img/plugins/openapi-collection/headercoonection.gif)
+
+---
 
 ### 5. Response Body
 Check the actual response content. Depending on the format, you can validate JSON fields to make sure the response structure and data are exactly what you expect.

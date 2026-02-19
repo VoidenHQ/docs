@@ -41,7 +41,7 @@ Things to keep about Voiden:
 
 ## Feedback 
 
-We take all feedback super seriously. In fact we are preparring to open source this very soon (details will follow)...
+We truly value all feedback. Voiden is now open-source, and we’d love for you to contribute, suggest improvements, or report issues.
 
 - Raise an issue [here](https://github.com/VoidenHQ/feedback/issues). 
 - Talk to use here: [here](https://discord.com/invite/XSYCf7JF4F). 

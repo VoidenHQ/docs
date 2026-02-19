@@ -5,9 +5,7 @@ sidebar_label: OpenAPI Schema Validation
 sidebar_position: 9
 ---
 
-# <div style={{display:"flex",alignItems:"center"}}> OpenAPI Schema Validation <small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
-
-> **Note:** This feature is currently in **Beta**.
+# OpenAPI Schema Validation 
 
 Voiden supports **OpenAPI Schema Validation** for files generated from OpenAPI imports.  
 When you import an OpenAPI `.yaml` or `.json` file and generate Voiden requests, Voiden automatically validates your requests and request bodies **against the schema** on request call.

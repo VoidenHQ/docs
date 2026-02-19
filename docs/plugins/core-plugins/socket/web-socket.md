@@ -9,6 +9,8 @@
 
 Voiden supports multiple WebSocket message types, allowing you to send and receive data in the format that best fits your application. Whether you’re sending simple commands or complex structured data, Voiden makes WebSocket messaging flexible and easy to work with.
 
+For detailed configuration and advanced usage, see the [WebSocket Block documentation](/docs/core-features-section/voiden-blocks/wss.md).
+
 ---
 
 

@@ -42,12 +42,35 @@ Your Voiden projects are **pure Markdown**, ready to commit, diff, merge, and ro
 
 Voiden keeps your workflow transparent, flexible, and 100% yours.
 
+Want to know how Voiden works with Git? Check out the [Git Integration documentation](/docs/git-integration/overview.md) 
+
+
 ---
+
+## Voiden CLI
+
+The **Voiden CLI** lets you launch and manage Voiden directly from your terminal. It’s lightweight, fast, and designed to fit naturally into modern developer workflows.
+
+Explore the [**CLI**](/docs/developer-tools/voiden-cli.md) to manage Voiden directly from your terminal.
+
+### Quick Examples
+
+```bash
+voiden                 # Open Voiden
+voiden ~/Documents     # Open a directory
+voiden myproject       # Open a project from current folder
+voiden file.txt        # Open file as a tab
+voiden -v              # Show version
+voiden --help          # Show help
+```
 
 > **TL;DR:**  
 > Every Voiden file is Markdown at heart — `.void` is just its superhero alias.
 
+---
 
-## What's Next?
+### Ready to get started?
 
-- [Installation](./installation.md)
+ [**Install Voiden**](./installation.md)
+ to set up Voiden on your system and start building.
+

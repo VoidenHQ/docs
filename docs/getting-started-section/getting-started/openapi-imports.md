@@ -9,12 +9,16 @@
 
 Get started with your existing APIs in seconds! Voiden lets you import OpenAPI specifications and instantly generate ready-to-use API requests.
 
+---
+
 ## Quick Start
 
 ### 1. **Open Your OpenAPI File**
 - Drag & drop your `openapi.yaml` or `openapi.json` file into Voiden
 
 ![drop-openAPI](/img/voiden-blocks/drop-openapi.gif)
+
+---
 
 ### 2. **Preview Your Endpoints**
 - Click the **"OpenAPI Preview"** button that appears
@@ -24,6 +28,8 @@ Get started with your existing APIs in seconds! Voiden lets you import OpenAPI s
 
 ![open-preview](/img/voiden-blocks/open-preview.gif)
 
+---
+
 ### 3. **Generate Voiden Files**
 - Select the required API, or use the Select All option to choose all available APIs in one click.
 - Click the **"Generate"** button
@@ -31,6 +37,8 @@ Get started with your existing APIs in seconds! Voiden lets you import OpenAPI s
 - Each endpoint becomes a ready-to-use `.void` request file
 
 ![open-file](/img/voiden-blocks/file-openapi.gif)
+
+---
 
 ## What You Get
 

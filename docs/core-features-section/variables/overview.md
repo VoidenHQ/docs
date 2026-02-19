@@ -9,6 +9,8 @@
 
 Stop repeating yourself! Variables in Voiden let you define values once and reuse them across all your API requests. No more hardcoding the same URLs, tokens, or data in every single void file.
 
+---
+
 ## Why Use Variables?
 
 - **Consistency**: Use the same base URL, authentication tokens, or user IDs everywhere
@@ -16,14 +18,18 @@ Stop repeating yourself! Variables in Voiden let you define values once and reus
 - **Maintainability**: Update a value in one place and it reflects across all your requests
 - **Security**: Keep sensitive data like API keys out of your request files
 
+---
+
 ## Types of Variables
 
 ###  Environmental Variables
-These are your configuration constants that change based on the environment you're working in.
+
+  These are your configuration constants that change based on the environment you're working in.
 
 
 ###  Runtime Variables
-These are dynamic values that get set during request execution and can be used in subsequent requests.
+
+  These are dynamic values that get set during request execution and can be used in subsequent requests.
 
 
 ## Best Practices

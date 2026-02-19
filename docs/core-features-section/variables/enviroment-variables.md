@@ -9,11 +9,13 @@
 
 Environment variables let you manage different configurations for various deployment environments (development, staging, production) without changing your code.
 
+---
+
 ## Setting Your Environment
 
-1. Look at the top navigation bar
-2. Find the **environment selector** located next to the recent project selector
-3. Click on the environment dropdown to open the selection popup
+- Look at the top navigation bar
+- Find the **environment selector** located next to the recent project selector
+- Click on the environment dropdown to open the selection popup
 
 ### Available Options
 - **None**: No environment selected (uses only local variables)
@@ -28,6 +30,8 @@ Environment variables let you manage different configurations for various deploy
 - Environment variables override default global variables
 - This ensures you can have environment-specific values while still allowing local overrides for testing
 
+---
+
 ## Creating Environment Files
 
 Environment files should always start with .env followed by the environment name.
@@ -40,12 +44,14 @@ For example:
 
 The base .env file acts as the global configuration, and environment-specific files override or extend these values.
 
-  **Default Environment (`.env`)**
+ **Default Environment (`.env`)**
 ```env
 API_BASE_URL=https://api.example.com
 API_VERSION=v1
 DB_HOST=localhost
 ```
+
+
 
 ### Benefits of Using Environment Variables
 
