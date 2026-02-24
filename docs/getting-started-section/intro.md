@@ -44,7 +44,7 @@ Things to keep about Voiden:
 We truly value all feedback. Voiden is now open-source, and we’d love for you to contribute, suggest improvements, or report issues.
 
 - Raise an issue [here](https://github.com/VoidenHQ/feedback/issues). 
-- Talk to use here: [here](https://discord.com/invite/XSYCf7JF4F). 
+- Talk to us here: [here](https://discord.com/invite/XSYCf7JF4F). 
 
 ---
 
@@ -52,4 +52,3 @@ We truly value all feedback. Voiden is now open-source, and we’d love for you 
 
 👉 Check the [**Installation**](./getting-started/installation.md) guide before you start clicking random buttons.  
 (Or don’t. We’re not your boss. But you might regret it.)
-
