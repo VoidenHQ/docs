@@ -26,7 +26,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Getting Started",
-      items: ["getting-started-section/getting-started/installation", "getting-started-section/getting-started/quick-start", "getting-started-section/getting-started/postman-import", "getting-started-section/getting-started/openapi-imports","getting-started-section/getting-started/openapi-validation", "getting-started-section/getting-started/the-basics"],
+      items: ["getting-started-section/getting-started/installation", "getting-started-section/getting-started/quick-start", "getting-started-section/getting-started/postman-import", "getting-started-section/getting-started/openapi-imports","getting-started-section/getting-started/openapi-validation", "getting-started-section/getting-started/the-basics", "getting-started-section/getting-started/voiden-editor"],
     },
     {
       type: 'category',
@@ -53,6 +53,14 @@ const sidebars: SidebarsConfig = {
           items: [
             "core-features-section/voiden-blocks/web-socket",
             "core-features-section/voiden-blocks/grpcs"
+          ],
+        },
+                {
+          type: "category",
+          label: "Pre & Post Script",
+          items: [
+            "core-features-section/voiden-blocks/pre & post script/pre-script",
+            "core-features-section/voiden-blocks/pre & post script/post-script"
           ],
         },
         {
@@ -101,7 +109,12 @@ const sidebars: SidebarsConfig = {
         type: "category",
         label: "Socket & gRPC APIs ",
         items: ["plugins/core-plugins/socket/overview", "plugins/core-plugins/socket/web-socket", "plugins/core-plugins/socket/grpc"],
-      },"plugins/core-plugins/voiden-graphql"],
+      },"plugins/core-plugins/voiden-graphql",
+      {type: "category",
+        label: " Voiden Scripting ",
+        items: ["plugins/core-plugins/pre-post script/overview", "plugins/core-plugins/pre-post script/pre-script", "plugins/core-plugins/pre-post script/post-script"],
+    }
+  ],
     },
     {
       type: "category",
