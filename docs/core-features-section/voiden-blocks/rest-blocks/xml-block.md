@@ -18,7 +18,7 @@ And when your tags get tangled? Hit **Prettify** in the top-right corner to form
 
 1. Type `/xml` to add an **XML Block** payload to your Voiden file
 
-![xml](/img/plugins/openapi-collection/xml-pre.png)
+![xml](/img/plugins/socket/xml-pre.png)
 
 2. Paste in (or type) the sample **XML**
 3. Hit **Cmd + Enter** (Mac) or **Ctrl + Enter**  (Windows/Linux) to run the request  
@@ -26,7 +26,7 @@ And when your tags get tangled? Hit **Prettify** in the top-right corner to form
 
 ---
 
-![xml](/img/plugins/openapi-collection/xml-post.gif)
+![xml](/img/plugins/socket/xml-post.gif)
 >  **Pro Tip:** Want to comment out a line without overkill?  
 > Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment out an XML line you don't need for that payload.  
 > It’ll stay visible but won’t be sent with the request.  

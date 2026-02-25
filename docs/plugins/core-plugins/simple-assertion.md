@@ -28,7 +28,7 @@ This gives you both **functional validation** and **basic performance checks** i
 - Clean, easy-to-read table format:
 - Insertable using the `/assertions` slash command
 
-![assertion](/img/plugins/openapi-collection/simple-assertion.gif)
+![assertion](/img/plugins/assertion/simple-assertion.gif)
 
 The table format keeps tests readable, even when you add multiple assertions.
 
@@ -43,35 +43,35 @@ Here’s what you can assert against:
 ### 1. Status / Status Code
 Check whether the request succeeded or failed using the HTTP status code. This is great for confirming expected outcomes like `200 OK` or handling error cases such as `401 Unauthorized`.
 
-![statuscheck](/img/plugins/openapi-collection/check-status.gif)
+![statuscheck](/img/plugins/assertion/check-status.gif)
 
 ---
 
 ### 2. Status Text
 Check the human-readable status message returned by the server, such as `OK`, `Created`, or `Bad Request`. This adds an extra layer of clarity beyond just the numeric status code.
 
-![checkstatus](/img/plugins/openapi-collection/checktext.gif)
+![checkstatus](/img/plugins/assertion/checktext.gif)
 
 ---
 
 ### 3. Response Time / Duration
 Check how long the request took to complete. This helps you keep an eye on performance and spot slow responses before they become an issue.
 
-![responsetime](/img/plugins/openapi-collection/responsetime.gif)
+![responsetime](/img/plugins/assertion/responsetime.gif)
 
 ---
 
 ### 4. Response Headers
 Check specific response headers and their values, such as `Content-Type`, authentication headers, or any custom metadata your API returns.
 
-![headerconnection](/img/plugins/openapi-collection/headercoonection.gif)
+![headerconnection](/img/plugins/assertion/headercoonection.gif)
 
 ---
 
 ### 5. Response Body
 Check the actual response content. Depending on the format, you can validate JSON fields to make sure the response structure and data are exactly what you expect.
 
-![responsebody](/img/plugins/openapi-collection/responsebody.gif)
+![responsebody](/img/plugins/assertion/responsebody.gif)
 
 
 

@@ -4,68 +4,32 @@
   sidebar_label: Post Script Blocks
 ---
 
-#  <div style={{display:"flex",alignItems:"center"}}> Pre Script <small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
+#  <div style={{display:"flex",alignItems:"center"}}> Post Script <small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
 
 > **Note:** This feature is currently in **Beta**.
 
-The **Post Script** runs after a response is received.
-It executes locally on your operating system inside Voiden — not on the API endpoint. The script runs in an isolated environment and processes the response after it returns to your machine.
+The **Post Script** block lets you run custom logic **after a response is received**.
 
-Post Scripts are used to validate, extract, and manage response data dynamically.
+It executes locally inside Voiden in an isolated environment. Use it to validate responses, extract values, store runtime variables, or write logs.
 
+Voiden supports **JavaScript** and **Python**.
 
-Voiden supports writing Post Scripts in:
-
-- **JavaScript**
-- **Python**
+For a full reference of what you can do inside a script, see the [Voiden Script Plugin](/docs/plugins/core-plugins/pre-post%20script/overview).
 
 ---
 
-## Try It Out
+## How to Insert
 
-1. In your Voiden file, type `/post_script` and press **Enter** to insert a Post Script block.  
+1. In your Voiden file, type `/post_script` and press **Enter**.
 
-  ![post-script](/img/voiden-blocks/post-scripts.png)
+    ![post-script](/img/voiden-blocks/post-scripts.png)
 
-2. Add your script logic inside the block.  
+2. Add your script logic inside the block.
 
-![post-done](/img/voiden-blocks/post-done.png)
+    ![post-done](/img/voiden-blocks/post-done.png)
 
-3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux).  
+3. Run the request with **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux).
 
-![post-script-done](/img/voiden-blocks/post-script-done.png)
+    ![post-script-done](/img/voiden-blocks/post-script-done.png)
 
-4. View results, logs, and assertions in the **Response panel**.
-
----
-
-## What You Can Do
-
-Using the exposed `voiden` API, you can:
-
-- Read response status and status text  
-- Read response headers  
-- Read response body  
-- Check response time and size  
-- Store runtime variables  
-- Read environment variables  
-- Write logs  
-- Create assertions  
-
----
-
-## Execution Environment
-
-- JavaScript runs in an isolated Node.js subprocess.  
-- Python runs in a separate Python process.  
-- Scripts only access the exposed `voiden` API.  
-
-This ensures safe and controlled execution.
-
----
-
-## Summary
-
-The Post Script allows you to process and validate a response after it is received.
-
-It provides controlled, local automation for response handling, validation, logging, and variable management using JavaScript or Python.
+4. View response and assertions in the **Response panel** and logs in the **Script Logs**.

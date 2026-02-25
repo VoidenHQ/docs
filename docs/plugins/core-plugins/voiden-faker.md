@@ -53,7 +53,7 @@ These values are automatically evaluated during the `pre-send` stage of the requ
 ##  Usage Examples
 
 
-![faker](/img/plugins/openapi-collection/faker.gif)
+![faker](/img/plugins/faker/faker.gif)
 
 ---
 

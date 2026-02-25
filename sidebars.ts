@@ -21,7 +21,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'doc',
       id: 'getting-started-section/intro',
-      label: 'Welcome to Voiden hub',
+      label: 'Welcome to Voiden Hub',
     },
     {
       type: "category",
@@ -57,7 +57,7 @@ const sidebars: SidebarsConfig = {
         },
                 {
           type: "category",
-          label: "Pre & Post Script",
+          label: "Pre & Post Script Blocks",
           items: [
             "core-features-section/voiden-blocks/pre & post script/pre-script",
             "core-features-section/voiden-blocks/pre & post script/post-script"

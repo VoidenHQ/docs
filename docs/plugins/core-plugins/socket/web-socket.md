@@ -25,7 +25,7 @@ Text messages are plain, human-readable messages commonly used for simple commun
 - **Encoding:** UTF-8  
 
 **Example Text Messages**
-![websocket](/img/plugins/openapi-collection/message.png)
+![websocket](/img/plugins/socket/message.png)
 
 **When to Use**
 - Simple commands or instructions  
@@ -44,7 +44,7 @@ JSON messages allow you to exchange structured and expressive data, making them 
 - **Size:** Limited by WebSocket frame size  
 
 **Example JSON Message**
-![websocket](/img/plugins/openapi-collection/json-message.png)
+![websocket](/img/plugins/socket/json-message.png)
 
 ---
 
@@ -59,7 +59,7 @@ XML messages are mainly used when working with **legacy systems** or services th
 - **Size:** Limited by the WebSocket frame size  
 
 **Example XML Message**
-![xml](/img/plugins/openapi-collection/xml.png)
+![xml](/img/plugins/socket/xml.png)
 
 
 **When to Use**
@@ -83,7 +83,7 @@ WebSockets are created and managed using **JavaScript** inside an HTML page.
 
 **Example XML Message**
 
-![HTML](/img/plugins/openapi-collection/html.png)
+![HTML](/img/plugins/socket/html.png)
 
 
 **When to Use**

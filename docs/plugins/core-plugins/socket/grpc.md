@@ -49,7 +49,7 @@ For example, you might see services like:
 - **UserService**
 - **PassService**
 
-![services](/img/plugins/openapi-collection/userservice.png)
+![services](/img/plugins/socket/userservice.png)
 
 In Voiden, you simply choose the service you want (for example, `UserService`) from the dropdown—no manual configuration needed.
 
@@ -65,7 +65,7 @@ For example, a `UserService` might include:
 - `UserListener` — listen for user updates  
 - `Chat` — bidirectional chat streaming  
 
-![methods](/img/plugins/openapi-collection/method.png)
+![methods](/img/plugins/socket/method.png)
 
 Once you select a method, Voiden automatically knows what input it expects based on the proto definition.
 

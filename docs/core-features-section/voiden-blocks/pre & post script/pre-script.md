@@ -8,62 +8,28 @@
 
 > **Note:** This feature is currently in **Beta**.
 
+The **Pre Script** block lets you run custom logic **before a request is sent**.
 
-The **Pre Script** allows you to run custom logic **before a request is sent**.
+It executes locally inside Voiden — not on the API endpoint — in an isolated environment. Use it to dynamically prepare the request: generate tokens, update headers, set variables, or add conditional logic.
 
-It executes locally on your operating system inside Voiden — not on the API endpoint. The script runs in an isolated environment and can modify the request before it leaves your machine.
+Voiden supports **JavaScript** and **Python**.
 
-Pre Scripts are useful when you need to:
-
-- Generate dynamic values (tokens, timestamps, IDs)
-- Modify headers
-- Update query or path parameters
-- Prepare or serialize request body data
-- Set runtime variables
-- Add conditional logic before execution
-
-Voiden supports writing Pre Scripts in:
-
-- **JavaScript**
-- **Python**
+For a full reference of what you can do inside a script, see the [Voiden Script Plugin](/docs/plugins/core-plugins/pre-post%20script/overview).
 
 ---
 
-## Try It Out
+## How to Insert
 
-1. In your Voiden file, type `/pre_script` and press **Enter** to insert a Pre Script block.
+1. In your Voiden file, type `/pre_script` and press **Enter**.
 
-  ![pre-script](/img/voiden-blocks/pre-script.png)
+    ![pre-script](/img/voiden-blocks/pre-script.png)
 
 2. Add your script logic inside the block.
 
-  ![pre-done](/img/voiden-blocks/pre-done.png)
+    ![pre-done](/img/voiden-blocks/pre-done.png)
 
-3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux).
+3. Run the request with **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux).
 
-![pre-script-done](/img/voiden-blocks/pre-script-done.png)
+    ![pre-script-done](/img/voiden-blocks/pre-script-done.png)
 
-4. You will see the request execute and the results appear in the **Response panel**.
-
----
-
-## What You Can Modify
-
-Inside a Pre Script, you can access and modify the request using the exposed `voiden`  API.
-
-### Request Fields
-
-- `voiden.request.url`
-- `voiden.request.method`
-- `voiden.request.headers`
-- `voiden.request.body`
-- `voiden.request.queryParams`
-- `voiden.request.pathParams`
-
----
-
-## Summary
-
-The Pre Script runs before a request is sent and executes locally inside Voiden.
-
-It allows you to dynamically prepare and modify the request — including headers, parameters, body data, variables, logging, and validation — using JavaScript or Python, all within a secure and isolated environment.
+4. View response and assertions in the **Response panel** and logs in the **Script Logs**.
