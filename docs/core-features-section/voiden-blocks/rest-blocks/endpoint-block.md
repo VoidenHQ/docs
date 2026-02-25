@@ -32,7 +32,7 @@ Just type your endpoint, type your method (`GET`, `POST`, `PUT`, `DELETE`, `PATC
 
 ![endpoint](/img/voiden-blocks/endpoint-push.png)
 
->  **Pro Tip:** **Endpoints Block** defaults to `GET` method unless you specifically chose a different one.
+>  **Pro Tip:** **Endpoints Block** defaults to `GET` method unless you specifically choose a different one.
 
 ---
 The Endpoint Block keeps your API calls transparent and ready to run.  

@@ -22,7 +22,7 @@ In simple terms, the Variables block provides the “inputs” for your GraphQL 
 ---
 ### Try It Out
 
-1. In your Voiden file, type `/gqlvariables` and press **Enter** to create a **GraphQL variables**.
+1. In your Voiden file, type `/gqlvariables` and press **Enter** to create a **GraphQL variables Block**.
 
     ![graphql-variable](/img/voiden-blocks/graphql-variables.png)
 

@@ -20,7 +20,7 @@ And when things get messy? Hit **Prettify** in the top-right corner to instantly
 
 2. Paste in (or type) the sample **JSON**
 3. Hit **Cmd + Enter** (Mac) or **Ctrl + Enter**  (Windows/Linux) to run the request  
-**or** click the **gree  Play button** in the toolbar.  
+**or** click the **green  Play button** in the toolbar.  
 
 
 ---
@@ -33,5 +33,5 @@ And when things get messy? Hit **Prettify** in the top-right corner to instantly
 
 ---
 
-The JSON Block keeps your request body visible and editable, right where they belong.  
+The JSON Block keeps your request body visible and editable, right where it belongs.  
 Just pure JSON.

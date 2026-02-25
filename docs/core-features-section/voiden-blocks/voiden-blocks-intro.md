@@ -7,7 +7,7 @@
 
 # Meet Voiden Blocks
 
-This is an important principle of Voiden. Everything inside Voiden is a **Block** : the smallest, most flexible piece of your API world.  
+This is an important principle of Voiden. Everything inside Voiden is a **Block:** the smallest, most flexible piece of your API world.  
 Your endpoint is a block. Headers are blocks. Query params, form inputs, JSON bodies, XML payloads, even binary file attachments — all are separate individual blocks that you can add, remove, or reorder as you build your request.
 
 ![All Rest API Blocks](/img/voiden-blocks/all-rest-blocks.png)
@@ -20,4 +20,4 @@ With Voiden Blocks, your API requests are not static forms anymore — they are 
 > No other API tool today offers this level of **composability**.  
 > Voiden rethinks the entire workflow — replacing fixed UI templates with a flexible, modular system where you build your requests like you write code: one clean, purposeful block at a time.
 
-Read more [here](https://voiden.md/blog/maintaining-consistent-api-docs) to see how you can use Voiden Blocks to keep your APi docs consistent. 
+Read more [here](https://voiden.md/blog/maintaining-consistent-api-docs) to see how you can use Voiden Blocks to keep your API docs consistent. 

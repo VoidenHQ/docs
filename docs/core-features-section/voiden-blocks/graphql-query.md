@@ -19,7 +19,7 @@ Voiden gives you a calm, friendly space to write and test your queries, so you c
 
 2. Two Ways to Run a GraphQL Query in Voiden
 
-     you can work with GraphQL queries in two flexible ways. Both options allow Voiden to understand your **types, queries, mutations, and subscriptions**, so you can focus on writing and testing queries with confidence.
+     You can work with GraphQL queries in two flexible ways. Both options allow Voiden to understand your **types, queries, mutations, and subscriptions**, so you can focus on writing and testing queries with confidence.
 
     ![graph](/img/voiden-blocks/graphql-select.png)
 

@@ -7,7 +7,7 @@
 
 # Multipart Table Block
 
-Unlike JSON or XML, which keep things sleek and structured **Multipart** bodies let you send classic form data.  
+Unlike JSON or XML, which keep things sleek and structured, **Multipart** bodies let you send classic form data.  
 The **Multipart Table Block** gives you a clean key-value table to define your multipart form data — whether you're uploading profile pictures, submitting forms with attachments, or sending complex payloads that mix text and binary data.  
 When you need to send files, images, or mixed data types in a single request, multipart is the way to go.  
 

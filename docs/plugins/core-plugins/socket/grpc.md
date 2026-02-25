@@ -25,7 +25,7 @@ To get started with a gRPC request in Voiden:
 2. Type `/grpcs` and press **Enter**
 3. Voiden inserts a **gRPC block** where you can configure and run your request
 
-[**learn how to create and configure a gRPC request →**](/docs/core-features-section/voiden-blocks/gRPC.md)
+[**Learn how to create and configure a gRPC request →**](/docs/core-features-section/voiden-blocks/gRPC.md)
 
 
 ---

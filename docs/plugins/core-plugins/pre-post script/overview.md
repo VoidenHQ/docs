@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 > **Note:** This feature is currently in **Beta**.
 
-Voiden Scripting lets you run **JavaScript** or **Python** code as part of your request lifecycle, using the exposed `voiden` API.
+Voiden Scripting lets you run **JavaScript** or **Python** code as part of your request lifecycle, using the exposed `Voiden` API.
 
 Scripts run at two stages:
 
@@ -20,7 +20,7 @@ Scripts run at two stages:
 
 Both stages share the same `voiden` API.
 
-Scripts run in an isolated environment. You have full freedom to use any library or perform any operation — Voiden simply exposes the `voiden` API on top of that.
+You can use supported libraries and perform custom logic — Voiden exposes the `voiden` API on top of that.
 
 ---
 

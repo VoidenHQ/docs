@@ -57,7 +57,7 @@ These values are automatically evaluated during the `pre-send` stage of the requ
 
 ---
 
-### Example of Json Body 
+### Example of JSON Body 
 
 ```json
 {

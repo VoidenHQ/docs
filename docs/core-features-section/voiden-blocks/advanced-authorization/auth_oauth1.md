@@ -10,13 +10,13 @@
 OAuth 1.0 is a secure protocol that allows an application to access protected resources on behalf of a user — without directly sharing their credentials.
 It uses a signature-based approach, combining consumer keys, tokens, and cryptographic signing to verify each request’s authenticity.
 
-**Voiden** support OAuth 1.0 authentication as well, enabling you to connect with APIs that require this older but still widely used standard (such as some legacy or enterprise systems).
+**Voiden** supports OAuth 1.0 authentication as well, enabling you to connect with APIs that require this older but still widely used standard (such as some legacy or enterprise systems).
 
 ---
 
 ###  Try it Out
 
-1. In your Voiden file, type `/auth-oauth1` and press **Enter** to create a **Authorization Digest Block**.  
+1. In your Voiden file, type `/auth-oauth1` and press **Enter** to create an **Authorization Digest Block**.  
 
 ![Authorization OAuth1 Slash Command](/img/voiden-blocks/authorization/auth-oauth1.png)
 

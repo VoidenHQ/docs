@@ -9,7 +9,7 @@
 
 
 
-Voiden uses **gRPCs** to enable fast, reliable, and strongly-typed communication between internal services and external clients. By leveraging gRPC, Voiden ensures efficient data exchange, low latency, and clear API contracts that scale well with complex and distributed systems.
+Voiden uses **gRPC** to enable fast, reliable, and strongly-typed communication between internal services and external clients. By leveraging gRPC, Voiden ensures efficient data exchange, low latency, and clear API contracts that scale well with complex and distributed systems.
 
 gRPCs in Voiden are designed for performance-critical operations, structured communication, and service-to-service interactions where consistency and speed are essential.
 

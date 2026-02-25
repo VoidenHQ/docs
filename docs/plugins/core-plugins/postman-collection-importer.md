@@ -17,7 +17,7 @@ The **Postman Collection Importer** plugin enables smooth migration from **Postm
 3. Watch the organization happen as a clean, structured folder is automatically created using your Postman collection's exact name.
 4. Discover your new workflow where every API request is intelligently converted into an individual Voiden file, complete with endpoints, parameters, and configurations.
 
-[Discover the complete Voiden Postman import workflow](/docs/getting-started-section/getting-started/postman-imports.md)
+[Discover the complete Voiden Postman import workflow.](/docs/getting-started-section/getting-started/postman-imports.md)
 
 ---
 
@@ -34,7 +34,7 @@ Automatically creates project structure based on Postman collection hierarchy:
 
 ### **Integration Dependencies**
 
-Depends on the **voiden-rest-api** plugin:
+Depends on the **Voiden REST API** plugin:
 
 * **Reason:** Required for creating valid REST blocks (headers, bodies, method, etc.)
 * **Required:** Yes

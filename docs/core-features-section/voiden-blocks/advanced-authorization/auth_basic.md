@@ -7,7 +7,7 @@
 
 # Basic Authorization Block
 
-Basic Authorization is a simple authentication scheme where the client sends username and password directly in the api request. The credentials are encoded (but not encrypted) using Base64 encoding.
+Basic Authorization is a simple authentication scheme where the client sends username and password directly in the API request. The credentials are encoded (but not encrypted) using Base64 encoding.
 
 ---
 

@@ -21,7 +21,7 @@ Runtime variables are dynamic values that get set during request execution. They
 
 ## Creating Runtime Variables
 
-Add a `/runtime-variables` block in your voiden file:
+Add a `/runtime-variables` block in your Voiden file:
 
   ![Runtime Variable](/img/voiden-blocks/runtime/variable.gif)
 

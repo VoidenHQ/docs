@@ -50,7 +50,7 @@ These plugins are the foundation of Voiden and ensure consistency across all ins
 
 ## Community Plugins
 
-Voiden plans to open the plugin creation to more developers. Community plugins will allow endless customization and innovation. This is what will make Voiden really customisable and extensible. 
+Voiden plans to open the plugin creation to more developers. Community plugins will allow endless customization and innovation. This is what will make Voiden really customizable and extensible. 
 
 ### What Community Plugins WILL Do
 
@@ -64,7 +64,7 @@ Voiden will enable community developers to build plugins that:
 
 ### Plugin Submission Workflow - More information will follow!
 
-We will let the communioty know when we are ready to start accepting new plugins. But one thing is for sure: To maintain quality and security, all community plugins will go through a **review process**:
+We will let the community know when we are ready to start accepting new plugins. But one thing is for sure: To maintain quality and security, all community plugins will go through a **review process**:
 
 1. **Developer Submits Plugin**
 
@@ -96,7 +96,7 @@ Once approved, all community plugins will be published to the **Voiden Plugin Ma
 * Install, update, or remove plugins
 * View ratings and reviews
 
-The marketplace will ensure discoverability and keep the plugin ecosystem vibrant. Thats the Voiden mission for creating a super extensible API Client that fits everyones needs. 
+The marketplace will ensure discoverability and keep the plugin ecosystem vibrant. That's the Voiden mission for creating a super extensible API Client that fits everyone's needs. 
 
 ---
 

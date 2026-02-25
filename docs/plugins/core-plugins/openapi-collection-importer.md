@@ -33,7 +33,7 @@ Each generated `.void` file represents a complete Voiden request, pre-filled wit
 
 You can open any `.void` file directly and start testing your API instantly inside Voiden — no manual setup required.
 
-![Alt text](/img/plugins/openapi-collection/openapi-plugin3.png)
+![openapi](/img/plugins/openapi-collection/openapi-plugin3.png)
 
 ---
 

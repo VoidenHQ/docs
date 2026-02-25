@@ -24,8 +24,9 @@ Text messages are plain, human-readable messages commonly used for simple commun
 - **Size:** Limited by WebSocket frame size (typically ~64 KB)  
 - **Encoding:** UTF-8  
 
-**Example Text Messages**
-![websocket](/img/plugins/socket/message.png)
+**Text Messages**
+
+  ![websocket](/img/plugins/socket/message.png)
 
 **When to Use**
 - Simple commands or instructions  
@@ -43,8 +44,9 @@ JSON messages allow you to exchange structured and expressive data, making them 
 - **Validation:** JSON syntax validation and formatting  
 - **Size:** Limited by WebSocket frame size  
 
-**Example JSON Message**
-![websocket](/img/plugins/socket/json-message.png)
+**JSON Message**
+
+  ![websocket](/img/plugins/socket/json-message.png)
 
 ---
 
@@ -58,8 +60,9 @@ XML messages are mainly used when working with **legacy systems** or services th
 - **Validation:** XML syntax validation with structured formatting  
 - **Size:** Limited by the WebSocket frame size  
 
-**Example XML Message**
-![xml](/img/plugins/socket/xml.png)
+**XML Message**
+
+  ![xml](/img/plugins/socket/xml.png)
 
 
 **When to Use**
@@ -81,9 +84,9 @@ WebSockets are created and managed using **JavaScript** inside an HTML page.
 - **Event-Driven:**  The application automatically reacts to incoming messages and events as they occur.
 - **Browser-Native:**  Built-in support across all modern web browsers without additional libraries.
 
-**Example XML Message**
+**HTML Message**
 
-![HTML](/img/plugins/socket/html.png)
+  ![HTML](/img/plugins/socket/html.png)
 
 
 **When to Use**

@@ -25,7 +25,7 @@ The Voiden CLI plays a key role in improving developer experience and operationa
 - **Developer-Centric**  
 
 ---
-### How To Install CLI In Voiden
+### How To Install Voiden CLI 
 
 ![install-cli](/img/developer-tools/install-cli.gif)
 

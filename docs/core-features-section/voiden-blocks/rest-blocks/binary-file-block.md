@@ -16,7 +16,7 @@ Voiden handles the content-type detection and binary encoding automatically, so 
 ###  Try it Out
 1. Type `/file` to add a **Binary File Block**.
 
-![voiden-binery](/img/voiden-blocks/binery-file.png)
+![voiden-binary](/img/voiden-blocks/binery-file.png)
 
 2. Choose your file with the `@filename` syntax.
 3. Press **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux) to fire it into the Matrix.

@@ -6,7 +6,7 @@
 ---
 # Socket & gRPC APIs
 
-Voiden supports **Socket and gRPC APIs** through its core plugin system, enabling developers to generate dynamic, realistic test data directly within Socket and gRPC requests.
+Voiden supports **Socket and gRPC APIs** through its core plugin system, enabling developers to create, test, and manage real-time Socket and gRPC connections directly within Voiden.
 
 ---
 

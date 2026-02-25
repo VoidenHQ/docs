@@ -8,7 +8,7 @@
 # XML Block
 
 Sometimes your API speaks **XML** instead of **JSON**.  
-The **XML Block** in **Voiden** gives you a dedicated space to write or paste your XML payload — whether you're working with XML-based web services, or legacy systems, whatever.  
+The **XML Block** in **Voiden** gives you a dedicated space to write or paste your XML payload — whether you're working with XML-based web services, or legacy systems.  
 Paste in raw **XML** or type it from scratch. The editor handles it cleanly.  
 And when your tags get tangled? Hit **Prettify** in the top-right corner to format your XML into properly indented, readable structure.
 

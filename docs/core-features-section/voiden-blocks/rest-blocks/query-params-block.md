@@ -18,7 +18,7 @@ Voiden handles the formatting and encoding automatically, keeping your endpoint 
 ### Try it Out
 1. Type `/query` and press **Enter** to create a **Query Params Block** in your **Voiden** file.  
 
-![quert-params](/img/voiden-blocks/query-params.png)
+![query-params](/img/voiden-blocks/query-params.png)
 
 2. Add the key-value pairs to the table.
 3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),  

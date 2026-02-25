@@ -8,7 +8,7 @@
 
 ## What Are Reusable Blocks?
 
-Reusable Blocks are your little time-saving buddies.Instead of typing the same **Voiden** blocks again and again (and again…), you just create a block once in a **Voiden** file and reuse it everywhere you want. This saves time but also helps you keep things coinsistent: The block values can be inherited to all the documents you create and link these blocks to. Confusing? Lets explain them a bit more... 
+Reusable Blocks are your little time-saving buddies. Instead of typing the same **Voiden** blocks again and again (and again…), you just create a block once in a **Voiden** file and reuse it everywhere you want. This saves time but also helps you keep things consistent: The block values can be inherited to all the documents you create and link these blocks to. Confusing? Let’s explain them a bit more... 
 
 ---
 
@@ -19,7 +19,7 @@ Reusable Blocks are your little time-saving buddies.Instead of typing the same *
 ![Reusable](/img/voiden-blocks/reuseable-shot.png)
 3. Focus on a void file and press `Space bar` to see the blocks of that file
 ![Reusable](/img/voiden-blocks/reuseable-block.gif)
-4. Done! Your block is imported. Yes, that was simple right?
+4. Done! Your block is imported. Yes, that was simple, right?
 ---
 
 ## Why You’ll Love Them
@@ -34,4 +34,4 @@ Reusable Blocks are your little time-saving buddies.Instead of typing the same *
 ## Final Note
 
 Reusable Blocks are here to make your API documentation process smoother and lighter.  
-They save your time, reduce copy paste mistakes, and honestly, they make you look super organized — even on days when you are not.
+They save your time, reduce copy-paste mistakes, and honestly, they make you look super organized — even on days when you are not.
