@@ -153,15 +153,8 @@ const sidebars: SidebarsConfig = {
         "plugins/core-plugins/postman-collection-importer",
         "plugins/core-plugins/simple-assertion",
         "plugins/core-plugins/voiden-faker",
-        {
-          type: "category",
-          label: "Socket & gRPC APIs ",
-          items: [
-            "plugins/core-plugins/socket/overview",
-            "plugins/core-plugins/socket/web-socket",
-            "plugins/core-plugins/socket/grpc",
-          ],
-        },
+        "plugins/core-plugins/voiden-scripting",
+        "plugins/core-plugins/socket-and-grpc",
         "plugins/core-plugins/voiden-graphql",
         "plugins/core-plugins/voiden-scripting",
       ],

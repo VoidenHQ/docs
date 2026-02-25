@@ -13,6 +13,8 @@ Voiden uses **gRPC** to enable fast, reliable, and strongly-typed communication 
 
 gRPCs in Voiden are designed for performance-critical operations, structured communication, and service-to-service interactions where consistency and speed are essential.
 
+
+
 ---
 ## gRPC Requests
 
@@ -25,15 +27,58 @@ Voiden provides robust support for gRPC requests, allowing you to test and inter
 
 This support enables seamless testing, validation, and exploration of gRPC-based services within Voiden.
 ### Try it Out
-1. In your Voiden file, type `/grpcs` and press **Enter** to create a **GRPC**.
+---
+
+## Create a gRPC Request
+
+In your Voiden file, type `/grpcs` and press **Enter** to create a **gRPC Request**. 
+
 
 ![grpcs](/img/voiden-blocks/grpcs.png)
 
-2. Proto files (`.proto`) define the contract between gRPC clients and servers. Voiden lets you add and use these files directly, making gRPC development and testing simpler and more intuitive.
+---
 
-3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),
+## Add Proto File 
+Add your Proto file (`.proto`) to define the contract between the gRPC client and server.  
+   
+   Voiden allows you to import and use Proto files directly, enabling automatic service discovery and making gRPC development and testing simpler and more intuitive.
+
+---
+
+## Select a Service
+
+A single proto file can contain **multiple services**.  
+For example, you might see services like:
+
+- **UserService**
+- **PassService**
+
+![services](/img/plugins/socket/userservice.png)
+
+In Voiden, you simply choose the service you want (for example, `UserService`) from the dropdown—no manual configuration needed.
+
+---
+
+## Choose a Method
+
+Each service exposes one or more **methods**.  
+For example, a `UserService` might include:
+
+- `GetUser` — fetch user details  
+- `CreateUser` — create a new user  
+- `UserListener` — listen for user updates  
+- `Chat` — bidirectional chat streaming  
+
+![methods](/img/plugins/socket/method.png)
+
+Once you select a method, Voiden automatically knows what input it expects based on the proto definition.
+
+---
+
+## Run The Request
+ Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),
 **or** click the **green Play button** in the toolbar.
-4. you see the **Response panel** for the **GRPC**
+ you see the **Response panel** for the **GRPC**
 
 ![grpcs](/img/voiden-blocks/grpcs-pre.gif)
 

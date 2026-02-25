@@ -1,116 +1,46 @@
 ---
-  id: socket and grpcs
-  title: Socket & gRPC APIs
+  id: socket-and-grpc
+  title: Socket & gRPC
   sidebar_label: Socket & gRPC APIs
+  sidebar_position: 1
 ---
+# Socket & gRPC APIs
 
-#  Sockets & gRPC APIs 
+Voiden supports **Socket and gRPC APIs** through its core plugin system, enabling developers to create, test, and manage real-time Socket and gRPC connections directly within Voiden.
 
-The **Sockets & gRPC APIs** Plugin enables real-time, bidirectional communication using **WebSockets (WSS)** and **gRPC** within Voiden. It provides a unified interface to build, test, stream, and monitor socket-based APIs, supporting both message-based and streaming communication.
+[**Learn how to create and configure a gRPC request →**](/docs/core-features-section/voiden-blocks/gRPC.md)
 
----
-
-## Key Features
-
-### **Real-Time Communication**
-
-1. Native support for **WebSocket (WSS)** connections.
-2. Full **gRPC socket support**, including:
-   - Unary calls
-   - Server-side streaming
-   - Client-side streaming
-   - Bidirectional streaming
-3. Persistent connections with live message exchange.
-4. Multiple concurrent socket connections.
+[**Understand how to build and configure a Web Socket →**](/docs/core-features-section/voiden-blocks/wss.md)
 
 ---
 
-### **Response & Streaming Visualization**
+## Why Sockets & gRPC APIs Matter
 
-- Real-time message streaming
-- Bidirectional communication logs
-- Connection status indicators
-- Message history viewer
-- Dedicated response panel for socket communication
+Modern applications rely on real-time and streaming communication for speed, scalability, and responsiveness. The **Sockets & gRPC APIs Plugin** exists to address these needs by providing native support for persistent connections and high-performance messaging within Voiden.
 
----
+This plugin is important because it:
+- Enables **real-time, bidirectional communication** that traditional request–response APIs cannot handle efficiently  
+- Supports **high-throughput and low-latency workflows** using gRPC and REST 
+- Simplifies testing and debugging of **streaming and event-driven APIs**  
+- Provides clear visibility into connection state, message flow, and live data  
+- Unifies WebSocket and gRPC workflows in a single, consistent interface  
 
-### **Productivity & Developer Experience**
-
-- Slash commands for quick block insertion:
-  - WebSocket blocks
-  - gRPC socket blocks
-- Paste support for common CLI tools:
-  - `websocat` for WebSockets
-  - `grpcurl` for gRPC
-- Automatic parsing of connection details, headers, metadata, and payloads
-- Protocol Buffer (`.proto`) file import and parsing
+By using Sockets and gRPC APIs in Voiden, developers can confidently build, test, and scale modern applications that depend on continuous data exchange and real-time interactions.
 
 ---
 
-## Capabilities
+## WebSocket vs gRPC vs REST
 
-## Block Ownership
-
-This plugin owns **6 custom block types** for socket-based communication, enabling structured request creation and message handling:
-
-### **Socket & gRPC Blocks**
-
-- [`wss↗`](/docs/core-features-section/voiden-blocks/wss.md)
-- [`gRPC↗`](/docs/core-features-section/voiden-blocks/gRPC.md)
-
-Block extensions are supported, allowing future customization and add-ons
+| Feature | REST | WebSocket | gRPC |
+|------|------|-----------|------|
+| Communication Model | Request–Response | Persistent, Bidirectional | RPC (Unary & Streaming) |
+| Connection Type | Short-lived | Long-lived | Long-lived |
+| Data Format | JSON / XML | Text / JSON | Protobuf (binary) |
+| Best For | CRUD APIs, public APIs | Live updates, events, chat | Internal services, high-performance systems |
 
 ---
 
-## Request Pipeline
-
-The plugin integrates deeply into Voiden’s request lifecycle by registering:
-
-- **Build Handlers** — Construct socket and gRPC requests  
-- **Response Handlers** — Process incoming messages  
-- **Streaming Handlers** — Manage continuous and bidirectional streams  
-
-This ensures reliable handling of long-lived, real-time connections.
-
----
-
-<!-- ## Paste Handling
-
-### **WebSocket Import**
-Pattern: `/^websocat\s+/i`
-
-Automatically extracts:
-- WebSocket URLs
-- Headers
-- Protocols
-- Connection options
-
-### **gRPC Import**
-Pattern: `/^grpcurl\s+/i`
-
-Automatically extracts:
-- Service endpoints
-- Proto files
-- Metadata
-- Request bodies
-- Service and method definitions -->
-
-<!-- --- -->
-
-## File Support
-
-### **Proto Files**
-- Supported extension: `.proto`
-- Built-in parser for service discovery
-- Dynamic service and method selection from imported proto definitions
-
----
-
-## Dependencies
-
-```json
-{
-  "core": "^1.0.0",
-  "sdk": "^1.0.0"
-}
+### Summary
+- **REST** is best for simple, stateless APIs and standard CRUD operations.  
+- **WebSocket** excels at real-time, event-driven, bidirectional communication.  
+- **gRPC** is ideal for high-performance, strongly typed, and streaming service-to-service interactions.
