@@ -47,8 +47,6 @@ Check whether the request succeeded or failed using the HTTP status code. This i
 
 ---
 
----
-
 ### 2. Status Text
 Check the human-readable status message returned by the server, such as `OK`, `Created`, or `Bad Request`. This adds an extra layer of clarity beyond just the numeric status code.
 
@@ -56,14 +54,10 @@ Check the human-readable status message returned by the server, such as `OK`, `C
 
 ---
 
----
-
 ### 3. Response Time / Duration
 Check how long the request took to complete. This helps you keep an eye on performance and spot slow responses before they become an issue.
 
 ![responsetime](/img/plugins/assertion/responsetime.gif)
-
----
 
 ---
 
