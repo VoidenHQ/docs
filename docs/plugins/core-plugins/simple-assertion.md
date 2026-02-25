@@ -47,10 +47,14 @@ Check whether the request succeeded or failed using the HTTP status code. This i
 
 ---
 
+---
+
 ### 2. Status Text
 Check the human-readable status message returned by the server, such as `OK`, `Created`, or `Bad Request`. This adds an extra layer of clarity beyond just the numeric status code.
 
 ![checkstatus](/img/plugins/assertion/checktext.gif)
+
+---
 
 ---
 
@@ -61,10 +65,14 @@ Check how long the request took to complete. This helps you keep an eye on perfo
 
 ---
 
+---
+
 ### 4. Response Headers
 Check specific response headers and their values, such as `Content-Type`, authentication headers, or any custom metadata your API returns.
 
 ![headerconnection](/img/plugins/assertion/headercoonection.gif)
+
+---
 
 ---
 

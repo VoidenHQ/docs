@@ -1,7 +1,7 @@
 ---
-  id: enviroment-variables
-  title: Enviroment Variables
-  sidebar_label: Enviroment
+  id: environment-variables
+  title: Environment Variables
+  sidebar_label: Environment
   sidebar_position: 2
 ---
 
