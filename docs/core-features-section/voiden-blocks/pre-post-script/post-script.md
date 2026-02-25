@@ -17,7 +17,7 @@ It executes locally inside Voiden in an isolated environment. Use it to validate
 
 Voiden supports **JavaScript** and **Python**.
 
-For a full reference of what you can do inside a script, see the [Voiden Script Plugin](/docs/plugins/core-plugins/pre-post%20script/overview).
+For a full reference of what you can do inside a script, see the [Voiden Scripting](/docs/plugins/core-plugins/voiden-scripting).
 
 ---
 

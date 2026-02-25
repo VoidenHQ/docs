@@ -16,7 +16,7 @@ It executes locally inside Voiden — not on the API endpoint — in an isolated
 
 Voiden supports **JavaScript** and **Python**.
 
-For a full reference of what you can do inside a script, see the [Voiden Script Plugin](/docs/plugins/core-plugins/pre-post%20script/overview).
+For a full reference of what you can do inside a script, see the [Voiden Scripting](/docs/plugins/core-plugins/voiden-scripting).
 
 ---
 

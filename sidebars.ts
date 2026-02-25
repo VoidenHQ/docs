@@ -77,14 +77,6 @@ const sidebars: SidebarsConfig = {
             "core-features-section/voiden-blocks/grpcs",
           ],
         },
-                {
-          type: "category",
-          label: "Pre & Post Script Blocks",
-          items: [
-            "core-features-section/voiden-blocks/pre & post script/pre-script",
-            "core-features-section/voiden-blocks/pre & post script/post-script"
-          ],
-        },
         {
           type: "category",
           label: "Authorization",
@@ -105,6 +97,14 @@ const sidebars: SidebarsConfig = {
           items: [
             "core-features-section/voiden-blocks/graphql-query",
             "core-features-section/voiden-blocks/graphql-variable",
+          ],
+        },
+        {
+          type: "category",
+          label: "Pre & Post Script Blocks",
+          items: [
+            "core-features-section/voiden-blocks/pre-post-script/pre-script",
+            "core-features-section/voiden-blocks/pre-post-script/post-script"
           ],
         },
       ],
@@ -153,8 +153,6 @@ const sidebars: SidebarsConfig = {
         "plugins/core-plugins/postman-collection-importer",
         "plugins/core-plugins/simple-assertion",
         "plugins/core-plugins/voiden-faker",
-        "plugins/core-plugins/voiden-scripting",
-
         {
           type: "category",
           label: "Socket & gRPC APIs ",
@@ -165,6 +163,7 @@ const sidebars: SidebarsConfig = {
           ],
         },
         "plugins/core-plugins/voiden-graphql",
+        "plugins/core-plugins/voiden-scripting",
       ],
     },
     {

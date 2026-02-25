@@ -11,16 +11,14 @@ import TabItem from '@theme/TabItem';
 
 > **Note:** This feature is currently in **Beta**.
 
-Voiden Scripting lets you run **JavaScript** or **Python** code as part of your request lifecycle, using the exposed `Voiden` API.
+Scripting is a core part of serious API tooling. It lets you go beyond static requests — dynamically injecting auth tokens, chaining requests by passing data between them, validating responses automatically, and encoding custom logic that no UI alone can express. Most API clients that support scripting limit you to JavaScript. Voiden takes a different approach: it ships with both **JavaScript** and **Python** support out of the box, so you can write scripts in the language you already work in.
 
 Scripts run at two stages:
 
-- [**Pre Script**](/docs/plugins/core-plugins/pre-post%20script/pre-script) — runs before the request is sent
-- [**Post Script**](/docs/plugins/core-plugins/pre-post%20script/post-script) — runs after the response is received
+- **Pre Script** — executes before the request is sent. Use it to inject headers, set variables, or cancel the request.
+- **Post Script** — executes after the response is received. Use it to assert values, extract data, or store results.
 
-Both stages share the same `voiden` API.
-
-You can use supported libraries and perform custom logic — Voiden exposes the `voiden` API on top of that.
+Both stages share the same `voiden` API, giving you full access to env, variables, logging, and assertions.
 
 ---
 
@@ -30,8 +28,8 @@ Voiden Scripting introduces two blocks you can add to your `.void` file:
 
 | Block | Description |
 |---|---|
-| [**Pre-Script**](/docs/plugins/core-plugins/pre-post%20script/pre-script) | Runs before the request is sent. Use it to modify headers, body, params, or cancel the request entirely. |
-| [**Post-Script**](/docs/plugins/core-plugins/pre-post%20script/post-script) | Runs after the response is received. Use it to assert values, extract data, and store variables for later requests. |
+| [**Pre-Script**](/docs/core-features-section/voiden-blocks/pre-post-script/pre-script) | Runs before the request is sent. Use it to modify headers, body, params, or cancel the request entirely. |
+| [**Post-Script**](/docs/core-features-section/voiden-blocks/pre-post-script/post-script) | Runs after the response is received. Use it to assert values, extract data, and store variables for later requests. |
 
 ---
 
@@ -46,17 +44,95 @@ Voiden runs your scripts in an isolated environment so they can't interfere with
 <Tabs>
   <TabItem value="js" label="JavaScript" default>
     ```js
-    const token = await voiden.env.get("TOKEN");
-    const userId = await voiden.variables.get("userId");
+    // Pre-request script Example
+
+    try {
+      // Timestamp
+      const timestamp = new Date().toISOString();
+      await voiden.variables.set("REQUEST_TIMESTAMP", timestamp);
+
+      // Random request ID
+      const requestId = "req_" + Math.random().toString(36).substring(2, 10);
+      await voiden.variables.set("REQUEST_ID", requestId);
+
+      // Add header
+      voiden.request.headers.push({
+        key: "X-Request-Id",
+        value: requestId,
+      });
+
+      // Inject auth token
+      const token = await voiden.variables.get("AUTH_TOKEN");
+
+      if (token) {
+        voiden.request.headers.push({
+          key: "Authorization",
+          value: `Bearer ${token}`,
+        });
+      }
+
+      voiden.log("Pre-script executed successfully");
+
+    } catch (error) {
+      voiden.log("error", "Pre-script error:", error);
+    }
     ```
   </TabItem>
   <TabItem value="py" label="Python">
     ```py
-    token = voiden.env.get("TOKEN")
-    user_id = voiden.variables.get("userId")
+   # Pre-request script Example
+
+    try:
+        import random
+        import string
+        from datetime import datetime
+
+        # Timestamp
+        timestamp = datetime.utcnow().isoformat()
+        voiden.variables.set("REQUEST_TIMESTAMP", timestamp)
+        # Random request ID
+        request_id = "req_" + ''.join(random.choices(string.ascii_lowercase + string.digits, k=8))
+        voiden.variables.set("REQUEST_ID", request_id)
+        # Add header
+        voiden.request.headers.push({
+            "key": "X-Request-Id",
+            "value": request_id
+        })
+        # Inject auth token
+        token = voiden.variables.get("AUTH_TOKEN")
+
+        if token:
+            voiden.request.headers.push({
+                "key": "Authorization",
+                "value": f"Bearer {token}"
+            })
+
+        voiden.log("Pre-script executed successfully")
+
+    except Exception as e:
+      voiden.log("error", "Pre-script error:", str(e))
     ```
   </TabItem>
 </Tabs>
+
+---
+
+## Voiden API
+
+Voiden injects a global `voiden` object into every script. This is the main interface for interacting with your request, response, environment, and runtime state.
+
+| API | Description |
+|---|---|
+| `voiden.env` | Read environment variables from the active environment |
+| `voiden.variables` | Get and set runtime variables shared across requests |
+| `voiden.log()` | Output messages to Voiden's script log panel |
+| `voiden.assert()` | Run assertions and surface results in the Response panel |
+| `voiden.request` | Access and mutate the outgoing request (headers, body, params) |
+| `voiden.response` | Read the received response (status, body, headers) |
+
+> **JavaScript** — most `voiden` API calls are async and require `await` since they communicate via message passing to the main app process.
+>
+> **Python** — all calls are synchronous. Voiden pre-loads state before the script runs, so no `await` is needed.
 
 ---
 
