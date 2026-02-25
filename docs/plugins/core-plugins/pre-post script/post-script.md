@@ -1,7 +1,7 @@
 ---
   id: post-script
-  title: Post Script
-  sidebar_label: Post Script
+  title: Post-Script
+  sidebar_label: Post-Script
   sidebar_position: 3
 ---
 import Tabs from '@theme/Tabs';

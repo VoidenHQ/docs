@@ -1,7 +1,7 @@
 ---
   id: pre-script
-  title: Pre Script
-  sidebar_label: Pre Script
+  title: Pre-Script
+  sidebar_label: Pre-Script
   sidebar_position: 2
 ---
 import Tabs from '@theme/Tabs';

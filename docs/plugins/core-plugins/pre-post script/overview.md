@@ -1,17 +1,17 @@
 ---
   id: overview
-  title: Voiden Script
+  title: Overview
   sidebar_label: Overview
   sidebar_position: 1
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-#  <div style={{display:"flex",alignItems:"center"}}> Voiden Script <small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
+#  <div style={{display:"flex",alignItems:"center"}}> Voiden Scripting <small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
 
 > **Note:** This feature is currently in **Beta**.
 
-Voiden Script lets you run **JavaScript** or **Python** code as part of your request lifecycle, using the exposed `voiden` API.
+Voiden Scripting lets you run **JavaScript** or **Python** code as part of your request lifecycle, using the exposed `voiden` API.
 
 Scripts run at two stages:
 
@@ -21,6 +21,17 @@ Scripts run at two stages:
 Both stages share the same `voiden` API.
 
 Scripts run in an isolated environment. You have full freedom to use any library or perform any operation — Voiden simply exposes the `voiden` API on top of that.
+
+---
+
+## Blocks
+
+Voiden Scripting introduces two blocks you can add to your `.void` file:
+
+| Block | Description |
+|---|---|
+| [**Pre-Script**](/docs/plugins/core-plugins/pre-post%20script/pre-script) | Runs before the request is sent. Use it to modify headers, body, params, or cancel the request entirely. |
+| [**Post-Script**](/docs/plugins/core-plugins/pre-post%20script/post-script) | Runs after the response is received. Use it to assert values, extract data, and store variables for later requests. |
 
 ---
 
