@@ -118,6 +118,11 @@ const sidebars: SidebarsConfig = {
         "core-features-section/variables/runtime-variables",
       ],
     },
+     {
+      type: 'doc',
+      id: 'getting-started-section/advanced-environment-config',
+      label: 'Advanced Environment Configuration',
+    },
     {
       type: "html",
       value: "<span class='sidebar-section-title'>Git</span>",
