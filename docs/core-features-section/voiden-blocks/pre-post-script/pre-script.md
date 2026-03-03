@@ -6,10 +6,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-#  <div style={{display:"flex",alignItems:"center"}}> Pre Script <small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
-
-> **Note:** This feature is currently in **Beta**.
-
 The **Pre Script** block lets you run custom logic **before a request is sent**.
 
 It executes locally inside Voiden — not on the API endpoint — in an isolated environment. Use it to dynamically prepare the request: generate tokens, update headers, set variables, or add conditional logic.

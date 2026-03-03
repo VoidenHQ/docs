@@ -7,9 +7,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-#  <div style={{display:"flex",alignItems:"center"}}> Voiden Scripting <small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
-
-> **Note:** This feature is currently in **Beta**.
 
 Scripting is a core part of serious API tooling. It lets you go beyond static requests — dynamically injecting auth tokens, chaining requests by passing data between them, validating responses automatically, and encoding custom logic that no UI alone can express. Most API clients that support scripting limit you to JavaScript. Voiden takes a different approach: it ships with both **JavaScript** and **Python** support out of the box, so you can write scripts in the language you already work in.
 

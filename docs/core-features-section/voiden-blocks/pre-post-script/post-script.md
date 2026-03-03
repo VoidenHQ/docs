@@ -7,9 +7,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-#  <div style={{display:"flex",alignItems:"center"}}> Post Script <small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
-
-> **Note:** This feature is currently in **Beta**.
 
 The **Post Script** block lets you run custom logic **after a response is received**.
 
