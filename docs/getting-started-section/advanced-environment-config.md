@@ -8,8 +8,6 @@ id: advanced-environment-config
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-#  <div style={{display:"flex",alignItems:"center"}}> Advanced Environment <small style={{alignSelf:"start",fontSize:"12px",marginLeft:"10px",padding:"5px",background:"#8a5cf67d",display:"flex",alignItems:"cetner",gap:"5px",borderRadius:"10px"}}><img src="/img/flask-conical.svg" width="14" /> Beta only</small></div>
-
 Voiden supports a YAML-based **Advanced Environment Configuration** system — a dedicated way to manage environment values across profiles, with a clear separation between what's shareable and what stays local.
 
 ---
@@ -63,6 +61,60 @@ Once the environment dialog is open:
 
 ![Advanced Environment](/img/geetingstarted/advance-env.png)
 
+Here's an example of what a shared public YAML looks like inside the editor:
+
+![Advanced Environment Example](/img/geetingstarted/advanced-env-example.png)
+
+<Tabs>
+  <TabItem value="public" label="env-public.yaml" default>
+
+```yaml
+thor:
+  variables:
+    description: "God of Thunder"
+  children:
+    production:
+      variables:
+        BASE_URL: "thor.com"
+    test:
+      children:
+        staging:
+          variables:
+            BASE_URL: "staging.thor.com"
+        local:
+          variables:
+            BASE_URL: "localhost:8080"
+odin:
+  variables:
+    description: "The Allfather"
+  children:
+    production:
+      variables:
+        BASE_URL: "odin.com"
+    test:
+      children:
+        staging:
+          variables:
+            BASE_URL: "staging.odin.com"
+        local:
+          variables:
+            BASE_URL: "localhost:8080"
+```
+
+  </TabItem>
+  <TabItem value="private" label="env-private.yaml">
+
+```yaml
+thor:
+  children:
+    test:
+      variables:
+        PASSWORD: "hunter2"
+```
+
+  </TabItem>
+</Tabs>
+
 ---
 
 ## Default Configuration
@@ -77,34 +129,13 @@ When no profile is active, Voiden looks for files in this order:
 
 If neither YAML file is present, Voiden falls back to `.env` automatically — so existing projects work out of the box with no migration required.
 
-### Example
-
-<Tabs>
-  <TabItem value="public" label="env-public.yaml" default>
-
-```yaml
-baseUrl: https://api.example.com
-timeout: 5000
-featureFlags:
-  newDashboard: true
-```
-
-  </TabItem>
-  <TabItem value="private" label="env-private.yaml">
-
-```yaml
-apiKey: sk-your-secret-key-here
-authToken: eyJhbGciOiJIUzI1NiIs...
-```
-
-  </TabItem>
-</Tabs>
-
 ---
 
 ## Profiles
 
-Profiles let you maintain multiple named environment configurations — for example, `staging`, `production`, or `local-dev` — each with their own public and private files.
+Profiles are an advanced feature separate from the hierarchy system. Environments like `staging`, `production`, and `local` should live inside the **default profile** using the `children` structure shown above — that's what the hierarchy is for.
+
+Profiles exist for cases where you need an entirely separate set of YAML files loaded from scratch, outside of the default profile's tree. Most teams won't need them.
 
 ![Advanced Enviroment Profile](/img/geetingstarted/env-profile.png)
 
@@ -113,6 +144,23 @@ Profiles let you maintain multiple named environment configurations — for exam
 Open the environment panel and select your desired profile from the dialog.
 
 ![Advanced Envrionment Selector](/img/geetingstarted/advance-env-selector.png)
+
+The selector lists every node in the hierarchy using dot notation, so you can target any level precisely:
+
+```
+thor
+thor.production
+thor.test
+thor.test.staging
+thor.test.local
+odin
+odin.production
+odin.test
+odin.test.staging
+odin.test.local
+```
+
+Selecting a parent node (e.g. `thor.test`) applies all variables defined at that level. Selecting a child (e.g. `thor.test.staging`) applies its own variables on top, overriding any conflicts from the parent.
 
 ---
 
