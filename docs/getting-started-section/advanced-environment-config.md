@@ -115,6 +115,14 @@ thor:
   </TabItem>
 </Tabs>
 
+:::tip Value Preview & Copy
+Every variable in the environment panel shows a preview of its resolved value. Hover over any variable to reveal a **copy** button — click it to copy the value directly to your clipboard.
+:::
+
+:::tip Jump to Source (env only)
+`⌘ Cmd + Click` on any environment variable to jump directly to its definition in the YAML file. Works for both `env-public.yaml` and `env-private.yaml`.
+:::
+
 ---
 
 ## Default Configuration
