@@ -111,4 +111,8 @@ Add a `/runtime-variables` block in your Voiden file:
 - Test extraction: Verify runtime variables capture the expected values
 - Chain carefully: Make sure dependent requests execute in the correct order
 
-Runtime variables transform your isolated API calls into connected workflows! 
+:::tip Value Preview & Copy
+Every runtime variable shows a preview of its current resolved value. Hover over any variable to reveal a **copy** button — click it to copy the value directly to your clipboard.
+:::
+
+Runtime variables transform your isolated API calls into connected workflows!

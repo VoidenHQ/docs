@@ -51,7 +51,13 @@ API_VERSION=v1
 DB_HOST=localhost
 ```
 
+:::tip Value Preview & Copy
+Every variable in the environment panel shows a preview of its resolved value. Hover over any variable to reveal a **copy** button — click it to copy the value directly to your clipboard.
+:::
 
+:::tip Jump to Source
+`⌘ Cmd + Click` on any environment variable to jump directly to its definition in the env file.
+:::
 
 ### Benefits of Using Environment Variables
 
