@@ -100,6 +100,38 @@ The marketplace will ensure discoverability and keep the plugin ecosystem vibran
 
 ---
 
+## How to Enable & Disable Plugins
+
+Managing your plugins in Voiden is super simple! Whether you want to turn a plugin off temporarily or bring it back on, here's exactly how to do it:
+
+### Step 1 — Open the Extensions Tab
+
+Head over to the **left panel** and click on the **Extensions** tab. This is your hub for all things plugins — you'll find every installed plugin listed right there.
+
+![extension](/img/plugins/extension.png)
+
+---
+
+### Step 2 — Select a Plugin
+
+Click on the **plugin** you want to manage. This opens up the **full plugin detail view**, where you can see everything about it — its name, description, version, and more.
+
+
+---
+
+### Step 3 — Enable or Disable the Plugin
+
+Inside the plugin detail view, you'll spot the **Enable / Disable** toggle icon. It's right there, easy to find!
+
+* Hit **Enable** to activate the plugin and start using it.
+* Hit **Disable** to turn it off without uninstalling it — it'll stay installed and ready to be turned back on whenever you need it.
+
+![Plugin detail view](/img/plugins/detail-view.png)
+
+---
+
+
+
 ## Summary
 
 * Voiden currently supports **core** plugins

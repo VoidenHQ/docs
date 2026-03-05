@@ -118,6 +118,11 @@ const sidebars: SidebarsConfig = {
         "core-features-section/variables/runtime-variables",
       ],
     },
+     {
+      type: 'doc',
+      id: 'getting-started-section/advanced-environment-config',
+      label: 'Advanced Environment Configuration',
+    },
     {
       type: "html",
       value: "<span class='sidebar-section-title'>Git</span>",
@@ -172,9 +177,15 @@ const sidebars: SidebarsConfig = {
       items: ["plugins/community-plugins/overview"],
     },
     {
-      type: "doc",
-      id: "plugins/build-a-plugin",
-      label: "Create Your First Plugin",
+      type: "category",
+      label: "Build a Plugin",
+      items: [
+        "plugins/build-a-plugin",
+        "plugins/building-plugins/overview",
+        "plugins/building-plugins/getting-started",
+        "plugins/building-plugins/plugin-api",
+        "plugins/building-plugins/manifest-reference",
+      ],
     },
     {
       type: "html",
