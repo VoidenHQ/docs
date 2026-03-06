@@ -31,14 +31,13 @@ OAuth 2.0 is a widely used authorization framework that enables secure access to
 
 
 ---
-
-## Tips & Gotchas
+##  Tips & Gotchas <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
 
 OAuth2 is powerful, but it has a few moving parts that can catch you off guard. Here's what to keep an eye on so your integration runs smoothly from the start.
 
 ---
 
-### Callback URL & Port Whitelisting
+##  Callback URL & Port Whitelisting <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
 
 Voiden listens for the OAuth redirect on `http://localhost:9090/callback` by default. You can point it to a different port if needed — just make sure the port isn't already occupied by another process, or the auth flow will fail silently.
 
@@ -46,7 +45,8 @@ More importantly, **whatever URL you use must be registered in your OAuth provid
 
 ---
 
-### The Discover Button
+
+###  The Discover Button <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
 
 Setting up `auth_url`, `token_url`, and `scope` manually can be tedious. If your provider supports **OpenID Connect**, you can skip all that.
 
@@ -54,7 +54,7 @@ The **Discover** button — available in **Authorization Code** and **Implicit**
 
 ---
 
-### Advanced Settings
+###  Advanced Settings <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
 
 Collapsed by default, these settings give you fine-grained control over how the OAuth2 block behaves. You won't always need them, but when you do, they matter:
 
@@ -68,8 +68,7 @@ Collapsed by default, these settings give you fine-grained control over how the 
 
 ---
 
-### Auto-Refresh
-
+###  Auto-Refresh <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
 Nobody wants to manually re-fetch a token mid-session. Enable **Auto-Refresh** via the checkbox in the block and Voiden takes care of it — silently renewing your access token before each request goes out.
 
 That said, a few things need to line up for it to work:
@@ -80,13 +79,13 @@ That said, a few things need to line up for it to work:
 
 ---
 
-### 120-Second Timeout
+###  120-Second Timeout <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
 
 After clicking **Get Token**, you have **2 minutes** to complete the browser login. If the window closes before you finish, just click **Get Token** again to retry.
 
 ---
 
-### Variable Prefix Collisions
+###  Variable Prefix Collisions <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
 
 Each OAuth2 block stores its tokens using the `variable_prefix` as a namespace. If two blocks share the same prefix, the second one will overwrite the first one's stored tokens every time it runs — and you'll end up with authentication errors that are difficult to trace back to the cause.
 
