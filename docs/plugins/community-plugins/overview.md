@@ -9,9 +9,8 @@
 
 You’re now on your way to creating your very first Voiden plugin — exciting, right?
 
-Our Plugin Playground is still under construction, but trust us…
-you’re going to be pleasantly surprised when we finally inaugurate it.
-Big things are coming, and you’re early enough to see it all come together.
+Our Plugin Playground is now available! We are looking forward to see what you have built!
+
 
 
 
