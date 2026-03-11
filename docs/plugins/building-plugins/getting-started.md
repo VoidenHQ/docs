@@ -5,7 +5,7 @@
   sidebar_position: 2
 ---
 
-# Build Your First Plugin <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
+# Build Your First Plugin
 
 This guide walks you through building a Voiden plugin from scratch. We'll start with a minimal plugin and progressively add features so you can see how each API works.
 

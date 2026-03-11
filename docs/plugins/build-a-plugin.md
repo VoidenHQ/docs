@@ -4,7 +4,7 @@
   sidebar_label: Build a Plugin
 ---
 
-# Build a Voiden Plugin <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
+# Build a Voiden Plugin 
 
 Ready to extend Voiden with your own features? The plugin system gives you access to slash commands, custom editor blocks, sidebar panels, request pipeline hooks, and much more.
 

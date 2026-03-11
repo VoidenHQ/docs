@@ -5,7 +5,7 @@
   sidebar_position: 1
 ---
 
-# Plugin Development Overview <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
+# Plugin Development Overview
 
 Voiden's plugin system lets you extend the application with new features, UI components, editor blocks, and integrations — all without touching the core codebase. Whether you want to add a simple slash command or build a full protocol handler, plugins give you the tools to make it happen.
 

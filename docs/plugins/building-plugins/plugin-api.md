@@ -5,7 +5,7 @@
   sidebar_position: 3
 ---
 
-# Plugin API Reference <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
+# Plugin API Reference 
 
 This is the complete reference for the `PluginContext` object passed to your plugin. Every method available for extending Voiden is documented here.
 

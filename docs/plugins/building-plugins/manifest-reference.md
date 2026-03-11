@@ -5,7 +5,7 @@
   sidebar_position: 4
 ---
 
-# Manifest Reference <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
+# Manifest Reference 
 
 Every Voiden plugin requires a `manifest.json` file. This file tells Voiden about your plugin — its identity, capabilities, and dependencies. It's how the extension system discovers and manages your plugin.
 
