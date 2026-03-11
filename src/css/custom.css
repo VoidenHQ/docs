@@ -559,3 +559,15 @@ blockquote a:hover {
 .sidebar-section-title{
   color: var(--ifm-theme-doc-sidebar-item-link)!important;
 }
+
+/* Note admonition - purple brand theme */
+.alert--secondary {
+  --ifm-alert-background-color: rgba(167, 139, 250, 0.08);
+  --ifm-alert-border-color: var(--voiden-purple);
+  --ifm-alert-color: var(--ifm-color-content);
+}
+
+[data-theme='light'] .alert--secondary {
+  --ifm-alert-background-color: rgba(139, 92, 246, 0.06);
+  --ifm-alert-border-color: var(--voiden-purple);
+}

@@ -19,3 +19,13 @@ There are two primary ways to collaborate via native Git in Voiden:
 Both approaches allow you to work efficiently, sync updates, manage branches, and collaborate seamlessly with your team.
 
 ---
+
+:::note
+Voiden may create a hidden `.voiden` folder in your project directory when certain features (such as runtime execution) are used. This folder stores local-only data and will expand to hold more internal information in the future. Since its contents are never needed by other collaborators, `.voiden` is included in your `.gitignore` by default to prevent it from being committed to your repository.
+
+```
+.voiden
+```
+:::
+
+---
