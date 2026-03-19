@@ -1,13 +1,13 @@
 ---
 id: history-overview
-title: Execution History
-sidebar_label: Execution History
+title: Request History
+sidebar_label: Request History
 sidebar_position: 1
 ---
 
-# Execution History
+# Request History
 
-Ever wondered what you sent in that last request? With Execution History, you'll never have to guess. Voiden quietly records every request you run, so you can go back, review, replay, or export anything at any time — right from the **History** tab in the right panel.
+Ever wondered what you sent in that last request? With Request History, you'll never have to guess. Voiden quietly records every request you run, so you can go back, review, replay, or export anything at any time — right from the **History** tab in the right panel.
 
 ---
 
@@ -19,7 +19,7 @@ Every time you fire off a request, Voiden captures the full picture:
 - **Response** — status code, headers, body, timing, byte size, and any errors
 - **Timestamp** — exactly when it happened
 
-![Execution History](/img/history/response-history.gif)
+![Request History](/img/history/response-history.gif)
 
 ---
 
