@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Scripting is a core part of serious API tooling. It lets you go beyond static requests — dynamically injecting auth tokens, chaining requests by passing data between them, validating responses automatically, and encoding custom logic that no UI alone can express. Most API clients that support scripting limit you to JavaScript. Voiden takes a different approach: it ships with both **JavaScript** and **Python** support out of the box, so you can write scripts in the language you already work in.
+Scripting is a core part of serious API tooling. It lets you go beyond static requests — dynamically injecting auth tokens, chaining requests by passing data between them, validating responses automatically, and encoding custom logic that no UI alone can express. Most API clients that support scripting limit you to JavaScript. Voiden takes a different approach: it ships with **JavaScript**, **Python**, and **Shell (bash)** support out of the box, so you can write scripts in the language you already work in.
 
 Scripts run at two stages:
 
@@ -37,6 +37,8 @@ Voiden runs your scripts in an isolated environment so they can't interfere with
 **JavaScript** scripts are sent to a separate Node.js process. The `voiden` API (env, variables) communicates back to the app via message passing, so every API call returns a Promise. This is why you need `await`.
 
 **Python** scripts also run in a separate process, but before the script starts, Voiden pre-loads all your environment variables and runtime variables and passes them in directly. So the `voiden` API is just plain synchronous method calls — no `await` needed.
+
+**Shell (bash)** scripts run in a bash subprocess. The `voiden` API is exposed as shell functions. Use `$(voiden.command)` to capture return values, and call setters without parentheses — bash will treat `()` as a syntax error.
 
 <Tabs>
   <TabItem value="js" label="JavaScript" default>
@@ -110,6 +112,31 @@ Voiden runs your scripts in an isolated environment so they can't interfere with
       voiden.log("error", "Pre-script error:", str(e))
     ```
   </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    # Pre-request script Example
+
+    # Timestamp (requires date command)
+    timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    voiden.variables.set "REQUEST_TIMESTAMP" "$timestamp"
+
+    # Random request ID
+    request_id="req_$(cat /dev/urandom | LC_ALL=C tr -dc 'a-z0-9' | head -c 8)"
+    voiden.variables.set "REQUEST_ID" "$request_id"
+
+    # Add header
+    voiden.request.headers.push "X-Request-Id" "$request_id"
+
+    # Inject auth token
+    token=$(voiden.variables.get "AUTH_TOKEN")
+
+    if [ -n "$token" ]; then
+      voiden.request.headers.push "Authorization" "Bearer $token"
+    fi
+
+    voiden.log "Pre-script executed successfully"
+    ```
+  </TabItem>
 </Tabs>
 
 ---
@@ -130,6 +157,8 @@ Voiden injects a global `voiden` object into every script. This is the main inte
 > **JavaScript** — most `voiden` API calls are async and require `await` since they communicate via message passing to the main app process.
 >
 > **Python** — all calls are synchronous. Voiden pre-loads state before the script runs, so no `await` is needed.
+>
+> **Shell** — all `voiden` API calls are bash functions. Use `$(voiden.command)` to capture return values. Do not use parentheses for calls — use `voiden.log "msg"`, not `voiden.log("msg")`.
 
 ---
 
@@ -146,6 +175,11 @@ Environment variables are read-only values configured in your active environment
   <TabItem value="py" label="Python">
     ```py
     token = voiden.env.get("API_TOKEN")
+    ```
+  </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    token=$(voiden.env.get "API_TOKEN")
     ```
   </TabItem>
 </Tabs>
@@ -167,6 +201,12 @@ Runtime variables are dynamic values you can create, read, and update during exe
     ```py
     voiden.variables.set("key", "value")
     val = voiden.variables.get("key")
+    ```
+  </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    voiden.variables.set "key" "value"
+    val=$(voiden.variables.get "key")
     ```
   </TabItem>
 </Tabs>
@@ -196,6 +236,15 @@ Logs appear in Voiden's UI and help you debug, trace flow, or monitor values dur
     voiden.log("warn", "token missing")
     voiden.log("error", "request aborted")
     voiden.log("debug", "body:", voiden.request.body)
+    ```
+  </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    voiden.log "message"
+    voiden.log info  "pre-script ran"
+    voiden.log warn  "token missing"
+    voiden.log error "request aborted"
+    voiden.log debug "body: $(voiden.request.body)"
     ```
   </TabItem>
 </Tabs>
@@ -231,10 +280,16 @@ voiden.assert(actual, operator, expectedValue, message);
     ```
   </TabItem>
   <TabItem value="py" label="Python">
-    
+
     ```py
-    voiden.assert(voiden.response.status, "==", 200, "Status should be 200")
-    voiden.assert(voiden.response.body.name, "contains", "Voiden", "Name check")
+    voiden.assert_(voiden.response.status, "==", 200, "Status should be 200")
+    voiden.assert_(voiden.response.body.name, "contains", "Voiden", "Name check")
+    ```
+  </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    voiden.assert "$(voiden.response.status)" "==" "200" "Status should be 200"
+    voiden.assert "$(voiden.response.body)" "contains" "Voiden" "Name check"
     ```
   </TabItem>
 </Tabs>
