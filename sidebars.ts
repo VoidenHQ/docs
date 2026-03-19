@@ -118,6 +118,11 @@ const sidebars: SidebarsConfig = {
         "core-features-section/variables/runtime-variables",
       ],
     },
+    {
+      type: "doc",
+      id: "core-features-section/history/history-overview",
+      label: "Execution History",
+    },
      {
       type: 'doc',
       id: 'getting-started-section/advanced-environment-config',

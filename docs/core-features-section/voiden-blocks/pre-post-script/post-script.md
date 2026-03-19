@@ -12,7 +12,7 @@ The **Post Script** block lets you run custom logic **after a response is receiv
 
 It executes locally inside Voiden in an isolated environment. Use it to validate responses, extract values, store runtime variables, or write logs.
 
-Voiden supports **JavaScript** and **Python**.
+Voiden supports **JavaScript**, **Python**, and **Shell (bash)**.
 
 For a full reference of what you can do inside a script, see the [Voiden Scripting](/docs/plugins/core-plugins/voiden-scripting).
 
@@ -53,7 +53,7 @@ Inside a Post Script, the `voiden.response` object is read-only:
 
 ## Examples
 
-The following are a few common examples of what you can do inside a Post Script. Since scripts run in a full Node.js or Python process, you're not limited to these — you can write any logic you need.
+The following are a few common examples of what you can do inside a Post Script. Since scripts run in a full Node.js, Python, or bash process, you're not limited to these — you can write any logic you need.
 
 ## Reading the Response
 
@@ -70,8 +70,16 @@ The following are a few common examples of what you can do inside a Post Script.
     ```py
     status = voiden.response.status
 
-    voiden.assert(status, "==", 200, "Status should be 200")
+    voiden.assert_(status, "==", 200, "Status should be 200")
     voiden.log("Response received successfully")
+    ```
+  </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    status=$(voiden.response.status)
+
+    voiden.assert "$status" "==" "200" "Status should be 200"
+    voiden.log "Response received successfully"
     ```
   </TabItem>
 </Tabs>
@@ -97,6 +105,12 @@ Runtime variables let you extract values from a response and carry them forward 
     voiden.variables.set("authToken", voiden.response.body.token)
     ```
   </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    voiden.variables.set "lastStatus" "$(voiden.response.status)"
+    voiden.variables.set "authToken" "$(voiden.response.body)"
+    ```
+  </TabItem>
 </Tabs>
 
 ### Read a value back
@@ -110,6 +124,11 @@ Runtime variables let you extract values from a response and carry them forward 
   <TabItem value="py" label="Python">
     ```py
     token = voiden.variables.get("authToken")
+    ```
+  </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    token=$(voiden.variables.get "authToken")
     ```
   </TabItem>
 </Tabs>

@@ -10,7 +10,7 @@ The **Pre Script** block lets you run custom logic **before a request is sent**.
 
 It executes locally inside Voiden — not on the API endpoint — in an isolated environment. Use it to dynamically prepare the request: generate tokens, update headers, set variables, or add conditional logic.
 
-Voiden supports **JavaScript** and **Python**.
+Voiden supports **JavaScript**, **Python**, and **Shell (bash)**.
 
 For a full reference of what you can do inside a script, see the [Voiden Scripting](/docs/plugins/core-plugins/voiden-scripting).
 
@@ -51,7 +51,7 @@ Inside a Pre Script, the `voiden.request` object is fully writable:
 
 ## Examples
 
-The following are a few common examples of what you can do inside a Pre Script. Since scripts run in a full Node.js or Python process, you're not limited to these — you can write any logic you need.
+The following are a few common examples of what you can do inside a Pre Script. Since scripts run in a full Node.js, Python, or bash process, you're not limited to these — you can write any logic you need.
 
 ## Override a Header
 
@@ -64,6 +64,11 @@ The following are a few common examples of what you can do inside a Pre Script. 
   <TabItem value="py" label="Python">
     ```py
     voiden.request.headers = [{"key": "Authorization", "value": "Bearer token"}]
+    ```
+  </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    voiden.request.headers.push "Authorization" "Bearer token"
     ```
   </TabItem>
 </Tabs>
@@ -79,6 +84,11 @@ The following are a few common examples of what you can do inside a Pre Script. 
   <TabItem value="py" label="Python">
     ```py
     voiden.request.headers.push({"key": "X-Trace", "value": "abc"})
+    ```
+  </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    voiden.request.headers.push "X-Trace" "abc"
     ```
   </TabItem>
 </Tabs>
@@ -99,6 +109,11 @@ The following are a few common examples of what you can do inside a Pre Script. 
     voiden.request.body = {"name": "Voiden"}
     ```
   </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    voiden.request.body '{"name":"Voiden"}'
+    ```
+  </TabItem>
 </Tabs>
 
 ---
@@ -107,9 +122,23 @@ The following are a few common examples of what you can do inside a Pre Script. 
 
 You can stop the request from being sent entirely:
 
-```js
-voiden.cancel();
-```
+<Tabs>
+  <TabItem value="js" label="JavaScript" default>
+    ```js
+    voiden.cancel();
+    ```
+  </TabItem>
+  <TabItem value="py" label="Python">
+    ```py
+    voiden.cancel()
+    ```
+  </TabItem>
+  <TabItem value="sh" label="Shell">
+    ```bash
+    voiden.cancel
+    ```
+  </TabItem>
+</Tabs>
 
 ---
 
