@@ -123,8 +123,8 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "doc",
-      id: "core-features-section/history/history-overview",
-      label: "Execution History",
+      id: "core-features-section/multiple-endpoints/multiple-endpoints-overview",
+      label: "Multiple Requests",
     },
      {
       type: 'doc',
