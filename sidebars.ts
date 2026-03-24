@@ -33,6 +33,7 @@ const sidebars: SidebarsConfig = {
         "getting-started-section/getting-started/openapi-imports",
         "getting-started-section/getting-started/openapi-validation",
         "getting-started-section/getting-started/the-basics",
+        "getting-started-section/getting-started/why-electron",
       ],
     },
     {
@@ -67,6 +68,7 @@ const sidebars: SidebarsConfig = {
             "core-features-section/voiden-blocks/rest-blocks/multipart-table-block",
             "core-features-section/voiden-blocks/rest-blocks/url-encoded-block",
             "core-features-section/voiden-blocks/rest-blocks/binary-file-block",
+            "core-features-section/voiden-blocks/rest-blocks/options-block",
           ],
         },
         {
@@ -91,6 +93,7 @@ const sidebars: SidebarsConfig = {
         },
         "core-features-section/voiden-blocks/assertion-block",
         "core-features-section/voiden-blocks/reusable-blocks",
+        "core-features-section/voiden-blocks/stitch-result",
         {
           type: "category",
           label: "GraphQL Blocks",
