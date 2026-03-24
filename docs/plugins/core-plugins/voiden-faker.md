@@ -55,9 +55,8 @@ These values are automatically evaluated during the `pre-send` stage of the requ
 
 ![faker](/img/plugins/faker/faker.gif)
 
----
 
-### Example of JSON Body 
+### Example of JSON Body
 
 ```json
 {
@@ -66,4 +65,10 @@ These values are automatically evaluated during the `pre-send` stage of the requ
 ```
 
 ---
+
+## Summary
+
+Tired of copy-pasting the same fake email or test name into every request? Voiden Faker takes care of that for you. Just drop a Faker.js expression into any field — headers, params, body, wherever — and every time you hit send, Voiden fills it in with fresh, realistic data automatically. No scripts, no setup, no stale hardcoded values. Just real-looking data, exactly when you need it.
+
+
 
