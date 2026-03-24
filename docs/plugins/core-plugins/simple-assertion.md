@@ -66,7 +66,6 @@ Check specific response headers and their values, such as `Content-Type`, authen
 
 ![headerconnection](/img/plugins/assertion/headercoonection.gif)
 
----
 
 ---
 

@@ -404,6 +404,24 @@ code, pre, kbd, samp, tt {
   background-color: rgba(167, 139, 250, 0.15);
 }
 
+/* Make the arrow click navigate like the heading */
+.menu__list-item-collapsible {
+  position: relative;
+}
+
+.menu__link--sublist {
+  flex: 1;
+  width: 100%;
+}
+
+.menu__caret {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  pointer-events: none;
+}
+
 [data-theme='light'] .menu__link--active {
   background-color: rgba(139, 92, 246, 0.12);
 }

@@ -63,7 +63,7 @@ With Authentication Enabled
 ### Essential Shortcuts
 Voiden provides comprehensive keyboard shortcuts for faster navigation and workflow:
 
-![keyshortcut](/img/geetingstarted/themes/keyshortcut.gif)
+![keyshortcut](/img/geetingstarted/keyshortcut.png)
 
 ---
 
