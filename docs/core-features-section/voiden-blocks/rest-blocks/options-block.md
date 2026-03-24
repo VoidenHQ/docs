@@ -4,7 +4,7 @@
   sidebar_label: Options Block
 ---
 
-# Request Options Block (`/options`)
+# Options Block 
 
 Global settings are great as a baseline — but sometimes a single request needs to behave differently from everything else. The Options Block gives you per-request control without touching your global config. Drop it into any section, set what you need, and Voiden handles the rest. Everything outside that section stays exactly as it was.
 
@@ -13,6 +13,8 @@ Global settings are great as a baseline — but sometimes a single request needs
 ## Inserting the Block
 
 Type `/options` anywhere inside a `.void` file to insert the options table. It lives inline with the rest of your request — right alongside headers, body, and auth.
+
+![option-block](/img/options/options.gif)
 
 :::tip
 The options block is a **singleton per section**. Inserting `/options` a second time in the same section replaces the existing table rather than stacking a second one on top.
@@ -50,6 +52,8 @@ Under the hood, the flow is straightforward:
 By default, Voiden follows redirects transparently — your request goes out, the server responds with a `302`, and Voiden quietly chases it until it lands somewhere final. Most of the time, that's exactly what you want.
 
 But sometimes you need to see what's happening *in between*. Setting `follow_redirects` to `false` stops Voiden at the first `3xx` response and returns it directly — `Location` header and all.
+
+![req-options](/img/options/options-req.png)
 
 ```
 follow_redirects    false
