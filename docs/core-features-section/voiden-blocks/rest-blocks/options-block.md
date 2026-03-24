@@ -4,7 +4,7 @@
   sidebar_label: Options Block
 ---
 
-# Request Options Block (`/options`)
+# Options Block <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
 
 Global settings are great as a baseline — but sometimes a single request needs to behave differently from everything else. The Options Block gives you per-request control without touching your global config. Drop it into any section, set what you need, and Voiden handles the rest. Everything outside that section stays exactly as it was.
 
@@ -13,6 +13,8 @@ Global settings are great as a baseline — but sometimes a single request needs
 ## Inserting the Block
 
 Type `/options` anywhere inside a `.void` file to insert the options table. It lives inline with the rest of your request — right alongside headers, body, and auth.
+
+![option-block](/img/options/options.gif)
 
 :::tip
 The options block is a **singleton per section**. Inserting `/options` a second time in the same section replaces the existing table rather than stacking a second one on top.
@@ -50,6 +52,8 @@ Under the hood, the flow is straightforward:
 By default, Voiden follows redirects transparently — your request goes out, the server responds with a `302`, and Voiden quietly chases it until it lands somewhere final. Most of the time, that's exactly what you want.
 
 But sometimes you need to see what's happening *in between*. Setting `follow_redirects` to `false` stops Voiden at the first `3xx` response and returns it directly — `Location` header and all.
+
+![req-options](/img/options/options-req.png)
 
 ```
 follow_redirects    false

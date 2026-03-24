@@ -126,6 +126,11 @@ const sidebars: SidebarsConfig = {
       id: "core-features-section/history/history-overview",
       label: "Execution History",
     },
+    {
+      type:"doc",
+      id: "core-features-section/multiple-endpoints/multiple-endpoints-overview",
+      label: "Multiple Requests",
+    },
      {
       type: 'doc',
       id: 'getting-started-section/advanced-environment-config',
