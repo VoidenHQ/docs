@@ -24,11 +24,26 @@ Voiden lets you add multiple requests directly in your `.void` file — no switc
 
 ---
 
-## Color-Coded Sections
+## Running Requests
 
-Each request in your file gets a unique color indicator. That same color carries through to the response panel, so you can instantly match every response back to the request that triggered it — no guessing, no counting rows.
+You are in control of what runs and when.
 
-This makes it especially easy to scan results when you have several requests running in sequence, each response clearly tied to its source at a glance.
+- **Run a single request** — place your cursor inside the request section you want to execute, then press **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux). Voiden runs only that request and shows its response.
+- **Run all requests** — press **Cmd + Shift + Enter** (Mac) or **Ctrl + Shift + Enter** (Windows/Linux) to run every request in the file in sequence, one after another.
+
+:::note Running Requests
+To run a single request, make sure your cursor is placed inside that request's section before pressing the shortcut.
+:::
+
+---
+
+## Request Labels
+
+Each request in your file gets a unique color indicator and a label — both assigned automatically by Voiden, so everything is visually distinct from the moment you add it. The label gives each request a recognizable name, and the color carries through to the response panel, so you can instantly match every response back to the request that triggered it — no guessing, no counting rows.
+
+Not a fan of the auto-generated label? You can rename it too. Just **double-click the label** to edit it and give it something that makes sense for your workflow.
+
+This makes it especially easy to scan results when you have several requests running in sequence — each response clearly labeled and tied to its source at a glance.
 
 ---
 
@@ -42,4 +57,4 @@ This makes it especially easy to scan results when you have several requests run
 
 ## Summary
 
-Multiple Requests turns your `.void` file into a complete request runner. Add your requests and watch each response come in — color-coded, ordered, and easy to follow. It's the simplest way to test a full API flow without ever leaving a single file.
+Multiple Requests is the fastest way to test a full API flow in one place. Stack your requests, run one or all of them, and follow each response back to its source through color and label — no jumping between files, no losing track of what came from where.
