@@ -1,17 +1,6 @@
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
-/**
- * Creating a sidebar enables you to:
- - create an ordered group of docs
- - render a sidebar for each doc of that group
- - provide next/previous navigation
-
- The sidebars can be generated from the filesystem, or explicitly defined here.
-
- Create as many sidebars as you want.
- */
 const sidebars: SidebarsConfig = {
-  // Automatically generate sidebar from the docs folder structure
   tutorialSidebar: [
     {
       type: "html",
@@ -26,10 +15,6 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Getting Started",
-      link: {
-        type: "doc",
-        id: "getting-started-section/getting-started/installation",
-      },
       items: [
         "getting-started-section/getting-started/installation",
         "getting-started-section/getting-started/quick-start",
@@ -42,10 +27,6 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Settings",
-      link: {
-        type: "doc",
-        id: "getting-started-section/settings/appearance-setting",
-      },
       items: [
         "getting-started-section/settings/appearance-setting",
         "getting-started-section/settings/general-setting",
@@ -64,20 +45,12 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Voiden Blocks",
-      link: {
-        type: "doc",
-        id: "core-features-section/voiden-blocks/voiden-blocks-intro",
-      },
       items: [
         "core-features-section/voiden-blocks/voiden-blocks-intro",
         "core-features-section/voiden-blocks/voiden-basic-blocks",
         {
           type: "category",
           label: "REST Blocks",
-          link: {
-            type: "doc",
-            id: "core-features-section/voiden-blocks/rest-blocks/endpoint-block",
-          },
           items: [
             "core-features-section/voiden-blocks/rest-blocks/endpoint-block",
             "core-features-section/voiden-blocks/rest-blocks/headers-block",
@@ -94,10 +67,6 @@ const sidebars: SidebarsConfig = {
         {
           type: "category",
           label: "Socket & gRPC Blocks",
-          link: {
-            type: "doc",
-            id: "core-features-section/voiden-blocks/web-socket",
-          },
           items: [
             "core-features-section/voiden-blocks/web-socket",
             "core-features-section/voiden-blocks/grpcs",
@@ -106,10 +75,6 @@ const sidebars: SidebarsConfig = {
         {
           type: "category",
           label: "Authorization",
-          link: {
-            type: "doc",
-            id: "core-features-section/voiden-blocks/advanced-authorization/basic-auth-block",
-          },
           items: [
             "core-features-section/voiden-blocks/advanced-authorization/basic-auth-block",
             "core-features-section/voiden-blocks/advanced-authorization/api-key-block",
@@ -125,10 +90,6 @@ const sidebars: SidebarsConfig = {
         {
           type: "category",
           label: "GraphQL Blocks",
-          link: {
-            type: "doc",
-            id: "core-features-section/voiden-blocks/graphql-query",
-          },
           items: [
             "core-features-section/voiden-blocks/graphql-query",
             "core-features-section/voiden-blocks/graphql-variable",
@@ -137,13 +98,9 @@ const sidebars: SidebarsConfig = {
         {
           type: "category",
           label: "Pre & Post Script Blocks",
-          link: {
-            type: "doc",
-            id: "core-features-section/voiden-blocks/pre-post-script/pre-script",
-          },
           items: [
             "core-features-section/voiden-blocks/pre-post-script/pre-script",
-            "core-features-section/voiden-blocks/pre-post-script/post-script"
+            "core-features-section/voiden-blocks/pre-post-script/post-script",
           ],
         },
       ],
@@ -151,10 +108,6 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Voiden Variables",
-      link: {
-        type: "doc",
-        id: "core-features-section/variables/variables-overview",
-      },
       items: [
         "core-features-section/variables/variables-overview",
         "core-features-section/variables/environment-variables",
@@ -167,11 +120,11 @@ const sidebars: SidebarsConfig = {
       label: "Execution History",
     },
     {
-      type:"doc",
+      type: "doc",
       id: "core-features-section/multiple-endpoints/multiple-endpoints-overview",
       label: "Multiple Requests",
     },
-     {
+    {
       type: 'doc',
       id: 'getting-started-section/advanced-environment-config',
       label: 'Advanced Environment Configuration',
@@ -184,10 +137,6 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Git Integration",
-      link: {
-        type: "doc",
-        id: "git-integration/overview",
-      },
       items: [
         "git-integration/overview",
         "git-integration/git-integration-cli",
@@ -207,10 +156,6 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Core Plugins",
-      link: {
-        type: "doc",
-        id: "plugins/core-plugins/voiden-rest-api",
-      },
       items: [
         "plugins/core-plugins/voiden-rest-api",
         "plugins/core-plugins/md-preview",
@@ -221,11 +166,7 @@ const sidebars: SidebarsConfig = {
         "plugins/core-plugins/voiden-faker",
         {
           type: "category",
-          label: "Socket & gRPC APIs ",
-          link: {
-            type: "doc",
-            id: "plugins/core-plugins/socket/overview",
-          },
+          label: "Socket & gRPC APIs",
           items: [
             "plugins/core-plugins/socket/overview",
             "plugins/core-plugins/socket/web-socket",
@@ -239,19 +180,11 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Community Plugins",
-      link: {
-        type: "doc",
-        id: "plugins/community-plugins/overview",
-      },
       items: ["plugins/community-plugins/overview"],
     },
     {
       type: "category",
       label: "Build a Plugin",
-      link: {
-        type: "doc",
-        id: "plugins/build-a-plugin",
-      },
       items: [
         "plugins/build-a-plugin",
         "plugins/building-plugins/overview",
