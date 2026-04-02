@@ -5,10 +5,6 @@ id: intro
 
 # Welcome to Voiden docs
 
-#### Your slightly self-aware, occasionally sarcastic, but genuinely helpful documentation hub.
-
----
-
 **Hi.** You made it.  
 You are here because you either:  
 1. Downloaded and Installed Voiden and thought, *“Wait, what does this button do?”*  
