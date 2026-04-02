@@ -3,7 +3,7 @@ sidebar_position: 1
 id: intro
 ---
 
-# Welcome to Voiden
+# Welcome to Voiden docs
 
 #### Your slightly self-aware, occasionally sarcastic, but genuinely helpful documentation hub.
 
