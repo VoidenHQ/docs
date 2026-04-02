@@ -29,8 +29,6 @@ Once an OpenAPI schema is imported and a `.void` file is generated:
 
 You get fast feedback while editing—not after things break.
 
----
-
 
 ## OpenAPI Schema Validation in Voiden 
 
@@ -44,8 +42,6 @@ Getting started is quick and easy:
 
 ![openapi_valid](/img/plugins/openapi-collection/openapi-valid.gif)
 
-
----
 
 ## Supported Validation Rules
 
@@ -63,11 +59,11 @@ Voiden currently supports the following OpenAPI validation checks:
 | **Schema Composition** | oneOf, anyOf, allOf, not |
 | **Special Rules** | nullable, required vs optional parameters |
 
----
 
 ## What Voiden Validates (and What It Doesn’t)
 
 Voiden validates **only what is explicitly defined** in your OpenAPI specification:
+
 - Required vs optional fields  
 - Data types and constraints  
 - Allowed and disallowed properties  
@@ -75,7 +71,6 @@ Voiden validates **only what is explicitly defined** in your OpenAPI specificati
 Voiden does **not** infer undocumented fields or apply assumptions.  
 This keeps validation accurate, predictable, and aligned with your API contract.
 
----
 
 ## Summary
 
