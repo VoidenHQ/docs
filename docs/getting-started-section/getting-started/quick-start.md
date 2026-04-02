@@ -5,7 +5,7 @@
   sidebar_position: 3
 ---
 
-# 👋 Hello, World
+# Hello, World
 
 Welcome to your first ride in **Voiden** — no headers to decode, no mysterious 500s to fear, just a friendly **GET** request to kick things off.
 
@@ -14,7 +14,7 @@ Think of it as the world’s most patient API — it listens, nods politely, and
 
 ---
 
-### 🚀 Let’s Get Started
+### Let’s Get Started
 
 1. Type `/endpoint` to create a new **Request Block**.  
 
@@ -38,7 +38,7 @@ No payloads, no panic, no drama. Just clean, quiet success.
 
 ---
 
-> 💡 **That’s the thing about Voiden:** your API documentation isn’t static — it’s alive.  
+> 💡 **That’s the thing about Voiden:** your API documentation isn’t static, it’s alive.  
 > You can write your docs right in the editor and drop in the exact blocks you need, when you need them.  
-> Slash commands make it effortless — everything in Voiden is a block.  
+> Slash commands make it effortless: everything in Voiden is a block.  
 > No clutter. No tabs everywhere. Just you, your words, and the requests that matter.
