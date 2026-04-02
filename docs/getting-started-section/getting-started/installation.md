@@ -7,7 +7,7 @@
 # Installation
 
 Welcome to the part where we pretend reading system requirements is fun.  
-Good news — installing Voiden is actually painless.
+Good news is that installing Voiden is actually painless.
 
 ---
 
@@ -39,14 +39,12 @@ Just download, install, and start building stuff.
 ---
 
 ## Pro Tip
-Voiden works **offline-first** — once installed, it doesn’t need the cloud to run.  
-Because, well… that’s kind of the whole point.
+Voiden works **offline-first** : once installed, it doesn’t need the cloud to run.  
 
 ---
 
 ## Uninstalling
 Just delete it. Seriously. No leftover daemons, registry keys, or “helpful” background processes.  
-Voiden leaves quietly — like a polite developer exiting a Zoom call.
 
 ---
 
