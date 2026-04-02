@@ -3,13 +3,13 @@ sidebar_position: 1
 id: intro
 ---
 
-# Welcome to Voiden Hub
+# Welcome to Voiden
 
 #### Your slightly self-aware, occasionally sarcastic, but genuinely helpful documentation hub.
 
 ---
 
-**Hi.** You’ve made it.  
+**Hi.** You made it.  
 You are here because you either:  
 1. Downloaded and Installed Voiden and thought, *“Wait, what does this button do?”*  
 2. Broke something and are now googling your way through existential dread.  
@@ -19,7 +19,7 @@ You are here because you either:
 
 ## What is Voiden?
 
-Voiden is an offline-first API client and workspace for developers, API testers and technical writers who want clarity, speed, and control. It lets you build, test, and link API requests like reusable blocks, comment on JSON or XML, preview responses (even PDFs or videos), and manage environments, themes, and scripts. The best part is that Voiden enables all this without ever needing the cloud. Voiden could be seen as your API lab: local, fast, beautifully nerdy, and just the right amount of judgmental.
+Voiden is an offline-first API client and workspace for developers, API testers and technical writers who want clarity, speed, and control. Voiden lets you build, test, and link API requests like reusable blocks, comment on JSON or XML, preview responses (even PDFs or videos), and manage environments, themes, and scripts. The best part is that Voiden enables all this without ever needing the cloud. Voiden could be seen as your API lab: local, fast, beautifully nerdy, and just the right amount of judgmental.
 
 
 ![whatsvoiden](/img/geetingstarted/whatsvoiden.png)
@@ -50,5 +50,5 @@ We truly value all feedback. Voiden is now open-source, and we’d love for you 
 
 ## Now what?
 
-👉 Check the [**Installation**](./getting-started/installation.md) guide before you start clicking random buttons.  
+Check the [**Installation**](./getting-started/installation.md) guide before you start clicking random buttons.  
 (Or don’t. We’re not your boss. But you might regret it.)
