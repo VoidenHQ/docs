@@ -10,6 +10,8 @@ Testing APIs one by one is fine — but what if you could run all the requests a
 
 Stitch Blocks is an automation block that lets you select which files to run, configure how the run behaves, and execute everything in one go — no manual triggering, no jumping between files. Just a clean, automated run from start to finish.
 
+Looking for the plugin details? [Check out the Voiden Stitch Plugin →](/docs/plugins/core-plugins/voiden-stitch/voiden-stitch.md)
+
 ---
 
 ## How to Insert

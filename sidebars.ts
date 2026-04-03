@@ -175,6 +175,7 @@ const sidebars: SidebarsConfig = {
         },
         "plugins/core-plugins/voiden-graphql",
         "plugins/core-plugins/voiden-scripting",
+        "plugins/core-plugins/voiden-stitch/voiden-stitch",
       ],
     },
     {
