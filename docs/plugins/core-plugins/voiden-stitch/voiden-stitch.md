@@ -4,7 +4,7 @@
   sidebar_label: Voiden Stitch
 ---
 
-# Voiden Stitch <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
+# Voiden Stitch
 
 Testing APIs one by one works — but when you have multiple `.void` files to validate, doing it manually gets old fast. **Voiden Stitch** lets you insert a folder and run all the APIs inside it at once, in sequence, and see exactly what passed and what didn't, all in one place.
 

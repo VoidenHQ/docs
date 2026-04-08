@@ -4,7 +4,7 @@
   sidebar_label: Multiple Requests
 ---
 
-# Multiple Requests <span style={{display:"inline-flex",alignItems:"center",gap:"5px",fontSize:"11px",fontWeight:"600",letterSpacing:"0.4px",padding:"3px 9px",borderRadius:"20px",background:"linear-gradient(135deg,#7c3aed,#a855f7)",color:"#fff",verticalAlign:"middle",marginLeft:"8px",boxShadow:"0 1px 4px rgba(139,92,246,0.4)",textTransform:"uppercase"}}><img src="/img/flask-conical.svg" width="12" style={{filter:"brightness(0) invert(1)"}} />Beta</span>
+# Multiple Requests
 
 Voiden lets you add multiple requests directly in your `.void` file — no switching between tabs, no juggling separate files. Just stack your requests one after another and run them all at once.
 
