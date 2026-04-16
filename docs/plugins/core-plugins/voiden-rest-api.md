@@ -32,6 +32,7 @@ The **Voiden REST API Plugin** is a complete, extensible toolkit for building, t
 * Pretty-printed body viewer
 * Syntax highlighting (JSON & XML)
 * Collapsible response sections
+* [Response body language override](#response-body-language-override)
 
 ### **Productivity Features**
 
@@ -67,6 +68,32 @@ This plugin owns **13 custom block types**, enabling structured API request crea
 * `Request Summary/Security`
 
 The plugin also allows **block extensions**, enabling future customization and community add-ons.
+
+---
+
+## Response Body Language Override
+
+Voiden normally figures out how to render the response body on its own — it reads the `Content-Type` header, sees `application/json`, and gives you nicely formatted JSON. Simple.
+
+But servers aren't always that cooperative. Sometimes you get `text/plain` back even though the body is perfectly valid JSON. Sometimes the content type is just wrong. Now you can tell Voiden exactly how you want the body rendered, no matter what the server says.
+
+### How to Use It
+
+In the response panel, there's a **language selector** sitting at the top of the response body section. Click it, pick what you want, and Voiden re-renders the body instantly.
+
+- **Auto** — Voiden decides based on `Content-Type` (this is the default)
+- **JSON** — pretty-print with JSON syntax highlighting
+- **XML** — format as XML
+- **HTML** — render as HTML markup
+- **Plain Text** — raw output, no formatting
+
+This is purely a display thing — it changes how the body looks, not what it actually is. The real response data is untouched, and the override doesn't carry over to your next request.
+
+### When It Comes in Handy
+
+- The server sends `Content-Type: text/plain` but the body is JSON — flip it to JSON and actually read it
+- You're dealing with an API that returns inconsistent content types
+- You just want to eyeball the raw output without any formatting getting in the way
 
 ---
 
