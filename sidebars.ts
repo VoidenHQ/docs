@@ -126,6 +126,11 @@ const sidebars: SidebarsConfig = {
       label: "Multiple Requests",
     },
     {
+      type: "doc",
+      id: "core-features-section/lock-mode/lock-mode-overview",
+      label: "Lock Mode",
+    },
+    {
       type: 'doc',
       id: 'getting-started-section/advanced-environment-config',
       label: 'Advanced Environment Configuration',
