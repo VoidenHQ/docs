@@ -38,11 +38,17 @@ Voiden comes with a curated set of **core plugins** that are useful for everyone
 Examples of core plugins include:
 
 * **[Voiden REST API](/docs/plugins/core-plugins/voiden-rest-api.md)** – Provides easy-to-use blocks and utilities to make REST API requests, including GET, POST, PUT, DELETE, headers, and dynamic variables. 
-* **[Advanced Authentication](/docs/plugins/core-plugins/advanced-authentication.md)** – Offers built‑in authentication flows, token management, API key handling, and secure credential storage.
 * **[Markdown Preview](/docs/plugins/core-plugins/md-preview.md)** – Renders real‑time markdown previews with formatting utilities, syntax highlighting, and editor enhancements.
+* **[Advanced Authentication](/docs/plugins/core-plugins/advanced-authentication.md)** – Offers built‑in authentication flows, token management, API key handling, and secure credential storage.
 * **[OpenAPI Collection Import](/docs/plugins/core-plugins/openapi-collection-importer.md)** – Allows users to import OpenAPI specifications to auto‑generate API blocks, endpoints, and request structures.
 * **[Postman Collection Import](/docs/plugins/core-plugins/postman-collection-importer.md)** – Lets users import Postman collections to instantly create runnable API requests inside Voiden.
+* **[Simple Assertion](/docs/plugins/core-plugins/simple-assertion.md)** – Gives you a clean, table-based way to validate HTTP responses, including status codes, status text, headers, response time, and body, without writing a single line of code.
 * **[Voiden Faker](/docs/plugins/core-plugins/voiden-faker.md)** – Provides a wide library of fake data generators (names, emails, numbers, lorem text, JSON mocks, etc.) for testing APIs and workflows without real data.
+* **[Socket & gRPC](/docs/plugins/core-plugins/socket/overview.md)** – Adds support for real-time WebSocket connections and high-performance gRPC APIs right inside Voiden, with full support for unary and streaming requests.
+* **[GraphQL](/docs/plugins/core-plugins/voiden-graphql.md)** – Supports GraphQL queries, mutations, and subscriptions against a single endpoint, with dynamic variable support built right in.
+* **[Voiden Scripting](/docs/plugins/core-plugins/voiden-scripting.md)** – Brings pre and post-request scripting in JavaScript, Python, or Shell, perfect for injecting tokens, chaining requests, and validating responses automatically.
+* **[Voiden Stitch](/docs/plugins/core-plugins/voiden-stitch/voiden-stitch.md)** – Runs multiple `.void` files in sequence and shows a clean pass/fail breakdown with assertion counts and timing, all from a single block.
+
 
 These plugins are the foundation of Voiden and ensure consistency across all installations.
 

@@ -81,11 +81,19 @@ But servers aren't always that cooperative. Sometimes you get `text/plain` back 
 
 In the response panel, there's a **language selector** sitting at the top of the response body section. Click it, pick what you want, and Voiden re-renders the body instantly.
 
+![response-language](/img/plugins/response-language.png)
+
 - **Auto** — Voiden decides based on `Content-Type` (this is the default)
+- **Raw** — unprocessed output exactly as received
 - **JSON** — pretty-print with JSON syntax highlighting
 - **XML** — format as XML
 - **HTML** — render as HTML markup
+- **YAML** — format as YAML
+- **JavaScript** — format with JavaScript syntax highlighting
+- **Python** — format with Python syntax highlighting
 - **Plain Text** — raw output, no formatting
+- **Hex** — display the response as a hexadecimal representation
+- **Base64** — display the response as a Base64-encoded string
 
 This is purely a display thing — it changes how the body looks, not what it actually is. The real response data is untouched, and the override doesn't carry over to your next request.
 

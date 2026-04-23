@@ -26,6 +26,8 @@ As soon as you unlock, Voiden goes back to normal. Anything you ran while locked
 
 Find the **lock icon** in the status bar at the bottom of the window and click it. That's it.
 
+![lock-mode](/img/lock-mode/lock-mode.gif)
+
 - **Locked** — icon is active, nothing gets saved this session
 - **Unlocked** — back to normal, history and data write as usual
 
