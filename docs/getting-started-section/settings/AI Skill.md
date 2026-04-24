@@ -5,7 +5,7 @@ sidebar_label: AI Skill
 sidebar_position: 5
 ---
 
-# AI Skill
+# AI Skill in Voiden
 
 Your AI assistant is great at writing code but it doesn't know Voiden's `.void` format out of the box. We have added an AI Skill that fixes that. Enable it once, and your assistant gains everything it needs to write, edit, and generate valid `.void` files right alongside you.
 
