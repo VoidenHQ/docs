@@ -7,20 +7,20 @@ sidebar_position: 5
 
 # AI Skill in Voiden
 
-Your AI assistant is great at writing code but it doesn't know Voiden's `.void` format out of the box. We have added an AI Skill that fixes that. Enable it once, and your assistant gains everything it needs to write, edit, and generate valid `.void` files together with you.
+Your AI assistant is great at writing code but it doesn't know Voiden's `.void` format out of the box. This is why we have added an AI Skill that fixes that. Enable it once from your settings, and your AI assistant will know everything it needs to write, edit, and generate valid `.void` files together with you.
 
 ---
 
 ## How It Works
 
-When you enable AI Skill, Voiden generates a `skill.md` file inside your project's `.voiden` directory — right where your assistant can find it:
+When you enable AI Skill, Voiden generates a `skill.md` file inside your project's `.voiden` directory, right where your assistant can find it:
 
 | Assistant | Skill file location |
 |-----------|------------------------|
 | **Claude** | `.claude/skills/voiden/skill.md` |
 | **Codex** | `.codex/skills/voiden/skill.md` |
 
-The file covers the full `.void` format — block types, structure rules, variable syntax, and the features from your enabled plugins. Your assistant picks it up automatically as context, so it can read your existing files and generate new ones correctly.
+The file covers the full `.void` format: block types, structure rules, variable syntax, and the features from your enabled plugins. Your assistant picks it up automatically as context, so it can read your existing files and generate new ones correctly when required.
 
 ---
 
@@ -33,7 +33,7 @@ Head to **Settings → AI Skill** and toggle on the assistant(s) you use:
 - **Claude** — Generates a skill file for Claude (Claude Code, Cursor with Claude, etc.)
 - **Codex** — Generates a skill file for Codex-based assistants
 
-You can enable both at the same time — they each get their own file.
+You can enable both at the same time. In this case, each will get their own file.
 
 :::tip
 Whenever you enable or disable a plugin, come back here and regenerate the skill file so your assistant stays in sync with your current setup.
@@ -43,7 +43,7 @@ Whenever you enable or disable a plugin, come back here and regenerate the skill
 
 ## What the Skill File Includes
 
-The skill file is built from two layers — so your assistant only learns what's actually relevant to your project:
+The skill file is built from two layers, so your assistant only learns what's actually relevant to your project:
 
 ### Core — Always Included
 
