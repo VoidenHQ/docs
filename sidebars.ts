@@ -30,8 +30,12 @@ const sidebars: SidebarsConfig = {
       items: [
         "getting-started-section/settings/appearance-setting",
         "getting-started-section/settings/general-setting",
-        "getting-started-section/settings/ai-skill",
       ],
+    },
+    {
+      type: "doc",
+      id: "getting-started-section/settings/ai-skill",
+      label: "AI Skill",
     },
     {
       type: "doc",

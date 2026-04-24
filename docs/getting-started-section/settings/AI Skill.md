@@ -30,8 +30,8 @@ Head to **Settings → AI Skill** and toggle on the assistant(s) you use:
 
 <img src="/img/geetingstarted/ai-skill.png" alt="ai-skill" width="" />
 
-- **Claude**: Generates a skill file for Claude (Claude Code, Cursor with Claude, etc.)
-- **Codex**: Generates a skill file for Codex-based assistants
+- **Claude** — Generates a skill file for Claude.
+- **Codex** — Generates a skill file for Codex-based assistants.
 
 You can enable both at the same time. In this case, each will get their own file.
 
