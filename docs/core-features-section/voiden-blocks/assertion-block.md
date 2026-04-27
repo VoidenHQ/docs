@@ -18,19 +18,19 @@ Voiden proudly supports Assertions as a **reusable block**, because why should o
 
 ![assertion](/img/voiden-blocks/assertion-show.png)
 
----
 
 2. **Run It**  
    Give your request a gentle nudge by either:  
    - Pressing **Cmd + Enter** (on macOS) or **Ctrl + Enter** (on Windows/Linux), or  
    - Clicking the big, bright **green  Play button**—the one that screams “press me!”  
 
----
      
 3. **Check the Results**  
    Slide over to the **Response Panel** — you’ll spot your shiny new **Assertion Check** waiting to tell you if things went perfectly… or hilariously wrong.
 
 ![asserion](/img/voiden-blocks/assertion.gif)
+
+---
 
 ### Available Operators
 
@@ -55,6 +55,8 @@ Voiden proudly supports Assertions as a **reusable block**, because why should o
 | `is-falsy` | `falsy` | Falsy value |
 | `type-is` | `typeof` | Type check |
 
+---
+
 ### Available fields
 
 | Field | Example |
@@ -65,4 +67,10 @@ Voiden proudly supports Assertions as a **reusable block**, because why should o
 | duration | 1000 |
 | header | `header.Content-Type` might have `applcation/json` |
 | body | `body.data[0].id` would read the id from `{ "data": [ { "id": 0} ] }` |
+
+---
+
+## Summary
+
+Assertion blocks are your API's quality check — drop one in with `/assertion-block`, run your request, and head over to the Response Panel to see exactly what passed and what didn't. You can check status codes, status text, response time, headers, and body fields, with a solid set of operators covering everything from simple equality to regex matching and type checks. Just make sure the Assertion Plugin is enabled and you're good to go.
 
