@@ -18,6 +18,7 @@ const sidebars: SidebarsConfig = {
       items: [
         "getting-started-section/getting-started/installation",
         "getting-started-section/getting-started/quick-start",
+        "getting-started-section/getting-started/smart-blocks",
         "getting-started-section/getting-started/postman-import",
         "getting-started-section/getting-started/openapi-imports",
         "getting-started-section/getting-started/openapi-validation",
