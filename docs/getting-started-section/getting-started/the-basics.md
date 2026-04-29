@@ -94,6 +94,18 @@ The Response Panel doesn't stop at just the response. It comes with built-in tab
 
 ---
 
+### Multiple Windows
+
+Need more screen space or want to work on two files side by side? No problem. Voiden supports multiple windows so you can spread your work out however feels right.
+
+Just press **Cmd + Shift + N** (macOS) or **Ctrl + Shift + N** (Windows/Linux) to open a new window. Each window is fully independent, so you can have different projects, different files, or run requests in parallel without anything getting in the way.
+
+![multiple-window](/img/geetingstarted/multiple-window.gif)
+
+When you're done with a window, closing it is just as easy. Head to the **hamburger menu** in the top left, go to **File**, and hit **Close Window**. That's all there is to it.
+
+---
+
 ### Ready to get started?
 
  [**Install Voiden**](./installation.md)
