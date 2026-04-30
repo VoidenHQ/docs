@@ -18,6 +18,36 @@ Runtime variables are dynamic values that get set during request execution. They
 - Storing a user ID from a create-user response
 - Saving an order ID to use in later order management calls
 
+## Per-Environment Storage
+
+Runtime variables are now stored per-environment rather than in a single global store. Depending on whether you have an environment active or not, things work a little differently.
+
+---
+
+### Environment is Active
+
+Runtime variables are scoped directly to the active environment. Any value set during a request stays tied to that environment and won't affect anything else. Switch to staging, and you're working with staging's variables. Switch to production, and it's a completely clean slate.
+
+
+
+---
+
+### No Environment is Active
+
+No environment selected? No problem. Runtime variables fall back to a global runtime so your workflow keeps running without any interruptions. Think of it as a safe default that's always there when you need it.
+
+
+
+---
+
+### Which Value Wins?
+
+If the same variable exists in both the active environment and the global runtime, the **environment-specific value always takes priority**. Global values are only used as a fallback when there's nothing more specific to pull from.
+
+---
+
+This means you can run the same workflow across dev, staging, and production without variables from one environment bleeding into another. Each environment keeps its own clean set of runtime state.
+
 
 ## Creating Runtime Variables
 
@@ -116,3 +146,9 @@ Every runtime variable shows a preview of its current resolved value. Hover over
 :::
 
 Runtime variables transform your isolated API calls into connected workflows!
+
+---
+
+## Summary
+
+Runtime variables are what turn a bunch of separate requests into a real workflow. Capture a value from one response, pass it into the next request, and keep the chain going. They're scoped to whatever environment you're working in, so dev, staging, and production all stay completely separate. And if you're not using an environment, the global runtime has you covered. Set them up once and let Voiden do the rest.

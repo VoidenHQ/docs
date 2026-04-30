@@ -66,6 +66,16 @@ Once everything is configured, hit the **Run** button to kick off the automated 
 
 ---
 
+## Stitch History
+
+Voiden keeps a history of all your previous Stitch runs right inside the **Stitch response panel**. Hit the **History** button in the panel and you'll see all your past runs with their pass/fail results, assertion counts, and timing.
+
+![stitch-history](/img/stitch-block/stitch-history.gif)
+
+Really useful when you want to compare runs or track down when something started going wrong.
+
+---
+
 ## Summary
 
 Stitch Blocks gives you full control over automated API runs — choose your files, set your environment, configure the run behavior, and fire. It's the fastest way to validate multiple `.void` files at once and stay confident that your APIs are working exactly as expected.
