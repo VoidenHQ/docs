@@ -5,7 +5,7 @@
   sidebar_position: 1
 ---
 
-# Variables in Voiden
+# Variables 
 
 Stop repeating yourself! Variables in Voiden let you define values once and reuse them across all your API requests. No more hardcoding the same URLs, tokens, or data in every single void file.
 
@@ -24,12 +24,11 @@ Stop repeating yourself! Variables in Voiden let you define values once and reus
 
 ###  Environmental Variables
 
-  These are your configuration constants that change based on the environment you're working in.
-
+  These are your configuration constants that change based on the environment you're working in. [See how environment variables work →](/docs/core-features-section/variables/environment-variables)
 
 ###  Runtime Variables
 
-  These are dynamic values that get set during request execution and can be used in subsequent requests.
+  These are dynamic values that get set during request execution and can be used in subsequent requests. Runtime variables are now stored per-environment, so each environment keeps its own set of values. If no environment is active, they fall back to a global bucket — and when an environment is active, its values always take priority. [See runtime variables in action →](/docs/core-features-section/variables/runtime-variables)
 
 
 ## Best Practices
