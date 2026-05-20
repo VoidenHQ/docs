@@ -215,6 +215,21 @@ const sidebars: SidebarsConfig = {
       id: "developer-tools/voiden-cli",
       label: "Voiden CLI",
     },
+    {
+      type: "category",
+      label: "@voiden/runner",
+      items: [
+        "developer-tools/voiden-runner/overview",
+        "developer-tools/voiden-runner/installation",
+        "developer-tools/voiden-runner/command-options",
+        "developer-tools/voiden-runner/run-a-void-file",
+        "developer-tools/voiden-runner/attach-environment",
+        "developer-tools/voiden-runner/generate-report",
+        "developer-tools/voiden-runner/export-csv",
+        "developer-tools/voiden-runner/email-report",
+        "developer-tools/voiden-runner/ci-cd",
+      ],
+    },
   ],
 };
 
