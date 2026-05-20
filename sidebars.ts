@@ -215,6 +215,11 @@ const sidebars: SidebarsConfig = {
       id: "developer-tools/voiden-cli",
       label: "Voiden CLI",
     },
+    {
+      type: "doc",
+      id: "developer-tools/voiden-runner",
+      label: "Voiden Runner (Beta)",
+    },
   ],
 };
 
