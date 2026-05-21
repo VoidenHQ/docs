@@ -110,10 +110,10 @@ voiden-runner plugin disable <plugin-name>
 
 | Plugin | Description | Enabled by default |
 |---|---|:---:|
-| [Voiden REST API](../../plugins/core-plugins/voiden-rest-api) | Handles standard HTTP REST requests | ✓ |
-| [Advanced Authentication](../../plugins/core-plugins/advanced-authentication) | Bearer tokens, basic auth, and API keys | ✓ |
-| [Simple Assertions](../../plugins/core-plugins/simple-assertion) | Evaluates assertion blocks against response fields | ✓ |
-| [Voiden Faker](../../plugins/core-plugins/voiden-faker) | Generates dynamic test data via `{{$faker.*}}` patterns | ✓ |
-| [Voiden GraphQL](../../plugins/core-plugins/voiden-graphql) | Converts GraphQL blocks to standard HTTP POST requests | ✓ |
-| [Voiden Scripting](../../plugins/core-plugins/voiden-scripting) | Runs JavaScript, Python, or shell pre/post-request scripts | ✓ |
-| [Socket & gRPC](../../plugins/core-plugins/socket/overview) | WebSocket and gRPC request support | ✓ |
+| [Voiden REST API](../../plugins/core-plugins/voiden-rest-api.md) | Handles standard HTTP REST requests | ✓ |
+| [Advanced Authentication](../../plugins/core-plugins/advanced-authentication.md) | Bearer tokens, basic auth, and API keys | ✓ |
+| [Simple Assertions](../../plugins/core-plugins/simple-assertion.md) | Evaluates assertion blocks against response fields | ✓ |
+| [Voiden Faker](../../plugins/core-plugins/voiden-faker.md) | Generates dynamic test data via `{{$faker.*}}` patterns | ✓ |
+| [Voiden GraphQL](../../plugins/core-plugins/voiden-graphql.md) | Converts GraphQL blocks to standard HTTP POST requests | ✓ |
+| [Voiden Scripting](../../plugins/core-plugins/voiden-scripting.md) | Runs JavaScript, Python, or shell pre/post-request scripts | ✓ |
+| [Socket & gRPC](../../plugins/core-plugins/socket/overview.md) | WebSocket and gRPC request support | ✓ |

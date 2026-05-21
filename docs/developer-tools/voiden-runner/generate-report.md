@@ -69,5 +69,5 @@ voiden-runner report clear
 
 ## Next steps
 
-- [Export to CSV](./export-csv) — detailed per-request CSV data
-- [Send an Email Report](./email-report) — HTML reports delivered via SMTP
+- [Export to CSV](./export-csv.md) — detailed per-request CSV data
+- [Send an Email Report](./email-report.md) — HTML reports delivered via SMTP

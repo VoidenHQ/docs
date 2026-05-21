@@ -18,7 +18,7 @@ The environment selector lives in the **top navigation bar**, right next to the 
 ![select-envs](/img/voiden-blocks/env-variable/select-env.gif)
 
 :::info Need profiles, public/private visibility, or a YAML-based hierarchy?
-Check out [Advanced Environment Configuration](../../getting-started-section/advanced-environment-config) for the full system.
+Check out [Advanced Environment Configuration](../../getting-started-section/advanced-environment-config.md) for the full system.
 :::
 
 ---

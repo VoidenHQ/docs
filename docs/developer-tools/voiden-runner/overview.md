@@ -54,11 +54,11 @@ The same five core plugins that run in the desktop app work identically in the C
 
 ## In this section
 
-- [Installation](./installation) — get the runner on your machine
-- [Command Options](./command-options) — full flag reference for every command
-- [Run a .void File](./run-a-void-file) — execute files and directories
-- [Attach an Environment](./attach-environment) — load `.env` files and inline variables
-- [Generate a Report](./generate-report) — JSON output and combined reports
-- [Export to CSV](./export-csv) — detailed per-request CSV data
-- [Send an Email Report](./email-report) — HTML reports delivered via SMTP
-- [CI/CD Integration](./ci-cd) — GitHub Actions, GitLab CI, and more
+- [Installation](./installation.md) — get the runner on your machine
+- [Command Options](./command-options.md) — full flag reference for every command
+- [Run a .void File](./run-a-void-file.md) — execute files and directories
+- [Attach an Environment](./attach-environment.md) — load `.env` files and inline variables
+- [Generate a Report](./generate-report.md) — JSON output and combined reports
+- [Export to CSV](./export-csv.md) — detailed per-request CSV data
+- [Send an Email Report](./email-report.md) — HTML reports delivered via SMTP
+- [CI/CD Integration](./ci-cd.md) — GitHub Actions, GitLab CI, and more
