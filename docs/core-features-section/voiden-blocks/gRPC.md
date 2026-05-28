@@ -38,5 +38,5 @@ This support enables seamless testing, validation, and exploration of gRPC-based
 ![grpcs](/img/voiden-blocks/grpcs-pre.gif)
 
 ---
-## Summery
+## Summary
 Voiden’s gRPC support enables fast, strongly typed, and low-latency communication using Protocol Buffers and HTTP/2. It allows you to create, test, and run unary and streaming gRPC requests directly from the interface, making gRPC development simple and efficient.
