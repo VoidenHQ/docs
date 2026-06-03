@@ -230,6 +230,18 @@ const sidebars: SidebarsConfig = {
         "developer-tools/voiden-runner/ci-cd",
       ],
     },
+    {
+      type: "category",
+      label: "@voiden/create-plugin",
+      items: [
+        "developer-tools/create-plugin/create-plugin-overview",
+        "developer-tools/create-plugin/create-plugin-installation",
+        "developer-tools/create-plugin/create-plugin-start-building",
+        "developer-tools/create-plugin/create-plugin-test-locally",
+        "developer-tools/create-plugin/create-plugin-release",
+        "developer-tools/create-plugin/create-plugin-submit",
+      ],
+    },
   ],
 };
 

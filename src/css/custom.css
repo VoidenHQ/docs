@@ -388,6 +388,8 @@ code, pre, kbd, samp, tt {
 /* Sidebar Styling */
 .theme-doc-sidebar-menu {
   color: var(--ifm-menu-link-color);
+  /* Ensure the last sidebar items are never hidden behind the footer */
+  padding-bottom: 4rem !important;
 }
 
 .menu__link {

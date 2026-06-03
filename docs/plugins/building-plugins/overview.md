@@ -9,13 +9,11 @@
 
 Voiden's plugin system lets you extend the application with new features, UI components, editor blocks, and integrations — all without touching the core codebase. Whether you want to add a simple slash command or build a full protocol handler, plugins give you the tools to make it happen.
 
-This section walks you through everything you need to know to build your own Voiden plugin.
-
 ---
 
 ## What Can Plugins Do?
 
-Plugins have access to a rich set of APIs through the `PluginContext` object. Here's what you can build:
+Plugins have access to a rich set of APIs through the `PluginContext` object:
 
 | Capability | Description | Example |
 |---|---|---|
@@ -24,82 +22,97 @@ Plugins have access to a rich set of APIs through the `PluginContext` object. He
 | **Sidebar Tabs** | Add tabs to the left or right sidebar | API catalog browser |
 | **Panels & Tabs** | Register custom panels in the main content area | Explorer panels |
 | **Status Bar Items** | Add buttons to the bottom status bar | Quick-launch buttons |
-| **Editor Actions** | Add toolbar buttons to the code editor | Markdown preview toggle |
 | **Pipeline Hooks** | Intercept and modify requests before sending or responses after receiving | Fake data injection, assertion testing |
 | **Paste Handlers** | Handle custom clipboard content (e.g., cURL commands) | cURL import on paste |
 | **Helpers** | Expose utility functions for other plugins to use | Data parsers, formatters |
 | **CodeMirror Extensions** | Extend the code editor with autocomplete, linting, etc. | Faker.js autocomplete |
+| **Command Palette** | Add entries to the `⌘⇧P` command palette | Quick-run commands |
+| **Context Menus** | Inject items into right-click context menus | Tab-level actions |
 
 ---
 
 ## Plugin Architecture
 
-Every Voiden plugin follows the same pattern:
+Every Voiden plugin scaffold produces this structure:
 
 ```
 my-plugin/
 ├── src/
-│   ├── manifest.json      # Plugin metadata & capabilities
-│   ├── index.ts           # Entry point — exports the plugin function
-│   └── ...                # Your components, utilities, etc.
-├── dist/
-│   ├── manifest.json      # Copied from src during build
-│   └── main.js            # Bundled output
-├── my-plugin.zip           # Packaged for installation (contains manifest.json + main.js)
+│   ├── plugin.ts          ← your entry point — edit this
+│   └── skill.md           ← AI skill description
+├── manifest.json          ← plugin identity, permissions, capabilities
+├── changelog.json         ← release history
 ├── package.json
 ├── tsconfig.json
-└── esbuild.config.mjs     # Build configuration
+├── build.mjs              ← Vite build (renderer bundle)
+├── build-main.mjs         ← esbuild build (main-process bundle)
+├── zip.mjs                ← packages dist/ into an installable .zip
+└── .github/
+    └── workflows/
+        └── release.yml    ← GitHub Actions: build & publish on git tag
 ```
 
-The final deliverable is a **ZIP file** containing `manifest.json` and `main.js`. Users install plugins in Voiden through the Extension Browser by clicking **"Install from file"** and selecting the ZIP.
+The final deliverable is a **ZIP file** containing at minimum `{id}.js` and `manifest.json`. Users install it in Voiden via **Extensions → ⋯ → Install from file**.
+
+:::tip Use the scaffolder
+[`@voiden/create-plugin`](/docs/developer-tools/create-plugin/create-plugin-overview) generates this entire structure in one command — no manual config files needed.
+
+```bash
+npm create @voiden/plugin my-plugin
+```
+:::
 
 ### The Plugin Function
 
-At its core, a plugin is a function that receives a `PluginContext` and returns an object with `onload` and `onunload` lifecycle methods:
+A plugin is a factory function that receives a `CorePluginContext` and returns `{ onload, onunload, metadata }`:
 
 ```typescript
-import type { Plugin, PluginContext } from "@voiden/sdk";
+import type { CorePluginContext } from '@voiden/sdk/ui';
+import manifest from '../manifest.json';
 
-export default function myPlugin(context: PluginContext): Plugin {
+export default function createMyPlugin(context: CorePluginContext) {
   return {
-    onload(ctx: PluginContext) {
-      // Register slash commands, panels, hooks, etc.
+    onload: async () => {
+      // Register slash commands, blocks, sidebar tabs, hooks, etc.
     },
-    onunload() {
-      // Clean up resources
+
+    onunload: async () => {
+      // Cancel subscriptions and clean up
     },
+
+    metadata: manifest,
   };
 }
 ```
 
+| Hook | Purpose |
+|---|---|
+| `onload` | Called once when the plugin activates. Register everything here |
+| `onunload` | Called on disable or app close. Always cancel subscriptions made in `onload` |
+| `metadata` | Pass `manifest` directly — Voiden uses it for the Extensions browser display |
+
 ### Plugin Lifecycle
 
 ```
-You build and package your plugin as a ZIP
+npm run build && npm run zip
     │
     ▼
-User installs via Extension Browser → "Install from file"
+User installs via Extensions → ⋯ → Install from file
     │
     ▼
-Voiden validates the ZIP (manifest.json + main.js)
+Voiden validates the ZIP (manifest.json + {id}.js)
     │
     ▼
-Plugin is extracted to the extensions directory
+Plugin extracted to extensions directory
     │
     ▼
-On next startup, Extension Registry loads manifest metadata
+Extension Registry loads manifest metadata
     │
     ▼
-Plugin Loader filters enabled plugins
+onload() is called — your features register
     │
     ▼
-Your plugin function is called with PluginContext
-    │
-    ▼
-onload() is called — register your features here
-    │
-    ▼
-Plugin is active (user interacts with your features)
+Plugin is active
     │
     ▼
 onunload() is called on disable or app close
@@ -107,33 +120,48 @@ onunload() is called on disable or app close
 
 ### The Manifest
 
-Every plugin needs a `manifest.json` that describes its identity and capabilities. This is how Voiden discovers and manages your plugin:
+`manifest.json` is the source of truth for your plugin. Voiden reads it when loading and the Extensions browser displays it to users:
 
 ```json
 {
   "id": "my-plugin",
-  "type": "community",
   "name": "My Plugin",
-  "description": "A brief description of what it does",
+  "description": "What this plugin does",
   "version": "1.0.0",
+  "voidenVersion": ">=2.0.0",
   "author": "Your Name",
-  "enabled": true,
-  "priority": 50
+  "icon": "Globe",
+  "type": "community",
+  "priority": 30,
+  "permissions": [],
+  "capabilities": {}
 }
 ```
+
+:::info capabilities are auto-populated
+Do not fill in `capabilities` manually. The `build.mjs` script scans your compiled bundle at build time and fills it in automatically.
+:::
 
 See the [Manifest Reference](/docs/plugins/building-plugins/manifest-reference) for the full schema.
 
 ---
 
+## How Bundling Works
+
+`build.mjs` uses Vite to compile your plugin entry point into a single ESM file at `dist/{id}.js`. Host-provided packages like `react`, `@tiptap/core`, and `lucide-react` are **not** bundled — instead, the build emits inline shim code that reads from `window.__voiden_shims__` at runtime. Voiden injects these shims before loading any plugin.
+
+This keeps plugin bundles small (typically 5–15 kB) and ensures a single React instance across all plugins.
+
+---
+
 ## Prerequisites
 
-Before you start building a plugin, make sure you have:
+| Requirement | Version |
+|---|---|
+| Node.js | 18 or higher |
+| `zip` on PATH | Pre-installed on macOS/Linux. On Windows, use WSL or [7-Zip CLI](https://www.7-zip.org/) |
 
-- **Node.js 20+** installed
-- **npm** or **yarn** package manager
-- Basic knowledge of **TypeScript** and **React**
-- Familiarity with Voiden's editor (you should know what blocks, slash commands, and panels are from using the app)
+Basic familiarity with TypeScript and React is helpful. You should also know what blocks, slash commands, and panels are from using Voiden — the APIs map directly to what you see in the app.
 
 ---
 
@@ -149,7 +177,7 @@ Before you start building a plugin, make sure you have:
 
 ## Existing Plugins for Reference
 
-The best way to learn is by studying existing plugins. Here are some good ones to look at, ordered by complexity:
+The best way to learn is by studying existing plugins:
 
 | Plugin | Complexity | Good For Learning |
 |---|---|---|

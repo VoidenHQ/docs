@@ -5,38 +5,41 @@
   sidebar_position: 3
 ---
 
-# Plugin API Reference 
+# Plugin API Reference
 
-This is the complete reference for the `PluginContext` object passed to your plugin. Every method available for extending Voiden is documented here.
+Complete reference for the `PluginContext` object passed to your plugin factory. Every method available for extending Voiden is documented here.
 
 ---
 
 ## Plugin Entry Point
 
-Your plugin must export a default function that receives `PluginContext` and returns a `Plugin` object:
-
 ```typescript
-import type { Plugin, PluginContext } from "@voiden/sdk";
+import type { CorePluginContext } from '@voiden/sdk/ui';
+import manifest from '../manifest.json';
 
-export default function myPlugin(context: PluginContext): Plugin {
+export default function createMyPlugin(context: CorePluginContext) {
   return {
-    onload(ctx: PluginContext) {
-      // Called when your plugin is loaded
+    onload: async () => {
+      // Register everything here
     },
-    onunload() {
-      // Called when your plugin is unloaded
+
+    onunload: async () => {
+      // Cancel subscriptions, clean up resources
     },
+
+    metadata: manifest,
   };
 }
 ```
 
-| Method | Description |
+| Hook | When it runs |
 |---|---|
-| `onload(ctx)` | Called when the plugin initializes. Register all your features here. |
-| `onunload()` | Called when the plugin is disabled or the app closes. Clean up resources. |
+| `onload` | Called once when the plugin activates — register all features here |
+| `onunload` | Called on disable or app close — cancel any subscriptions made in `onload` |
+| `metadata` | Pass `manifest` directly — used for Extensions browser display |
 
 :::info
-Both the outer function and `onload` receive a `PluginContext`. They reference the same object — use whichever is convenient.
+Import `CorePluginContext` from `@voiden/sdk/ui`, not `@voiden/sdk`. The `/ui` path provides the full extended context including pipeline hooks, UI utilities, and all the APIs documented here.
 :::
 
 ---
@@ -48,21 +51,18 @@ Both the outer function and `onload` receive a `PluginContext`. They reference t
 Register a group of slash commands that appear in the `/` menu.
 
 ```typescript
-ctx.addVoidenSlashGroup({
+context.addVoidenSlashGroup({
   name: "my-group",
   title: "My Commands",
   commands: [
     {
-      name: "my-command",
+      name: "insert-widget",
       label: "Insert Widget",
       description: "Inserts a widget block",
       slash: "/widget",
       icon: "Box",
       action: (editor) => {
-        editor.commands.insertContent({
-          type: "paragraph",
-          content: [{ type: "text", text: "Widget inserted!" }],
-        });
+        editor.commands.insertContent({ type: "paragraph", content: [{ type: "text", text: "Widget!" }] });
       },
     },
   ],
@@ -76,28 +76,26 @@ ctx.addVoidenSlashGroup({
 | `name` | `string` | Yes | Unique identifier |
 | `label` | `string` | Yes | Display text in the menu |
 | `description` | `string` | Yes | Description shown below the label |
-| `slash` | `string` | Yes | The trigger text (e.g., `/widget`) |
-| `icon` | `string` | No | Icon name from [lucide-react](https://lucide.dev/icons) |
-| `action` | `(editor) => void` | Yes | Handler called when the command is selected |
+| `slash` | `string` | Yes | Trigger text (e.g. `/widget`) |
+| `icon` | `string` | No | Lucide icon name |
+| `action` | `(editor) => void` | Yes | Handler called when selected |
 | `aliases` | `string[]` | No | Alternative trigger text |
-| `singleton` | `boolean` | No | Allow only one instance of this block in a document |
+| `singleton` | `boolean` | No | Allow only one instance in a document |
 | `compareKeys` | `string[]` | No | Keys to compare for singleton detection |
 | `isEnabled` | `(editor) => boolean` | No | Dynamic enable/disable |
 | `shouldBeHidden` | `(editor) => boolean` | No | Dynamic visibility |
 
 ### `addVoidenSlashCommand(command)`
 
-Register a single slash command (without a group).
+Register a single slash command without a group.
 
 ```typescript
-ctx.addVoidenSlashCommand({
+context.addVoidenSlashCommand({
   name: "greet",
   label: "Say Hello",
   description: "Insert a greeting",
   slash: "/hello",
-  action: (editor) => {
-    editor.commands.insertContent("Hello!");
-  },
+  action: (editor) => editor.commands.insertContent("Hello!"),
 });
 ```
 
@@ -107,7 +105,7 @@ ctx.addVoidenSlashCommand({
 
 ### `registerVoidenExtension(extension)`
 
-Register a TipTap extension (custom node, mark, or plugin) with the Voiden editor.
+Register a TipTap node, mark, or plugin with the Voiden editor.
 
 ```typescript
 import { Node } from "@tiptap/core";
@@ -116,15 +114,11 @@ const MyNode = Node.create({
   name: "myWidget",
   group: "block",
   content: "inline*",
-  parseHTML() {
-    return [{ tag: "div[data-type=my-widget]" }];
-  },
-  renderHTML({ HTMLAttributes }) {
-    return ["div", { "data-type": "my-widget", ...HTMLAttributes }, 0];
-  },
+  parseHTML() { return [{ tag: "div[data-type=my-widget]" }]; },
+  renderHTML({ HTMLAttributes }) { return ["div", { "data-type": "my-widget", ...HTMLAttributes }, 0]; },
 });
 
-ctx.registerVoidenExtension(MyNode);
+context.registerVoidenExtension(MyNode);
 ```
 
 ### `unregisterVoidenExtension(name)`
@@ -132,25 +126,20 @@ ctx.registerVoidenExtension(MyNode);
 Remove a previously registered TipTap extension.
 
 ```typescript
-ctx.unregisterVoidenExtension("myWidget");
+context.unregisterVoidenExtension("myWidget");
 ```
 
 ### `registerCodemirrorExtension(extension)`
 
-Register a CodeMirror extension with the code editor. Useful for autocomplete, linting, or syntax highlighting.
+Register a CodeMirror extension with the code editor (autocomplete, linting, syntax highlighting).
 
 ```typescript
-const myExtension = myCodemirrorPlugin();
-ctx.registerCodemirrorExtension(myExtension);
+context.registerCodemirrorExtension(myCodemirrorPlugin());
 ```
 
 ### `unregisterCodemirrorExtension(extension)`
 
 Remove a previously registered CodeMirror extension.
-
-```typescript
-ctx.unregisterCodemirrorExtension(myExtension);
-```
 
 ---
 
@@ -161,21 +150,20 @@ ctx.unregisterCodemirrorExtension(myExtension);
 Add a tab to the left or right sidebar.
 
 ```typescript
-ctx.registerSidebarTab("right", {
+context.registerSidebarTab("right", {
   id: "my-sidebar",
   title: "My Panel",
   icon: "Zap",
   component: MySidebarComponent,
+  badge: 3,  // optional — shows a badge on the tab
 });
 ```
-
-**TabDefinition:**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
 | `id` | `string` | Yes | Unique tab identifier |
 | `title` | `string` | Yes | Display title |
-| `icon` | `string` | No | Icon name from lucide-react |
+| `icon` | `string` | No | Lucide icon name |
 | `component` | `React.ComponentType` | Yes | React component to render |
 | `badge` | `string \| number` | No | Badge content shown on the tab |
 
@@ -184,7 +172,7 @@ ctx.registerSidebarTab("right", {
 Register a panel component that can be opened as a tab.
 
 ```typescript
-ctx.registerPanel("main", {
+context.registerPanel("main", {
   id: "my-panel",
   title: "My Panel",
   component: MyPanelComponent,
@@ -193,30 +181,27 @@ ctx.registerPanel("main", {
 
 ### `addTab(panelId, tab)`
 
-Open a new tab in a panel area. The component must have been registered with `registerPanel` first, or you can provide it inline.
+Open a tab in a panel. Provide the component inline or after `registerPanel`.
 
 ```typescript
-ctx.addTab("main", {
+context.addTab("main", {
   id: "my-tab",
   icon: "FileText",
   title: "My Tab",
-  props: { someData: "value" },
+  props: {},
   component: MyComponent,
 });
 ```
 
 ### `registerEditorAction(action)`
 
-Add a button to the code editor toolbar. Use the `predicate` to control when it appears.
+Add a button to the code editor toolbar.
 
 ```typescript
-ctx.registerEditorAction({
+context.registerEditorAction({
   id: "my-action",
   component: MyActionButton,
-  predicate: (tab) => {
-    // Only show for .json files
-    return tab.title?.endsWith(".json");
-  },
+  predicate: (doc) => doc.title?.endsWith(".json"),
 });
 ```
 
@@ -225,85 +210,351 @@ ctx.registerEditorAction({
 Add an item to the bottom status bar.
 
 ```typescript
-ctx.registerStatusBarItem({
+context.registerStatusBarItem({
   id: "my-status",
-  icon: "Activity",
+  icon: "Activity",       // string or React.ComponentType
   label: "My Plugin",
   tooltip: "Click to open",
   position: "left",
-  onClick: () => {
-    // Open a tab, toggle a panel, etc.
-  },
+  onClick: () => { /* open a tab, toggle panel, etc. */ },
 });
 ```
-
-**StatusBarItem:**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
 | `id` | `string` | Yes | Unique identifier |
-| `icon` | `string \| React.ComponentType` | Yes | Icon name or component |
+| `icon` | `string \| React.ComponentType` | Yes | Lucide icon name or component |
 | `label` | `string` | No | Text label next to the icon |
 | `tooltip` | `string` | Yes | Hover tooltip |
 | `position` | `'left' \| 'right'` | Yes | Which side of the status bar |
 | `onClick` | `() => void` | Yes | Click handler |
 
+### `registerTopBarItem(item)`
+
+Inject an icon button into the top navigation bar.
+
+```typescript
+import { Rocket } from "lucide-react";
+
+context.registerTopBarItem({
+  id: "my-topbar-btn",
+  icon: Rocket,           // React.ComponentType — import from lucide-react
+  tooltip: "Launch",
+  position: "right",      // 'left' | 'right', defaults to 'right'
+  onClick: () => { /* ... */ },
+});
+```
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `id` | `string` | Yes | Unique identifier |
+| `icon` | `React.ComponentType<any>` | Yes | Icon component (e.g. from `lucide-react`) |
+| `tooltip` | `string` | No | Hover tooltip |
+| `position` | `'left' \| 'right'` | No | Side of the nav bar (default: `'right'`) |
+| `onClick` | `() => void` | Yes | Click handler |
+
+:::info
+`registerTopBarItem` is also available as `context.ui.registerTopBarItem` — both point to the same API.
+:::
+
 ---
 
-## UI Utilities
+## Command Palette
 
-### `ctx.ui`
+Requires manifest permission: `"commandPalette"`
 
-Access UI helpers and shared components.
+### `registerCommand(cmd)`
 
-```typescript
-// Get prose styling classes for themed content
-const classes = ctx.ui.getProseClasses();
-
-// Panel controls
-ctx.ui.openRightPanel();
-ctx.ui.closeRightPanel();
-ctx.ui.toggleRightPanel();
-ctx.ui.openBottomPanel();
-ctx.ui.closeBottomPanel();
-
-// Open a specific sidebar tab
-ctx.ui.openRightSidebarTab("my-sidebar");
-```
-
-### `ctx.ui.components`
-
-Shared UI components you can use in your React components:
-
-| Component | Description |
-|---|---|
-| `CodeEditor` | Generic code editor (CodeMirror-based) |
-| `Table` | Styled table component |
-| `TableBody` | Table body |
-| `TableRow` | Table row |
-| `TableCell` | Table cell |
-| `NodeViewWrapper` | TipTap node view wrapper |
-| `RequestBlockHeader` | Request block header with link/unlink |
-
-**CodeEditorProps:**
+Register an entry in the command palette (`⌘⇧P`).
 
 ```typescript
-<ctx.ui.components.CodeEditor
-  readOnly={false}
-  lang="json"
-  value='{"key": "value"}'
-  onChange={(value) => console.log(value)}
-  showReplace={false}
-/>
+import { Play } from "lucide-react";
+
+context.registerCommand({
+  id: "my-plugin.run-all",
+  label: "My Plugin: Run All Tests",
+  description: "Execute all .void files in the project",
+  icon: Play,
+  shortcut: "⌘⇧T",
+  when: () => true,       // optional — hide the command when returns false
+  action: () => { /* ... */ },
+});
 ```
 
-### `ctx.ui.hooks`
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `id` | `string` | Yes | Unique identifier (e.g. `"my-plugin.action"`) |
+| `label` | `string` | Yes | Display label in the palette |
+| `description` | `string` | No | Subtitle shown below the label |
+| `icon` | `React.ComponentType` | No | Icon component |
+| `shortcut` | `string` | No | Keyboard shortcut hint (display only — not bound automatically) |
+| `when` | `() => boolean` | No | Command is hidden when this returns `false` |
+| `action` | `() => void` | Yes | Executed when the command is selected |
 
-Request-related React hooks:
+---
 
-| Hook | Description |
-|---|---|
-| `useSendRestRequest(editor)` | Returns `{ refetch, isLoading, error, data, cancelRequest }` |
+## Context Menus
+
+Requires manifest permission: `"contextMenus"`
+
+### `registerContextMenu(item)`
+
+Inject an item into a right-click context menu surface.
+
+```typescript
+import { Copy } from "lucide-react";
+
+context.registerContextMenu({
+  id: "my-plugin.copy-request",
+  label: "Copy as cURL",
+  icon: Copy,
+  surface: "tab",           // 'tab' | 'file' | 'block'
+  when: (target) => !!target.filePath?.endsWith(".void"),
+  action: (target) => {
+    console.log("Right-clicked:", target);
+  },
+});
+```
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `id` | `string` | Yes | Unique identifier |
+| `label` | `string` | Yes | Display label |
+| `icon` | `React.ComponentType` | No | Icon component |
+| `surface` | `'tab' \| 'file' \| 'block'` | Yes | Which context menu this item appears in |
+| `when` | `(target: any) => boolean` | No | Item is hidden when this returns `false` |
+| `action` | `(target: any) => void` | Yes | Called with the right-clicked target object |
+
+---
+
+## Events
+
+Requires manifest permission: `"events"`
+
+### `context.events.on(event, callback)`
+
+Subscribe to workspace lifecycle events. Always store the returned unsubscribe function and call it in `onunload`.
+
+```typescript
+const cleanupFns: Array<() => void> = [];
+
+context.events.on('tab:changed', ({ tabId, title, type }) => {
+  console.log('Tab changed to:', title);
+});
+
+context.events.on('file:saved', ({ filePath, tabId }) => {
+  console.log('Saved:', filePath);
+});
+
+context.events.on('project:changed', ({ projectPath }) => {
+  console.log('Project switched to:', projectPath);
+});
+
+context.events.on('environment:changed', ({ envPath }) => {
+  console.log('Active environment changed:', envPath);
+});
+
+context.events.on('request:sent', ({ request }) => {
+  console.log('Request sent:', request.url);
+});
+
+context.events.on('response:received', ({ response }) => {
+  console.log('Response:', response.status);
+});
+
+// In onunload — cancel all subscriptions:
+cleanupFns.forEach(fn => fn());
+```
+
+**Supported events:**
+
+| Event | Payload | Description |
+|---|---|---|
+| `'tab:changed'` | `{ tabId, title, type }` | A different document tab became active |
+| `'file:saved'` | `{ filePath, tabId }` | A file was saved |
+| `'project:changed'` | `{ projectPath }` | The active project folder changed |
+| `'environment:changed'` | `{ envPath }` | The active environment file changed |
+| `'request:sent'` | `{ request }` | A request was sent |
+| `'response:received'` | `{ response }` | A response was received |
+
+---
+
+## File System
+
+Requires manifest permission: `"filesystem"`
+
+All paths are relative to the active project root. There is no access to paths outside the open project.
+
+### `context.fs`
+
+```typescript
+// Read a file
+const content = await context.fs.read('config.json');
+
+// Write to a file (creates if missing)
+await context.fs.write('output.txt', 'hello world');
+
+// Create a new file with optional initial content
+await context.fs.create('notes/new.md', '# Notes\n');
+
+// Create a directory (and any missing parents)
+await context.fs.createDirectory('reports/2026');
+
+// Delete a file or directory
+await context.fs.delete('temp.txt');
+
+// Move a file (creates destination directory if missing)
+await context.fs.move('old/path.void', 'new/path.void');
+
+// Check if a path exists
+const exists = await context.fs.exists('config.json');
+
+// List entries at a path (defaults to project root)
+const entries = await context.fs.list('src');
+// Returns: [{ name: 'plugin.ts', path: 'src/plugin.ts', type: 'file' }, ...]
+```
+
+| Method | Signature | Description |
+|---|---|---|
+| `read` | `(path) => Promise<string>` | Read a file's text content |
+| `write` | `(path, content) => Promise<void>` | Write text to a file (creates if missing) |
+| `create` | `(path, content?) => Promise<void>` | Create a new file with optional initial content |
+| `createDirectory` | `(path) => Promise<void>` | Create a directory and any missing parents |
+| `delete` | `(path) => Promise<void>` | Delete a file or directory |
+| `move` | `(fromPath, toPath) => Promise<void>` | Move a file; creates the destination directory if missing |
+| `exists` | `(path) => Promise<boolean>` | Return `true` if the path exists |
+| `list` | `(path?) => Promise<Entry[]>` | List entries at a path; defaults to project root |
+
+---
+
+## Settings
+
+Requires manifest permission: `"settings"`
+
+### `context.settings`
+
+Persist and retrieve plugin configuration values (plain JSON, stored per-plugin).
+
+```typescript
+// Get a value
+const theme = await context.settings.get<string>('theme');
+
+// Set a value
+await context.settings.set('theme', 'dark');
+
+// Delete a key
+await context.settings.delete('theme');
+
+// Subscribe to changes — returns an unsubscribe function
+const unsub = context.settings.onChange((key, value) => {
+  console.log(`Setting changed: ${key} = ${value}`);
+});
+// Call unsub() in onunload
+```
+
+### `context.ui.registerSettings(section)`
+
+Register a settings section in the Voiden Settings panel. The host renders the fields using its own UI primitives — no custom React components needed.
+
+```typescript
+import { Sliders } from "lucide-react";
+
+context.ui.registerSettings({
+  id: "my-plugin-settings",
+  title: "My Plugin",
+  icon: Sliders,
+  fields: [
+    {
+      type: "toggle",
+      key: "enabled",
+      label: "Enable feature",
+      description: "Turn the feature on or off",
+      defaultValue: true,
+    },
+    {
+      type: "text",
+      key: "apiKey",
+      label: "API Key",
+      placeholder: "sk-...",
+    },
+    {
+      type: "number",
+      key: "timeout",
+      label: "Timeout (ms)",
+      defaultValue: 5000,
+      min: 0,
+      max: 30000,
+    },
+    {
+      type: "select",
+      key: "mode",
+      label: "Mode",
+      options: [
+        { label: "Fast", value: "fast" },
+        { label: "Accurate", value: "accurate" },
+      ],
+      defaultValue: "fast",
+    },
+  ],
+});
+```
+
+**Supported field types:** `text`, `number`, `select`, `toggle`
+
+Each field accepts `key` (used with `context.settings.get/set`), `label`, and `description?`. Values are persisted automatically via the settings API.
+
+---
+
+## Theme
+
+### `context.theme`
+
+Ready-to-use Tailwind class tokens that map to the active Voiden theme. Use these in your plugin's JSX instead of hard-coding colour values so your UI automatically follows light/dark mode.
+
+```tsx
+function MyPanel() {
+  const { theme } = usePluginContext(); // or receive it as a prop
+
+  return (
+    <div className={`${context.theme.bg.surface} ${context.theme.text.primary} p-4`}>
+      <h2 className={`${context.theme.text.ui} font-medium mb-2`}>My Plugin</h2>
+
+      <button className={`${context.theme.button.primary} px-3 py-1 rounded`}>
+        Send
+      </button>
+
+      <span className={`${context.theme.http.get} ${context.theme.http.getBg} px-2 py-0.5 rounded text-xs`}>
+        GET
+      </span>
+
+      <p className={context.theme.status.successText}>Passed</p>
+    </div>
+  );
+}
+```
+
+**Token groups:**
+
+| Group | Tokens | Example use |
+|---|---|---|
+| `theme.bg` | `primary`, `surface`, `panel`, `overlay`, `active`, `hover`, `accent`, `alt` | Container backgrounds |
+| `theme.text` | `primary`, `muted`, `ui`, `light`, `accent`, `alt` | Text colours |
+| `theme.border` | `DEFAULT`, `light`, `subtle`, `line` | Borders and dividers |
+| `theme.button` | `primary`, `primaryHover`, `secondary`, `secondaryFg`, `danger`, `dangerHover` | Button backgrounds |
+| `theme.status` | `successBg/Text`, `errorBg/Text`, `warningBg/Text`, `infoBg/Text` | Status indicators |
+| `theme.http` | `get`, `post`, `put`, `patch`, `delete`, `head`, `options` + `*Bg` variants | HTTP method badges |
+| `theme.icon` | `primary`, `secondary`, `success`, `error`, `warning`, `info` | Icon colours |
+| `theme.interactive` | `active`, `hover` | Interactive state backgrounds |
+| `theme.code` | `bg`, `fg`, `selection`, `line`, `gutter` | Code display |
+| `theme.menu` | `bg`, `hover`, `separator` | Dropdown/context menus |
+| `theme.badge` | `coreBg/Fg/Border`, `officialBg/Fg/Border`, `communityBg/Fg/Border` | Extension type badges |
+| `theme.test` | `passedBg/Text`, `failedBg/Text` | Assertion result chips |
+
+`THEME_CLASSES` can also be imported directly for use outside a plugin context:
+
+```typescript
+import { THEME_CLASSES } from '@voiden/sdk/ui';
+```
 
 ---
 
@@ -311,16 +562,11 @@ Request-related React hooks:
 
 ### `onBuildRequest(handler)`
 
-Register a handler that modifies the request object before it's sent. Handlers run in registration order.
+Modify the request object before it is sent. Multiple handlers run in registration order.
 
 ```typescript
-ctx.onBuildRequest(async (request, editor) => {
-  // Add a custom header
-  request.headers.push({
-    key: "X-Custom",
-    value: "my-value",
-    enabled: true,
-  });
+context.onBuildRequest(async (request, editor) => {
+  request.headers.push({ key: "X-Custom", value: "my-value", enabled: true });
   return request;
 });
 ```
@@ -331,11 +577,10 @@ Never expand environment variables (`{{VARIABLE}}`) in your handler. Voiden hand
 
 ### `onProcessResponse(handler)`
 
-Register a handler that runs after a response is received.
+Run logic after a response is received.
 
 ```typescript
-ctx.onProcessResponse(async (response) => {
-  // Log or transform the response
+context.onProcessResponse(async (response) => {
   console.log(`Status: ${response.status}`);
 });
 ```
@@ -345,7 +590,7 @@ ctx.onProcessResponse(async (response) => {
 Register a section to display in the response panel.
 
 ```typescript
-ctx.registerResponseSection({
+context.registerResponseSection({
   id: "my-results",
   name: "My Results",
   component: MyResultsComponent,
@@ -357,32 +602,29 @@ ctx.registerResponseSection({
 
 ## Project & File Access
 
-### `ctx.project`
-
-Access project-level operations:
+### `context.project`
 
 ```typescript
 // Get the active project path
-const projectPath = await ctx.project.getActiveProject();
-
-// Open a file in the editor
-await ctx.project.openFile("requests/users.void");
-
-// Create a new file
-await ctx.project.createFile("requests/new.void", "# New Request\n");
-
-// Create a new folder
-await ctx.project.createFolder("requests/subfolder");
+const projectPath = await context.project.getActiveProject();
 
 // Get all .void files in the project
-const voidFiles = await ctx.project.getVoidFiles();
+const files = await context.project.getVoidFiles();
 
-// Import a cURL command as a new document
-await ctx.project.importCurl("My Request", 'curl -X GET https://api.example.com/users');
+// Open a file in the editor
+await context.project.openFile("requests/users.void");
+
+// Create a file
+await context.project.createFile("requests/new.void", "# New Request\n");
+
+// Create a folder
+await context.project.createFolder("requests/subfolder");
+
+// Import a cURL command as a new document tab
+await context.project.importCurl("My Request", "curl -X GET https://api.example.com/users");
 
 // Get the active editor instance
-const voidenEditor = ctx.project.getActiveEditor("voiden");
-const codeEditor = ctx.project.getActiveEditor("code");
+const editor = context.project.getActiveEditor("voiden");
 ```
 
 ---
@@ -391,104 +633,90 @@ const codeEditor = ctx.project.getActiveEditor("code");
 
 ### `exposeHelpers(helpers)`
 
-Expose utility functions that other plugins can use.
+Expose utility functions for other plugins to consume.
 
 ```typescript
-ctx.exposeHelpers({
+context.exposeHelpers({
   parseJSON: (text: string) => JSON.parse(text),
   formatDate: (date: Date) => date.toISOString(),
 });
 ```
 
-### `ctx.helpers.from(pluginId)`
+### `context.helpers.from(pluginId)`
 
 Get helpers exposed by another plugin.
 
 ```typescript
-const fakerHelpers = ctx.helpers.from("voiden-faker");
+const fakerHelpers = context.helpers.from("voiden-faker");
 if (fakerHelpers) {
-  // Use helpers from the faker plugin
+  const value = fakerHelpers.generate("name");
 }
 ```
 
-### `ctx.helpers.parseVoid(markdown)`
+### `context.helpers.parseVoid(markdown)`
 
 Parse a `.void` markdown document into Voiden's internal format.
 
 ```typescript
-const doc = ctx.helpers.parseVoid("# My Document\nSome content");
+const doc = context.helpers.parseVoid("# My Document\nSome content");
 ```
 
 :::info
-Helpers must be **pure functions** — no side effects, no network calls, no file system access. They're meant for data transformation and parsing only.
+Helpers must be pure functions — no side effects, no network calls, no file access.
 :::
 
 ---
 
 ## Paste Handling
 
-### `ctx.paste`
-
-Register handlers for clipboard paste events.
-
-#### `registerBlockOwner(handler)`
+### `context.paste.registerBlockOwner(handler)`
 
 Claim ownership of a block type for paste handling. Only one owner per block type.
 
 ```typescript
-ctx.paste.registerBlockOwner({
+context.paste.registerBlockOwner({
   blockType: "my-block",
   allowExtensions: true,
-  handlePasteInside: (text, html, node, view) => {
-    // Handle paste inside your block
-    // Return true if handled, false to use default behavior
-    return false;
-  },
-  processBlock: (block) => {
-    // Validate/transform block on paste
-    return block;
-  },
+  handlePasteInside: (text, html, node, view) => false,
+  processBlock: (block) => block,
 });
 ```
 
-#### `registerPatternHandler(handler)`
+### `context.paste.registerPatternHandler(handler)`
 
-Handle specific paste patterns (e.g., URLs, cURL commands).
+Handle specific paste patterns (e.g. cURL, URLs).
 
 ```typescript
-ctx.paste.registerPatternHandler({
+context.paste.registerPatternHandler({
   canHandle: (text) => text.startsWith("curl "),
   handle: (text, html, view) => {
-    // Parse and insert the cURL command
-    return true; // Return true if handled
+    // Parse and insert
+    return true;
   },
 });
 ```
 
-#### `registerBlockExtension(extension)`
+### `context.paste.registerBlockExtension(extension)`
 
 Extend a block type owned by another plugin.
 
 ```typescript
-ctx.paste.registerBlockExtension({
+context.paste.registerBlockExtension({
   blockType: "request",
-  extendBlock: (block, context) => {
-    // Add transient properties to the block
-    return block;
-  },
+  extendBlock: (block, context) => block,
 });
 ```
 
 ---
 
-## Voiden Tab Management
+## Tab Management
 
-### `openVoidenTab(title, content, options)`
+### `openVoidenTab(title, content, options?)`
 
-Open a new Voiden editor tab with JSON content.
+Open a new Voiden editor tab with JSON document content.
 
 ```typescript
-await ctx.openVoidenTab("Preview", documentJSON, { readOnly: true });
+await context.openVoidenTab("Preview", documentJSON, { readOnly: true });
 ```
 
 ### `registerLinkableNodeTypes(nodeTypes)`
@@ -496,55 +724,162 @@ await ctx.openVoidenTab("Preview", documentJSON, { readOnly: true });
 Register node types that can be linked/referenced across files.
 
 ```typescript
-ctx.registerLinkableNodeTypes(["my-block", "my-output"]);
+context.registerLinkableNodeTypes(["my-block", "my-output"]);
 ```
 
 ### `registerNodeDisplayNames(displayNames)`
 
-Register human-readable names for node types shown in the UI.
+Register human-readable display names for node types shown in the UI.
 
 ```typescript
-ctx.registerNodeDisplayNames({
+context.registerNodeDisplayNames({
   "my-block": "My Widget",
   "my-output": "Widget Output",
 });
 ```
 
+### `registerTableSuggestions(tableType, suggestions)`
+
+Register autocomplete suggestions for table cell blocks. Maps column indices to suggestion items.
+
+```typescript
+context.registerTableSuggestions("headers-table", {
+  0: [
+    { label: "Content-Type", description: "Media type of the request body" },
+    { label: "Authorization", description: "Auth credentials" },
+    { label: "Accept", description: "Acceptable response media types" },
+  ],
+  1: [
+    { label: "application/json" },
+    { label: "text/plain" },
+  ],
+});
+```
+
 ---
 
-## Full PluginContext Type
+## Help Commands
 
-For reference, here is the complete `PluginContext` interface:
+### `registerHelpCommand(cmd)`
+
+Register a command in the Voiden help panel.
+
+```typescript
+context.registerHelpCommand({
+  id: "my-plugin.help",
+  label: "My Plugin: How to use",
+  description: "Learn how to use My Plugin",
+  component: MyHelpContent,
+});
+```
+
+---
+
+## UI Utilities
+
+### `context.ui`
+
+```typescript
+// Panel controls
+context.ui.openRightPanel();
+context.ui.closeRightPanel();
+context.ui.toggleRightPanel();
+context.ui.openBottomPanel();
+context.ui.closeBottomPanel();
+
+// Open a specific sidebar tab
+context.ui.openRightSidebarTab("my-sidebar");
+
+// Show a toast notification
+context.ui.showToast("Saved!", "success");  // 'info' | 'success' | 'warning' | 'error'
+
+// Prose styling classes that follow the active theme
+const classes = context.ui.getProseClasses();
+```
+
+### `context.ui.components`
+
+Shared UI components for use inside your React components:
+
+| Component | Description |
+|---|---|
+| `CodeEditor` | CodeMirror-based code editor |
+| `Table`, `TableBody`, `TableRow`, `TableCell` | Styled table primitives |
+| `NodeViewWrapper` | TipTap node view wrapper |
+| `RequestBlockHeader` | Request block header with link/unlink support |
+
+```tsx
+<context.ui.components.CodeEditor
+  lang="json"
+  value='{"key": "value"}'
+  onChange={(v) => console.log(v)}
+  readOnly={false}
+/>
+```
+
+---
+
+## Full PluginContext Type Reference
 
 ```typescript
 interface PluginContext {
-  // Editor Extensions
+  // Slash commands
+  addVoidenSlashCommand(command: SlashCommandDefinition): void;
+  addVoidenSlashGroup(group: SlashCommandGroup): void;
+  getVoidenSlashGroups(): SlashCommandGroup[];
+
+  // Editor extensions
   registerVoidenExtension(extension: any): void;
-  unregisterVoidenExtension(extensionName: string): void;
+  unregisterVoidenExtension(name: string): void;
   registerCodemirrorExtension(extension: any): void;
   unregisterCodemirrorExtension(extension: any): void;
 
-  // Slash Commands
-  addVoidenSlashCommand(command: SlashCommandDefinition): void;
-  addVoidenSlashGroup(group: SlashCommandGroup): void;
-
-  // UI Registration
-  registerSidebarTab(side: "left" | "right", tab: TabDefinition): void;
+  // UI registration
+  registerSidebarTab(side: 'left' | 'right', tab: TabDefinition): void;
   registerPanel(panelId: string, panel: TabDefinition): void;
   addTab(tabId: string, tab: Panel): void;
   registerEditorAction(action: EditorAction): void;
   registerStatusBarItem(item: StatusBarItem): void;
+  registerTopBarItem(item: PluginTopBarItem): void;
+  registerHelpCommand(cmd: PluginHelpCommand): void;
 
-  // Helpers
-  exposeHelpers(helpers: PluginHelpers): void;
-  helpers: {
-    parseVoid(markdown?: string): any;
-    from<T>(pluginId: string): T | undefined;
+  // Command palette (requires "commandPalette" permission)
+  registerCommand(cmd: PluginCommand): void;
+
+  // Context menus (requires "contextMenus" permission)
+  registerContextMenu(item: PluginContextMenuItem): void;
+
+  // Events (requires "events" permission)
+  events: {
+    on(event: string, callback: (data: any) => void): () => void;
   };
 
-  // Project & Files
+  // File system (requires "filesystem" permission)
+  fs: {
+    read(path: string): Promise<string>;
+    write(path: string, content: string): Promise<void>;
+    create(path: string, content?: string): Promise<void>;
+    createDirectory(path: string): Promise<void>;
+    delete(path: string): Promise<void>;
+    move(fromPath: string, toPath: string): Promise<void>;
+    exists(path: string): Promise<boolean>;
+    list(path?: string): Promise<Array<{ name: string; path: string; type: 'file' | 'directory' }>>;
+  };
+
+  // Settings (requires "settings" permission)
+  settings: {
+    get<T = any>(key: string): Promise<T | undefined>;
+    set<T = any>(key: string, value: T): Promise<void>;
+    delete(key: string): Promise<void>;
+    onChange(callback: (key: string, value: any) => void): () => void;
+  };
+
+  // Theme tokens
+  theme: ThemeClasses;
+
+  // Project & file access
   project: {
-    getActiveEditor(type: "code" | "voiden"): any;
+    getActiveEditor(type: 'code' | 'voiden'): any;
     getActiveProject(): Promise<string>;
     getVoidFiles(): Promise<DocumentTab[]>;
     createFile(filePath: string, content: string): Promise<void>;
@@ -553,7 +888,32 @@ interface PluginContext {
     importCurl(title: string, curlString: string): Promise<void>;
   };
 
-  // UI Utilities
+  // Helpers
+  exposeHelpers(helpers: Record<string, (...args: any[]) => any>): void;
+  helpers: {
+    parseVoid(markdown?: string): any;
+    from<T>(pluginId: string): T | undefined;
+  };
+
+  // Request pipeline
+  onBuildRequest(handler: (request: any, editor: Editor) => any): void;
+  onProcessResponse(handler: (response: any) => void): void;
+  registerResponseSection(section: ResponseSection): void;
+
+  // Paste handling
+  paste: {
+    registerBlockOwner(handler: BlockPasteHandler): void;
+    registerBlockExtension(extension: BlockExtension): void;
+    registerPatternHandler(handler: PatternHandler): void;
+  };
+
+  // Tab & node management
+  openVoidenTab(title: string, content: any, options?: { readOnly?: boolean }): Promise<void>;
+  registerLinkableNodeTypes(nodeTypes: string[]): void;
+  registerNodeDisplayNames(displayNames: Record<string, string>): void;
+  registerTableSuggestions(tableType: string, suggestions: TableSuggestionsConfig): void;
+
+  // UI utilities
   ui: {
     getProseClasses(): string;
     openRightPanel(): void;
@@ -562,21 +922,11 @@ interface PluginContext {
     openBottomPanel(): void;
     closeBottomPanel(): void;
     openRightSidebarTab(tabId: string): void;
+    showToast(message: string, type?: 'info' | 'success' | 'warning' | 'error'): void;
+    registerTopBarItem(item: PluginTopBarItem): void;
+    registerSettings(section: PluginSettingsSection): void;
     components: UIComponents;
-    hooks: RequestHooks;
+    hooks: { useSendRestRequest(editor: any): { refetch(): void; isLoading: boolean; error: any; data: any; cancelRequest(): void } };
   };
-
-  // Request Pipeline
-  onBuildRequest(handler: RequestBuildHandler): void;
-  onProcessResponse(handler: ResponseProcessHandler): void;
-  registerResponseSection(section: ResponseSection): void;
-
-  // Paste Handling
-  paste: PasteAPI;
-
-  // Tab Management
-  openVoidenTab(title: string, content: any, options?: { readOnly?: boolean }): Promise<void>;
-  registerLinkableNodeTypes(nodeTypes: string[]): void;
-  registerNodeDisplayNames(displayNames: Record<string, string>): void;
 }
 ```

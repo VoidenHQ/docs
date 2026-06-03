@@ -4,11 +4,27 @@
   sidebar_label: Build a Plugin
 ---
 
-# Build a Voiden Plugin 
+# Build a Voiden Plugin
 
 Ready to extend Voiden with your own features? The plugin system gives you access to slash commands, custom editor blocks, sidebar panels, request pipeline hooks, and much more.
 
-Start here and follow the guides below to go from zero to a working plugin.
+The fastest way to get started is with [`@voiden/create-plugin`](/docs/developer-tools/create-plugin/create-plugin-overview) — the official scaffolder that generates a fully wired project in one command.
+
+---
+
+## Quick Start
+
+```bash
+npm create @voiden/plugin my-plugin
+cd my-plugin
+npm install
+npm run build
+npm run zip
+```
+
+Then in Voiden: **Extensions → ⋯ → Install from file → `dist/my-plugin.zip`**
+
+That's it — your plugin is live inside Voiden.
 
 ---
 
@@ -16,33 +32,15 @@ Start here and follow the guides below to go from zero to a working plugin.
 
 | Guide | Description |
 |---|---|
-| **[Overview](/docs/plugins/building-plugins/overview)** | Understand the plugin architecture, what plugins can do, and what you'll need |
-| **[Getting Started](/docs/plugins/building-plugins/getting-started)** | Build your first plugin step by step — from project setup to testing locally |
+| **[Overview](/docs/plugins/building-plugins/overview)** | Plugin architecture, lifecycle, and what plugins can do |
+| **[Getting Started](/docs/plugins/building-plugins/getting-started)** | Build your first plugin — scaffold, write code, install in Voiden |
 | **[Plugin API Reference](/docs/plugins/building-plugins/plugin-api)** | Full reference for every method on the `PluginContext` object |
 | **[Manifest Reference](/docs/plugins/building-plugins/manifest-reference)** | Complete schema for the `manifest.json` file |
 
 ---
 
-## Quick Start
+## @voiden/create-plugin
 
-If you just want to get going fast:
+The scaffolder sets up everything you need in under a minute — Vite build config, manifest, zip packager, GitHub Actions release workflow, and a typed TypeScript entry point. No manual `tsconfig.json`, no esbuild setup, no zip commands to remember.
 
-```bash
-# 1. Create and initialize the project
-mkdir my-voiden-plugin && cd my-voiden-plugin
-npm init -y
-
-# 2. Install dependencies
-npm install @voiden/sdk
-npm install --save-dev typescript esbuild @types/react
-
-# 3. Create your plugin files (see Getting Started guide)
-
-# 4. Build and package as a ZIP
-npm run build
-cd dist && zip -r ../my-voiden-plugin.zip manifest.json main.js && cd ..
-
-# 5. Install in Voiden: Extension Browser → "Install from file" → select the ZIP
-```
-
-Head over to **[Getting Started](/docs/plugins/building-plugins/getting-started)** for the full walkthrough.
+See the **[@voiden/create-plugin docs](/docs/developer-tools/create-plugin/create-plugin-overview)** for the full reference including CLI prompts, the generated file structure, local testing, GitHub releases, and submitting to the Voiden registry.

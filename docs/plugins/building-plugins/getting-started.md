@@ -7,179 +7,48 @@
 
 # Build Your First Plugin
 
-This guide walks you through building a Voiden plugin from scratch. We'll start with a minimal plugin and progressively add features so you can see how each API works.
+This guide walks you through building a Voiden plugin from scratch — from scaffolding the project to seeing your first slash command appear in the editor.
 
 ---
 
-## Step 1: Set Up the Project
+## Step 1: Scaffold the Project
 
-Create a new directory for your plugin and initialize it:
+Use [`@voiden/create-plugin`](/docs/developer-tools/create-plugin/create-plugin-overview) to generate a fully wired project in one command:
 
 ```bash
-mkdir my-voiden-plugin
+npm create @voiden/plugin my-voiden-plugin
+```
+
+The CLI will ask you a few questions — plugin name, ID, description, author, icon, and which optional features you want (runner support, main-process support, permissions). Answer them and the scaffolder does the rest.
+
+Once it finishes:
+
+```bash
 cd my-voiden-plugin
-npm init -y
+npm install
 ```
 
-Install the SDK and dev dependencies:
+Your project is ready. No manual `tsconfig.json`, no esbuild setup, no zip scripts to wire up — it's all there.
 
-```bash
-npm install @voiden/sdk
-npm install --save-dev typescript esbuild @types/react
-```
-
-Your plugin will also need React as a peer dependency (Voiden provides it at runtime):
-
-Update your `package.json`:
-
-```json
-{
-  "name": "my-voiden-plugin",
-  "version": "1.0.0",
-  "type": "module",
-  "main": "dist/main.js",
-  "scripts": {
-    "build": "node esbuild.config.mjs",
-    "dev": "node esbuild.config.mjs --watch"
-  },
-  "dependencies": {
-    "@voiden/sdk": "^1.0.6"
-  },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "esbuild": "^0.24.0",
-    "typescript": "^5.9.3",
-    "@types/react": "^18.3.27"
-  }
-}
-```
-
----
-
-## Step 2: Configure TypeScript
-
-Create a `tsconfig.json`:
-
-```json
-{
-  "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "jsx": "react-jsx",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "declaration": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
-}
-```
-
----
-
-## Step 3: Configure the Build
-
-Create `esbuild.config.mjs`:
-
-```javascript
-import { build, context } from "esbuild";
-import { copyFileSync, mkdirSync } from "fs";
-
-const isWatch = process.argv.includes("--watch");
-
-const buildOptions = {
-  entryPoints: ["src/index.tsx"],
-  outfile: "dist/main.js",
-  bundle: true,
-  format: "esm",
-  platform: "browser",
-  target: "es2020",
-  // These are provided by Voiden at runtime — don't bundle them
-  external: [
-    "react",
-    "react-dom",
-    "react/jsx-runtime",
-    "@voiden/sdk",
-    "@voiden/sdk/ui",
-  ],
-  logLevel: "info",
-};
-
-// Copy manifest.json to dist/
-mkdirSync("dist", { recursive: true });
-copyFileSync("src/manifest.json", "dist/manifest.json");
-
-if (isWatch) {
-  const ctx = await context(buildOptions);
-  await ctx.watch();
-  console.log("Watching for changes...");
-} else {
-  await build(buildOptions);
-}
-```
-
-:::tip Why esbuild?
-Voiden loads external plugins as single ESM bundles (`main.js`). esbuild bundles your TypeScript, React components, and dependencies into one file while keeping Voiden's runtime dependencies external.
+:::tip What got generated?
+See [What it generates](/docs/developer-tools/create-plugin/create-plugin-overview) for a full breakdown of every file the scaffolder creates and why.
 :::
 
 ---
 
-## Step 4: Create the Manifest
+## Step 2: Write the Plugin
 
-Create `src/manifest.json`:
+Open `src/plugin.ts` — this is your entry point and the only file you need to start with.
 
-```json
-{
-  "id": "my-voiden-plugin",
-  "type": "community",
-  "name": "My Voiden Plugin",
-  "description": "A simple plugin that adds a greeting slash command",
-  "version": "1.0.0",
-  "author": "Your Name",
-  "enabled": true,
-  "priority": 50,
-  "readme": "Adds a /hello slash command that inserts a greeting into your document.",
-  "capabilities": {
-    "slashCommands": {
-      "groups": [
-        {
-          "name": "Greetings",
-          "commands": ["Insert greeting"]
-        }
-      ]
-    }
-  },
-  "dependencies": {
-    "core": "^1.0.0",
-    "sdk": "^1.0.0"
-  },
-  "features": [
-    "Slash command to insert a greeting"
-  ]
-}
-```
+```typescript
+import type { CorePluginContext } from '@voiden/sdk/ui';
+import manifest from '../manifest.json';
 
----
-
-## Step 5: Write the Plugin
-
-Create `src/index.tsx`:
-
-```tsx
-import type { Plugin, PluginContext } from "@voiden/sdk";
-
-export default function myPlugin(context: PluginContext): Plugin {
+export default function createMyVoidenPlugin(context: CorePluginContext) {
   return {
-    onload(ctx: PluginContext) {
+    onload: async () => {
       // Register a slash command group
-      ctx.addVoidenSlashGroup({
+      context.addVoidenSlashGroup({
         name: "greetings",
         title: "Greetings",
         commands: [
@@ -192,12 +61,7 @@ export default function myPlugin(context: PluginContext): Plugin {
             action: (editor) => {
               editor.commands.insertContent({
                 type: "paragraph",
-                content: [
-                  {
-                    type: "text",
-                    text: "Hello from my first Voiden plugin!",
-                  },
-                ],
+                content: [{ type: "text", text: "Hello from my first Voiden plugin!" }],
               });
             },
           },
@@ -205,95 +69,53 @@ export default function myPlugin(context: PluginContext): Plugin {
       });
     },
 
-    onunload() {
+    onunload: async () => {
       // Nothing to clean up for this simple plugin
     },
+
+    metadata: manifest,
   };
 }
 ```
 
-That's it! This plugin registers a `/hello` slash command that inserts a greeting paragraph into the editor.
+This plugin registers a `/hello` slash command that inserts a greeting into the editor. That's all it takes.
 
----
-
-## Step 6: Build and Package
-
-```bash
-npm run build
-```
-
-This creates:
-- `dist/main.js` — your bundled plugin
-- `dist/manifest.json` — copied from `src/`
-
-### Package as a ZIP
-
-Voiden installs community plugins from `.zip` files. Package your `dist/` output into a ZIP:
-
-```bash
-cd dist && zip -r ../my-voiden-plugin.zip manifest.json main.js && cd ..
-```
-
-You should now have a `my-voiden-plugin.zip` file at the root of your project containing both `manifest.json` and `main.js`.
-
-:::tip Automate packaging
-Add a `package` script to your `package.json` so you can build and zip in one step:
-
-```json
-{
-  "scripts": {
-    "build": "node esbuild.config.mjs",
-    "package": "npm run build && cd dist && zip -r ../my-voiden-plugin.zip manifest.json main.js"
-  }
-}
-```
-
-Then just run `npm run package`.
+:::info onload and onunload
+`onload` is called once when the plugin activates — register everything here. `onunload` is called on disable or app close — cancel any subscriptions or listeners you created in `onload` to avoid memory leaks.
 :::
 
 ---
 
-## Step 7: Install and Test in Voiden
+## Step 3: Build and Package
 
-Voiden has a built-in extension installer that lets you install plugins directly from a ZIP file — no manual file copying needed.
+```bash
+npm run build    # compiles src/plugin.ts → dist/{id}.js
+npm run zip      # packages dist/ → dist/{id}.zip
+```
 
-### Install from ZIP
+The zip is what Voiden installs. It contains your compiled bundle, `manifest.json`, and any other assets.
+
+---
+
+## Step 4: Install in Voiden
 
 1. Open Voiden
-2. Open the **Extension Browser** (click the puzzle piece icon in the sidebar, or go to **Settings > Extensions**)
-3. Click the **"Install from file"** button at the top of the extension browser
-4. Select your `my-voiden-plugin.zip` file from the file picker
-5. Voiden will validate the ZIP, extract it, and install your plugin automatically
+2. Go to **Extensions → ⋯ → Install from file**
+3. Select `dist/my-voiden-plugin.zip`
 
-That's it — your plugin is now installed and active.
+Voiden validates the ZIP and installs your plugin. Open any `.void` file, type `/hello` — you should see your **"Say Hello"** command in the slash menu. Select it and a greeting paragraph is inserted.
 
-### Verify It Works
+### What Voiden validates on install
 
-1. Open any `.void` file (or create a new one)
-2. Type `/hello` in the editor
-3. You should see your **"Say Hello"** command in the slash menu
-4. Select it — a greeting paragraph is inserted into the document
-
-### What Voiden Validates
-
-When you install from ZIP, Voiden checks the following:
-
-- The ZIP contains both **`manifest.json`** and **`main.js`** (either at the root or inside a single top-level folder)
-- The `manifest.json` is valid JSON
-- The manifest includes the required fields: **`id`**, **`name`**, and **`version`**
+- The ZIP contains `manifest.json` and the renderer bundle (`{id}.js`)
+- `manifest.json` is valid JSON with the required fields: `id`, `name`, `version`
 - The plugin ID does not conflict with a core extension
 
-If any of these checks fail, Voiden will show an error message explaining what went wrong.
-
-### Where Plugins Are Stored
-
-After installation, your plugin files live in Voiden's user data directory:
+### Where plugins are stored
 
 ```
 # macOS
 ~/Library/Application Support/Voiden/extensions/my-voiden-plugin/
-  ├── manifest.json
-  └── main.js
 
 # Linux
 ~/.config/Voiden/extensions/my-voiden-plugin/
@@ -302,118 +124,70 @@ After installation, your plugin files live in Voiden's user data directory:
 %APPDATA%/Voiden/extensions/my-voiden-plugin/
 ```
 
-Voiden also maintains an `installed.json` registry file alongside the extension folders to track all installed community plugins.
+---
 
-### Managing Your Plugin
+## Iterating During Development
 
-Once installed, you can manage your plugin from the Extension Browser:
+The fastest loop:
 
-- **Enable / Disable** — Toggle your plugin on or off without uninstalling it
-- **Uninstall** — Remove the plugin entirely
-- **Update** — Install a new version by re-installing from a new ZIP file (same plugin ID will overwrite the previous version)
+```bash
+npm run build && npm run zip
+```
 
-### Iterating During Development
-
-When you're actively developing, the workflow looks like this:
-
-1. Make changes to your source code
-2. Run `npm run package` (builds and creates the ZIP)
-3. In Voiden, click **"Install from file"** and select the new ZIP
-4. The plugin is updated in place — Voiden replaces the previous version
-5. Restart Voiden to pick up the changes
-
-:::tip Watch mode
-During development you can run `npm run dev` to have esbuild watch for changes and rebuild automatically. You'll still need to re-package and re-install the ZIP, but it saves the manual build step.
-:::
+Then reinstall from the zip in Voiden (**Extensions → ⋯ → Install from file**). Voiden replaces the previous version in place. For renderer-only changes, you do not need to restart Voiden.
 
 ---
 
 ## Going Further: Add a Sidebar Panel
 
-Let's extend the plugin with a sidebar panel that shows a simple React component.
-
-Update `src/index.tsx`:
+Extend your plugin with a sidebar panel using a React component:
 
 ```tsx
 import React, { useState } from "react";
-import type { Plugin, PluginContext } from "@voiden/sdk";
+import type { CorePluginContext } from '@voiden/sdk/ui';
+import manifest from '../manifest.json';
 
-// A simple sidebar component
 function MySidebar() {
   const [count, setCount] = useState(0);
-
   return (
     <div style={{ padding: "16px" }}>
-      <h3 style={{ marginBottom: "8px" }}>My Plugin</h3>
+      <h3>My Plugin</h3>
       <p>Button clicked {count} times</p>
-      <button
-        onClick={() => setCount((c) => c + 1)}
-        style={{
-          padding: "6px 12px",
-          borderRadius: "4px",
-          border: "1px solid #444",
-          background: "#2a2a2a",
-          color: "#fff",
-          cursor: "pointer",
-        }}
-      >
-        Click me
-      </button>
+      <button onClick={() => setCount((c) => c + 1)}>Click me</button>
     </div>
   );
 }
 
-export default function myPlugin(context: PluginContext): Plugin {
+export default function createMyVoidenPlugin(context: CorePluginContext) {
   return {
-    onload(ctx: PluginContext) {
-      // Register the slash command
-      ctx.addVoidenSlashGroup({
-        name: "greetings",
-        title: "Greetings",
-        commands: [
-          {
-            name: "hello",
-            label: "Say Hello",
-            description: "Insert a friendly greeting",
-            slash: "/hello",
-            icon: "Smile",
-            action: (editor) => {
-              editor.commands.insertContent({
-                type: "paragraph",
-                content: [
-                  { type: "text", text: "Hello from my first Voiden plugin!" },
-                ],
-              });
-            },
-          },
-        ],
-      });
+    onload: async () => {
+      context.addVoidenSlashGroup({ /* ... as before */ });
 
-      // Register a sidebar tab
-      ctx.registerSidebarTab("right", {
+      context.registerSidebarTab("right", {
         id: "my-plugin-sidebar",
         title: "My Plugin",
         icon: "Zap",
         component: MySidebar,
       });
     },
-
-    onunload() {},
+    onunload: async () => {},
+    metadata: manifest,
   };
 }
 ```
 
-Rebuild and restart Voiden. You'll see a new tab in the right sidebar.
+Rename `src/plugin.ts` to `src/plugin.tsx` if you add JSX — the build script detects both automatically.
 
 ---
 
 ## Going Further: Add a Status Bar Button
 
-You can add a button to the bottom status bar that opens a custom tab:
+Add a button to the bottom status bar that opens a custom tab:
 
 ```tsx
 import React from "react";
-import type { Plugin, PluginContext } from "@voiden/sdk";
+import type { CorePluginContext } from '@voiden/sdk/ui';
+import manifest from '../manifest.json';
 
 function MyExplorer() {
   return (
@@ -424,25 +198,23 @@ function MyExplorer() {
   );
 }
 
-export default function myPlugin(context: PluginContext): Plugin {
+export default function createMyVoidenPlugin(context: CorePluginContext) {
   return {
-    onload(ctx: PluginContext) {
-      // Register the component so tabs can find it
-      ctx.registerPanel("main", {
+    onload: async () => {
+      context.registerPanel("main", {
         id: "my-explorer",
         title: "My Explorer",
         component: MyExplorer,
       });
 
-      // Add a button to the status bar
-      ctx.registerStatusBarItem({
+      context.registerStatusBarItem({
         id: "my-explorer-btn",
         icon: "Compass",
         label: "Explorer",
         tooltip: "Open My Explorer",
         position: "left",
         onClick: () => {
-          ctx.addTab("main", {
+          context.addTab("main", {
             id: "my-explorer",
             icon: "Compass",
             title: "My Explorer",
@@ -452,8 +224,8 @@ export default function myPlugin(context: PluginContext): Plugin {
         },
       });
     },
-
-    onunload() {},
+    onunload: async () => {},
+    metadata: manifest,
   };
 }
 ```
@@ -462,38 +234,30 @@ export default function myPlugin(context: PluginContext): Plugin {
 
 ## Going Further: Hook Into the Request Pipeline
 
-Plugins can modify requests before they're sent and process responses after they arrive. This is how plugins like **Voiden Faker** inject dynamic data.
+Plugins can modify requests before sending and process responses after receiving. This is how plugins like **Voiden Faker** inject dynamic data:
 
 ```tsx
-import type { Plugin, PluginContext } from "@voiden/sdk";
-
-export default function myPlugin(context: PluginContext): Plugin {
+export default function createMyVoidenPlugin(context: CorePluginContext) {
   return {
-    onload(ctx: PluginContext) {
-      // Modify requests before sending
-      ctx.onBuildRequest(async (request, editor) => {
+    onload: async () => {
+      context.onBuildRequest(async (request, editor) => {
         // Add a custom header to every request
         if (!request.headers) request.headers = [];
-        request.headers.push({
-          key: "X-Plugin-Version",
-          value: "1.0.0",
-          enabled: true,
-        });
+        request.headers.push({ key: "X-Plugin-Version", value: "1.0.0", enabled: true });
         return request;
       });
 
-      // Process responses after receiving
-      ctx.onProcessResponse(async (response) => {
+      context.onProcessResponse(async (response) => {
         console.log("Response received:", response.status);
       });
     },
-
-    onunload() {},
+    onunload: async () => {},
+    metadata: manifest,
   };
 }
 ```
 
-:::warning Pipeline Hooks
+:::warning
 When modifying requests in `onBuildRequest`, never expand environment variables (text in `{{double braces}}`). Voiden handles variable substitution securely in a separate stage.
 :::
 
@@ -501,71 +265,69 @@ When modifying requests in `onBuildRequest`, never expand environment variables 
 
 ## Going Further: Expose Helpers for Other Plugins
 
-If your plugin provides utility functions that other plugins might need, you can expose them:
+If your plugin provides utility functions that other plugins might use:
 
 ```tsx
-ctx.exposeHelpers({
+context.exposeHelpers({
   formatTimestamp: (date: Date) => date.toISOString(),
   parseCSV: (text: string) => text.split("\n").map((row) => row.split(",")),
 });
 ```
 
-Other plugins can access your helpers via:
+Other plugins can access them via:
 
 ```tsx
-const myHelpers = ctx.helpers.from("my-voiden-plugin");
-if (myHelpers) {
-  const formatted = myHelpers.formatTimestamp(new Date());
+const helpers = context.helpers.from("my-voiden-plugin");
+if (helpers) {
+  const formatted = helpers.formatTimestamp(new Date());
 }
 ```
 
 :::info
-Helpers should be **pure functions** — no side effects, no network calls, no file access. Think data transformation and parsing only.
+Helpers should be pure functions — no side effects, no network calls, no file access.
 :::
 
 ---
 
-## Project Structure Recap
+## Project Structure
 
-After following this guide, your project should look like:
-
-```
-my-voiden-plugin/
-├── src/
-│   ├── manifest.json          # Plugin metadata
-│   └── index.tsx              # Plugin entry point
-├── dist/
-│   ├── manifest.json          # Copied during build
-│   └── main.js               # Bundled output
-├── package.json
-├── tsconfig.json
-└── esbuild.config.mjs
-```
-
-For larger plugins, you'll want to split into more files:
+After following this guide your project looks like:
 
 ```
 my-voiden-plugin/
 ├── src/
-│   ├── manifest.json
-│   ├── index.tsx              # Plugin entry point
-│   ├── components/            # React components
-│   │   ├── Sidebar.tsx
-│   │   └── Explorer.tsx
-│   ├── lib/                   # Utility functions
-│   │   └── parser.ts
-│   └── nodes/                 # Custom TipTap nodes (advanced)
-│       └── MyBlock.tsx
-├── dist/
+│   ├── plugin.ts (or plugin.tsx)   ← your entry point
+│   └── skill.md
+├── manifest.json
+├── changelog.json
 ├── package.json
 ├── tsconfig.json
-└── esbuild.config.mjs
+├── build.mjs
+├── build-main.mjs
+├── zip.mjs
+└── .github/
+    └── workflows/
+        └── release.yml
+```
+
+For larger plugins, split into components and utilities:
+
+```
+src/
+├── plugin.tsx
+├── components/
+│   ├── Sidebar.tsx
+│   └── Explorer.tsx
+└── lib/
+    └── parser.ts
 ```
 
 ---
 
 ## Next Steps
 
-- **[Plugin API Reference](/docs/plugins/building-plugins/plugin-api)** — Full reference for every method on `PluginContext`
-- **[Manifest Reference](/docs/plugins/building-plugins/manifest-reference)** — Complete schema for `manifest.json`
-- Browse the **core-extensions** source code for real-world examples of advanced patterns like custom TipTap blocks and complex pipeline hooks
+- **[Plugin API Reference](/docs/plugins/building-plugins/plugin-api)** — every method on `PluginContext`
+- **[Manifest Reference](/docs/plugins/building-plugins/manifest-reference)** — complete `manifest.json` schema
+- **[Test Locally](/docs/developer-tools/create-plugin/create-plugin-test-locally)** — build, zip, install workflow in detail
+- **[Release to GitHub](/docs/developer-tools/create-plugin/create-plugin-release)** — ship with one `git tag`
+- **[Submit to Voiden](/docs/developer-tools/create-plugin/create-plugin-submit)** — list your plugin in the Extensions browser
