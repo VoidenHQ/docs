@@ -5,40 +5,64 @@
   sidebar_position: 3
 ---
 
-# Hello, World
+# Quick Start
 
-Welcome to your first ride in **Voiden** — no headers to decode, no mysterious 500s to fear, just a friendly **GET** request to kick things off.
+Let's send your first request in Voiden. This takes about two minutes — no configuration, no setup, just a live API call you can see working right away.
 
-We’ll start with a simple URL that echoes whatever you send it.  
-Think of it as the world’s most patient API — it listens, nods politely, and repeats everything back.
-
----
-
-### Let’s Get Started
-
-1. Type `/endpoint` to create a new **Request Block**.  
-
-![Quick Start Screenshot](/img/quick-start/quick-start.png)
-
-2. Paste this URL:  `https://echo.voiden.md`
-3. Run it by either:  
-- Pressing **Cmd + Enter** (on macOS) or **Ctrl + Enter** (on Windows/Linux), **or**  
-- Clicking the bright **green ▶️ Play button** in the toolbar.  
-![Quick Start Post Request Sending Screenshot](/img/quick-start/quick-start-post.png)
-4. Check out the **Response Panel** — it’ll return exactly what you sent, like a mirror that speaks JSON.
-5. Now, go ahead and **document your request right here**.  
-Describe what it does, what to expect in the response, and any use cases or notes worth remembering.  
-Voiden lets you blend **docs and requests** in one place — because context belongs *with* the code, not buried in a wiki.
+We'll use `https://echo.voiden.md` — a simple echo endpoint that reflects back exactly what you send it. Perfect for getting a feel for how Voiden works.
 
 ---
 
-And that’s it — your first Voiden request.  
-No payloads, no panic, no drama. Just clean, quiet success.
+## Step 1 — Create a Request Block
 
+Type `/endpoint` anywhere in the editor to insert a new Request Block.
+
+<img src="/img/quick-start/quick-start.png" alt="Creating a request block" style={{width: '80%', borderRadius: '12px', marginTop: '8px'}} />
+
+:::tip What's a block?
+Everything in Voiden is a block — requests, docs, environment configs, assertions. Type `/` anywhere to see the full list of available blocks.
+:::
 
 ---
 
-> 💡 **That’s the thing about Voiden:** your API documentation isn’t static, it’s alive.  
-> You can write your docs right in the editor and drop in the exact blocks you need, when you need them.  
-> Slash commands make it effortless: everything in Voiden is a block.  
-> No clutter. No tabs everywhere. Just you, your words, and the requests that matter.
+## Step 2 — Paste the URL
+
+In the URL field, enter:
+
+```
+https://echo.voiden.md
+```
+
+---
+
+## Step 3 — Run the Request
+
+Send the request using either:
+
+- **Keyboard:** `Cmd + Enter` on macOS / `Ctrl + Enter` on Windows & Linux
+- **Mouse:** click the green **▶ Play** button in the toolbar
+
+<img src="/img/quick-start/quick-start-post.png" alt="Sending the request" style={{width: '80%', borderRadius: '12px', marginTop: '8px'}} />
+
+---
+
+## Step 4 — Read the Response
+
+The **Response Panel** opens below the block and shows you the full response — status code, headers, and body. Since this is an echo endpoint, it'll return exactly what you sent.
+
+---
+
+## Step 5 — Add Some Docs
+
+Here's where Voiden is different. You don't need a separate wiki or README to document this request — just write directly in the editor, right next to the block.
+
+Describe what the endpoint does, what a successful response looks like, edge cases to watch for — anything useful. Your docs and your requests live together, stay in sync, and travel with the file.
+
+:::info Docs as code
+Voiden treats documentation as a first-class part of your API workflow. Everything lives in `.void` files that you can version, share, and diff just like code.
+:::
+
+---
+
+That's your first Voiden request — clean, simple, and already documented.
+
