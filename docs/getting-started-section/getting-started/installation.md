@@ -4,49 +4,82 @@
   sidebar_label: Installation
   sidebar_position: 2
 ---
+
 # Installation
 
-Welcome to the part where we pretend reading system requirements is fun.  
-Good news is that installing Voiden is actually painless.
+Get Voiden up and running in under a minute — no accounts, no setup wizards, no background services phoning home.
 
 ---
 
-## Download
+## Step 1 — Download
 
-Head over to **[voiden.md/download](https://voiden.md/download)** and grab the latest release for your platform.  
-That’s it. No sign-ups, no tracking, no mysterious “agent” running in the background.  
-Just download, install, and start building stuff.
+Head to **[voiden.md/download](https://voiden.md/download)** and pick the build for your OS.
 
-![install](/img/geetingstarted/install.png)
+:::tip One download, that's it
+No installer accounts, no telemetry opt-outs, no surprise toolbars. Download the file, open it, done.
+:::
 
 ---
 
-## System Requirements
+## Step 2 — Check System Requirements
+
+Voiden is intentionally lightweight. If your machine is from the last five years, you're almost certainly fine.
 
 ### macOS
-- macOS **11 Big Sur** or later  
-- **Apple Silicon** or **Intel** processor  
-- **4 GB RAM** (Voiden runs fine on your 2019 MacBook, promise)  
-- **200 MB** available space  
 
-### Windows & Linux
-- **64-bit OS** (Windows 10+, Ubuntu 20.04+, Fedora 34+)  
-- **Intel or AMD** processor  
-- **4 GB RAM**  
-- **200 MB** available space  
--  ARM versions coming soon (for Windows & Linux — we see you, Pi enthusiasts)
+| Requirement | Minimum |
+|---|---|
+| OS | macOS 11 Big Sur or later |
+| Chip | Apple Silicon or Intel |
+| RAM | 4 GB |
+| Disk | 200 MB free |
+
+<img src="/img/geetingstarted/mac-install.png" alt="macOS installation" style={{width: '75%', borderRadius: '12px', marginTop: '12px'}} />
 
 ---
 
-## Pro Tip
-Voiden works **offline-first** : once installed, it doesn’t need the cloud to run.  
+### Windows
+
+| Requirement | Minimum |
+|---|---|
+| OS | Windows 10 or later (64-bit) |
+| Processor | Intel or AMD |
+| RAM | 4 GB |
+| Disk | 200 MB free |
+
+
+<img src="/img/geetingstarted/window-install.png" alt="Windows installation" style={{width: '75%', borderRadius: '12px', marginTop: '12px'}} />
 
 ---
 
-## Uninstalling
-Just delete it. Seriously. No leftover daemons, registry keys, or “helpful” background processes.  
+### Linux
+
+| Requirement | Minimum |
+|---|---|
+| OS | Ubuntu 20.04+, Fedora 34+, or any modern 64-bit distro |
+| Processor | Intel or AMD |
+| RAM | 4 GB |
+| Disk | 200 MB free |
+
+
+
+<img src="/img/geetingstarted/linux-install.png" alt="Linux installation" style={{width: '75%', borderRadius: '12px', marginTop: '12px'}} />
 
 ---
 
-Happy testing. Now go break some APIs — *locally*.
+## Works Offline
 
+Voiden is **offline-first** by design. Once installed, everything runs entirely on your local machine — your requests, your files, your environment variables. Nothing leaves your computer unless you send a request to an API yourself.
+
+Here's what that means in practice:
+
+- **No cloud dependency** — Voiden doesn't need to reach out to any server to function. Open it on a plane, in a basement, or on a locked-down corporate network and it works exactly the same.
+- **No account required** — there's no login, no session, no token to refresh. Launch the app and you're in.
+- **No forced syncs** — your `.void` files live on your disk. You decide if and how they get shared (git, a shared drive, whatever works for your team).
+- **No background services** — Voiden doesn't install daemons or startup agents. It only runs when you open it.
+- **Air-gapped friendly** — if you work in a restricted environment where outbound traffic is controlled, Voiden fits right in. No allowlist entries needed for the app itself.
+
+
+---
+
+You're all set. Now go break some APIs — *locally*.
