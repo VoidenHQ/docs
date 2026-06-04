@@ -67,19 +67,5 @@ Voiden is intentionally lightweight. If your machine is from the last five years
 
 ---
 
-## Works Offline
-
-Voiden is **offline-first** by design. Once installed, everything runs entirely on your local machine — your requests, your files, your environment variables. Nothing leaves your computer unless you send a request to an API yourself.
-
-Here's what that means in practice:
-
-- **No cloud dependency** — Voiden doesn't need to reach out to any server to function. Open it on a plane, in a basement, or on a locked-down corporate network and it works exactly the same.
-- **No account required** — there's no login, no session, no token to refresh. Launch the app and you're in.
-- **No forced syncs** — your `.void` files live on your disk. You decide if and how they get shared (git, a shared drive, whatever works for your team).
-- **No background services** — Voiden doesn't install daemons or startup agents. It only runs when you open it.
-- **Air-gapped friendly** — if you work in a restricted environment where outbound traffic is controlled, Voiden fits right in. No allowlist entries needed for the app itself.
-
-
----
 
 You're all set. Now go break some APIs — *locally*.
