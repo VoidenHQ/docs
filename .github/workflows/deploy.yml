@@ -3,9 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Deploy when pushing to main branch
-  # Manual trigger
+      - main
   workflow_dispatch:
+  repository_dispatch:
+    types: [plugin-registry-updated]
 
 permissions:
   contents: read
