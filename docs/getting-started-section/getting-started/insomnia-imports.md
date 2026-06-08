@@ -22,4 +22,13 @@ Already have collections in Insomnia? You don't have to start from scratch. Void
 3. Click **"Import into Voiden"** in the top-right corner
 4. Voiden creates a folder matching your workspace name and populates it with `.void` files — one per request
 
+<img src="/img/geetingstarted/insomnia-import.gif" alt="Insomnia import" style={{width: '80%', borderRadius: '12px', marginTop: '8px'}} />
+
 That's it. Your entire Insomnia collection is now in Voiden and ready to run.
+
+---
+
+## Summary
+
+The Insomnia importer takes your existing workspace and brings it into Voiden with no manual work. Your folder structure, requests, headers, query params, body types, and authentication are all converted automatically into `.void` files — organised, editable, and ready to test. It's the fastest way to switch to Voiden without losing the work you've already done.
+
