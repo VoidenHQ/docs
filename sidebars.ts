@@ -21,6 +21,7 @@ const sidebars: SidebarsConfig = {
         "getting-started-section/getting-started/smart-blocks",
         "getting-started-section/getting-started/postman-import",
         "getting-started-section/getting-started/openapi-imports",
+        "getting-started-section/getting-started/insomnia-imports",
         "getting-started-section/getting-started/openapi-validation",
         "getting-started-section/getting-started/the-basics",
       ],
