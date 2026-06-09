@@ -24,7 +24,7 @@ And when things get messy? Hit **Prettify** in the top-right corner to instantly
 
 
 ---
-![json](/img/voiden-blocks/json-post.gif)
+![json](/img/voiden-blocks/json-post.png)
 
 > **Pro Tip:** Want to comment out a field without overkill?  
 > Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment out a JSON line you don't need for that request.  
