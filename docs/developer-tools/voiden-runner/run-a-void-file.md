@@ -5,10 +5,6 @@ sidebar_label: Run a .void File
 sidebar_position: 4
 ---
 
-:::warning[Beta]
-`@voiden/runner` is currently in beta. APIs and flags may change between releases.
-:::
-
 The `run` command executes `.void` files created in the Voiden desktop app. Pass a file path, a directory, or a glob pattern — the runner handles them all.
 
 ---

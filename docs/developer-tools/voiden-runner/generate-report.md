@@ -5,10 +5,6 @@ sidebar_label: Generate a Report
 sidebar_position: 6
 ---
 
-:::warning[Beta]
-`@voiden/runner` is currently in beta. APIs and flags may change between releases.
-:::
-
 Every run produces output you can read, parse, or forward. The runner supports JSON output for programmatic use, and the `report` command lets you build a combined report across multiple runs.
 
 ---

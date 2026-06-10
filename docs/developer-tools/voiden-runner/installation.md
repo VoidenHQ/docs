@@ -5,10 +5,6 @@ sidebar_label: Installation
 sidebar_position: 2
 ---
 
-:::warning[Beta]
-`@voiden/runner` is currently in beta. APIs and flags may change between releases.
-:::
-
 `@voiden/runner` is published to npm. Install it globally to get the `voiden-runner` command available system-wide.
 
 ---

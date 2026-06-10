@@ -5,10 +5,6 @@ sidebar_label: CI/CD Integration
 sidebar_position: 9
 ---
 
-:::warning[Beta]
-`@voiden/runner` is currently in beta. APIs and flags may change between releases.
-:::
-
 `@voiden/runner` works in any CI environment that runs shell commands. It follows standard exit code conventions — `0` on success, `1` on failure — so pipelines can gate on results without extra configuration.
 
 ---

@@ -5,10 +5,6 @@ sidebar_label: Command Options
 sidebar_position: 3
 ---
 
-:::warning[Beta]
-`@voiden/runner` is currently in beta. APIs and flags may change between releases.
-:::
-
 All options are appended after specifying the command and your file or directory path:
 
 ```bash

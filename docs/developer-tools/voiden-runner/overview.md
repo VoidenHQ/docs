@@ -5,10 +5,6 @@ sidebar_label: Overview
 sidebar_position: 1
 ---
 
-:::warning[Beta]
-`@voiden/runner` is currently in beta. APIs and flags may change between releases.
-:::
-
 `@voiden/runner` is the headless CLI that brings your `.void` files to life outside the Voiden desktop app. Test APIs in your terminal, automate runs in CI/CD, or schedule them as part of any workflow — all from the same files you author in Voiden.
 
 ---

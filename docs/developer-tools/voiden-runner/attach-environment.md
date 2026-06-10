@@ -5,10 +5,6 @@ sidebar_label: Attach an Environment
 sidebar_position: 5
 ---
 
-:::warning[Beta]
-`@voiden/runner` is currently in beta. APIs and flags may change between releases.
-:::
-
 The runner resolves environment variables from three sources, applied in this order — later sources override earlier ones:
 
 1. **System environment** — variables already in your shell

@@ -5,10 +5,6 @@ sidebar_label: Email Report
 sidebar_position: 8
 ---
 
-:::warning[Beta]
-`@voiden/runner` is currently in beta. APIs and flags may change between releases.
-:::
-
 The runner can send a dark-themed HTML report via SMTP after a run completes. The report shows a card for each request executed — including request/response headers, bodies, and assertion results — so recipients get a full picture without needing terminal access.
 
 ---
