@@ -8,6 +8,7 @@
 # Query Params Block
 
 Query parameters turn a simple **URL** into a powerful filter, search, or configuration tool.  
+
 The **Query Params Block** lets you define URL parameters as a clean key-value table in **Voiden**. No more manually encoding ampersands and question marks into your endpoint string.
 
 Add, edit, or remove parameters without touching the URL itself.  
@@ -24,8 +25,6 @@ Voiden handles the formatting and encoding automatically, keeping your endpoint 
 3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),  
 **or** click the **green  Play button** in the toolbar. 
 4. Check the **Response Panel**. In the **Request Summary / Security** section you’ll see your query params applied to the endpoint URL, confirming they’re being sent as expected.
-
-
 
 ---
 ![query-params](/img/voiden-blocks/query-params-push.gif)

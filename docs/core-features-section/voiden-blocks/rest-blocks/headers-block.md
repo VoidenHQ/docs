@@ -8,10 +8,10 @@
 # Headers Block
 
 Headers are the unsung heroes of every HTTP request — quietly carrying your tokens, credentials, and content types through the network jungle.  
+
 In **Voiden**, the **Headers Block** lets you define, organize, and toggle these headers just the way you want — cleanly, visually, and without the clutter of endless text fields.
 
-Each header is a simple **key-value pair**, and you can add as many as you need.  
-Use it for authentication, custom metadata, or any other HTTP header your API expects.  
+Each header is a simple **key-value pair**, and you can add as many as you need.  Use it for authentication, custom metadata, or any other HTTP header your API expects.  
 You can also enable, disable, or comment out headers directly — no need to delete and rewrite them.
 
 ---

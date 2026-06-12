@@ -8,9 +8,8 @@
 
 When your API needs data, it usually wants **JSON**.  
 The **JSON Block** in **Voiden** gives you a dedicated space to craft your request body — whether you're sending user data, search queries, or configuration objects.  
-Type it out or paste it in. Either way, you get a clean editor that understands JSON.
 
-And when things get messy? Hit **Prettify** in the top-right corner to instantly format your JSON into readable, indented perfection.
+Type it out or paste it in. Either way, you get a clean editor that understands JSON.And when things get messy? Hit **Prettify** in the top-right corner to instantly format your JSON into readable, indented perfection.
 
 ---
 ###  Try it Out
