@@ -381,6 +381,10 @@ code, pre, kbd, samp, tt {
   padding: 0 0;
 }
 
+.navbar__icon-link {
+  padding: 0 4px;
+}
+
 .navbar__link:hover {
   color: var(--ifm-navbar-link-hover-color);
 }
@@ -590,4 +594,25 @@ blockquote a:hover {
 [data-theme='light'] .alert--secondary {
   --ifm-alert-background-color: rgba(139, 92, 246, 0.06);
   --ifm-alert-border-color: var(--voiden-purple);
+}
+
+.navbar__search-input {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.navbar__search-input:focus {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.searchHint {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.searchClearButton {
+  cursor: default !important;
 }
