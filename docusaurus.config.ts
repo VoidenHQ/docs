@@ -16,6 +16,13 @@ const config: Config = {
   ],
   headTags: [
     {
+      tagName: 'meta',
+      attributes: {
+        name: 'msvalidate.01',
+        content: '51C91F0369EC3724AB583A15D34B2D9E',
+      },
+    },
+    {
       tagName: "script",
       attributes:{},
       innerHTML: `
