@@ -14,9 +14,10 @@ Curious how the block works? [Take a look at the Stitch Block →](/docs/core-fe
 
 ## Features
 
-* Batch run multiple `.void` files sequentially
+* Batch run multiple `.void` files sequentially in your preferred order
 * Glob pattern matching for file inclusion/exclusion
 * Shared or isolated variable scope per file
+* Scenario-based variable overrides (CSV / JSON / YAML or inline)
 * Aggregated assertion results in dedicated sidebar tab
 * Per-file pass/fail with assertion counts and timing
 * Stop-on-failure option
@@ -39,6 +40,18 @@ Curious how the block works? [Take a look at the Stitch Block →](/docs/core-fe
 |---|---|
 | `/stitch` → **Insert Stitch Runner** | Inserts a Stitch block into your `.void` file |
 
+### Scenarios
+
+Ever wished you could test the same request against multiple users, environments, or test cases without touching the request itself? That's exactly what scenarios are for.
+
+A scenario is just a named set of variable values that steps in when your request runs — no changes to your environment, no editing between runs.
+
+**Two ways to set one up:**
+- Point it at a **CSV, JSON, or YAML file** — each key maps to a variable name in your request
+- Or just type the values **inline** directly in the scenario field
+
+You keep using `{{variable}}` exactly as you always have. When you hit run, Voiden fires the request once per scenario row and groups the results by scenario in the response panel. Once the run finishes, your environment is exactly as you left it.
+
 ---
 
 ## Dependencies
@@ -53,4 +66,4 @@ Curious how the block works? [Take a look at the Stitch Block →](/docs/core-fe
 
 ## Summary
 
-Just drop a Stitch block into any `.void` file using `/stitch`, point it at the folders you care about, and hit run. Voiden handles the rest — running each file in order, collecting results, and showing you a clean pass/fail breakdown with assertion counts and timing right in the sidebar. No manual triggering, no jumping between files.
+Just drop a Stitch block into any `.void` file using `/stitch`, point it at the folders you care about, and hit run. You're in control of the order too — rearrange files however makes sense before kicking things off. Voiden handles the rest — running each file in sequence, collecting results, and showing you a clean pass/fail breakdown with assertion counts and timing right in the sidebar. No manual triggering, no jumping between files.

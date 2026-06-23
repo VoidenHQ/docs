@@ -56,6 +56,8 @@ Set a delay between each file execution. This is useful when your APIs have rate
 
 Before hitting run, you can see the full list of files queued for execution. This gives you a clear picture of exactly what will run, so there are no surprises.
 
+Not happy with the order? You can rearrange the files however you like before kicking off the run — just drag them into the order that makes sense for you. Running auth before your protected endpoints, or smoke tests before the heavy ones, is totally up to you.
+
 ---
 
 ## Running Your Files
@@ -63,6 +65,14 @@ Before hitting run, you can see the full list of files queued for execution. Thi
 Once everything is configured, hit the **Run** button to kick off the automated run. Voiden will execute each file in sequence and once complete, you'll see the **Stitch Result** — a clear pass/fail breakdown for every file that was run, all in one place.
 
 ![stitch-run](/img/stitch-block/stitch-run.gif)
+
+---
+
+## Scenarios
+
+Need to run the same request against different users, environments, or test cases? Scenarios let you do that without touching the request or your environment.
+
+Just define a named set of variable values — either from a **CSV, JSON, or YAML file** or typed in **inline** — and Voiden will fire the request once per scenario row. Results are grouped by scenario right in the response panel. Your environment stays exactly as it was once the run is done.
 
 ---
 
