@@ -67,6 +67,12 @@ Voiden also has a **CLI** — so you can open projects, files, and directories s
 
 ---
 
+## Drag & Drop Blocks
+
+Your blocks aren't set in stone. Once you've got them in place, you can drag and drop any block to wherever you want it — reorder your headers, shuffle your body block, whatever feels right. Just grab a block and move it. That's all there is to it.
+
+---
+
 ## Response Panel
 
 Every request you send has a dedicated place to show its results. The **Response Panel** is a right-side panel that displays everything about your request and response — status code, headers, body, timing, and more — all in one clean view.

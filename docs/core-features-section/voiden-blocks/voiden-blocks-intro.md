@@ -20,4 +20,9 @@ With Voiden Blocks, your API requests are not static forms anymore — they are 
 > No other API tool today offers this level of **composability**.  
 > Voiden rethinks the entire workflow — replacing fixed UI templates with a flexible, modular system where you build your requests like you write code: one clean, purposeful block at a time.
 
+
+## Drag & Drop to Reorder
+
+And if you ever want to change things up — just drag and drop any block to wherever you want it. Reorder, restructure, make it yours. No friction, no fuss.
+
 Read more [here](https://voiden.md/blog/maintaining-consistent-api-docs) to see how you can use Voiden Blocks to keep your API docs consistent. 
