@@ -42,6 +42,11 @@ Goes hand in hand with Auto Save. This controls how long Voiden waits after you 
 ### Code Block Max Lines
 Controls how many lines a code block expands to before it starts scrolling. The default is **50 lines**, which keeps things tidy without hiding too much. Set it to **Unlimited** if you'd rather see everything at once without any scrolling.
 
+### Block Overview
+Ever find yourself scrolling through a long file just to get to the right block? Turn this on and Voiden adds a handy button in the top-right corner of the editor. Give it a click and you'll see all your blocks laid out at a glance — just pick the one you want and you're there instantly. No more endless scrolling.
+
+![block-overview](/img/geetingstarted/block-overview.gif)
+
 ---
 
 ## Network

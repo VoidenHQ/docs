@@ -74,6 +74,8 @@ Need to run the same request against different users, environments, or test case
 
 Just define a named set of variable values — either from a **CSV, JSON, or YAML file** or typed in **inline** — and Voiden will fire the request once per scenario row. Results are grouped by scenario right in the response panel. Your environment stays exactly as it was once the run is done.
 
+![scenario](/img/stitch-block/scenario.gif)
+
 ---
 
 ## Stitch History

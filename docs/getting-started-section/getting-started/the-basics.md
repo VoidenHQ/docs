@@ -71,6 +71,8 @@ Voiden also has a **CLI** — so you can open projects, files, and directories s
 
 Your blocks aren't set in stone. Once you've got them in place, you can drag and drop any block to wherever you want it — reorder your headers, shuffle your body block, whatever feels right. Just grab a block and move it. That's all there is to it.
 
+![drag-and-drop](/img/geetingstarted/drag-and-drop.gif)
+
 ---
 
 ## Response Panel
