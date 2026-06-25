@@ -7,33 +7,45 @@
 
 # Import from Postman
 
-Getting started with Voiden using your existing Postman collections couldn't be easier! If you've been testing and building your APIs in Postman, you've already done most of the hard work. Now let's transform that effort into ready-to-use Voiden files.
+Already doing your API work in Postman? Great — bring it all into Voiden in just a few steps. No rebuilding from scratch, no copy-pasting. Just import and keep going.
 
 ---
 
-## What You'll Need:
-- A Postman Collection exported as JSON (we recommend using the latest v2.1 format for best results)
+## What You'll Need
 
+A Postman Collection exported as JSON. We recommend using the **v2.1 format** for best results.
 
-> **How to Import in Voiden:** 
-> Prefer the quick and easy method? Simply drag your Postman JSON file directly into the file list panel on the left side of Voiden. We'll take it from there!
+> **Tip:** The quickest way to import is to drag your Postman JSON file directly into the file list panel on the left side of Voiden. That's all it takes.
 
+---
 
-## Generate Your Voiden Files:
+## Generate Your Voiden Files
 
-Once your Postman collection is imported, the magic begins:
+Once your collection is in, here's what to do:
 
-1. **Open the imported file** - Click on your Postman collection file in the left panel to view its contents
-2. **Spot the Magic Button** - You'll see a prominent **"Generate Voiden Files"** button appear - that's your gateway to automated file creation
-3. **Watch the Organization Happen** - We automatically create a clean, organized folder structure using your exact Postman collection name
-4. **Discover Your New Workflow** - Inside the new folder, every API request from your Postman collection has been intelligently converted into individual Voiden files, complete with all your endpoints, parameters, and configurations
+1. **Open the imported file** — click on it in the left panel
+2. **Hit "Generate Voiden Files"** — you'll see the button right there waiting for you
+3. **Watch it organize itself** — Voiden creates a clean folder structure using your collection name
+4. **You're done** — every request is now its own Voiden file, with endpoints, params, and configs all intact
 
 ![import-postman](/img/geetingstarted/import-postman.gif)
 
 ---
 
-## What Gets Converted?
-- All your HTTP endpoints (GET, POST, PUT, DELETE, etc.)
+## Import Your Environment Variables Too
+
+Got your environments set up in Postman? You don't have to start over.
+
+1. Open your Postman collection in Voiden
+2. Look for the **Import Environment Variables** button in the top-right corner
+3. Click it and pick your exported Postman environment file
+4. That's it — all your variables are right there in Voiden, exactly as they were
+
+---
+
+## What Gets Converted
+
+- All HTTP endpoints (GET, POST, PUT, DELETE, and more)
 - Request headers and authentication settings
 - Query parameters and path variables
 - Request body schemas and examples
@@ -41,7 +53,6 @@ Once your Postman collection is imported, the magic begins:
 
 ---
 
-## Ready to Roll!
-The best part? Once generated, you can immediately start working with your API in the Voiden ecosystem. No manual setup, no copy-pasting, no room for errors.
+## Ready to Go
 
-That's it! In just one click, Voiden transforms your Postman work into a structured, ready-to-use API foundation. Your existing API testing workflow just became your fastest path to production-ready code.
+One import, everything set up. Your Postman work becomes a structured, ready-to-use API foundation in Voiden — no manual effort, no room for mistakes.
