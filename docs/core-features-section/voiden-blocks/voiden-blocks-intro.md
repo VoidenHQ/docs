@@ -7,22 +7,33 @@
 
 # Meet Voiden Blocks
 
-This is an important principle of Voiden. Everything inside Voiden is a **Block:** the smallest, most flexible piece of your API world.  
-Your endpoint is a block. Headers are blocks. Query params, form inputs, JSON bodies, XML payloads, even binary file attachments — all are separate individual blocks that you can add, remove, or reorder as you build your request.
+Voiden is built around one simple idea: everything you work with is a **Block**.
+
+A block is the smallest, most flexible piece of your API request. Your endpoint is a block. Headers are blocks. Query params, form inputs, JSON bodies, XML payloads, and even binary file attachments are all individual blocks.
+
+You can add them when you need them, remove them when you do not, and reorder them as your request takes shape.
 
 ![All Rest API Blocks](/img/voiden-blocks/all-rest-blocks.png)
 
-This modular design keeps the interface clean and clutter-free. Instead of staring at an endless wall of unused fields, you simply add the blocks you need — nothing more, nothing less. Every request becomes a composition of meaningful parts, easy to read, modify, and reuse.
+## Build Only What You Need
 
-With Voiden Blocks, your API requests are not static forms anymore — they are **living structures**. You can mix, match, and reuse blocks across projects, attach documentation inline, and experiment without losing context. Each block knows what it is and what it contributes.
+This modular design keeps your workspace clean and easy to follow. Instead of working through a long form full of fields you may never use, you add only the blocks your request actually needs.
 
+That way, every request becomes a clear composition of meaningful parts. It is easier to read, easier to modify, and easier to reuse across your API workflow.
+
+## Requests as Living Structures
+
+With Voiden Blocks, API requests do not feel like static forms. They become **living structures** that you can shape as your work changes.
+
+You can mix and match blocks, reuse them across projects, attach documentation inline, and try new ideas without losing context. Each block has a clear purpose and shows what it contributes to the request.
 
 > No other API tool today offers this level of **composability**.  
-> Voiden rethinks the entire workflow — replacing fixed UI templates with a flexible, modular system where you build your requests like you write code: one clean, purposeful block at a time.
-
+> Voiden rethinks the entire workflow by replacing fixed UI templates with a flexible, modular system. You build requests like you write code: one clean, purposeful block at a time.
 
 ## Drag & Drop to Reorder
 
-And if you ever want to change things up — just drag and drop any block to wherever you want it. Reorder, restructure, make it yours. No friction, no fuss.
+When your request needs to change, just drag and drop blocks into the order you want.
 
-Read more [here](https://voiden.md/blog/maintaining-consistent-api-docs) to see how you can use Voiden Blocks to keep your API docs consistent. 
+Reorder, restructure, and make the request match the way you think about it. No friction, no fuss.
+
+Read more [here](https://voiden.md/blog/maintaining-consistent-api-docs) to see how Voiden Blocks can help you keep your API docs consistent. 
