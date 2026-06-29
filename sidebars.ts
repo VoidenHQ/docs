@@ -76,7 +76,7 @@ const sidebars: SidebarsConfig = {
           label: "Socket & gRPC Blocks",
           items: [
             "core-features-section/voiden-blocks/web-socket",
-            "core-features-section/voiden-blocks/grpcs",
+            "core-features-section/voiden-blocks/grpc",
           ],
         },
         {
