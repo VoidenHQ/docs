@@ -46,6 +46,7 @@ Depends on the **Voiden REST API** plugin:
 ### **Import Functionality**
 
 * Import **Postman Collection v2.1 JSON**
+* Import **Postman Environment Variables** directly into your Voiden environment
 * Auto-generate matching folder structure
 * Preserve collection hierarchy & request names
 * Sanitize file and folder names

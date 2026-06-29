@@ -33,6 +33,10 @@ Once your Postman collection is imported, the magic begins:
 - Request body schemas and examples
 - Response examples and status codes
 
+## Import Your Postman Environment Variables Too
+
+Already have your environments set up in Postman? You don't have to recreate them from scratch. Once you've opened your Postman collection in Voiden, look for the **Import Environment Variables** button in the top-right corner — give it a click, pick your exported Postman environment file, and that's it. All your variables land straight into your Voiden environment, exactly as they were. Simple as that.
+
 ## Ready to Roll!
 The best part? Once generated, you can immediately start working with your API in the Voiden ecosystem. No manual setup, no copy-pasting, no room for errors.
 
