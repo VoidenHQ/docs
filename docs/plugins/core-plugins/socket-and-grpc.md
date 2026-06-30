@@ -57,7 +57,7 @@ This plugin owns **6 custom block types** for socket-based communication, enabli
 ### **Socket & gRPC Blocks**
 
 - [`wss↗`](/docs/core-features-section/voiden-blocks/wss.md)
-- [`gRPC↗`](/docs/core-features-section/voiden-blocks/gRPC.md)
+- [`gRPC↗`](/docs/core-features-section/voiden-blocks/grpc)
 
 Block extensions are supported, allowing future customization and add-ons
 

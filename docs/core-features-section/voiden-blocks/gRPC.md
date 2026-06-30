@@ -1,17 +1,15 @@
 ---
-  id: grpcs
-  title: gRPCS 
+  id: grpc
+  title: gRPC
   sidebar_label: gRPC Block
   sidebar_position: 7
 ---
 
 # gRPC Block
 
-
-
 Voiden uses **gRPC** to enable fast, reliable, and strongly-typed communication between internal services and external clients. By leveraging gRPC, Voiden ensures efficient data exchange, low latency, and clear API contracts that scale well with complex and distributed systems.
 
-gRPCs in Voiden are designed for performance-critical operations, structured communication, and service-to-service interactions where consistency and speed are essential.
+The gRPC block is designed for performance-critical operations, structured communication, and service-to-service interactions where consistency and speed are essential.
 
 ---
 ## gRPC Requests
@@ -24,19 +22,21 @@ Voiden provides robust support for gRPC requests, allowing you to test and inter
 - Bidirectional streaming  
 
 This support enables seamless testing, validation, and exploration of gRPC-based services within Voiden.
+
 ### Try it Out
-1. In your Voiden file, type `/grpcs` and press **Enter** to create a **GRPC**.
 
-![grpcs](/img/voiden-blocks/grpcs.png)
+1. In your Voiden file, type `/grpcs` and press **Enter** to create a **gRPC block**.
 
-2. Proto files (`.proto`) define the contract between gRPC clients and servers. Voiden lets you add and use these files directly, making gRPC development and testing simpler and more intuitive.
+![gRPC block setup](/img/voiden-blocks/grpcs.png)
 
-3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),
+2. Upload or reference a `.proto` file to define the service contract between the gRPC client and server.
+
+3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux)
 **or** click the **green Play button** in the toolbar.
-4. you see the **Response panel** for the **GRPC**
+4. You will see the **Response panel** for the **gRPC block**.
 
-![grpcs](/img/voiden-blocks/grpcs-pre.gif)
+![gRPC response panel](/img/voiden-blocks/grpcs-pre.gif)
 
 ---
 ## Summary
-Voiden’s gRPC support enables fast, strongly typed, and low-latency communication using Protocol Buffers and HTTP/2. It allows you to create, test, and run unary and streaming gRPC requests directly from the interface, making gRPC development simple and efficient.
+Voiden’s gRPC block lets you create, test, and run unary and streaming gRPC requests directly from the interface, using Protocol Buffers and HTTP/2 for fast, strongly typed, and low-latency communication.

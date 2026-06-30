@@ -1,48 +1,49 @@
 ---
   id: web-socket
-  title: Wss
+  title: WebSocket
   sidebar_label: WebSocket Block
   sidebar_position: 6
 ---
-# WebSocket  Block
-
+# WebSocket Block
 
 WebSocket is a communication protocol that enables **real-time, two-way communication** between a client and a server over a single, long-lived connection. Unlike traditional HTTP, WebSocket allows both sides to send data at any time, making it ideal for live and interactive applications.
 
 WebSocket is standardized under **RFC 6455** and is supported by all modern browsers and servers.
 
-
 ---
 
 ### Try it Out
-1. In your Voiden file, type `/wss `and press **Enter** to create a **Web-Socket**.
 
- ![web-socket](/img/voiden-blocks/web-socket-pre.png)
+1. In your Voiden file, type `/wss` and press **Enter** to create a **WebSocket block**.
 
-2. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),
+![WebSocket block setup](/img/voiden-blocks/web-socket-pre.png)
+
+2. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux)
 **or** click the **green Play button** in the toolbar.
-3. you see the **Response panel**, with **massage composer** for the **Web Socket**
+3. You will see the **Response panel**, with the **message composer** for the **WebSocket block**.
 
-![web-socket](/img/voiden-blocks/web-socket.gif)
+![WebSocket response panel](/img/voiden-blocks/web-socket.gif)
 
 ---
 
-# WebSocket Block
+## WebSocket Interface
 
 This section provides a comprehensive overview of the WebSocket request interface, detailing its functionality, core components, and best practices for managing real-time WebSocket communication in a structured and intuitive manner.
 
-![websocket](/img/voiden-blocks/web-socket-interface.png)
-
+![WebSocket interface](/img/voiden-blocks/web-socket-interface.png)
 
 ## Response Panel
+
 ---
+
 ### Connection Status Indicator
+
 Displays the current lifecycle state of the WebSocket connection:
 
 - **Disconnected** — Default state; no active connection  
 - **Connecting** — Attempting to establish a connection with the server  
 - **Connected** — Connection established and ready for data exchange  
-- **Disconnected** — Connection closed either intentionally or due to an error  
+- **Closed** — Connection closed either intentionally or due to an error  
 
 ### Message Composition Panel
 Provides tools for creating and transmitting messages:
