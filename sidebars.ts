@@ -119,13 +119,17 @@ const sidebars: SidebarsConfig = {
         "core-features-section/variables/variables-overview",
         "core-features-section/variables/environment-variables",
         "core-features-section/variables/runtime-variables",
-        "core-features-section/variables/hierarchical-inheritance",
       ],
     },
     {
       type: "doc",
       id: "core-features-section/history/history-overview",
       label: "Execution History",
+    },
+    {
+      type: "doc",
+      id: "core-features-section/variables/hierarchical-inheritance",
+      label: "Hierarchical Inheritance",
     },
     {
       type: "doc",
