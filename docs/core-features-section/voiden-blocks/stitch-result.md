@@ -52,6 +52,15 @@ When enabled, each file runs in its own isolated variable scope. Changes made to
 
 Set a delay between each file execution. This is useful when your APIs have rate limits or when you need a small gap between runs to let things settle.
 
+### Sequence / Parallel
+
+A toggle on the Stitch Runner lets you switch between two run modes:
+
+- **Sequence** — files run one by one, in the order you've arranged them. Use this when later requests depend on variables or state set by earlier ones.
+- **Parallel** — flip the toggle to Parallel and every queued file runs at the same time, all triggered with a single click. This is the fastest way to validate a batch of independent `.void` files, since you're not waiting for each one to finish before the next starts.
+
+Since **Stop on Failure** and **Delay Between Files** only make sense when files run one after another, they apply only in Sequence mode and are ignored when Parallel is selected.
+
 ## Review the Files
 
 Before hitting run, you can see the full list of files queued for execution. This gives you a clear picture of exactly what will run, so there are no surprises.
@@ -62,7 +71,7 @@ Not happy with the order? You can rearrange the files however you like before ki
 
 ## Running Your Files
 
-Once everything is configured, hit the **Run** button to kick off the automated run. Voiden will execute each file in sequence and once complete, you'll see the **Stitch Result** — a clear pass/fail breakdown for every file that was run, all in one place.
+Once everything is configured, hit the **Run** button to kick off the automated run. Depending on your Run Mode, Voiden will execute each file in sequence one after another, or fire all of them in parallel at the same time. Once complete, you'll see the **Stitch Result** — a clear pass/fail breakdown for every file that was run, all in one place.
 
 ![stitch-run](/img/stitch-block/stitch-run.gif)
 
@@ -90,4 +99,4 @@ Really useful when you want to compare runs or track down when something started
 
 ## Summary
 
-Stitch Blocks gives you full control over automated API runs — choose your files, set your environment, configure the run behavior, and fire. It's the fastest way to validate multiple `.void` files at once and stay confident that your APIs are working exactly as expected.
+Stitch Blocks gives you full control over automated API runs — choose your files, set your environment, configure the run behavior, and fire. Whether you run them in Sequence or switch to Parallel and run them all at the same time, it's the fastest way to validate multiple `.void` files at once and stay confident that your APIs are working exactly as expected.

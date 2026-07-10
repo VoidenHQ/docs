@@ -47,6 +47,9 @@ Ever find yourself scrolling through a long file just to get to the right block?
 
 ![block-overview](/img/geetingstarted/block-overview.gif)
 
+### Pending Tabs
+Tired of your tab bar filling up every time you're just clicking around to peek at files? Turn this on and single-clicking a file opens it as a pending tab (shown in italics) that gets replaced the next time you click another file. Double-click a tab, or start editing it, to make it stick around. Turn it off if you'd rather every file you open stay pinned right away.
+
 ---
 
 ## Network

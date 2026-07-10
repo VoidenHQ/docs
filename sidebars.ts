@@ -119,6 +119,7 @@ const sidebars: SidebarsConfig = {
         "core-features-section/variables/variables-overview",
         "core-features-section/variables/environment-variables",
         "core-features-section/variables/runtime-variables",
+        "core-features-section/variables/hierarchical-inheritance",
       ],
     },
     {
