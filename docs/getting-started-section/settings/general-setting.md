@@ -31,7 +31,7 @@ Goes hand in hand with Request History. Set how many days you want Voiden to hol
 
 ## Editor
 
-<img src="/img/geetingstarted/editor-settings.png" alt="editor settings" style={{borderRadius: "12px"}} />
+<img src="/img/geetingstarted/editor-settings.png" alt="editor settings" style={{width: '75%', borderRadius: "12px"}} />
 
 ### Auto Save
 Nobody likes losing work. Turn this on and Voiden saves your changes automatically as you type, so you never have to think about it.
@@ -49,6 +49,8 @@ Ever find yourself scrolling through a long file just to get to the right block?
 
 ### Pending Tabs
 Tired of your tab bar filling up every time you're just clicking around to peek at files? Turn this on and single-clicking a file opens it as a pending tab (shown in italics) that gets replaced the next time you click another file. Double-click a tab, or start editing it, to make it stick around. Turn it off if you'd rather every file you open stay pinned right away.
+
+![pending-files](/img/geetingstarted/pending-files.gif)
 
 ---
 
