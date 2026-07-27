@@ -77,7 +77,7 @@ Add a `/runtime-variables` block in your Voiden file:
 2. **From Response ($res)**
   Access data from the API response:
 
-    Status Code: `{{$res.statusCode}}`
+    Status Code: `{{$res.status}}`
 
     Response Body: `{{$res.body.data.user_id}}`
 
