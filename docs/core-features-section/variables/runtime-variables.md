@@ -116,9 +116,9 @@ Add a `/runtime-variables` block in your Voiden file:
 
 1. **First request**
 
-    In the first request , add the Runtime block , and attach to a data source for every variable
+    In the first request, add the Runtime block and attach a data source for every variable. Here, `data_expose_one` is set to `{{$res.body.headers.host}}` — as soon as this request runs, the `host` value from the response gets captured into that variable.
 
-    ![Capture Variable](/img/voiden-blocks/runtime/set.gif)
+    ![Capture Variable](/img/voiden-blocks/runtime/set.png)
 
     And run the request by either:  
     - Pressing **Cmd + Enter** (on macOS) or **Ctrl + Enter** (on Windows/Linux), **or**  
@@ -128,10 +128,9 @@ Add a `/runtime-variables` block in your Voiden file:
 
 2. **Second request**
 
-    Reference the variables using `process` anywhere 
+    Reference the captured variable anywhere using `process.<variable_name>`. Here, `{{process.data_expose_one}}` pulls in the `host` value that was captured in the first request — hovering over it shows the resolved value (`echo.voiden.md`) right there in the editor.
 
-      ![Access Variable](/img/voiden-blocks/runtime/access-variable.gif)
-  
+    ![Access Variable](/img/voiden-blocks/runtime/access-variable.png)
 
 ---
 

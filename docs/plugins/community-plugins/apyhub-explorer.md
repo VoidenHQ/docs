@@ -7,7 +7,7 @@ custom_edit_url: "https://github.com/apyhub/voiden-apyhub-explorer"
 ---
 
 :::info Plugin Info
-**Author:** ApyHub &nbsp;|&nbsp; **Version:** 1.1.0 &nbsp;|&nbsp; **Repository:** [apyhub/voiden-apyhub-explorer](https://github.com/apyhub/voiden-apyhub-explorer)
+**Author:** ApyHub &nbsp;|&nbsp; **Version:** 1.2.0 &nbsp;|&nbsp; **Repository:** [apyhub/voiden-apyhub-explorer](https://github.com/apyhub/voiden-apyhub-explorer)
 :::
 
 

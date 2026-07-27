@@ -10,17 +10,18 @@
 
 ---
 
-## Capabilities
+## Preview Modes
 
-### **Editor Actions**
+Want to see your Markdown as more than plain text? You've got two ways to look at it, and switching between them is as easy as a click in the **top-right corner** of the editor.
 
-The plugin registers custom editor actions for Markdown files:
+* **Render View** — Just want to see the finished result? Toggle this and the editor steps aside completely, showing you the fully rendered Markdown exactly as it'll look to anyone reading it.
 
-* **Preview Markdown Button**
+  ![render](/img/plugins/markdown/render.png)
 
-  * **Icon:** `BookOpen`
+* **Side-by-Side View** — Prefer writing and checking at the same time? This splits your view in two — **raw Markdown** on the left, **live preview** on the right. Type on one side and watch it come to life on the other, no flipping back and forth needed.
 
-**Capability Description:** Adds a toggle button to the Voiden code editor toolbar for Markdown previewing.
+  ![side-by-side](/img/plugins/markdown/side-by-side.png)
+
 
 ---
 
