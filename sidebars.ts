@@ -253,6 +253,19 @@ const sidebars: SidebarsConfig = {
         "developer-tools/create-plugin/create-plugin-submit",
       ],
     },
+    {
+      type: "html",
+      value: "<span class='sidebar-section-title'>Voiden MCP Server</span><span class='sidebar-beta-badge'>Beta</span>",
+      defaultStyle: true,
+    },
+    {
+      type: "category",
+      label: "@voiden/mcp-server",
+      className: "sidebar-beta-badge-item",
+      items: [
+        "developer-tools/voiden-mcp-server/overview",
+      ],
+    },
   ],
 };
 

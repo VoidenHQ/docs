@@ -113,3 +113,44 @@ voiden-runner plugin disable <plugin-name>
 | [Voiden GraphQL](../../plugins/core-plugins/voiden-graphql.md) | Converts GraphQL blocks to standard HTTP POST requests | ✓ |
 | [Voiden Scripting](../../plugins/core-plugins/voiden-scripting.md) | Runs JavaScript, Python, or shell pre/post-request scripts | ✓ |
 | [Socket & gRPC](../../plugins/core-plugins/socket/overview.md) | WebSocket and gRPC request support | ✓ |
+
+---
+
+## MCP Integration
+
+Enables the AI-agent run/verify loop for CLI-only users who don't have the
+Voiden desktop app (which has its own equivalent Settings toggle — see
+[AI Skill](/docs/getting-started-section/settings/ai-skill)). Registers
+[`@voiden/mcp-server`](../voiden-mcp-server/overview.md) with Claude Code
+and/or Codex, and installs a skill teaching the list/run/verify/write-back
+workflow.
+
+```bash
+voiden-runner mcp install                                # both Claude Code and Codex
+voiden-runner mcp install --claude                        # Claude Code only
+voiden-runner mcp install --codex                          # Codex only
+voiden-runner mcp install -p ./my-project                  # register against a specific project dir (default: cwd)
+voiden-runner mcp install --local-server ./dist/index.js   # point at a local build instead of npx, for testing before publish
+```
+
+| Option | Description |
+|---|---|
+| `--claude` | Install for Claude Code only |
+| `--codex` | Install for Codex only |
+| `-p, --project <path>` | Project directory to register the MCP server against (default: `.`) |
+| `--local-server <path>` | Use `node <path>` instead of `npx -y @voiden/mcp-server` |
+
+Restart Claude Code / Codex (or run `/mcp`) afterwards to pick up the new
+server.
+
+```bash
+voiden-runner mcp uninstall [--claude] [--codex] [-p <path>]   # remove the registration + skill
+voiden-runner mcp status [-p <path>]                            # show what's currently installed
+```
+
+:::info
+`mcp install` writes a project-scoped `.mcp.json` (Claude Code) containing an
+absolute, machine-specific path — it's added to your project's `.gitignore`
+automatically. Codex's registration instead lives in the user-level
+`~/.codex/config.toml`, not per-project.
+:::
