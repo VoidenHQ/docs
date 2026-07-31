@@ -584,6 +584,55 @@ blockquote a:hover {
   color: var(--ifm-theme-doc-sidebar-item-link)!important;
 }
 
+.doc-beta-badge{
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--voiden-purple);
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid var(--voiden-purple);
+  vertical-align: middle;
+}
+
+.sidebar-beta-badge{
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--voiden-purple);
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid var(--voiden-purple);
+  vertical-align: middle;
+}
+
+.sidebar-beta-badge-item > .menu__link::after{
+  content: "Beta";
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--voiden-purple);
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid var(--voiden-purple);
+  vertical-align: middle;
+}
+
 /* Note admonition - purple brand theme */
 .alert--secondary {
   --ifm-alert-background-color: rgba(167, 139, 250, 0.08);

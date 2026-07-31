@@ -41,6 +41,47 @@ Whenever you enable or disable a plugin, come back here and regenerate the skill
 
 ---
 
+## What Else the Toggle Does: Enabling MCP Execution
+
+Enabling **Claude** or **Codex** in AI Skill doesn't just install a skill file —
+it also turns on the run/verify/write-back loop, so your assistant can execute
+`.void` requests for real, not just write them.
+
+Flipping the toggle does two things together, kept in sync automatically:
+
+1. **Registers `@voiden/mcp-server`** with the assistant, scoped to your
+   currently open project:
+
+   | Assistant | Registered in |
+   |-----------|------------------------|
+   | **Claude** | `.mcp.json` in your project root |
+   | **Codex** | `[mcp_servers.voiden-mcp]` in `~/.codex/config.toml` |
+
+2. **Installs a second skill file** — separate from the authoring skill above —
+   that teaches the assistant how to use those tools:
+
+   | Assistant | MCP skill file location |
+   |-----------|------------------------|
+   | **Claude** | `~/.claude/skills/voiden-mcp/SKILL.md` |
+   | **Codex** | `~/.codex/skills/voiden-mcp/SKILL.md` |
+
+See [`@voiden/mcp-server`](../../developer-tools/voiden-mcp-server/overview.md)
+for the full list of tools this gives your assistant.
+
+:::note
+Registration is per-project — it only takes effect if you have a project open
+in Voiden, since that's what the server needs to point at. The skill file
+itself installs regardless.
+:::
+
+:::tip
+`.mcp.json` contains an absolute path specific to your machine. Voiden adds it
+to your project's `.gitignore` automatically the first time it's written, so
+it never gets committed.
+:::
+
+---
+
 ## What the Skill File Includes
 
 The skill file is built from two layers, so your assistant only learns what's actually relevant to your project:
