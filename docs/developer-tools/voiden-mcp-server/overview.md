@@ -7,14 +7,21 @@ sidebar_position: 1
 
 # @voiden/mcp-server <span className="doc-beta-badge">Beta</span>
 
-`@voiden/mcp-server` is an [MCP](https://modelcontextprotocol.io) server that
-exposes your `.void` files to an AI agent as callable tools — list what
-requests exist, actually run one, and record what happened back into the
-file. It's the bridge that lets an assistant like Claude Code or Codex not
-just *write* a `.void` request, but *execute* it and check the result, the
-same way you'd hit Run in the Voiden app. If your project declares any
-[Tool blocks](/docs/core-features-section/voiden-blocks/tool.md), it also
-serves those as their own named, typed tools alongside the four built-in ones.
+`@voiden/mcp-server` is an [MCP](https://modelcontextprotocol.io) server with
+four built-in tools that give an AI agent structured access to your `.void`
+files — list what requests exist, actually run one, and record what happened
+back into the file. It's the bridge that lets an assistant like Claude Code or
+Codex not just *write* a `.void` request, but *execute* it and check the
+result, the same way you'd hit Run in the Voiden app.
+
+Those four tools are fixed and always present, regardless of what your
+project contains. Plugins can register additional tools into the same
+server on top of them — the
+[Voiden Tool](/docs/plugins/core-plugins/voiden-mcp-tool.md) plugin does
+exactly this: declare a [Tool block](/docs/core-features-section/voiden-blocks/tool.md)
+in a `.void` file, and it's served as its own individually-named, described,
+and typed tool alongside the four built-in ones. See
+[Dynamic Tool Serving](#dynamic-tool-serving) below.
 
 It runs as an ordinary local `stdio` process, started by the agent's host
 (Claude Code, Codex, Claude Desktop) for the duration of a session. It has no
