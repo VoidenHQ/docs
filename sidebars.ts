@@ -110,6 +110,14 @@ const sidebars: SidebarsConfig = {
             "core-features-section/voiden-blocks/pre-post-script/post-script",
           ],
         },
+        {
+          type: "category",
+          label: "MCP Blocks",
+          items: [
+            "core-features-section/voiden-blocks/tool",
+            "core-features-section/voiden-blocks/mcp",
+          ],
+        },
       ],
     },
     {
@@ -193,6 +201,8 @@ const sidebars: SidebarsConfig = {
         "plugins/core-plugins/voiden-graphql",
         "plugins/core-plugins/voiden-scripting",
         "plugins/core-plugins/voiden-stitch/voiden-stitch",
+        "plugins/core-plugins/voiden-mcp-tool",
+        "plugins/core-plugins/voiden-mcp-client",
       ],
     },
     {
@@ -252,11 +262,6 @@ const sidebars: SidebarsConfig = {
         "developer-tools/create-plugin/create-plugin-release",
         "developer-tools/create-plugin/create-plugin-submit",
       ],
-    },
-    {
-      type: "html",
-      value: "<span class='sidebar-section-title'>Voiden MCP Server</span><span class='sidebar-beta-badge'>Beta</span>",
-      defaultStyle: true,
     },
     {
       type: "category",
