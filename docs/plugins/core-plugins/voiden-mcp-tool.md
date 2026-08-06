@@ -60,6 +60,7 @@ Beyond authoring, this plugin adds an **MCP** tab to the Voiden app (via the plu
 
 ```json
 {
-  "core": "^2.1.0"
+  "core": ">=2.1.0",
+  "sdk": "1.0.10"
 }
 ```

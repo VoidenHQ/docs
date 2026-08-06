@@ -43,7 +43,11 @@ The **Parameters** table (`toolparams`) answers one question per row: *this requ
 
 **`source: agent`** — the value comes from the AI agent's own call, each time it invokes the tool. This is the only kind of param that shows up in the tool's schema at all.
 
-**`source: environment`** — the value is never shown to or settable by the agent. It resolves silently, from your project's environment files (`.voiden/env-public.yaml` / `env-private.yaml`) — use this for API keys, base URLs, tokens, or anything else an agent shouldn't be trusting itself with or making up. If your project has more than one named environment, declare which one explicitly rather than leaving it ambiguous.
+**`source: environment`** — the value is never shown to or settable by the agent. It resolves silently, from your project's environment files (`.voiden/env-public.yaml` / `env-private.yaml`) — use this for API keys, base URLs, tokens, or anything else an agent shouldn't be trusting itself with or making up.
+
+:::note
+This only resolves automatically when your project has exactly one named environment. If it has more than one, there's currently no way to pick which one a served tool uses — keep the project to a single environment if you rely on `source: environment` params.
+:::
 
 :::note
 `binds` is just the name of the `{{token}}` it fills in — not a special keyword. When `source` is `environment`, that same name doubles as the lookup key in your environment files, which is easy to misread as something more meaningful than it is.

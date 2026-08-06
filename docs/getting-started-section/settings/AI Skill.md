@@ -56,12 +56,18 @@ Writing valid `.void` requests and *running* them for real are two different cap
 | **Claude** | `.mcp.json` in your project root |
 | **Codex** | `[mcp_servers.voiden-mcp]` in `~/.codex/config.toml` |
 
-Clicking it also installs a second skill file, separate from the authoring skill above, that teaches your assistant how to use those tools:
+Clicking it also refreshes the authoring skill from **How It Works** above —
+but *not* a dedicated skill walking through how to use the MCP tools. Your
+assistant picks that up from each tool's own description instead.
 
-| Assistant | MCP skill file location |
+:::note
+If you *also* have this page's toggle enabled for that assistant, the dedicated walkthrough skill is already installed too, from that toggle:
+
+| Assistant | MCP walkthrough skill location |
 |-----------|------------------------|
 | **Claude** | `~/.claude/skills/voiden-mcp/SKILL.md` |
 | **Codex** | `~/.codex/skills/voiden-mcp/SKILL.md` |
+:::
 
 See [`@voiden/mcp-server`](/docs/developer-tools/voiden-mcp-server/overview.md)
 for the full list of tools this gives your assistant — including any

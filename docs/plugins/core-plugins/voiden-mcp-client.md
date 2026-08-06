@@ -18,7 +18,7 @@ Phase 1: Streamable-HTTP transport only.
 
 - Connect to any Streamable-HTTP MCP server, remote or running on `localhost`.
 - Run `list_tools`, `call_tool`, `list_resources`, `read_resource`, `list_prompts`, or `get_prompt` against it.
-- Tool/prompt arguments are authored as JSON, with full support for `{{...}}` placeholders — environment variables, runtime variables, and Faker tokens all resolve before the call is sent.
+- Tool/prompt arguments are authored as JSON, with `{{...}}` placeholders — environment and runtime variables resolve before the call is sent. (Faker tokens don't yet resolve inside these arguments — support is planned.)
 
 ### **Config Import**
 
@@ -54,6 +54,7 @@ The plugin registers build and response handlers for the MCP protocol, reusing t
 
 ```json
 {
-  "core": "^2.1.0"
+  "core": ">=2.1.0",
+  "sdk": "1.0.10"
 }
 ```

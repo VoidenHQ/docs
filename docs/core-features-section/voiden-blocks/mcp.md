@@ -7,7 +7,7 @@
 
 # MCP Connection Block
 
-The **MCP Connection block** (`/mcp-connection`) lets you connect to an external [MCP](https://modelcontextprotocol.io) server and run a single operation against it — list or call its tools, list or read its resources, list or get its prompts — the same way `.void` files already test REST and GraphQL requests. It's for *testing and exploring* someone else's MCP server, the reverse direction of the [Tool block](./tool.md), which *serves* your own requests as MCP tools.
+The **MCP Connection block** (`/mcp`) lets you connect to an external [MCP](https://modelcontextprotocol.io) server and run a single operation against it — list or call its tools, list or read its resources, list or get its prompts — the same way `.void` files already test REST and GraphQL requests. It's for *testing and exploring* someone else's MCP server, the reverse direction of the [Tool block](./tool.md), which *serves* your own requests as MCP tools.
 
 Phase 1 supports **Streamable-HTTP** transport only — remote servers, or a local one running on `localhost`. Stdio/local-process servers aren't supported yet.
 
@@ -29,7 +29,11 @@ An MCP Connection block has two children:
 | `list_prompts` | Lists the server's prompts. |
 | `get_prompt` | Gets a named prompt with a JSON arguments object. |
 
-`call_tool` and `get_prompt` take their arguments as a JSON object, written in the block's code editor — same as any other request field, this can contain `{{...}}` placeholders (environment variables, [runtime variables](./runtime_variables.md), or [Faker](/docs/plugins/core-plugins/voiden-faker.md) tokens), resolved before the call is sent.
+`call_tool` and `get_prompt` take their arguments as a JSON object, written in the block's code editor — same as any other request field, this can contain `{{...}}` placeholders (environment variables and [runtime variables](./runtime_variables.md)), resolved before the call is sent.
+
+:::note
+[Faker](/docs/plugins/core-plugins/voiden-faker.md) tokens don't resolve inside tool/prompt arguments yet — only in the URL, headers, query/path params, and body of other protocols. Support for this block is planned but not yet built.
+:::
 
 ---
 
@@ -66,7 +70,7 @@ Running an MCP Connection block produces an **MCP Response** block, rendered lik
 
 ## Try it Out
 
-1. Type `/mcp-connection` and press **Enter**.
+1. Type `/mcp` and press **Enter**.
 2. Set the **Server URL** to your MCP server's endpoint.
 3. In the **Operation** child, pick `list_tools` first to confirm the connection works and see what's actually available.
 4. Switch to `call_tool`, pick a tool name from the list, and write its arguments as JSON.

@@ -118,13 +118,19 @@ You don't install or run this package directly — one of these registers it
 for you:
 
 - The Voiden app's **status bar → Initialize MCP** button — registers the
-  server for whichever project is currently open, and installs the skill
-  that teaches the list → run → write-back loop above. This is a deliberate,
-  explicit action scoped to one project at a time; it's no longer tied to
-  the Settings → AI Skill toggle (see that page's note on what changed).
+  server for whichever project is currently open, and refreshes the general
+  `.void`-authoring skill (see [AI Skill](/docs/getting-started-section/settings/ai-skill.md)).
+  It does *not* install a dedicated skill walking through the list → run →
+  write-back loop — your assistant picks that up from each tool's own
+  description instead. This is a deliberate, explicit action scoped to one
+  project at a time; it's no longer tied to the Settings → AI Skill toggle
+  (see that page's note on what changed).
 - **`voiden-runner mcp install`** (see
   [@voiden/runner → Command Options](../voiden-runner/command-options.md)) —
-  for CLI-only users with no Voiden app installed.
+  for CLI-only users with no Voiden app installed. Unlike the button above,
+  this *does* install a standalone skill teaching the list → run →
+  write-back loop, since a CLI-only setup has no app-composed authoring
+  skill to fall back on.
 
 Both register the same server command
 (`npx -y @voiden/mcp-server@latest <project-path>`) with Claude Code and/or
