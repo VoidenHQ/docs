@@ -4,7 +4,7 @@
   sidebar_label: Voiden MCP Client
 ---
 
-# Voiden MCP Client
+# Voiden MCP Client <span className="doc-beta-badge">Beta</span>
 
 The **Voiden MCP Client** plugin lets you connect to an external [MCP](https://modelcontextprotocol.io) server — remote or local — and run a single operation against it, the same way `.void` files already test REST and GraphQL requests. Use it to explore, test, and assert on someone else's MCP server, the reverse direction of the [Voiden Tool](./voiden-mcp-tool.md) plugin, which serves your *own* requests as MCP tools.
 

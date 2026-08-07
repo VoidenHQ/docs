@@ -5,7 +5,7 @@
   sidebar_position: 9
 ---
 
-# MCP Connection Block
+# MCP Connection Block <span className="doc-beta-badge">Beta</span>
 
 The **MCP Connection block** (`/mcp`) lets you connect to an external [MCP](https://modelcontextprotocol.io) server and run a single operation against it — list or call its tools, list or read its resources, list or get its prompts — the same way `.void` files already test REST and GraphQL requests. It's for *testing and exploring* someone else's MCP server, the reverse direction of the [Tool block](./tool.md), which *serves* your own requests as MCP tools.
 
@@ -34,6 +34,8 @@ An MCP Connection block has two children:
 :::note
 [Faker](/docs/plugins/core-plugins/voiden-faker.md) tokens don't resolve inside tool/prompt arguments yet — only in the URL, headers, query/path params, and body of other protocols. Support for this block is planned but not yet built.
 :::
+
+![An MCP Connection block, with Server URL, Type, Tool, and a JSON arguments editor](/img/mcp-connection-block.png)
 
 ---
 
@@ -65,6 +67,8 @@ Voiden detects the paste, and fills in the block's URL and headers from the firs
 ## Response
 
 Running an MCP Connection block produces an **MCP Response** block, rendered like any other response — with the same **Assertions** table support for checking the result, the same way you'd assert on a REST response's body or status.
+
+![A call_tool operation and its MCP Response, showing status, timing, and the returned JSON](/img/mcp-response-block.png)
 
 ---
 

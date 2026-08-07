@@ -4,7 +4,7 @@
   sidebar_label: Voiden Tool
 ---
 
-# Voiden Tool
+# Voiden Tool <span className="doc-beta-badge">Beta</span>
 
 The **Voiden Tool** plugin lets you mark an existing request as a named, typed capability an AI agent can call directly — instead of only the four generic run/list/write tools every project gets by default. Declare a `/tool` block once, and `create_user`, `refund_order`, `search_products` — whatever you name it — becomes a real, individually-described, individually-typed tool an agent can discover and call, with a verification policy deciding whether it's currently safe to serve.
 
@@ -14,7 +14,7 @@ The **Voiden Tool** plugin lets you mark an existing request as a named, typed c
 
 ### **Tool Declaration**
 
-- Mark any existing request as an agent-callable tool, with its own name, title, description, and read-only hint.
+- Mark any existing request as an agent-callable tool, with its own name, title, description, and annotations (read-only, destructive, idempotent, open-world).
 - A **Parameters** table splitting each `{{token}}` in the request between agent-supplied and environment-only sources — the agent never sees or controls environment-sourced values.
 - A **Verification** policy: reference other requests as happy-path / error-contract / auth-check proof the tool works, each with its own mode (live / sandbox / none) and optional cadence, plus a tool-level on-failure policy (withdraw or serve degraded).
 
@@ -52,7 +52,9 @@ Beyond authoring, this plugin adds an **MCP** tab to the Voiden app (via the plu
 
 - **List** — every `/tool` block discovered across the project.
 - **Verify** — runs verification and shows verified / unverified / failing per tool.
-- **Serve** — what would actually be served to an agent right now, with an Add/Remove control for the manual `enabled` override.
+- **Serve preview** — what would actually be served to an agent right now, with an Add/Remove control for the manual `enabled` override.
+
+![The Voiden app's MCP tab, List view, showing a discovered tool with its params/verifies/on-failure summary](/img/mcp-tool-tab-views.png)
 
 ---
 

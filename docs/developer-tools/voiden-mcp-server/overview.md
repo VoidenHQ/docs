@@ -48,6 +48,8 @@ The intended loop is: **list** what's there → **run** it for real → read the
 structured result and confirm it's actually correct, not just well-formed →
 optionally **write** the result back into the file so it's recorded.
 
+![Voiden's MCP tab listing the four built-in tools served to a connected agent](/img/mcp-server-tools-list.png)
+
 ---
 
 ## Dynamic Tool Serving
@@ -71,6 +73,8 @@ This happens once, when the server process starts:
 5. **Register** — each served tool becomes a real, individually-callable MCP
    tool for the rest of that session.
 
+![Authoring a /tool block — name, description, read-only hint, and a verification row — that gets discovered and served](/img/mcp-server-tool-registered.gif)
+
 Because this only happens at startup, editing a tool's verification rows or
 its `enabled` flag doesn't take effect until the next time the agent's host
 spawns a fresh server — restart the session, or use your host's reload
@@ -82,11 +86,15 @@ To see the same decision without connecting an agent, run:
 npx @voiden/mcp-server <project-path> --check
 ```
 
+![Running the --check command in a terminal against a project's MCP server](/img/mcp-server-check-output.gif)
+
 This prints served / withdrawn / degraded / excluded for every discovered
 tool and exits non-zero if anything is failing or excluded — useful in CI,
 or just to sanity-check before connecting a real session. The Voiden app's
-**MCP** tab (List / Verify / Serve) shows the same thing live, and lets you
+**MCP** tab (List / Verify / Serve preview) shows the same thing live, and lets you
 toggle the manual `enabled` override directly.
+
+![The Voiden app's MCP tab](/img/voiden-app-mcp-tab.gif)
 
 ---
 
@@ -132,6 +140,8 @@ for you:
   write-back loop, since a CLI-only setup has no app-composed authoring
   skill to fall back on.
 
+![The Voiden app's status bar, with the Initialize MCP button](/img/initialize-mcp-button.png)
+
 Both register the same server command
 (`npx -y @voiden/mcp-server@latest <project-path>`) with Claude Code and/or
 Codex.
@@ -143,3 +153,32 @@ Neither path re-registers automatically — if `.mcp.json` (Claude Code) or
 touches it again on its own. Re-run Initialize MCP (or `mcp install`)
 yourself if you ever need to.
 :::
+
+---
+
+## Using It With an Agent
+
+Once the server is registered, you don't call `list_requests` or
+`run_request` yourself — you talk to the agent in plain language, and it
+decides which tool to reach for based on each tool's name and description,
+the same way it decides between any of its other tools.
+
+A few concrete prompts and what they trigger under the hood:
+
+| You say | What the agent does |
+|---------|----------------------|
+| "What `.void` files are in this project?" | Calls `list_void_files`. |
+| "What requests are in `auth.void`?" | Calls `list_requests` with that file path — nothing runs yet. |
+| "Run the login request in `auth.void`" | Calls `run_request` with the file path and section label, and reads back pass/fail, status, timing, headers, and body. |
+| "Run it again and save the result" | Calls `run_request`, then `write_result` with the returned result — a `response` block appears in the file, right after the request. |
+| "Create a user named Jane" (with a `create_user` [Tool block](/docs/core-features-section/voiden-blocks/tool.md) declared) | Calls `create_user` directly with `name: "Jane"` — it's a first-class tool by then, not something the agent knows to translate into `run_request` + a section label. |
+
+Every call still goes through your host's own per-call approval prompt
+before anything actually runs — see [Execution safety](#execution-safety).
+Nothing here bypasses that.
+
+If the agent doesn't seem to be using a tool you expect it to have, ask it
+directly — "what tools do you have from voiden-mcp?" — or check your host's
+own connection status (Claude Code: `/mcp`) to confirm the server is
+actually running and the tool you're expecting was served, not withdrawn or
+excluded (see [Dynamic Tool Serving](#dynamic-tool-serving) above).

@@ -5,7 +5,7 @@
   sidebar_position: 8
 ---
 
-# Tool Block
+# Tool Block <span className="doc-beta-badge">Beta</span>
 
 The **Tool block** (`/tool`) marks an existing request in your `.void` file as a named, described, agent-callable capability — instead of an AI agent only ever seeing the four generic `list_requests` / `run_request` / etc. tools every project gets by default, it sees `create_user`, `refund_order`, `search_products` — whatever you name it — with its own description, typed parameters, and a policy for whether it's currently safe to hand to an agent at all.
 
@@ -24,7 +24,20 @@ A `/tool` block doesn't build a request itself — it decorates one that already
 | **Name** | The function name an agent calls — short, action-shaped, e.g. `create_user`. |
 | **Title** | A human-readable label. |
 | **Description** | What the tool does and when to use it — this is what an agent actually reads to decide whether to call it. |
-| **Read-only hint** | Tells the agent this tool never mutates anything. Voiden checks this against the underlying request's HTTP method and excludes the tool from being served if it's marked read-only but actually uses `POST`/`PUT`/`PATCH`/`DELETE`. |
+| **Annotations** | Four checkboxes describing the tool's behavior to a calling agent — see below. |
+
+![A /tool block with Name, Title, Description, annotations, a parameter row, and a verification row filled in](/img/tool-block.png)
+
+**Annotations** are four standard MCP hints about what the tool actually does, so an agent can reason about a call before making it:
+
+| Annotation | What it signals |
+|------------|-----------------|
+| **Read-only** | This tool never mutates anything. The only annotation Voiden itself cross-checks — at serve time, `@voiden/mcp-server` compares it against the underlying request's HTTP method and excludes the tool if it's marked read-only but actually uses `POST`/`PUT`/`PATCH`/`DELETE` (see [Serving](#serving)). |
+| **Destructive** | Calling this tool may cause irreversible or destructive changes (e.g. deleting a record), as opposed to purely additive ones. Only meaningful when Read-only is unchecked. |
+| **Idempotent** | Calling this tool again with the same arguments has no additional effect beyond the first call (e.g. a `PUT` that sets a fixed value, vs. a `POST` that creates a new record every time). Only meaningful when Read-only is unchecked. |
+| **Open-world** | This tool interacts with an open-ended, unpredictable domain — a live web search, a third-party API you don't control — rather than a closed one with a fixed, known shape, like your own database. |
+
+Other than Read-only, these are documentation hints for the agent's own judgment, not something Voiden validates or enforces — checking a box doesn't change how the tool runs.
 
 ---
 
