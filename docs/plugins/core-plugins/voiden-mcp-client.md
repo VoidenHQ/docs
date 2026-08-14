@@ -38,7 +38,7 @@ No separate auth system or assertion syntax to learn.
 
 This plugin owns 3 block types for MCP server connection, operation, and response rendering:
 
-- [`mcp-connection ↗`](/docs/core-features-section/voiden-blocks/mcp.md)
+- [`mcp-connection ↗`](/docs/mcp/connection-block.md)
 - `mcpoperation` — the operation picker, part of the MCP Connection block
 - `mcp-response` — response rendering
 

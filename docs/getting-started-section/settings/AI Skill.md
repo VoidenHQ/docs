@@ -49,7 +49,7 @@ Earlier versions of Voiden also registered `@voiden/mcp-server` as a side effect
 
 ## Enabling MCP Execution
 
-Writing valid `.void` requests and *running* them for real are two different capabilities. This toggle covers the first. For the second — letting your assistant list, execute, and record `.void` requests via [`@voiden/mcp-server`](/docs/developer-tools/voiden-mcp-server/overview.md) — use the **Initialize MCP** button in the status bar instead, scoped to whichever project you currently have open:
+Writing valid `.void` requests and *running* them for real are two different capabilities. This toggle covers the first. For the second — letting your assistant list, execute, and record `.void` requests — use the **Initialize MCP** button in the status bar instead, scoped to whichever project you currently have open. This registers the same small MCP server bundled into the Voiden app that [`voiden agent`](/docs/developer-tools/voiden-cli#voiden-agent--register-with-an-agent-editor) registers from the terminal — it's unrelated to `@voiden/mcp`, which is a separate package for [publishing your own `/tool` blocks](/docs/mcp/publish.md) as a server:
 
 | Assistant | Registered in |
 |-----------|------------------------|
@@ -69,10 +69,7 @@ If you *also* have this page's toggle enabled for that assistant, the dedicated 
 | **Codex** | `~/.codex/skills/voiden-mcp/SKILL.md` |
 :::
 
-See [`@voiden/mcp-server`](/docs/developer-tools/voiden-mcp-server/overview.md)
-for the full list of tools this gives your assistant — including any
-[Tool blocks](/docs/core-features-section/voiden-blocks/tool.md) your project
-declares.
+This gives your assistant 4 fixed tools: list the `.void` files in your project, list a file's requests, run one for real, and write the result back into the file. It doesn't include any [Tool blocks](/docs/mcp/tool-block.md) you've declared — those are published separately via [`@voiden/mcp`](/docs/mcp/publish.md).
 
 :::note
 Initializing MCP is per-project and doesn't repeat itself automatically — it only happens when you click the button. If you later change which project is open, click it again for that project.

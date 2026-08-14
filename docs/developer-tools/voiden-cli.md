@@ -13,10 +13,10 @@ This is deliberately a *different, smaller* thing than the other two Voiden CLIs
 | | What it's for | Install |
 |---|---|---|
 | **`voiden`** (this page) | Register a project with an agent editor, and run `.void` files headlessly — the everyday, always-available case | Comes with the Voiden app, nothing extra |
-| **[`@voiden/mcp`](./mcp-tool-publish-guide.md)** | Publish `/tool`-tagged requests as a real, standalone, independently-hostable MCP server | `npx @voiden/mcp` |
+| **[`@voiden/mcp`](../mcp/publish.md)** | Publish `/tool`-tagged requests as a real, standalone, independently-hostable MCP server | `npx @voiden/mcp` |
 | **[`@voiden/runner`](./voiden-runner/overview.md)** | The full-power headless runner — CSV export, mail reports, session state, CI/CD flags — for CI servers with no Voiden app installed | `npm install -g @voiden/runner` |
 
-If you just want an agent editor (Claude Code, Codex) to be able to run requests in a project, or you want to run `.void` files from a terminal without installing anything extra, this is the CLI you want. For publishing `/tool` blocks as a hostable API surface, see [Publishing Tools as an MCP Server](./mcp-tool-publish-guide.md).
+If you just want an agent editor (Claude Code, Codex) to be able to run requests in a project, or you want to run `.void` files from a terminal without installing anything extra, this is the CLI you want. For publishing `/tool` blocks as a hostable API surface, see [Publishing with @voiden/mcp](../mcp/publish.md).
 
 ---
 
@@ -94,7 +94,7 @@ voiden agent --remove           # undo registration
 }
 ```
 
-`command` is `voiden` itself — recursively invoking the same binary as a small internal MCP server exposing the 4 fixed tools above. **This never points at `@voiden/mcp`** — that's a separate, standalone server for publishing `/tool` blocks as an API surface, not what an everyday "let an agent run requests in this project" session needs. See [Publishing Tools as an MCP Server](./mcp-tool-publish-guide.md) for that distinction in full.
+`command` is `voiden` itself — recursively invoking the same binary as a small internal MCP server exposing the 4 fixed tools above. **This never points at `@voiden/mcp`** — that's a separate, standalone server for publishing `/tool` blocks as an API surface, not what an everyday "let an agent run requests in this project" session needs. See [Publishing with @voiden/mcp](../mcp/publish.md) for that distinction in full.
 
 The Voiden app's own **Settings → Claude/Codex integration** toggle does exactly what `voiden agent` does — flipping it in the app and running `voiden agent` from a terminal never disagree about what gets written under `.mcp.json`'s `voiden-mcp` key.
 
@@ -188,4 +188,4 @@ A relative `--env` path resolves from wherever you *run the command*, not from t
 
 ## Summary
 
-`voiden agent` and `voiden run` cover the everyday case — letting an agent editor run requests in a project you already have open, or running `.void` files from a terminal with nothing extra installed. For publishing `/tool` blocks as a real, independently-hostable MCP server, see [Publishing Tools as an MCP Server](./mcp-tool-publish-guide.md); for CI pipelines that need CSV export, mail reports, or session state, see [`@voiden/runner`](./voiden-runner/overview.md).
+`voiden agent` and `voiden run` cover the everyday case — letting an agent editor run requests in a project you already have open, or running `.void` files from a terminal with nothing extra installed. For publishing `/tool` blocks as a real, independently-hostable MCP server, see [Publishing with @voiden/mcp](../mcp/publish.md); for CI pipelines that need CSV export, mail reports, or session state, see [`@voiden/runner`](./voiden-runner/overview.md).

@@ -121,9 +121,10 @@ voiden-runner plugin disable <plugin-name>
 Enables the AI-agent run/verify loop for CLI-only users who don't have the
 Voiden desktop app (which has its own equivalent Settings toggle — see
 [AI Skill](/docs/getting-started-section/settings/ai-skill)). Registers
-[`@voiden/mcp-server`](../voiden-mcp-server/overview.md) with Claude Code
-and/or Codex, and installs a skill teaching the list/run/verify/write-back
-workflow.
+`voiden-runner mcp serve` with Claude Code and/or Codex — a standalone server
+exposing the same 4 fixed tools as [`voiden agent`](../voiden-cli.md#voiden-agent--register-with-an-agent-editor),
+plus any [Tool blocks](/docs/mcp/tool-block.md) in the project — and installs
+a skill teaching the list/run/verify/write-back workflow.
 
 ```bash
 voiden-runner mcp install                                # both Claude Code and Codex
@@ -138,7 +139,7 @@ voiden-runner mcp install --local-server ./dist/index.js   # point at a local bu
 | `--claude` | Install for Claude Code only |
 | `--codex` | Install for Codex only |
 | `-p, --project <path>` | Project directory to register the MCP server against (default: `.`) |
-| `--local-server <path>` | Use `node <path>` instead of `npx -y @voiden/mcp-server` |
+| `--local-server <path>` | Use `node <path>` instead of `npx -y @voiden/runner mcp serve`, for testing a local build before publish |
 
 Restart Claude Code / Codex (or run `/mcp`) afterwards to pick up the new
 server.

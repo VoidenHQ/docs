@@ -37,9 +37,9 @@ The same five core plugins that run in the desktop app work identically in the C
 
 ### AI-agent integration
 Beyond running headlessly yourself, the runner can hand its execution engine
-to an AI agent: `voiden-runner mcp install` registers
-[`@voiden/mcp-server`](../voiden-mcp-server/overview.md) with Claude Code or
-Codex, so your assistant can list, run, and verify `.void` requests directly.
+to an AI agent: `voiden-runner mcp install` registers `voiden-runner mcp serve`
+with Claude Code or Codex, so your assistant can list, run, and verify
+`.void` requests directly.
 
 ---
 

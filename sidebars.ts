@@ -110,21 +110,6 @@ const sidebars: SidebarsConfig = {
             "core-features-section/voiden-blocks/pre-post-script/post-script",
           ],
         },
-        {
-          type: "category",
-          label: "MCP Server",
-          items: [
-            "core-features-section/voiden-blocks/tool",
-            "core-features-section/voiden-blocks/mcp-tool-block-reference",
-          ],
-        },
-        {
-          type: "category",
-          label: "MCP Client",
-          items: [
-            "core-features-section/voiden-blocks/mcp",
-          ],
-        },
       ],
     },
     {
@@ -160,6 +145,37 @@ const sidebars: SidebarsConfig = {
       type: 'doc',
       id: 'getting-started-section/advanced-environment-config',
       label: 'Advanced Environment Configuration',
+    },
+    {
+      type: "html",
+      value: "<span class='sidebar-section-title'>MCP</span>",
+      defaultStyle: true,
+    },
+    {
+      type: "doc",
+      id: "mcp/overview",
+      label: "Overview",
+    },
+    {
+      type: "doc",
+      id: "mcp/tool-block",
+      label: "Tool Block",
+    },
+    {
+      type: "doc",
+      id: "mcp/tool-field-reference",
+      label: "Field Reference",
+    },
+    {
+      type: "doc",
+      id: "mcp/connection-block",
+      label: "Connection Block",
+    },
+    {
+      type: "doc",
+      id: "mcp/publish",
+      label: "Publish (@voiden/mcp)",
+      className: "sidebar-beta-badge-item",
     },
     {
       type: "html",
@@ -268,15 +284,6 @@ const sidebars: SidebarsConfig = {
         "developer-tools/create-plugin/create-plugin-test-locally",
         "developer-tools/create-plugin/create-plugin-release",
         "developer-tools/create-plugin/create-plugin-submit",
-      ],
-    },
-    {
-      type: "category",
-      label: "@voiden/mcp",
-      className: "sidebar-beta-badge-item",
-      items: [
-        "developer-tools/voiden-mcp-server/overview",
-        "developer-tools/mcp-tool-publish-guide",
       ],
     },
   ],

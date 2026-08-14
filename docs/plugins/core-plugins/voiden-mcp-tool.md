@@ -20,7 +20,7 @@ The **Voiden Tool** plugin lets you mark an existing request as a named, typed c
 
 ### **Dynamic MCP Serving**
 
-- A verified tool is registered as a real MCP tool by [`@voiden/mcp-server`](/docs/developer-tools/voiden-mcp-server/overview.md) and `voiden-runner mcp serve` — alongside the four built-in ones — with its own name, description, and typed input schema, not a generic pass-through.
+- A verified tool is registered as a real MCP tool — by [`@voiden/mcp`](/docs/mcp/publish.md) on its own, or by `voiden-runner mcp serve` alongside the 4 built-in tools in CI/no-app setups — with its own name, description, and typed input schema, not a generic pass-through.
 - A failing tool is withdrawn from what's served by default, or kept and flagged degraded in its description, per its on-failure policy.
 - A manual **enabled** override lets you add or remove a tool from what's served regardless of its current verification state, from the Voiden app's **MCP** tab.
 
@@ -40,7 +40,7 @@ A tool with an unbound or unresolved `{{placeholder}}`, a verification row point
 
 This plugin owns 3 block types for tool identity, parameters, and verification policy:
 
-- [`tool ↗`](/docs/core-features-section/voiden-blocks/tool.md)
+- [`tool ↗`](/docs/mcp/tool-block.md)
 - `toolparams` — the parameters table, part of the Tool block
 - `toolverifies` — the verification table, part of the Tool block
 
