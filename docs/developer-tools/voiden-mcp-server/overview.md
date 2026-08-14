@@ -127,7 +127,7 @@ for you:
 
 - The Voiden app's **status bar → Initialize MCP** button — registers the
   server for whichever project is currently open, and refreshes the general
-  `.void`-authoring skill (see [AI Skill](/docs/getting-started-section/settings/ai-skill.md)).
+  `.void`-authoring skill (see [AI Skill](/docs/getting-started-section/settings/ai-skill)).
   It does *not* install a dedicated skill walking through the list → run →
   write-back loop — your assistant picks that up from each tool's own
   description instead. This is a deliberate, explicit action scoped to one

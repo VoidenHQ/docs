@@ -112,9 +112,16 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "category",
-          label: "MCP Blocks",
+          label: "MCP Server",
           items: [
             "core-features-section/voiden-blocks/tool",
+            "core-features-section/voiden-blocks/mcp-tool-block-reference",
+          ],
+        },
+        {
+          type: "category",
+          label: "MCP Client",
+          items: [
             "core-features-section/voiden-blocks/mcp",
           ],
         },
@@ -265,10 +272,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "@voiden/mcp-server",
+      label: "@voiden/mcp",
       className: "sidebar-beta-badge-item",
       items: [
         "developer-tools/voiden-mcp-server/overview",
+        "developer-tools/mcp-tool-publish-guide",
       ],
     },
   ],
