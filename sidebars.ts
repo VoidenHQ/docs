@@ -148,28 +148,32 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "html",
-      value: "<span class='sidebar-section-title'>MCP</span>",
+      value: "<span class='sidebar-section-title'>MCP</span><span class='sidebar-section-beta-badge'>Beta</span>",
       defaultStyle: true,
     },
     {
       type: "doc",
       id: "mcp/overview",
       label: "Overview",
+      className: "sidebar-beta-badge-item",
     },
     {
       type: "doc",
       id: "mcp/tool-block",
       label: "Tool Block",
+      className: "sidebar-beta-badge-item",
     },
     {
       type: "doc",
       id: "mcp/tool-field-reference",
       label: "Field Reference",
+      className: "sidebar-beta-badge-item",
     },
     {
       type: "doc",
       id: "mcp/connection-block",
       label: "Connection Block",
+      className: "sidebar-beta-badge-item",
     },
     {
       type: "doc",
@@ -224,8 +228,18 @@ const sidebars: SidebarsConfig = {
         "plugins/core-plugins/voiden-graphql",
         "plugins/core-plugins/voiden-scripting",
         "plugins/core-plugins/voiden-stitch/voiden-stitch",
-        "plugins/core-plugins/voiden-mcp-tool",
-        "plugins/core-plugins/voiden-mcp-client",
+        {
+          type: "doc",
+          id: "plugins/core-plugins/voiden-mcp-tool",
+          label: "Voiden Tool",
+          className: "sidebar-beta-badge-item",
+        },
+        {
+          type: "doc",
+          id: "plugins/core-plugins/voiden-mcp-client",
+          label: "Voiden MCP Client",
+          className: "sidebar-beta-badge-item",
+        },
       ],
     },
     {

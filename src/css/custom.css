@@ -584,6 +584,22 @@ blockquote a:hover {
   color: var(--ifm-theme-doc-sidebar-item-link)!important;
 }
 
+.sidebar-section-beta-badge{
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--voiden-purple);
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid var(--voiden-purple);
+  vertical-align: middle;
+}
+
 .doc-beta-badge{
   display: inline-block;
   margin-left: 0.6rem;
