@@ -75,6 +75,26 @@ Your blocks aren't set in stone. Once you've got them in place, you can drag and
 
 ---
 
+## Select & Move Multiple Blocks <span className="doc-beta-badge">Beta</span>
+
+Need to move more than one block at a time? Select a group — even blocks that aren't next to each other — and drag, delete, or cancel them together. The selection is temporary and never saved to the file.
+
+**Build a selection:**
+
+- **Ctrl/Cmd+Click** a block to add it to the selection. Click it again (still holding Ctrl/Cmd) to remove it — this is how you grab non-adjacent blocks, one at a time, in any order.
+- **Shift+Click** after that to select every block between your last-clicked one and the one you just Shift+Clicked, both ends included. Shift+Click again further down to extend the range.
+- Combine both: Ctrl/Cmd+Click a few individual blocks, then Shift+Click to add a range on top.
+
+Selected blocks get a highlighted left border and background tint, so the whole selection is visible at a glance.
+
+**Move it:** hover over any block in the selection until its drag grip appears, then drag. The whole group moves together, in the same order it was in — not just the block you grabbed. The selection clears automatically once the drag completes.
+
+**Delete it:** press **Backspace** to remove every selected block in one go.
+
+**Cancel it:** press **Escape** to clear the selection without touching the blocks — or Ctrl/Cmd+Click a selected block again to drop just that one and keep the rest.
+
+---
+
 ## Response Panel
 
 Every request you send has a dedicated place to show its results. The **Response Panel** is a right-side panel that displays everything about your request and response — status code, headers, body, timing, and more — all in one clean view.

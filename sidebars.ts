@@ -159,20 +159,20 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "doc",
-      id: "mcp/tool-block",
-      label: "Tool Block",
-      className: "sidebar-beta-badge-item",
-    },
-    {
-      type: "doc",
-      id: "mcp/tool-field-reference",
-      label: "Field Reference",
+      id: "mcp/initialize",
+      label: "Initialize MCP",
       className: "sidebar-beta-badge-item",
     },
     {
       type: "doc",
       id: "mcp/connection-block",
       label: "Connection Block",
+      className: "sidebar-beta-badge-item",
+    },
+    {
+      type: "doc",
+      id: "mcp/tool-block",
+      label: "Tool Block",
       className: "sidebar-beta-badge-item",
     },
     {

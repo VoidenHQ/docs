@@ -49,12 +49,7 @@ Earlier versions of Voiden also registered `@voiden/mcp-server` as a side effect
 
 ## Enabling MCP Execution
 
-Writing valid `.void` requests and *running* them for real are two different capabilities. This toggle covers the first. For the second — letting your assistant list, execute, and record `.void` requests — use the **Initialize MCP** button in the status bar instead, scoped to whichever project you currently have open. This registers the same small MCP server bundled into the Voiden app that [`voiden agent`](/docs/developer-tools/voiden-cli#voiden-agent--register-with-an-agent-editor) registers from the terminal — it's unrelated to `@voiden/mcp`, which is a separate package for [publishing your own `/tool` blocks](/docs/mcp/publish.md) as a server:
-
-| Assistant | Registered in |
-|-----------|------------------------|
-| **Claude** | `.mcp.json` in your project root |
-| **Codex** | `[mcp_servers.voiden-mcp]` in `~/.codex/config.toml` |
+Writing valid `.void` requests and *running* them for real are two different capabilities. This toggle covers the first. For the second — letting your assistant list, execute, and record `.void` requests — use the **Initialize MCP** button in the status bar instead, scoped to whichever project you currently have open. See [Initialize MCP](/docs/mcp/initialize.md) for what it registers and what it gives your assistant.
 
 Clicking it also refreshes the authoring skill from **How It Works** above —
 but *not* a dedicated skill walking through how to use the MCP tools. Your
@@ -67,12 +62,6 @@ If you *also* have this page's toggle enabled for that assistant, the dedicated 
 |-----------|------------------------|
 | **Claude** | `~/.claude/skills/voiden-mcp/SKILL.md` |
 | **Codex** | `~/.codex/skills/voiden-mcp/SKILL.md` |
-:::
-
-This gives your assistant 4 fixed tools: list the `.void` files in your project, list a file's requests, run one for real, and write the result back into the file. It doesn't include any [Tool blocks](/docs/mcp/tool-block.md) you've declared — those are published separately via [`@voiden/mcp`](/docs/mcp/publish.md).
-
-:::note
-Initializing MCP is per-project and doesn't repeat itself automatically — it only happens when you click the button. If you later change which project is open, click it again for that project.
 :::
 
 :::tip

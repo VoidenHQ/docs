@@ -96,7 +96,7 @@ voiden agent --remove           # undo registration
 
 `command` is `voiden` itself — recursively invoking the same binary as a small internal MCP server exposing the 4 fixed tools above. **This never points at `@voiden/mcp`** — that's a separate, standalone server for publishing `/tool` blocks as an API surface, not what an everyday "let an agent run requests in this project" session needs. See [Publishing with @voiden/mcp](../mcp/publish.md) for that distinction in full.
 
-The Voiden app's own **Settings → Claude/Codex integration** toggle does exactly what `voiden agent` does — flipping it in the app and running `voiden agent` from a terminal never disagree about what gets written under `.mcp.json`'s `voiden-mcp` key.
+The Voiden app's own status bar **Initialize MCP** button does exactly what `voiden agent` does — clicking it and running `voiden agent` from a terminal never disagree about what gets written under `.mcp.json`'s `voiden-mcp` key. See [Initialize MCP](../mcp/initialize.md) for the app-side walkthrough.
 
 CI machines with no Voiden app installed use `voiden-runner mcp install` instead — same registration, same 4 tools, fully standalone (points at `voiden-runner mcp serve`, not this CLI).
 

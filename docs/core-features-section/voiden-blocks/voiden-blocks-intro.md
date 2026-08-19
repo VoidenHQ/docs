@@ -25,4 +25,8 @@ With Voiden Blocks, your API requests are not static forms anymore — they are 
 
 And if you ever want to change things up — just drag and drop any block to wherever you want it. Reorder, restructure, make it yours. No friction, no fuss.
 
+:::tip Beta
+You can also select several blocks at once — including ones that aren't next to each other — and drag, delete, or cancel them as a group. See [Select & Move Multiple Blocks](/docs/getting-started-section/getting-started/the-basics.md) for the full rundown.
+:::
+
 Read more [here](https://voiden.md/blog/maintaining-consistent-api-docs) to see how you can use Voiden Blocks to keep your API docs consistent. 
