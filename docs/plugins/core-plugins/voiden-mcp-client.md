@@ -22,13 +22,15 @@ Phase 1: Streamable-HTTP transport only.
 
 ### **Config Import**
 
-- Paste a Claude Desktop / Cursor / VS Code / Windsurf-style `mcpServers` JSON config directly into a new block, and Voiden fills in the URL and headers from the first HTTP-transport entry automatically.
+- Paste a Claude Desktop / Cursor / VS Code / Windsurf-style config directly into a `.void` file — both `{"mcpServers": {...}}` and VS Code's `{"servers": {...}}` shape are recognized — and Voiden fills in the URL and headers automatically. Every HTTP-transport server in the config becomes its own Connection block, not just the first.
+- An `mcp-remote`-wrapped entry (`npx -y mcp-remote <url> [--header ...]`) unwraps into the real remote URL and headers directly — it's a stdio↔HTTP bridge, not a local server, so nothing gets spawned.
 
 ### **Reuses Existing Request Machinery**
 
 - The same **Auth** block every other protocol uses — including inherited auth from a `.voiden-inherited.void` ancestor file.
 - The same **Headers** table, with cookie merging.
 - The same **Assertions** table, applied to the MCP response.
+- The same code viewer every other block uses for rendering the response body — syntax highlighting, search, and selection, with JSON-encoded text content auto-detected and pretty-printed.
 
 No separate auth system or assertion syntax to learn.
 

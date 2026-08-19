@@ -29,14 +29,7 @@ Run `voiden-mcp <path> --check` any time to see this decision without starting a
 
 ## How a parameter resolves
 
-Each row in a tool's **Parameters** table answers two questions:
-
-| Field | Question it answers |
-|---|---|
-| `source` | *Who provides the value?* `agent` — supplied fresh on every call. `environment` — resolved from env files (or the serving process's own environment), never shown to the agent. |
-| `binds` | *Where does it go?* The exact `{{token}}` name in the request. |
-
-Both are always required — `source` says who, `binds` says where; neither implies the other. See the [Field Reference](./tool-block.md) for the full field list.
+Every row in a tool's **Parameters** table is agent-supplied — the agent provides a fresh value on every call, and `binds` says exactly which `{{token}}` in the request receives it. There's no separate "environment"-sourced kind of param — every `{{token}}` the request uses currently needs its own Parameters row, even one you only ever want resolved from your environment and never touched by the agent. An undeclared token excludes the tool as `unresolved-placeholder`. See the [Field Reference](./tool-block.md) for the full field list.
 
 A param can only bind to a token that's already in the request. A hardcoded value has nothing to attach to — template that spot first.
 
@@ -108,8 +101,8 @@ Paste any MCP server's config JSON — Claude Desktop, Cursor, Windsurf, `.mcp.j
 **Do I need to buy a domain?**
 No. `--tunnel` gives a public URL with zero domain and zero signup. If the machine already has a public IP, skip both — bind the port directly.
 
-**What happens if a `source: environment` param has no value anywhere?**
-That tool is excluded from what's served, with a reason printed — or add `--strict` to abort the whole publish instead.
+**What happens if the request has a `{{token}}` that isn't declared as any parameter?**
+That tool is excluded from what's served as an `unresolved-placeholder`, with a reason printed — or add `--strict` to abort the whole publish instead. This applies even to a token you intend to resolve from your environment; every `{{token}}` the request uses currently needs a matching Parameters row.
 
 **I see `0 tool(s) served` — why?**
 Run `voiden-mcp <path> --check` — it prints exactly which tools were excluded and why. See the Render example above for the two most common causes.

@@ -15,14 +15,15 @@ The **Voiden Tool** plugin lets you mark an existing request as a named, typed c
 ### **Tool Declaration**
 
 - Mark any existing request as an agent-callable tool, with its own name, title, description, and annotations (read-only, destructive, idempotent, open-world).
-- A **Parameters** table splitting each `{{token}}` in the request between agent-supplied and environment-only sources — the agent never sees or controls environment-sourced values.
-- A **Verification** policy: reference other requests as happy-path / error-contract / auth-check proof the tool works, each with its own mode (live / sandbox / none) and optional cadence, plus a tool-level on-failure policy (withdraw or serve degraded).
+- A **Parameters** table declaring which `{{token}}` in the request the agent supplies a value for on each call, with a type, required flag, and description shown to the agent.
+- A **Verification** policy: reference other requests as happy-path / error-contract / auth-check proof the tool works, each with its own mode (live / sandbox / none), optional cadence, and its own on-failure policy (withdraw or serve degraded) — set per verification row, not tool-wide. When more than one row fails at once, the most conservative policy among them wins.
+- Cross-file request/verify references save a path relative to the referencing file's own project, not an absolute path baked to one machine — so they survive being cloned elsewhere.
 
 ### **Dynamic MCP Serving**
 
 - A verified tool is registered as a real MCP tool — by [`@voiden/mcp`](/docs/mcp/publish.md) on its own, or by `voiden-runner mcp serve` alongside the 4 built-in tools in CI/no-app setups — with its own name, description, and typed input schema, not a generic pass-through.
 - A failing tool is withdrawn from what's served by default, or kept and flagged degraded in its description, per its on-failure policy.
-- A manual **enabled** override lets you add or remove a tool from what's served regardless of its current verification state, from the Voiden app's **MCP** tab.
+- A manual **enabled** override lets you add or remove a tool from what's served regardless of its current verification state.
 
 ### **Verification & Discovery from the CLI**
 
@@ -46,15 +47,9 @@ This plugin owns 3 block types for tool identity, parameters, and verification p
 
 ---
 
-## The Voiden App's MCP Tab
+## Seeing What's Actually Served
 
-Beyond authoring, this plugin adds an **MCP** tab to the Voiden app (via the plug icon in the top bar) with three views:
-
-- **List** — every `/tool` block discovered across the project.
-- **Verify** — runs verification and shows verified / unverified / failing per tool.
-- **Serve preview** — what would actually be served to an agent right now, with an Add/Remove control for the manual `enabled` override.
-
-![The Voiden app's MCP tab, List view, showing a discovered tool with its params/verifies/on-failure summary](/img/mcp-tool-tab-views.png)
+This plugin doesn't add its own in-app preview — run `voiden-mcp <path> --check` (see [Publishing with @voiden/mcp](/docs/mcp/publish.md)) to see served / withdrawn / degraded / excluded for every tool, with a reason for each, without starting a live server.
 
 ---
 

@@ -6,7 +6,7 @@
 
 # MCP Connection Block <span className="doc-beta-badge">Beta</span>
 
-The **MCP Connection block** (`/mcp`) connects to an external [MCP](https://modelcontextprotocol.io) server and runs one operation against it — the same way `.void` files already test REST and GraphQL requests. Use it to explore and test *someone else's* server. That's the reverse of the [Tool Block](./tool-block.md), which serves *your own* requests as tools.
+The **MCP Connection block** (`/mcp-client`) connects to an external [MCP](https://modelcontextprotocol.io) server and runs one operation against it — the same way `.void` files already test REST and GraphQL requests. Use it to explore and test *someone else's* server. That's the reverse of the [Tool Block](./tool-block.md), which serves *your own* requests as tools.
 
 Streamable-HTTP transport only, for now — remote servers or `localhost`. No stdio/local-process servers yet.
 
@@ -46,7 +46,7 @@ Reuses Voiden's existing **Auth** block and **Headers** table — nothing new to
 
 ## Importing from an existing config
 
-Already have this server configured in Claude Desktop, Cursor, VS Code, or Windsurf? Paste its `mcpServers` JSON straight into a new MCP Connection block:
+Already have this server configured in Claude Desktop, Cursor, VS Code, or Windsurf? Paste its config JSON straight into a `.void` file:
 
 ```json
 {
@@ -59,13 +59,13 @@ Already have this server configured in Claude Desktop, Cursor, VS Code, or Winds
 }
 ```
 
-Voiden detects the paste and fills in the URL and headers automatically.
+Voiden detects the paste and fills in the URL and headers automatically. Both `{"mcpServers": {...}}` (Claude Desktop, Cursor, Windsurf) and VS Code's `{"servers": {...}}` shape are recognized, and every server in the config becomes its own Connection block — not just the first. An `mcp-remote`-wrapped entry (`npx -y mcp-remote <url> [--header ...]`) unwraps into the real remote URL and headers directly, since it isn't a local server, just a stdio↔HTTP bridge.
 
 ---
 
 ## Response
 
-Running the block produces an **MCP Response** block, with the same **Assertions** table support as any other response.
+Running the block produces an **MCP Response** block, with the same **Assertions** table support as any other response. The body renders through the same code viewer every other block uses — syntax highlighting, search, and selection — and JSON-encoded text content is detected and pretty-printed automatically, since plenty of MCP servers hand back JSON as an untyped "text" field.
 
 ![A call_tool operation and its MCP Response, showing status, timing, and the returned JSON](/img/mcp-response-block.png)
 
@@ -73,7 +73,7 @@ Running the block produces an **MCP Response** block, with the same **Assertions
 
 ## Try it Out
 
-1. Type `/mcp` and press **Enter**.
+1. Type `/mcp-client` and press **Enter**.
 2. Set the **Server URL**.
 3. Pick `list_tools` first to confirm the connection works.
 4. Switch to `call_tool`, pick a tool, and write its arguments as JSON.

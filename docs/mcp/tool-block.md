@@ -42,28 +42,25 @@ This is a two-part page: day-to-day use first, then the full field-by-field refe
 
 Other than Read-only, these are just hints for the agent — Voiden doesn't enforce them.
 
-There's also an **Enabled** switch (on by default) that force-removes a tool regardless of verification. Toggle it from the app's **MCP** tab.
+There's also an **Enabled** switch (on by default) that force-removes a tool regardless of verification, in the block's own attrs.
 
 ---
 
 ## Parameters
 
-The **Parameters** table answers one question per row: *this request has a `{{token}}` — who fills it in?*
+Every row in the **Parameters** table is something the *agent* supplies on every call — there's no separate "environment-sourced" kind of param.
 
 | Field | What it's for |
 |-------|----------------|
-| **Name** | The input name the agent sees (only shown when Source is `agent`). |
+| **Name** | The input name the agent sees. |
 | **Binds** | Which `{{token}}` in the request receives the value. |
 | **Type** | `string`, `number`, `integer`, `boolean`, `object`, or `array`. |
-| **Required** | Whether the agent must supply it. |
+| **Mand.** | Whether the agent must supply it. |
 | **Description** | Shown to the agent. |
-| **Source** | `agent` or `environment` — see below. |
-
-- **`source: agent`** — the agent supplies the value on every call.
-- **`source: environment`** — pulled silently from your project's `.voiden/env-*.yaml` files, never shown to the agent. Use this for API keys, tokens, and anything else the agent shouldn't handle.
+| **Test value** | Used only when a verification request runs — there's no live agent call happening then, so this fills the `{{token}}` in its place. A param with no test value just can't be exercised by verification; the request fails on the unresolved token, same as any other missing substitution. |
 
 :::note
-`binds` is just the token's name, not a special keyword. When Source is `environment`, that same name doubles as the lookup key in your environment files.
+Every `{{token}}` the request actually uses currently needs a matching **Binds** row — even one you only ever want resolved from your environment, never touched by the agent. A token with no matching row is an unresolved placeholder, and excludes the tool from being served (`unresolved-placeholder`), regardless of whether it would have resolved fine as a normal environment variable at request time.
 :::
 
 ---
@@ -79,11 +76,14 @@ The **Verification** table proves a tool actually works before it's served — e
 | **Role** | `happy-path`, `error-contract`, or `auth-check`. A failing `auth-check` skips everything else. |
 | **Cadence** | `hourly`, `daily`, `weekly`, or `monthly` — how often this re-runs once published. |
 | **Mode** | `live` (runs for real), `sandbox` (label only, runs the same), or `none` (never runs automatically). |
+| **On failure** | `withdraw` (default) or `advertise-degraded` — this row's own consequence if it fails. See below. |
 
-**On failure** (set at the tool level):
+**On failure:**
 
 - **Withdraw** (default) — hide the tool entirely.
 - **Keep, flagged degraded** — keep it visible, with a warning in its description.
+
+When more than one row fails at once, the most conservative policy wins — a single `withdraw` among the failed rows withdraws the tool, even if every other row says `advertise-degraded`.
 
 No verification rows? The tool still gets served, just marked **unverified**.
 
@@ -95,7 +95,7 @@ No verification rows? The tool still gets served, just marked **unverified**.
 2. Place your cursor in that section and type `/tool`.
 3. Name it `create_user`, write a clear description, and add a Parameters row for each `{{token}}`.
 4. Add a Verification row pointing at a request that confirms the endpoint works.
-5. Open the app's **MCP** tab to see it live — verified/unverified/failing, and whether it's currently served.
+5. Run `voiden-mcp <path> --check` (see [Publishing with @voiden/mcp](./publish.md)) to see it live — verified/unverified/failing, and whether it's currently served.
 
 ---
 
@@ -108,7 +108,7 @@ The Tool block turns a request into a named, typed tool — parameters split bet
 <details>
 <summary><b>Full Field Reference</b> — every field, type, default, and validation check</summary>
 
-Everything below configures *how the decoration works* — types, defaults, and every check that can exclude a tool from being served. For the concepts behind `source`/`binds`, see [How a parameter resolves](./publish.md#how-a-parameter-resolves).
+Everything below configures *how the decoration works* — types, defaults, and every check that can exclude a tool from being served. For the concept behind `binds`, see [How a parameter resolves](./publish.md#how-a-parameter-resolves).
 
 ## The tool block itself
 
@@ -140,7 +140,12 @@ different machine. A relative path must have **no leading slash**: `firstrequest
 | `type` | enum | — | `string` | `string \| number \| integer \| boolean \| object \| array`. Still `string` for a file/binary token — an agent can only ever pass a string. |
 | `required` | boolean | — | `false` | Whether the agent must supply it. |
 | `description` | string | — | empty | Shown to the agent. |
-| `source` | enum | ✓ | — | `agent` (fresh value on every call) or `environment` (resolved from `.voiden/env-*.yaml`, or the serving process's own env). A `source: environment` param that can't resolve anywhere excludes the tool from being served (or aborts under `--strict`). |
+| `testValue` | string | — | empty | What verification substitutes for this param, since there's no live agent call happening then. A param with no `testValue` just can't be exercised by verification — the request fails on the unresolved token, same as any other missing substitution. |
+
+Every param is agent-supplied — there's no separate "environment"-sourced kind. A `{{token}}` that
+should resolve from the environment instead of an agent just doesn't get a param row at all; it
+resolves the same way any other `{{ENV_VAR}}` in a Voiden request already does, with no
+tool-specific declaration needed.
 
 A `{{token}}` with no param row declaring it is the reverse problem — `unresolved-placeholder`.
 
