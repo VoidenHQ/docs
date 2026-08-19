@@ -29,7 +29,7 @@ Run `voiden-mcp <path> --check` any time to see this decision without starting a
 
 ## How a parameter resolves
 
-Every row in a tool's **Parameters** table is agent-supplied — the agent provides a fresh value on every call, and `binds` says exactly which `{{token}}` in the request receives it. There's no separate "environment"-sourced kind of param — every `{{token}}` the request uses currently needs its own Parameters row, even one you only ever want resolved from your environment and never touched by the agent. An undeclared token excludes the tool as `unresolved-placeholder`. See the [Field Reference](./tool-block.md) for the full field list.
+Every row in a tool's **Parameters** table is agent-supplied — the agent provides a fresh value on every call, and `binds` says exactly which `{{token}}` in the request receives it. There's no separate "environment"-sourced kind of param — every `{{token}}` the request uses currently needs its own Parameters row, even one you only ever want resolved from your environment and never touched by the agent. An undeclared token excludes the tool as `unresolved-placeholder`. See [Tool Block](./tool-block.md) for the full field list.
 
 A param can only bind to a token that's already in the request. A hardcoded value has nothing to attach to — template that spot first.
 
@@ -44,7 +44,7 @@ A param can only bind to a token that's already in the request. A hardcoded valu
 | `--dynamic-tools` | Off by default. Pass this to expose just 2 fixed tools (`search_tools`/`call_tool`) instead of one per tool — keeps a large surface from overwhelming an agent's context window. |
 | `--print-config` | Prints a ready-to-paste `{"mcpServers": {...}}` entry once the server is up. Works with Claude Desktop, Claude Code, Cursor — and pasting it into a `.void` file fills in a Connection block automatically. |
 | `--tunnel` | Optional. Wraps the server in a public `cloudflared` quick tunnel — only needed when the machine has no public IP of its own (a laptop, an ephemeral CI job). Requires `cloudflared` on `PATH`. |
-| `--scheduler` | On by default. Keeps re-verifying tools after startup, on each entry's own [cadence](./tool-block.md#verification-table-toolverifies-rows), instead of just once. Works over stdio too — a state change triggers a clean restart. |
+| `--scheduler` | On by default. Keeps re-verifying tools after startup, on each entry's own [cadence](./tool-block.md#verification), instead of just once. Works over stdio too — a state change triggers a clean restart. |
 | `--no-restart` | Disables the auto-restart supervisor — use when something else already supervises the process (systemd, pm2, Docker). |
 
 Every flag has a matching env var (`VOIDEN_PUBLISH_PORT`, `VOIDEN_PUBLISH_HOST`, etc.) — CLI flag wins, then env var, then the default. `voiden-mcp --check` is a dry run; `voiden-mcp --version` prints the installed version.
@@ -86,7 +86,7 @@ CI jobs have no public inbound networking — a bound port isn't reachable from 
    ```
 5. **Deploy.** Your MCP endpoint is `https://your-app.onrender.com/mcp`; `/health` is live too.
 
-If you see `0 tool(s) served` with no explanation, run `voiden-mcp . --check` locally on the same commit — it names every excluded tool and why. The most common cause: a cross-file `requestFilePath` still holding an absolute path from wherever it was authored, or one with a leading slash (`/firstrequest.void` isn't relative — see [path portability](./tool-block.md#a-note-on-path-portability)).
+If you see `0 tool(s) served` with no explanation, run `voiden-mcp . --check` locally on the same commit — it names every excluded tool and why. The most common cause: a cross-file `requestFilePath` still holding an absolute path from wherever it was authored, or one with a leading slash. `requestFilePath` is relative to the project root — `/firstrequest.void` isn't actually relative (a leading slash means filesystem root), and an absolute path only resolves on the machine that saved it.
 
 ---
 
