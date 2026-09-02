@@ -7,7 +7,7 @@ custom_edit_url: "https://github.com/phurpa-tsering/insomnia-importer"
 ---
 
 :::info Plugin Info
-**Author:** Phurpa Tsering &nbsp;|&nbsp; **Version:** 1.1.0 &nbsp;|&nbsp; **Repository:** [phurpa-tsering/insomnia-importer](https://github.com/phurpa-tsering/insomnia-importer)
+**Author:** Phurpa Tsering &nbsp;|&nbsp; **Version:** 1.4.0 &nbsp;|&nbsp; **Repository:** [phurpa-tsering/insomnia-importer](https://github.com/phurpa-tsering/insomnia-importer)
 :::
 
 

@@ -214,6 +214,7 @@ const sidebars: SidebarsConfig = {
         "plugins/core-plugins/advanced-authentication",
         "plugins/core-plugins/openapi-collection-importer",
         "plugins/core-plugins/postman-collection-importer",
+        "plugins/core-plugins/bruno-collection-importer",
         "plugins/core-plugins/simple-assertion",
         "plugins/core-plugins/voiden-faker",
         {
