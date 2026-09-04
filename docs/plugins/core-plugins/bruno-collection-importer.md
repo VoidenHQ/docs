@@ -6,25 +6,30 @@ sidebar_label: Bruno Collection Importer
 
 # Bruno Collection Importer Plugin
 
-The **Bruno Collection Importer** plugin makes it easy to move your API
-collections from [Bruno](https://www.usebruno.com) into fully native Voiden
-`.void` request files. It understands both Bruno's classic one-file-per-request
-`.bru` format and Bruno 3.0+'s whole-collection **OpenCollection** YAML/JSON
-export, and converts requests, folders, environments, auth, and scripts into
-Voiden automatically — no manual re-typing of endpoints or headers.
+Switching over from [Bruno](https://www.usebruno.com)? The **Bruno Collection
+Importer** plugin makes it painless — it moves your API collections straight
+into fully native Voiden `.void` request files, so you're not stuck re-typing
+endpoints and headers by hand.
+
+It works with Bruno 3.0+'s whole-collection **OpenCollection** YAML export
+and with individual Bruno environment files, converting requests,
+folders, environments, auth, and scripts into Voiden automatically. Importing
+a standalone classic `.bru` request file on its own isn't supported — bring
+in the full collection export instead.
 
 ---
 
 ## How It Works
 
-1. Open a `.bru` request file, a Bruno environment file, or an exported
-   OpenCollection YAML/JSON file in Voiden.
+1. Open a Bruno environment file or an exported OpenCollection YAML file
+   in Voiden.
 2. Look for the **Import into Voiden** button in the file's tab toolbar.
-3. Click it. If you opened a whole OpenCollection export, Voiden builds a
-   folder tree that matches your Bruno collection's structure exactly. If you
-   opened a single file, it converts just that one.
-4. Every request lands as its own `.void` file — endpoint, params, auth, and
-   (where it's safe to) live scripts all included.
+3. Click it — if you opened a whole OpenCollection export, Voiden builds a
+   folder tree that matches your Bruno collection's structure exactly; if you
+   opened just a single request from a directory-based OpenCollection layout,
+   it converts that one.
+4. That's it — every request lands as its own `.void` file, with its endpoint,
+   params, auth, and (where it's safe to) live scripts all included.
 
 ---
 
@@ -32,10 +37,11 @@ Voiden automatically — no manual re-typing of endpoints or headers.
 
 | You open in Voiden | You get |
 |---|---|
-| A single `.bru` request file | One `.void` file |
-| A whole OpenCollection YAML/JSON export | A folder tree matching your Bruno collection, one `.void` file per request |
+| A whole OpenCollection YAML export | A folder tree matching your Bruno collection, one `.void` file per request |
 | A single request from a directory-based OpenCollection layout | One `.void` file |
 | A Bruno environment file (`environments/<name>.bru`) | A named Voiden environment — merged into your existing environments, not overwritten |
+
+> A standalone classic `.bru` request file (outside of an OpenCollection export) can't be imported on its own.
 
 ---
 
