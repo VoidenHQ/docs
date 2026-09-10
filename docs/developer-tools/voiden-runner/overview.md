@@ -33,7 +33,7 @@ Get human-readable output by default, switch to `--json` for machine-readable re
 Just like in the Voiden app, the runner keeps a persistent session of runtime variables between requests. Values captured from one response are automatically available in the next request via `{{process.KEY}}` — no extra setup needed.
 
 ### Plugin-powered
-The same five core plugins that run in the desktop app work identically in the CLI — scripting, assertions, faker, advanced auth, and GraphQL.
+The same core plugins that run in the desktop app work identically in the CLI — REST API, advanced auth, assertions, faker, GraphQL, scripting, and Socket/gRPC. See [Command Options](./command-options.md#plugin-management) for the full list.
 
 ### AI-agent integration
 Beyond running headlessly yourself, the runner can hand its execution engine

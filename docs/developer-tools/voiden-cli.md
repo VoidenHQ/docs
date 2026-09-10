@@ -6,7 +6,7 @@
 
 # Voiden CLI
 
-The `voiden` command doubles as the app launcher (`voiden ~/Documents` opens that folder in the GUI) **and** a small, headless command surface — `agent` and `run` — bundled directly into the Voiden app itself. Nothing extra to install: the packaged app's own binary bundles Node, so `voiden` dispatches straight into it.
+The `voiden` command doubles as the app launcher (`voiden ~/Documents` opens that folder in the GUI) **and** a small, headless command surface — `agent`, `run`, and a hidden `mcp-stdio` — bundled directly into the Voiden app itself. Nothing extra to install: the packaged app's own binary bundles Node, so `voiden` dispatches straight into it.
 
 This is deliberately a *different, smaller* thing than the other two Voiden CLIs:
 
@@ -39,7 +39,7 @@ voiden file.txt        # Open a file as a tab
 
 ![open-voiden](/img/developer-tools/open-voiden.gif)
 
-`agent` and `run` are checked for first, before anything else — `voiden agent ./api` runs the CLI command; `voiden ./api` (no recognized subcommand) opens `./api` in the GUI, same as always.
+`agent`, `run`, and `mcp-stdio` are checked for first, before anything else — `voiden agent ./api` runs the CLI command; `voiden ./api` (no recognized subcommand) opens `./api` in the GUI, same as always.
 
 ---
 
@@ -49,6 +49,7 @@ voiden file.txt        # Open a file as a tab
 |---|---|
 | `voiden agent [path]` | Register this project with Claude Code and/or Codex |
 | `voiden run <paths...>` | Run `.void` files headlessly and print/return the results |
+| `voiden mcp-stdio [path]` | *(hidden — not shown in `--help`)* The stdio MCP server `voiden agent` itself registers |
 | `voiden [path]` / `voiden` | Everything else — opens the GUI |
 | `voiden -v` / `--version` | Print the installed version |
 | `voiden -h` / `--help` | Show the top-level help (`agent`/`run` have their own `--help`) |
@@ -66,12 +67,14 @@ Options:
   --remove          Remove the registration instead of adding it
 ```
 
-Writes `.mcp.json` (and the Codex `config.toml` equivalent) so Claude Code / Codex knows to start a small MCP server for this project, and picks up 4 fixed tools:
+Writes `.mcp.json` (and the Codex `config.toml` equivalent) so Claude Code / Codex knows to start a small MCP server for this project, and picks up 6 fixed tools:
 
 - `list_void_files` — see which `.void` files exist in the project
 - `list_requests` — see what requests a file contains, without running anything
 - `run_request` — actually execute a request and return a structured result
 - `write_result` — record a result back into the `.void` file as a `response` block
+- `list_environments` — discover the env profiles/environments this project has (`.voiden/env-*.yaml`, or a plain `.env` fallback), including nested environments as dotted paths (e.g. `staging.eu`)
+- `select_environment` — pick a profile (+ optional environment within it) as the default env for every `run_request` call for the rest of the session — returns variable *keys* only, never values, since a `*-private.yaml` file can hold real secrets
 
 **Examples:**
 
@@ -94,11 +97,11 @@ voiden agent --remove           # undo registration
 }
 ```
 
-`command` is `voiden` itself — recursively invoking the same binary as a small internal MCP server exposing the 4 fixed tools above. **This never points at `@voiden/mcp`** — that's a separate, standalone server for publishing `/tool` blocks as an API surface, not what an everyday "let an agent run requests in this project" session needs. See [Publishing with @voiden/mcp](../mcp/publish.md) for that distinction in full.
+`command` is `voiden` itself — recursively invoking the same binary as a small internal MCP server exposing the 6 fixed tools above. **This never points at `@voiden/mcp`** — that's a separate, standalone server for publishing `/tool` blocks as an API surface, not what an everyday "let an agent run requests in this project" session needs. See [Publishing with @voiden/mcp](../mcp/publish.md) for that distinction in full.
 
 The Voiden app's own status bar **Initialize MCP** button does exactly what `voiden agent` does — clicking it and running `voiden agent` from a terminal never disagree about what gets written under `.mcp.json`'s `voiden-mcp` key. See [Initialize MCP](../mcp/initialize.md) for the app-side walkthrough.
 
-CI machines with no Voiden app installed use `voiden-runner mcp install` instead — same registration, same 4 tools, fully standalone (points at `voiden-runner mcp serve`, not this CLI).
+CI machines with no Voiden app installed use `voiden-runner mcp install` instead — same registration, same 6 tools, fully standalone (points at `voiden-runner mcp serve`, not this CLI).
 
 ---
 
@@ -183,6 +186,18 @@ staging:
 For the nested shape, **`--environment <name>` matters**: without it, every top-level environment in the file gets merged into one flat set (last one processed wins on a key collision) — with it, only that one named environment's variables are used, the same way the Voiden app itself resolves one active environment at a time. Point `--env` straight at your real `.voiden/env-public.yaml`/`env-<profile>-public.yaml` and add `--environment dev` (or whichever name) to select a specific one; a name that doesn't exist in the file fails with a clear error listing what's actually available, instead of silently resolving to nothing (or the wrong thing).
 
 A relative `--env` path resolves from wherever you *run the command*, not from the `.void` file's own directory.
+
+---
+
+## `voiden mcp-stdio` — hidden, internal
+
+```text
+voiden mcp-stdio [path]
+```
+
+Not shown in `--help` — this is what `.mcp.json`'s `command`/`args` actually invoke, not something to run by hand. Starts a stdio MCP server exposing the same 6 fixed tools `voiden agent` describes above.
+
+Deliberately does **not** discover, verify, or serve [Tool blocks](../mcp/tool-block.md) — that's [`@voiden/mcp`](../mcp/publish.md)'s job alone, a different concern (publishing a capability API) from letting an editor run requests in a project it already has open.
 
 ---
 

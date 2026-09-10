@@ -33,8 +33,10 @@ voiden-runner run <paths...> [options]
 
 | Option | Description |
 |---|---|
-| `-e, --env <path>` | Load a `.env` file (`KEY=VALUE` format) |
-| `--env-var <k=v>` | Set a single inline variable (repeatable) |
+| `-e, --env <path>` | Load a plain `.env` file (`KEY=VALUE` format) — for a path outside the project's profile convention. Mutually exclusive with `--profile`. |
+| `--profile [name]` | Use a project env profile (`.voiden/env-<profile>-{public,private}.yaml`, merged — or that profile's legacy `.env*` fallback). Bare `--profile` means `"default"`. Mutually exclusive with `--env`. See [Attach an Environment](./attach-environment.md). |
+| `--environment <name>` | Scope `--profile` to one named environment within it (e.g. `"dev"`, or a dotted child like `"staging.eu"`) instead of merging every environment together. Only valid with `--profile`, not `--env`. |
+| `--env-var <k=v>` | Set a single inline variable (repeatable) — always wins over `--env`/`--profile` |
 
 ### Output
 
@@ -96,8 +98,11 @@ voiden-runner report clear                # Wipe accumulated results history onl
 Manage the runner's plugins.
 
 ```bash
-voiden-runner plugin list
-voiden-runner plugin install <plugin-name>
+voiden-runner plugin list                          # List all available and installed plugins
+voiden-runner plugin install <plugin-name>          # Install a plugin (--all installs every core plugin)
+voiden-runner plugin install <plugin-name>@<ver>    # Pin an exact version
+voiden-runner plugin update <plugin-name>           # Update to the latest registry version (--all for every installed plugin with an update)
+voiden-runner plugin uninstall <plugin-name>         # Remove an installed plugin (--all for every installed plugin)
 voiden-runner plugin enable <plugin-name>
 voiden-runner plugin disable <plugin-name>
 ```
@@ -122,7 +127,8 @@ Enables the AI-agent run/verify loop for CLI-only users who don't have the
 Voiden desktop app (which has its own equivalent Settings toggle — see
 [AI Skill](/docs/getting-started-section/settings/ai-skill)). Registers
 `voiden-runner mcp serve` with Claude Code and/or Codex — a standalone server
-exposing the same 4 fixed tools as [`voiden agent`](../voiden-cli.md#voiden-agent--register-with-an-agent-editor),
+exposing the same 6 fixed tools as [`voiden agent`](../voiden-cli.md#voiden-agent--register-with-an-agent-editor)
+(list/run/write plus list/select environment),
 plus any [Tool blocks](/docs/mcp/tool-block.md) in the project — and installs
 a skill teaching the list/run/verify/write-back workflow.
 

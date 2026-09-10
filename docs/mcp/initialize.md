@@ -33,7 +33,7 @@ This is per-project and doesn't repeat itself automatically — click the button
 
 ## What your assistant gets
 
-Four fixed tools, always the same, no matter what your project contains:
+Six fixed tools, always the same, no matter what your project contains:
 
 | Tool | What it does |
 |---|---|
@@ -41,6 +41,8 @@ Four fixed tools, always the same, no matter what your project contains:
 | `list_requests` | Lists a file's requests, without running anything. |
 | `run_request` | Actually runs a request and returns the result. |
 | `write_result` | Records a result back into the `.void` file. |
+| `list_environments` | Lists the project's env profiles/environments (`.voiden/env-*.yaml`, or a plain `.env` fallback). |
+| `select_environment` | Picks a profile as the default env for every `run_request` for the rest of the session — returns variable keys only, never values. |
 
 That's it. **No** [Tool blocks](./tool-block.md) you've declared, and no `@voiden/mcp` — those are a separate, unrelated flow for publishing your own tools. See [Publishing with @voiden/mcp](./publish.md) if that's what you're after.
 

@@ -57,10 +57,11 @@ Every row in the **Parameters** table is something the *agent* supplies on every
 | **Type** | `string`, `number`, `integer`, `boolean`, `object`, or `array`. |
 | **Mand.** | Whether the agent must supply it. |
 | **Description** | Shown to the agent. |
-| **Test value** | Used only when a verification request runs — there's no live agent call happening then, so this fills the `{{token}}` in its place. A param with no test value just can't be exercised by verification; the request fails on the unresolved token, same as any other missing substitution. |
+| **Test value** | Fills the `{{token}}` in place of a real agent call, for verification only. |
 
 :::note
-Every `{{token}}` the request actually uses currently needs a matching **Binds** row — even one you only ever want resolved from your environment, never touched by the agent. A token with no matching row is an unresolved placeholder, and excludes the tool from being served (`unresolved-placeholder`), regardless of whether it would have resolved fine as a normal environment variable at request time.
+- Without a **Test value**, verification can't exercise that param — the request fails on the unresolved token, same as any other missing substitution.
+- Every `{{token}}` the request actually uses currently needs a matching **Binds** row — even one you only ever want resolved from your environment, never touched by the agent. A token with no matching row excludes the tool from being served (`unresolved-placeholder`), regardless of whether it would have resolved fine as a normal environment variable at request time.
 :::
 
 ---
@@ -83,11 +84,12 @@ The **Verification** table proves a tool actually works before it's served — e
 - **Withdraw** (default) — hide the tool entirely.
 - **Keep, flagged degraded** — keep it visible, with a warning in its description.
 
-When more than one row fails at once, the most conservative policy wins — a single `withdraw` among the failed rows withdraws the tool, even if every other row says `advertise-degraded`.
-
 "Proves it works" means: any [assertions](../core-features-section/voiden-blocks/assertion-block.md) already on the request are checked, falling back to plain transport success (no error, no 4xx/5xx) if the request has none.
 
-No verification rows? The tool still gets served, just marked **unverified**.
+:::tip
+- When more than one row fails at once, the most conservative policy wins — a single `withdraw` among the failed rows withdraws the tool, even if every other row says `advertise-degraded`.
+- No verification rows at all? The tool still gets served, just marked **unverified**.
+:::
 
 ---
 

@@ -16,7 +16,7 @@ Voiden touches [MCP](https://modelcontextprotocol.io) in three separate ways. Pi
 
 These don't overlap:
 
-- **Initialize MCP — local execution, not publishing.** One click in the app (or `voiden agent` from the terminal) gives an agent editor 4 fixed tools for the project you have open right now: list files, list requests, run a request, write back a result.
+- **Initialize MCP — local execution, not publishing.** One click in the app (or `voiden agent` from the terminal) gives an agent editor 6 fixed tools for the project you have open right now: list files, list requests, run a request, write back a result, and list/select an environment.
 - **`/mcp-client` block — a client.** Point it at someone else's server and call it, the same way a REST request calls an API.
 - **`/tool` block + `@voiden/mcp` — a server.** Mark your own requests as tools and publish them so other agents can call *you*.
 

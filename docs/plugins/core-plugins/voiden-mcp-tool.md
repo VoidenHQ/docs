@@ -6,7 +6,7 @@
 
 # Voiden Tool <span className="doc-beta-badge">Beta</span>
 
-The **Voiden Tool** plugin lets you mark an existing request as a named, typed capability an AI agent can call directly — instead of only the four generic run/list/write tools every project gets by default. Declare a `/tool` block once, and `create_user`, `refund_order`, `search_products` — whatever you name it — becomes a real, individually-described, individually-typed tool an agent can discover and call, with a verification policy deciding whether it's currently safe to serve.
+The **Voiden Tool** plugin lets you mark an existing request as a named, typed capability an AI agent can call directly — instead of only the six generic run/list/write/environment tools every project gets by default. Declare a `/tool` block once, and `create_user`, `refund_order`, `search_products` — whatever you name it — becomes a real, individually-described, individually-typed tool an agent can discover and call, with a verification policy deciding whether it's currently safe to serve.
 
 ---
 
@@ -21,7 +21,7 @@ The **Voiden Tool** plugin lets you mark an existing request as a named, typed c
 
 ### **Dynamic MCP Serving**
 
-- A verified tool is registered as a real MCP tool — by [`@voiden/mcp`](/docs/mcp/publish.md) on its own, or by `voiden-runner mcp serve` alongside the 4 built-in tools in CI/no-app setups — with its own name, description, and typed input schema, not a generic pass-through.
+- A verified tool is registered as a real MCP tool — by [`@voiden/mcp`](/docs/mcp/publish.md) on its own, or by `voiden-runner mcp serve` alongside the 6 built-in tools in CI/no-app setups — with its own name, description, and typed input schema, not a generic pass-through.
 - A failing tool is withdrawn from what's served by default, or kept and flagged degraded in its description, per its on-failure policy.
 - A manual **enabled** override lets you add or remove a tool from what's served regardless of its current verification state.
 

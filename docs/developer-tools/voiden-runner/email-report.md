@@ -47,8 +47,10 @@ Or use environment variables so credentials stay out of your command history:
 |---|---|
 | `VOIDEN_MAIL_TO` | Default recipient(s), comma-separated |
 | `VOIDEN_MAIL_FROM` | Default sender address |
+| `VOIDEN_MAIL_SUBJECT` | Default email subject line |
 | `VOIDEN_SMTP_HOST` | SMTP hostname |
 | `VOIDEN_SMTP_PORT` | SMTP port |
+| `VOIDEN_SMTP_SECURE` | Set to `true` to enable TLS/SSL |
 | `VOIDEN_SMTP_USER` | SMTP username |
 | `VOIDEN_SMTP_PASS` | SMTP password |
 

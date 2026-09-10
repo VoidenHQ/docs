@@ -9,10 +9,22 @@
 `@voiden/mcp` is a separate package that turns your [Tool Block](./tool-block.md)-tagged requests into a real MCP server other agents can call. `voiden-mcp [path]` discovers every `/tool` block under `path`, verifies each one, and serves everything that passes — over stdio by default, or `--http` for a real network endpoint.
 
 :::note
-`@voiden/mcp` **only** publishes `/tool` blocks. It does not include Voiden's 4 built-in project tools (`list_void_files`, `list_requests`, `run_request`, `write_result`) — those are local to the Voiden app, via [`voiden agent`](../developer-tools/voiden-cli.md#voiden-agent--register-with-an-agent-editor). Registering `voiden agent` for a project and publishing `/tool` blocks with `@voiden/mcp` are two unrelated things.
+`@voiden/mcp` **only** publishes `/tool` blocks. It does not include Voiden's 6 built-in project tools (`list_void_files`, `list_requests`, `run_request`, `write_result`, `list_environments`, `select_environment`) — those are local to the Voiden app, via [`voiden agent`](../developer-tools/voiden-cli.md#voiden-agent--register-with-an-agent-editor). Registering `voiden agent` for a project and publishing `/tool` blocks with `@voiden/mcp` are two unrelated things.
 :::
 
 Running `@voiden/mcp` *is* the server starting — it doesn't send anything "to" a server elsewhere.
+
+---
+
+## Quick start
+
+Add at least one [Tool block](./tool-block.md) to a request, then from your project folder:
+
+```bash
+npx @voiden/mcp .
+```
+
+That's it — this discovers every `/tool` block, verifies it, and serves everything that passes over stdio. Nothing to configure first. Add `--http --port 3000` instead of the stdio default if you want a real network endpoint you can hit with `curl` or point another agent at. Everything past this point — the full flag list, OAuth, CI/CD, deploying somewhere always-on — is there for when you outgrow this, not required to get going.
 
 ---
 
@@ -37,17 +49,106 @@ A param can only bind to a token that's already in the request. A hardcoded valu
 
 ## Hosting flags
 
-| Flag | What it controls |
-|---|---|
-| `--port` | TCP port the server listens on. |
-| `--host` | `127.0.0.1` (this machine only, default) or `0.0.0.0` (reachable from the network — opt-in). |
-| `--dynamic-tools` | Off by default. Pass this to expose just 2 fixed tools (`search_tools`/`call_tool`) instead of one per tool — keeps a large surface from overwhelming an agent's context window. |
-| `--print-config` | Prints a ready-to-paste `{"mcpServers": {...}}` entry once the server is up. Works with Claude Desktop, Claude Code, Cursor — and pasting it into a `.void` file fills in a Connection block automatically. |
-| `--tunnel` | Optional. Wraps the server in a public `cloudflared` quick tunnel — only needed when the machine has no public IP of its own (a laptop, an ephemeral CI job). Requires `cloudflared` on `PATH`. |
-| `--scheduler` | On by default. Keeps re-verifying tools after startup, on each entry's own [cadence](./tool-block.md#verification), instead of just once. Works over stdio too — a state change triggers a clean restart. |
-| `--no-restart` | Disables the auto-restart supervisor — use when something else already supervises the process (systemd, pm2, Docker). |
+Grouped by what they're for — most projects only ever touch **Network**.
 
-Every flag has a matching env var (`VOIDEN_PUBLISH_PORT`, `VOIDEN_PUBLISH_HOST`, etc.) — CLI flag wins, then env var, then the default. `voiden-mcp --check` is a dry run; `voiden-mcp --version` prints the installed version.
+:::tip
+Every flag also has a matching env var (`--port` → `VOIDEN_PUBLISH_PORT`, and so on) — CLI flag wins, then env var, then the default below.
+:::
+
+### Network
+
+| Flag | Default | What it does |
+|---|---|---|
+| `--port <n>` | `3000` | TCP port the server listens on. |
+| `--host <addr>` | `127.0.0.1` | `127.0.0.1` = this machine only. `0.0.0.0` = reachable from the network — opt-in. |
+| `--tunnel` | off | Public `cloudflared` quick tunnel — only needed with no public IP of your own. Requires `cloudflared` on `PATH`. |
+| `--public-url <url>` | — | The externally-reachable URL clients actually use — for a manual port-forward or reverse proxy, instead of `--tunnel`. |
+
+### Environment
+
+| Flag | What it does |
+|---|---|
+| `-e, --env <path>` | One plain `.env` file, merged on top of the process's own env. |
+| `--profile [name]` | A project [env profile](/docs/getting-started-section/advanced-environment-config) as the server's initial env — same system the `select_environment` tool exposes to an agent. Bare flag means `"default"`. |
+| `--environment <name>` | Scope `--profile` to one named environment in it (e.g. `"dev"`, or `"staging.eu"`). |
+
+:::note
+`--env` and `--profile` are mutually exclusive — pick one. `--environment` only does anything alongside `--profile`.
+:::
+
+### Tool exposure
+
+| Flag | What it does |
+|---|---|
+| `--dynamic-tools` | Off by default. Expose just 2 fixed tools (`search_tools`/`call_tool`) instead of one per tool — for a large surface that would otherwise overwhelm an agent's context window. |
+
+### Inspecting the server
+
+| Flag | What it does |
+|---|---|
+| `--check` | Dry run — prints served/withdrawn/degraded/excluded and exits, no live server started. |
+| `--print-config` | Once the server is up, prints a ready-to-paste `{"mcpServers": {...}}` entry — also fills a Connection block automatically if pasted into a `.void` file. |
+| `--verbose` | Print plugin-load diagnostics. Without it, a plugin failing to load does so silently — the server just serves 0 tools with no error. |
+
+### Reliability
+
+| Flag | Default | What it does |
+|---|---|---|
+| `--no-scheduler` | scheduler **on** | Turns off periodic re-verification (each tool re-runs on its own [cadence](./tool-block.md#verification) otherwise, over stdio too via a clean restart on change). |
+| `--scheduler-interval-minutes <n>` | `1` | How often the scheduler *checks* what's due — not how often a tool actually re-verifies, which is still its own cadence. |
+| `--no-restart` | restart **on** | Turns off the auto-restart supervisor — use when something else already supervises the process (systemd, pm2, Docker `--restart=always`). |
+
+:::note
+`@voiden/mcp` is still early (`0.0.x`) and this flag surface is changing fast — if something here doesn't match what `voiden-mcp --help` prints for you, trust the CLI's own `--help` output.
+:::
+
+### Auth
+
+`--http`/`--tunnel` serve with **no authentication** by default — whoever reaches the URL has full tool access. Turn on auth with `--oauth`, `--sso-*`, `--api-key`, or any combination (whichever credential is presented is checked; any that matches lets the request through).
+
+#### No auth (default)
+
+```bash
+voiden-mcp . --http --tunnel
+```
+
+Nothing gates the MCP endpoint. `/health` is always open, with or without auth on.
+
+#### `--oauth`
+
+```bash
+voiden-mcp . --http --tunnel --oauth
+```
+
+Adds `.well-known/oauth-protected-resource`, `.well-known/oauth-authorization-server`, `/register`, `/authorize`, `/token`, `/revoke`, and a bearer-token check in front of the MCP endpoint. Required by MCP clients that mandate a full OAuth 2.1 handshake before connecting at all (e.g. claude.ai's connector UI).
+
+- `/authorize` auto-approves — no login page. `voiden-mcp` is a single-operator, locally-run tool, so this satisfies clients that require the protocol shape without adding a new identity check.
+- Registered clients and issued tokens persist to `~/.voiden/mcp-oauth.json` — a restart doesn't force reconnected clients to re-authenticate.
+- The issuer must be HTTPS or loopback — combine `--oauth` with `--tunnel` for a public HTTPS URL, or `--public-url` if you're already behind your own port-forward/reverse proxy. Without either, `--oauth` only works on the default `127.0.0.1`/`localhost` bind.
+
+#### `--sso-*` — delegate login to your own IdP
+
+```bash
+voiden-mcp . --http --tunnel \
+  --sso-authorize-url https://your-idp.example.com/oauth/authorize \
+  --sso-token-url https://your-idp.example.com/oauth/token \
+  --sso-registration-url https://your-idp.example.com/oauth/register
+```
+
+Replaces `--oauth`'s auto-approve with a real login at your own IdP. `--sso-authorize-url` + `--sso-token-url` together turn OAuth mode on by themselves — no need to also pass `--oauth`.
+
+- `--sso-registration-url` is required alongside the two above — your IdP's Dynamic Client Registration (RFC 7591) endpoint. Many enterprise IdPs (Okta, Auth0, Keycloak) support this when configured for it.
+- `--sso-revocation-url` is optional, for an IdP with a revocation endpoint.
+- An IdP with only one fixed, manually-created app and no DCR (how plain "Sign in with Google/GitHub" work) isn't supported yet — `--sso-client-id`/`--sso-client-secret` exist only to fail with an explanatory error if you try.
+
+#### `--api-key` — a static shared secret
+
+```bash
+voiden-mcp . --http --tunnel --api-key
+# → 🔑 API key required — pass "Authorization: Bearer <generated-key>"
+```
+
+A shared Bearer token — no browser, no handshake. Independent of `--oauth`/`--sso-*`, and combinable with either. Pass the flag alone to auto-generate a key, persisted under `~/.voiden/mcp-api-keys.json` and printed at startup — or pass `--api-key <value>` (or set `VOIDEN_PUBLISH_API_KEY`, once `--api-key` is present, to keep the literal value off the command line) to set one explicitly.
 
 ---
 
@@ -102,7 +203,7 @@ Paste any MCP server's config JSON — Claude Desktop, Cursor, Windsurf, `.mcp.j
 No. `--tunnel` gives a public URL with zero domain and zero signup. If the machine already has a public IP, skip both — bind the port directly.
 
 **What happens if the request has a `{{token}}` that isn't declared as any parameter?**
-That tool is excluded from what's served as an `unresolved-placeholder`, with a reason printed — or add `--strict` to abort the whole publish instead. This applies even to a token you intend to resolve from your environment; every `{{token}}` the request uses currently needs a matching Parameters row.
+That tool is excluded from what's served as an `unresolved-placeholder`, with the reason printed by `--check`. This applies even to a token you intend to resolve from your environment; every `{{token}}` the request uses currently needs a matching Parameters row.
 
 **I see `0 tool(s) served` — why?**
 Run `voiden-mcp <path> --check` — it prints exactly which tools were excluded and why. See the Render example above for the two most common causes.
