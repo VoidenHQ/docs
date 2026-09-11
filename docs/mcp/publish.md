@@ -6,6 +6,8 @@
 
 # Publishing with @voiden/mcp <span className="doc-beta-badge">Beta</span>
 
+This page is for turning your own requests into a server that other AI agents (or teammates) can call over the network — a step up from testing locally. It involves running a command in a terminal, so it's more technical than the rest of the MCP docs; if you just want an assistant to run requests in your own project, see [Initialize MCP](./initialize.md) instead, which needs none of this.
+
 `@voiden/mcp` is a separate package that turns your [Tool Block](./tool-block.md)-tagged requests into a real MCP server other agents can call. `voiden-mcp [path]` discovers every `/tool` block under `path`, verifies each one, and serves everything that passes — over stdio by default, or `--http` for a real network endpoint.
 
 :::note
@@ -52,7 +54,7 @@ A param can only bind to a token that's already in the request. A hardcoded valu
 Grouped by what they're for — most projects only ever touch **Network**.
 
 :::tip
-Every flag also has a matching env var (`--port` → `VOIDEN_PUBLISH_PORT`, and so on) — CLI flag wins, then env var, then the default below.
+Most flags also have a matching env var (`--port` → `VOIDEN_PUBLISH_PORT`, and so on) — CLI flag wins, then env var, then the default below. The Environment flags (`--env`, `--profile`, `--environment`) and `--check` are the exceptions — CLI-only, no env var equivalent.
 :::
 
 ### Network

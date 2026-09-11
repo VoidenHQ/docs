@@ -15,7 +15,7 @@ The **Voiden Tool** plugin lets you mark an existing request as a named, typed c
 ### **Tool Declaration**
 
 - Mark any existing request as an agent-callable tool, with its own name, title, description, and annotations (read-only, destructive, idempotent, open-world).
-- A **Parameters** table declaring which `{{token}}` in the request the agent supplies a value for on each call, with a type, required flag, and description shown to the agent.
+- A **Parameters** table declaring which `{{token}}` in the request the agent supplies a value for on each call, with a type, required flag, and description shown to the agent. An **Auto-populate params** button scans the bound request and adds a row for every `{{token}}` it finds, so you don't have to type them in one by one.
 - A **Verification** policy: reference other requests as happy-path / error-contract / auth-check proof the tool works, each with its own mode (live / sandbox / none), optional cadence, and its own on-failure policy (withdraw or serve degraded) — set per verification row, not tool-wide. When more than one row fails at once, the most conservative policy among them wins.
 - Cross-file request/verify references save a path relative to the referencing file's own project, not an absolute path baked to one machine — so they survive being cloned elsewhere.
 

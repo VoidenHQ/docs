@@ -6,19 +6,20 @@
 
 # Voiden MCP Client <span className="doc-beta-badge">Beta</span>
 
-The **Voiden MCP Client** plugin lets you connect to an external [MCP](https://modelcontextprotocol.io) server — remote or local — and run a single operation against it, the same way `.void` files already test REST and GraphQL requests. Use it to explore, test, and assert on someone else's MCP server, the reverse direction of the [Voiden Tool](./voiden-mcp-tool.md) plugin, which serves your *own* requests as MCP tools.
+The **Voiden MCP Client** plugin lets you connect to an external [MCP](https://modelcontextprotocol.io) server — anything reachable over the network, remote or on `localhost` — and try out what it offers, the same way `.void` files already test REST and GraphQL requests. Use it to explore, test, and assert on someone else's MCP server, the reverse direction of the [Voiden Tool](./voiden-mcp-tool.md) plugin, which serves your *own* requests as MCP tools.
 
-Phase 1: Streamable-HTTP transport only.
+Phase 1: Streamable-HTTP transport only — a server that only runs as a local, spawned process (stdio) isn't supported yet.
 
 ---
 
 ## Key Features
 
-### **MCP Operations**
+### **Tools, Resources, and Prompts**
 
 - Connect to any Streamable-HTTP MCP server, remote or running on `localhost`.
-- Run `list_tools`, `call_tool`, `list_resources`, `read_resource`, `list_prompts`, or `get_prompt` against it.
-- Tool/prompt arguments are authored as JSON, with `{{...}}` placeholders — environment and runtime variables resolve before the call is sent. (Faker tokens don't yet resolve inside these arguments — support is planned.)
+- Pick what you want to call by **Type** — **Tool** (an action), **Resource** (a piece of data by URI), or **Prompt** (a template) — and Voiden auto-discovers the server's real names for a dropdown, instead of you needing to know them upfront.
+- Tool/prompt arguments are authored as JSON (auto-filled from the tool/prompt's own schema when you pick it), with `{{...}}` placeholders — environment and runtime variables resolve before the call is sent. (Faker tokens don't yet resolve inside these arguments — support is planned.)
+- If the server requires sign-in, an **Authorize** button walks you through it in your browser — no manual token copying.
 
 ### **Config Import**
 
@@ -41,7 +42,7 @@ No separate auth system or assertion syntax to learn.
 This plugin owns 3 block types for MCP server connection, operation, and response rendering:
 
 - [`mcp-connection ↗`](/docs/mcp/connection-block.md)
-- `mcpoperation` — the operation picker, part of the MCP Connection block
+- `mcpoperation` — the Type/Tool/Resource/Prompt picker and arguments editor, part of the MCP Connection block
 - `mcp-response` — response rendering
 
 ---

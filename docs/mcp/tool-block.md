@@ -6,9 +6,9 @@
 
 # Tool Block <span className="doc-beta-badge">Beta</span>
 
-The **Tool block** (`/tool`) marks an existing request as a named, agent-callable tool. Instead of an AI agent only seeing generic tools, it sees `create_user`, `refund_order`, `search_products` — whatever you name it.
+The **Tool block** (`/tool`) marks an existing request as a named, agent-callable tool. Instead of an AI agent only seeing generic tools, it sees `create_user`, `refund_order`, `search_products` — whatever you name it. Think of it as a label you attach to a request that tells an AI agent: "this exists, here's what it does, and here's exactly how to call it safely."
 
-A `/tool` block doesn't build a request — it decorates one that already exists. By default that's the request in the same section.
+A `/tool` block doesn't build a request of its own — it decorates one that already exists elsewhere in the file. By default that's the request in the same section, but you can point it at a request in a different section, or even a different `.void` file, using the **Request** row at the top of the block ("bind a different request…").
 
 :::note
 To actually serve a tool to an agent, see [Publishing with @voiden/mcp](./publish.md).
@@ -42,13 +42,13 @@ To actually serve a tool to an agent, see [Publishing with @voiden/mcp](./publis
 
 Other than Read-only, these are just hints for the agent — Voiden doesn't enforce them.
 
-There's also an **Enabled** switch (on by default) that force-removes a tool regardless of verification, in the block's own attrs.
+There's also an underlying **enabled** setting on the block itself (on by default) that, when turned off, force-removes a tool from what's served no matter what verification says about it — a way to pull a tool without deleting the block. The editor doesn't currently expose a switch for it directly on the block.
 
 ---
 
 ## Parameters
 
-Every row in the **Parameters** table is something the *agent* supplies on every call — there's no separate "environment-sourced" kind of param.
+A `{{token}}` is Voiden's placeholder syntax — e.g. `{{userId}}` written into a URL or a request body, filled in at call time. Every row in the **Parameters** table declares one such placeholder that the *agent* fills in on every call — there's no separate "just resolve this quietly from my environment" kind of param; if the request uses a placeholder, it needs a row here.
 
 | Field | What it's for |
 |-------|----------------|
@@ -58,6 +58,8 @@ Every row in the **Parameters** table is something the *agent* supplies on every
 | **Mand.** | Whether the agent must supply it. |
 | **Description** | Shown to the agent. |
 | **Test value** | Fills the `{{token}}` in place of a real agent call, for verification only. |
+
+Don't want to add these rows one by one? Click **Auto-populate params** (top-right of the block) and Voiden scans the bound request for every `{{token}}` it uses and adds a row for each one it doesn't already have — with a sensible description guessed from the header/query/path row it came from, where possible. You still need to fill in the **Test value** yourself for verification to work.
 
 :::note
 - Without a **Test value**, verification can't exercise that param — the request fails on the unresolved token, same as any other missing substitution.
@@ -105,4 +107,4 @@ The **Verification** table proves a tool actually works before it's served — e
 
 ## Summary
 
-The Tool block turns a request into a named, typed tool — parameters split between agent-supplied and server-side, plus a verification policy deciding whether it's safe to serve. It never runs on its own; [`@voiden/mcp`](./publish.md) is what publishes it.
+The Tool block turns a request into a named, typed tool — every parameter agent-supplied and declared up front, plus a verification policy deciding whether it's safe to serve. It never runs on its own; [`@voiden/mcp`](./publish.md) is what publishes it.

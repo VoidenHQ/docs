@@ -6,7 +6,9 @@
 
 # MCP in Voiden <span className="doc-beta-badge">Beta</span>
 
-Voiden touches [MCP](https://modelcontextprotocol.io) in three separate ways. Pick the one that matches what you're doing:
+[MCP](https://modelcontextprotocol.io) (Model Context Protocol) is a common language that lets an AI assistant — Claude, ChatGPT, or any other agent — actually *use* a program's abilities, instead of just reading about them in a document. A program that *offers* abilities this way is called an "MCP server"; a program that *calls* one is a "client." Voiden can act as either one, depending on what you're trying to do.
+
+You don't need to understand the protocol itself to use any of this — just pick the row below that matches what you're trying to do:
 
 | You want to... | Use |
 |---|---|
@@ -16,7 +18,7 @@ Voiden touches [MCP](https://modelcontextprotocol.io) in three separate ways. Pi
 
 These don't overlap:
 
-- **Initialize MCP — local execution, not publishing.** One click in the app (or `voiden agent` from the terminal) gives an agent editor 6 fixed tools for the project you have open right now: list files, list requests, run a request, write back a result, and list/select an environment.
+- **Initialize MCP — local execution, not publishing.** One click in the app (or `voiden agent` from the terminal) gives your AI assistant (Claude Code, Codex, etc.) 6 fixed tools for the project you have open right now: list files, list requests, run a request, write back a result, and list/select an environment.
 - **`/mcp-client` block — a client.** Point it at someone else's server and call it, the same way a REST request calls an API.
 - **`/tool` block + `@voiden/mcp` — a server.** Mark your own requests as tools and publish them so other agents can call *you*.
 

@@ -6,7 +6,7 @@
 
 # Initialize MCP <span className="doc-beta-badge">Beta</span>
 
-The fastest way to let Claude Code or Codex actually *run* your `.void` requests — not just write them. One click, scoped to whichever project you have open.
+Normally, an AI coding assistant like Claude Code or Codex can only read and write your `.void` files as text — it can't press "Run" for you. **Initialize MCP** changes that: one click connects your assistant directly to the project you have open, so it can actually execute your requests, check the responses, and save the results back into the file, all on its own.
 
 ---
 
@@ -27,7 +27,7 @@ Both do the same thing: register a small MCP server for this project with Claude
 | **Claude** | `.mcp.json` in your project root |
 | **Codex** | `[mcp_servers.voiden-mcp]` in `~/.codex/config.toml` |
 
-This is per-project and doesn't repeat itself automatically — click the button (or re-run `voiden agent`) again if you switch to a different project.
+You never need to open or edit these files yourself — they're just where each assistant keeps track of "this project is connected." This is per-project and doesn't carry over automatically — click the button (or re-run `voiden agent`) again for each new project you want your assistant to run requests in.
 
 ---
 
@@ -41,10 +41,14 @@ Six fixed tools, always the same, no matter what your project contains:
 | `list_requests` | Lists a file's requests, without running anything. |
 | `run_request` | Actually runs a request and returns the result. |
 | `write_result` | Records a result back into the `.void` file. |
-| `list_environments` | Lists the project's env profiles/environments (`.voiden/env-*.yaml`, or a plain `.env` fallback). |
-| `select_environment` | Picks a profile as the default env for every `run_request` for the rest of the session — returns variable keys only, never values. |
+| `list_environments` | Lists the project's saved environments — the sets of variables you switch between, like "dev" vs "production". |
+| `select_environment` | Tells your assistant's future `run_request` calls this session to use one of those environments by default. It only reports back the variable *names* it selected, never the actual secret values. |
 
 That's it. **No** [Tool blocks](./tool-block.md) you've declared, and no `@voiden/mcp` — those are a separate, unrelated flow for publishing your own tools. See [Publishing with @voiden/mcp](./publish.md) if that's what you're after.
+
+:::note
+`write_result` doesn't lock the file while it saves. If you have that same `.void` file open and unsaved in the Voiden app at the same time your assistant calls `write_result`, whichever one saves last wins — the other's changes can be lost. Safest habit: save or close a file in the app before asking your assistant to run and record results for it.
+:::
 
 ---
 
