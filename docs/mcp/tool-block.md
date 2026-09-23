@@ -4,7 +4,7 @@
   sidebar_label: Tool Block
 ---
 
-# Tool Block <span className="doc-beta-badge">Beta</span>
+# Tool Block
 
 The **Tool block** (`/tool`) marks an existing request as a named, agent-callable tool. Instead of an AI agent only seeing generic tools, it sees `create_user`, `refund_order`, `search_products` — whatever you name it. Think of it as a label you attach to a request that tells an AI agent: "this exists, here's what it does, and here's exactly how to call it safely."
 

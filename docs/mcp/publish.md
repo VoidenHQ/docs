@@ -4,7 +4,7 @@
   sidebar_label: Publish (@voiden/mcp)
 ---
 
-# Publishing with @voiden/mcp <span className="doc-beta-badge">Beta</span>
+# Publishing with @voiden/mcp
 
 This page is for turning your own requests into a server that other AI agents (or teammates) can call over the network — a step up from testing locally. It involves running a command in a terminal, so it's more technical than the rest of the MCP docs; if you just want an assistant to run requests in your own project, see [Initialize MCP](./initialize.md) instead, which needs none of this.
 

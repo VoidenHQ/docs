@@ -4,7 +4,7 @@
   sidebar_label: Initialize MCP
 ---
 
-# Initialize MCP <span className="doc-beta-badge">Beta</span>
+# Initialize MCP
 
 Normally, an AI coding assistant like Claude Code or Codex can only read and write your `.void` files as text — it can't press "Run" for you. **Initialize MCP** changes that: one click connects your assistant directly to the project you have open, so it can actually execute your requests, check the responses, and save the results back into the file, all on its own.
 

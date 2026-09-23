@@ -4,7 +4,7 @@
   sidebar_label: Overview
 ---
 
-# MCP in Voiden <span className="doc-beta-badge">Beta</span>
+# MCP in Voiden
 
 [MCP](https://modelcontextprotocol.io) (Model Context Protocol) is a common language that lets an AI assistant — Claude, ChatGPT, or any other agent — actually *use* a program's abilities, instead of just reading about them in a document. A program that *offers* abilities this way is called an "MCP server"; a program that *calls* one is a "client." Voiden can act as either one, depending on what you're trying to do.
 

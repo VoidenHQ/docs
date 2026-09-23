@@ -4,7 +4,7 @@
   sidebar_label: Voiden Tool
 ---
 
-# Voiden Tool <span className="doc-beta-badge">Beta</span>
+# Voiden Tool
 
 The **Voiden Tool** plugin lets you mark an existing request as a named, typed capability an AI agent can call directly — instead of only the six generic run/list/write/environment tools every project gets by default. Declare a `/tool` block once, and `create_user`, `refund_order`, `search_products` — whatever you name it — becomes a real, individually-described, individually-typed tool an agent can discover and call, with a verification policy deciding whether it's currently safe to serve.
 

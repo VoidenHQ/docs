@@ -4,7 +4,7 @@
   sidebar_label: Connection Block
 ---
 
-# MCP Connection Block <span className="doc-beta-badge">Beta</span>
+# MCP Connection Block
 
 Someone else has already built an [MCP](https://modelcontextprotocol.io) server — a program that exposes a set of actions an AI assistant can call, like "create a customer" or "search products." The **MCP Connection block** (`/mcp-client`) lets you connect to that server and try those actions out from inside a `.void` file, the same way you'd send a REST request to explore an API. It's for exploring and testing *someone else's* server — the reverse of the [Tool Block](./tool-block.md), which turns *your own* requests into a server other people can call.
 
