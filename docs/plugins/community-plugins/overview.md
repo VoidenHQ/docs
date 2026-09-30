@@ -9,11 +9,15 @@ sidebar_position: 1
 
 Community plugins are built by developers like you — extending Voiden with new blocks, workflows, and integrations that the core team hasn't built yet. Every plugin listed here was submitted by the community and approved by the Voiden team.
 
+---
+
 ## How to build your own plugin
 
 Getting started is straightforward with the [`@voiden/create-plugin`](/docs/developer-tools/create-plugin/create-plugin-overview) scaffolding tool. It sets up everything you need — the right folder structure, a local dev environment, and a build pipeline — so you can focus on writing the plugin itself.
 
 Head over to the **[@voiden/create-plugin docs](/docs/developer-tools/create-plugin/create-plugin-overview)** to get started.
+
+---
 
 ## How your plugin ends up here
 

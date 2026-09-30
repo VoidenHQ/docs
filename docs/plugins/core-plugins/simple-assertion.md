@@ -34,6 +34,12 @@ The table format keeps tests readable, even when you add multiple assertions.
 
 ---
 
+### Generate Assertions from the Response
+
+No need to build every row by hand. After you run the request, a **Generate Assertion from Response** button appears right on the assertion block — click it and Voiden creates assertion rows for you, covering request headers, response headers, and the body, based on the values you just got back. From there, edit, remove, or loosen any row to fit what you actually want to validate.
+
+---
+
 ### What Can You Check?
 
 Simple Assertions let you check the parts of a response that actually matter—without digging through raw output or logs. You choose the field, set what you expect, and Voiden takes care of the rest.
@@ -83,6 +89,7 @@ In short, Simple Assertions let you check not just *what* the API returns, but *
 ## Why Use Simple Assertions
 
 - Validate API behavior without writing scripts
+- Generate assertions straight from a real response instead of typing them out
 - Catch incorrect responses early
 - Verify performance with response time checks
 - Ensure headers and status codes are correct
@@ -122,4 +129,4 @@ Simple Assertions support a wide range of operators, along with familiar aliases
 
 ## Summary
 
-The Simple Assertions plugin in Voiden lets you validate **status**, **status codes**, **response time**, **response headers**, and **response bodies** using a simple table-based interface. With clear operators and visual feedback built directly into the response panel, it provides a practical and approachable way to add confidence to your API testing workflow.
+The Simple Assertions plugin in Voiden lets you validate **status**, **status codes**, **response time**, **response headers**, and **response bodies** using a simple table-based interface — and you don't even have to write the checks yourself, thanks to **Generate Assertion from Response**. With clear operators and visual feedback built directly into the response panel, it provides a practical and approachable way to add confidence to your API testing workflow.

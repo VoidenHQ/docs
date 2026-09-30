@@ -7,6 +7,10 @@
 
 # Import from Postman
 
+:::info Core Plugin
+This feature is powered by the [Postman Collection Importer](/docs/plugins/core-plugins/postman-collection-importer) — a core plugin that comes bundled with Voiden, so there's nothing extra to install.
+:::
+
 Already doing your API work in Postman? Great — bring it all into Voiden in just a few steps. No rebuilding from scratch, no copy-pasting. Just import and keep going.
 
 ---
@@ -56,3 +60,9 @@ Got your environments set up in Postman? You don't have to start over.
 ## Ready to Go
 
 One import, everything set up. Your Postman work becomes a structured, ready-to-use API foundation in Voiden — no manual effort, no room for mistakes.
+
+---
+
+## Summary
+
+The Postman importer takes your exported collection and turns it into a fully organized set of `.void` files inside Voiden — endpoints, headers, auth, query params, and body schemas all converted automatically, with your folder structure preserved. Bring your environment variables along too, and you've got a complete, ready-to-test API foundation without retyping a single request.

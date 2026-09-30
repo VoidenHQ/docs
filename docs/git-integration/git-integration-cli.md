@@ -50,4 +50,3 @@ All directly from your terminal.
 Git CLI is the most powerful way to manage version control in Voiden.  
 It offers speed, control, automation, and a consistent workflow across all environments—making it the preferred choice for developers building and maintaining Voiden workspaces.
 
----

@@ -7,6 +7,10 @@
 
 # Import from OpenAPI
 
+:::info Core Plugin
+This feature is powered by the [OpenAPI Collection Importer](/docs/plugins/core-plugins/openapi-collection-importer) — a core plugin that comes bundled with Voiden, so there's nothing extra to install.
+:::
+
 Get started with your existing APIs in seconds! Voiden lets you import OpenAPI specifications and instantly generate ready-to-use API requests.
 
 ---

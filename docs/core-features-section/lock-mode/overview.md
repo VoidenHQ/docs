@@ -64,3 +64,9 @@ Lock Mode is scoped to your current session. The second you close and reopen, yo
 ## The Short Version
 
 Turn it on, test freely, turn it off. One click in the status bar — no config, no cleanup, nothing left behind.
+
+---
+
+## Summary
+
+Lock Mode is a one-click toggle in the status bar that lets you run requests without any of it being recorded — no history, no disk writes, nothing saved to your project. Everything else works exactly as normal: blocks, auth, variables, responses, all of it. It's scoped to your current session and never touches data you've already saved, making it the go-to option whenever you're exploring, on a shared machine, or working with anything sensitive.

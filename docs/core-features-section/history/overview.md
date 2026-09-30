@@ -123,3 +123,9 @@ Exported files are organized neatly by date, so they're easy to find later:
 **Switched tabs and history looks out of date?**
 - History is cached per tab during your session — switching back to a tab you've already visited reuses the cached data
 - Close and reopen the tab to force a fresh reload
+
+---
+
+## Summary
+
+Request History gives you a full, automatic record of every request you run — request, response, and timestamp — stored locally per `.void` file and pruned on your own retention schedule. Turn it on from `Settings → History`, browse it per-file in the **History** tab or across your whole project in **Global History**, and replay, copy, or export any entry when you need it again. It's a safety net for your API work that stays out of your way until you actually need it.

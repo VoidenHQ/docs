@@ -18,17 +18,29 @@ Voiden proudly supports Assertions as a **reusable block**, because why should o
 
 ![assertion](/img/voiden-blocks/assertion-show.png)
 
+---
 
 2. **Run It**  
    Give your request a gentle nudge by either:  
    - Pressing **Cmd + Enter** (on macOS) or **Ctrl + Enter** (on Windows/Linux), or  
    - Clicking the big, bright **green  Play button**—the one that screams “press me!”  
 
+---
      
 3. **Check the Results**  
    Slide over to the **Response Panel** — you’ll spot your shiny new **Assertion Check** waiting to tell you if things went perfectly… or hilariously wrong.
 
 ![asserion](/img/voiden-blocks/assertion.gif)
+
+---
+
+### Generate Assertions from the Response
+
+Don't feel like writing every assertion by hand? You don't have to.
+
+Run your request, and right on the assertion block you'll see a **Generate Assertion from Response** button appear. Click it and Voiden looks at what came back — request headers, response headers, and the body — and builds out assertion rows for them automatically, matched against the values you just got.
+
+It's the fastest way to lock in a "this is what a good response looks like" snapshot, which you can then tweak, trim, or loosen up as needed.
 
 ---
 
@@ -72,5 +84,5 @@ Voiden proudly supports Assertions as a **reusable block**, because why should o
 
 ## Summary
 
-Assertion blocks are your API's quality check — drop one in with `/assertion-block`, run your request, and head over to the Response Panel to see exactly what passed and what didn't. You can check status codes, status text, response time, headers, and body fields, with a solid set of operators covering everything from simple equality to regex matching and type checks. Just make sure the Assertion Plugin is enabled and you're good to go.
+Assertion blocks are your API's quality check — drop one in with `/assertion-block`, run your request, and head over to the Response Panel to see exactly what passed and what didn't. Don't want to write them by hand? After running your request, hit **Generate Assertion from Response** and let Voiden build assertions from your request headers, response headers, and body for you. You can check status codes, status text, response time, headers, and body fields, with a solid set of operators covering everything from simple equality to regex matching and type checks. Just make sure the Assertion Plugin is enabled and you're good to go.
 

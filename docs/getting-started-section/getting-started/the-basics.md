@@ -75,7 +75,7 @@ Your blocks aren't set in stone. Once you've got them in place, you can drag and
 
 ---
 
-## Select & Move Multiple Blocks <span className="doc-beta-badge">Beta</span>
+## Select & Move Multiple Blocks
 
 Need to move more than one block at a time? Select a group — even blocks that aren't next to each other — and drag, delete, or cancel them together. The selection is temporary and never saved to the file.
 

@@ -64,3 +64,9 @@ Got environments set up in Bruno? You don't have to redo them.
 ## Ready to Go
 
 One import, everything set up. Your Bruno collection becomes a clean, ready-to-use API foundation in Voiden — no manual rework, no room for mistakes.
+
+---
+
+## Summary
+
+The Bruno importer takes your OpenCollection export and turns it into a fully organized set of `.void` files inside Voiden — requests, folders, headers, auth, query params, body types, and even safe scripts and assertions, all converted automatically. Bring your environments along too, and you've got a complete, ready-to-test API foundation without retyping a single request. Just remember: a standalone `.bru` file needs to be part of a full collection export first.

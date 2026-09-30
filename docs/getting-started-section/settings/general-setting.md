@@ -91,11 +91,24 @@ Want to see everything the CLI can do? Check out the [Voiden CLI docs](/docs/dev
 
 ---
 
-## AI Skill
+
+### AI Skill
 
 Voiden can generate a skill file that teaches your AI assistant everything it needs to know about the `.void` format. Once enabled, your assistant can read, write, and generate valid `.void` files right alongside you.
 
 Head over to the [AI Skill settings](/docs/getting-started-section/settings/ai-skill) to set it up.
+
+---
+
+## Developer
+
+Need to see what's happening under the hood? The System Logs tab lets you inspect IPC calls, git operations, and state changes as they happen — handy for debugging or just understanding what Voiden is doing behind the scenes.
+
+---
+
+## Updates
+
+This is where you check what you're running. See your current version of Voiden at a glance, along with the updater log so you can track what's been installed and when.
 
 ---
 
@@ -110,3 +123,9 @@ Voiden comes with a full set of keyboard shortcuts to keep your hands on the key
 - **Execution** — Run requests and tests
 - **Editing** — Code completion, formatting, and text edits
 - **View Controls** — Toggle panels and adjust layout
+
+---
+
+## Summary
+
+Voiden's settings cover everything from where your projects live to how the editor looks and behaves. Set your project directory and history preferences in General, fine-tune the editor to your liking, configure your network and proxy setup, hook up the CLI under Integrations, and enable AI Skill so your assistant understands `.void` files. Need to dig deeper? System Logs and Updates have you covered, and Keyboard Shortcuts keeps your hands on the keys. Spend a few minutes here and Voiden starts feeling like it was built just for you.
