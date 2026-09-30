@@ -16,12 +16,11 @@ Voiden supports **API Key Authentication** as a secure and straightforward way t
 
 2. Fill the required params for the block.
 
-![api-key](/img/voiden-blocks/authorization/api-key2.png)
-
 3. Hit **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux) to run the request
 or click the **green Play button** in the toolbar.
 
-4. Check the **Response Panel**
+![api-key](/img/voiden-blocks/authorization/api-key2.png)
+
 
 ---
 
@@ -32,6 +31,7 @@ or click the **green Play button** in the toolbar.
 | value | string | The actual API key used to authenticate the request. |
 | add_to | string | Where the API key should be added — typically `headers`, `query`, or `cookie`. |
 
+---
 
 ##  Summary
 

@@ -62,3 +62,9 @@ Below are all supported authorization options with descriptions:
 | hawk | Hawk | A cryptographic authentication scheme using MAC (Message Authentication Code).
 | atlassianAsap | ASAP | Atlassian Service Authentication Protocol — used for secure service-to-service communication.
 | netrc | Netrc | Uses credentials from a .netrc file for authentication.
+
+---
+
+## Summary
+
+The Authorization Block is your single, dedicated place for handling authentication in a request — separate from headers, params, and other metadata. Add it with `/auth`, pick from a dozen-plus supported types (Bearer, Basic, API Key, OAuth1/2, Digest, AWS Signature, NTLM, Hawk, ASAP, Netrc, or none at all), fill in the params, and run your request. Each type has its own dedicated block with more detail — check the pages for the one you need.

@@ -21,16 +21,14 @@ When you need to send files, images, or mixed data types in a single request —
 ![multipart](/img/voiden-blocks/multipart.png)
 
 2. Add some multipart form fields to your request.  
-3. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),  
+3. For a file field, type **`@`** to open the file picker — pick a file from your current project, or browse to one anywhere else on your system.
+4. Run the request using **Cmd + Enter** (Mac) or **Ctrl + Enter** (Windows/Linux),  
 **or** click the **green Play button** in the toolbar.
 
 ---
 
-![multipart](/img/voiden-blocks/multipart-push.gif)
+![multipart](/img/voiden-blocks/multipart-push.png)
 
-> **Pro Tip:** Want to temporarily disable a multipart form data field without deleting it?  
-> Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment it out.  
-> It’ll stay visible but won’t be sent with the request.
 
 ---
 

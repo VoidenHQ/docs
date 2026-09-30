@@ -40,6 +40,8 @@ Don't feel like writing every assertion by hand? You don't have to.
 
 Run your request, and right on the assertion block you'll see a **Generate Assertion from Response** button appear. Click it and Voiden looks at what came back — request headers, response headers, and the body — and builds out assertion rows for them automatically, matched against the values you just got.
 
+![generate=assertion](/img/voiden-blocks/generate-assertion.gif)
+
 It's the fastest way to lock in a "this is what a good response looks like" snapshot, which you can then tweak, trim, or loosen up as needed.
 
 ---

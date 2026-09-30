@@ -23,7 +23,7 @@ Voiden handles the content-type detection and binary encoding automatically, so 
 
 ---
 
-![voiden-blocks](/img/voiden-blocks/auth-binery.gif)
+![voiden-blocks](/img/voiden-blocks/done-binery.png)
 <!-- ![Binary File Block Response](/img/voiden-blocks/headers-block-post.png) -->
 
 ---

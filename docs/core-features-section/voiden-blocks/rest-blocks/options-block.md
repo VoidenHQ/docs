@@ -117,3 +117,9 @@ The key column has built-in autocomplete. Start typing in the first cell and Voi
 Like headers, query params, and auth, the options table supports **block linking**. Link a shared options configuration from another file so multiple requests can reuse the same settings without duplication.
 
 If the source file changes, linked blocks display a **source sync indicator** — so you always know when you're looking at something that might be out of date.
+
+---
+
+## Summary
+
+The Options Block gives you per-request control that overrides your global settings without touching them — right now, that's `follow_redirects`, with more options planned as `timeout` and others move from global-only to per-request. Drop it in with `/options`, it's scoped to that section alone, and it stops applying the moment the request finishes. Use autocomplete to catch every supported key, and link shared configurations across files when you don't want to repeat yourself.

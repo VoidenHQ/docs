@@ -14,11 +14,17 @@ Reusable Blocks are your little time-saving buddies. Instead of typing the same 
 
 ## How They Work 
 1. Before importing, first create a block that can be reused across multiple Void files. Define your content and save it as a reusable block.
+
 ![reusable](/img/voiden-blocks/reusable-first.png)
+
 2. Type `@` to show the list of linkable files or blocks
+
 3. Focus on a void file and press `Space bar` to see the blocks of that file
+
 ![Reusable](/img/voiden-blocks/reuseable-block.gif)
-4. Done! Your block is imported. Yes, that was simple, right?
+
+4. **Done!** Your block is imported. Yes, that was simple, right?
+
 ---
 
 ## Why You’ll Love Them

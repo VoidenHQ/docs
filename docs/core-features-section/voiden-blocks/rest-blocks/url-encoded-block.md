@@ -24,7 +24,7 @@ No manual percent-encoding. No worrying about spaces, special characters, or amp
 **or** click the **green  Play button** in the toolbar. 
 
 ---
-![voiden-url](/img/voiden-blocks/voiden-url.gif)
+![voiden-url](/img/voiden-blocks/voiden-url.png)
 
 >  **Pro Tip:** Want to temporarily disable a URL encoded form data field without deleting it?  
 > Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment it out.  

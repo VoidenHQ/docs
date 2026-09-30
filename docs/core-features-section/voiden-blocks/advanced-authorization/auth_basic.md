@@ -19,18 +19,10 @@ Basic Authorization is a simple authentication scheme where the client sends use
 
 
 2. Fill the required params for the block.
-
-![Authorization Block Response](/img/voiden-blocks/authorization/basic-auth-param.png)
-
-
 3. Hit **Cmd + Enter** (Mac) or **Ctrl + Enter**  (Windows/Linux) to run the request  
 **or** click the **green  Play button** in the toolbar.
 
-4. Check the **Response Panel** 
-
->  **Pro Tip:** Want to temporarily disable a header without deleting it?  
-> Use **Cmd + /** (Mac) or **Ctrl + /** (Windows/Linux) to comment it out.  
-> It’ll stay visible but won’t be sent with the request — perfect for quick testing.
+![Authorization Block Response](/img/voiden-blocks/authorization/basic-auth-param.png)
 
 ---
 
@@ -39,3 +31,9 @@ Basic Authorization is a simple authentication scheme where the client sends use
 | --- | --- | --- |
 | username | string | User identifier for authentication |
 | password | string | User password for authentication |
+
+---
+
+## Summary
+
+Basic Authorization sends your username and password Base64-encoded with every request — simple to set up with `/auth-basic`, just two fields, and ready to run. Keep in mind it's encoded, not encrypted, so it's best paired with HTTPS.

@@ -20,15 +20,10 @@ OAuth 2.0 is a widely used authorization framework that enables secure access to
     ![Authorization OAuth1 Slash Command](/img/voiden-blocks/authorization/auth-oauth2.png)
 
 2. Fill the required params for the block.
-
-    ![Authorization OAuth1 Slash Command](/img/voiden-blocks/authorization/auth-oauth2-params.png)
-
 3. Hit **Cmd + Enter** (Mac) or **Ctrl + Enter**  (Windows/Linux) to run the request  
     **or** click the **green Play button** in the toolbar.
 
-4. Check the **Response Panel** 
-
-
+    ![Authorization OAuth1 Slash Command](/img/voiden-blocks/authorization/auth-oauth2-params.png)
 
 ---
 ##  Tips & Gotchas 
@@ -99,3 +94,9 @@ To avoid this entirely, assign a unique `variable_prefix` to every OAuth2 block 
 | access_token | string | The token issued by the authorization server after successful authentication. It grants access to protected resources on behalf of the user or application.
 | token_type | string | Specifies the type of token issued. Commonly "Bearer", which means the token should be sent in the Authorization header using the Bearer scheme.
 | header_prefix |	string | The prefix added before the token in the request header. For example, with a Bearer token type, the header becomes Authorization: Bearer `<access_token>`.
+
+---
+
+## Summary
+
+OAuth2 handles token-based access to modern APIs and identity providers, with `/auth-oauth2` covering every major grant type. Use the **Discover** button to skip manual setup for OpenID Connect providers, turn on **Auto-Refresh** so tokens renew themselves silently, and give each block its own `variable_prefix` so multiple providers don't collide. Just remember: the OAuth redirect URI has to be registered with your provider, and you've got a 2-minute window to complete the browser login after clicking **Get Token**.
