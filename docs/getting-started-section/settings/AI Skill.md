@@ -13,14 +13,29 @@ Your AI assistant is great at writing code but it doesn't know Voiden's `.void` 
 
 ## How It Works
 
-When you enable AI Skill, Voiden generates a `skill.md` file inside your project's `.voiden` directory, right where your assistant can find it:
+When you enable AI Skill, Voiden installs a skill in your home folder, where your assistant looks for skills:
 
-| Assistant | Skill file location |
+| Assistant | Skill location |
 |-----------|------------------------|
-| **Claude** | `.claude/skills/voiden/skill.md` |
-| **Codex** | `.codex/skills/voiden/skill.md` |
+| **Claude** | `~/.claude/skills/voiden/` |
+| **Codex** | `~/.codex/skills/voiden/` |
 
-The file covers the full `.void` format: block types, structure rules, variable syntax, and the features from your enabled plugins. Your assistant picks it up automatically as context, so it can read your existing files and generate new ones correctly when required.
+Each location holds a short `SKILL.md` and one guide per enabled plugin:
+
+```
+voiden/
+├── SKILL.md                      ← the .void format, plus an index of the guides
+└── extensions/
+    ├── voiden-rest-api.md
+    ├── voiden-advanced-auth.md
+    └── ...one file per enabled plugin
+```
+
+`SKILL.md` covers what every `.void` file shares: structure rules, variable syntax, multi-request files, and environments. It starts with a short section telling the assistant which guide to read for which task, and each plugin's blocks are documented in that plugin's own guide. Your assistant reads `SKILL.md`, then opens the guides the task needs, so it can read your existing files and generate new ones correctly.
+
+The skill is split this way from Voiden 2.3.2. Earlier versions wrote everything into one `SKILL.md`, which had grown large enough that some assistants only read the start of it.
+
+If another tool has copied the Voiden skill into `~/.agents/skills/voiden/`, Voiden keeps that copy up to date as well. It doesn't create one there.
 
 ---
 
@@ -30,16 +45,16 @@ Head to **Settings → AI Skill** and toggle on the assistant(s) you use:
 
 <img src="/img/geetingstarted/ai-skill.png" alt="ai-skill" width="" />
 
-- **Claude** — Generates a skill file for Claude.
-- **Codex** — Generates a skill file for Codex-based assistants.
+- **Claude** — Installs the skill for Claude.
+- **Codex** — Installs the skill for Codex-based assistants.
 
-You can enable both at the same time. In this case, each will get their own file.
+You can enable both at the same time. In this case, each gets its own copy.
 
 :::tip
-Whenever you enable or disable a plugin, come back here and regenerate the skill file so your assistant stays in sync with your current setup.
+You don't need to regenerate the skill by hand. Voiden rebuilds it when the app starts, when you install, update, enable, or disable a plugin, and when you change this setting. Start a new assistant session afterwards so it loads the updated skill.
 :::
 
-This toggle only ever writes the skill file above — it teaches your assistant the `.void` *format*, nothing more. It doesn't register any MCP server and doesn't touch `.mcp.json` or `~/.codex/config.toml`.
+This toggle only ever writes the skill files above — it teaches your assistant the `.void` *format*, nothing more. It doesn't register any MCP server and doesn't touch `.mcp.json` or `~/.codex/config.toml`.
 
 :::note
 Earlier versions of Voiden also registered `@voiden/mcp-server` as a side effect of this toggle. That's no longer the case — registering the MCP server (so your assistant can actually *execute* `.void` requests, not just write them) is now a separate, explicit action. See **Enabling MCP Execution** below.
@@ -74,11 +89,11 @@ it never gets committed.
 
 ## What the Skill File Includes
 
-The skill file is built from two layers, so your assistant only learns what's actually relevant to your project:
+The skill is built from two layers, so your assistant only learns what's actually relevant to your project:
 
 ### Core — Always Included
 
-These fundamentals are always present, no matter what plugins you have enabled:
+These fundamentals are in `SKILL.md`, no matter what plugins you have enabled:
 
 - **`.void` file format** — frontmatter fields, block structure, UUID rules, variable syntax
 - **Environment variables** — `{{VARIABLE_NAME}}` syntax and `.env` file usage
@@ -86,9 +101,9 @@ These fundamentals are always present, no matter what plugins you have enabled:
 
 ### Plugins — Included When Enabled
 
-Each plugin adds its own block types and syntax. Only what's enabled in your project gets included:
+Each plugin adds its own guide under `extensions/`, covering its block types and syntax. Only enabled plugins get one:
 
-| Plugin | Blocks added to skill file |
+| Plugin | Blocks covered by its guide |
 |--------|---------------------------|
 | **Voiden REST API** | `request`, `method`, `url`, `headers-table`, `query-table`, `path-table`, `json_body`, `xml_body`, `yml_body`, `text_body`, `multipart-table`, `url-table` |
 | **Voiden GraphQL** | `gqlquery`, `gqlvariables` |
@@ -103,7 +118,7 @@ Each plugin adds its own block types and syntax. Only what's enabled in your pro
 
 ## Example Usage
 
-Once the skill file is in place, your assistant knows exactly how Voiden works. Try asking things like:
+Once the skill is in place, your assistant knows exactly how Voiden works. Try asking things like:
 
 - *"Create a POST request to `/api/users` with a JSON body and Bearer auth"*
 - *"Add assertions to check the status is 200 and `body.id` exists"*
@@ -115,11 +130,11 @@ It will produce valid `.void` blocks — correct format, correct block types, co
 ---
 
 :::note
-The `skill.md` file is auto-generated by Voiden. Don't edit it manually — any changes will be overwritten the next time it's regenerated.
+The skill files are auto-generated by Voiden. Don't edit them manually — any changes will be overwritten the next time the skill is rebuilt.
 :::
 
 ---
 
 ## Summary
 
-AI Skill generates a `skill.md` file that teaches your AI assistant (Claude or Codex) the `.void` file format — covering core blocks, variable syntax, and whichever plugin features you have enabled. Enable it from **Settings → AI Skill**, and your assistant can generate valid `.void` blocks on request. Regenerate the file after changing plugins to keep it up to date. To let your assistant actually *execute* requests, use the status bar's **Initialize MCP** button instead — a separate, per-project action.
+AI Skill installs a skill that teaches your AI assistant (Claude or Codex) the `.void` file format — covering core blocks, variable syntax, and whichever plugin features you have enabled. Enable it from **Settings → AI Skill**, and your assistant can generate valid `.void` blocks on request. Voiden rebuilds it automatically when your plugins change. To let your assistant actually *execute* requests, use the status bar's **Initialize MCP** button instead — a separate, per-project action.
