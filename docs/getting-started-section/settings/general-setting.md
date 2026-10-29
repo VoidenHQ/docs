@@ -16,6 +16,15 @@ Everything you need to make Voiden work the way you want. Tweak your editor, set
 ### Default Project Directory
 Set the folder where you want your projects to live and Voiden takes care of the rest. Whenever you create a new project, it gets automatically created in that directory. No manual folder picking, no extra steps.
 
+### On Startup
+Controls which windows come back when you launch Voiden. Any window that isn't reopened is forgotten, so pick the option that matches how you work.
+
+- **Reopen all windows** _(default)_ — Every window you had open comes right back.
+- **Reopen the last window** — Only the most recently active window is restored.
+- **Start with a new window** — Voiden launches fresh, with nothing reopened.
+
+Restarts triggered by an update always reopen your open windows, regardless of this setting.
+
 ### Early Access
 Want to try new features before everyone else? Turn this on and Voiden will automatically download and install the latest updates as soon as they're available. Great if you like staying ahead of the curve.
 
