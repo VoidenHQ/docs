@@ -143,6 +143,11 @@ const sidebars: SidebarsConfig = {
       label: "Lock Mode",
     },
     {
+      type: "doc",
+      id: "core-features-section/terminal/terminal-overview",
+      label: "Terminal",
+    },
+    {
       type: 'doc',
       id: 'getting-started-section/advanced-environment-config',
       label: 'Advanced Environment Configuration',

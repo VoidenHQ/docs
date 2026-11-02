@@ -73,6 +73,32 @@ Once initialized, Voiden immediately starts tracking your files and the Git pane
 
 ---
 
+## Working with Multiple Repositories
+
+A project doesn't have to be a single repository. If your project folder contains several Git repositories — say `api/` and `web/` side by side, or a repo inside the project's own repo — Voiden finds them and lets you switch the Git panel between them.
+
+When a project has two or more repositories, a **repository picker** appears at the top of the Git panel. It shows the repository you're working in and its current branch.
+
+### Switching Repositories
+
+1. Click the repository picker at the top of the **Git** panel.
+2. In **Switch Repository**, search by name, folder or branch.
+3. Pick a repository (or press **Enter**) to switch to it.
+
+Everything in the Git panel then works on the selected repository: changes, diffs, staging, commits, branches, history, pull and push. Voiden remembers your choice for each project.
+
+### Finding Repositories
+
+Voiden looks for repositories in the project folder and up to three folders deep. It skips dependency and build folders such as `node_modules`, `vendor`, `dist` and `build`.
+
+If you clone or create a repository after opening the project, use the **Rescan** button in **Switch Repository** to pick it up.
+
+:::tip
+A project with a single repository works exactly as before — the picker only appears once there's more than one repository to choose from.
+:::
+
+---
+
 ## Reviewing Changes
 
 One of the most useful habits in Git is reviewing your changes before committing them. Voiden makes this easy with a built-in diff viewer that shows you exactly what's been added, removed, or modified — line by line.
